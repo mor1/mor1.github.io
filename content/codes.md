@@ -1,8 +1,8 @@
----
-layout: menu
-title: codes
-headings: [top, mirage, dataware, homework, karaka, pyrt]
----
++++
+title = "codes"
+weight = 0
+tags = ["top", "mirage", "dataware", "homework", "karaka", "pyrt"]
++++
 
 Most of the code I write is available via my [Github][] account -- pull requests
 always welcome! -- but I thought I'd collate links to some of the larger

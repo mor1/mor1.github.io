@@ -167,7 +167,7 @@ event processing but suffice it to say that Emacs was receiving `shift-@` and
 [my hacks to enforce a `my-keys-minor-mode` to override everything](https://github.com/mor1/rc-files/blob/master/emacs.d/init.el#L929-L1019),
 the fix was pretty straightforward:
 
-```elisp
+```lisp
 (define-key my-keys-minor-mode-map (kbd "s-@") "€")
 (define-key my-keys-minor-mode-map (kbd "s-3")
   '(lambda () (interactive) (insert-char #x00A3))) ; £

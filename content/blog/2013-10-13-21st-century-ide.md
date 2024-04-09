@@ -27,7 +27,7 @@ bit, first setup some paths: where to find `ocp-indent`, `merlin.el` for
 the current state of `opam`, so when you start `emacs` be sure to have selected
 the `opam` compiler-switch that you installed the `merlin` package into, above.
 
-```elisp
+```lisp
 ;; ocp-indent
 (load-file (concat
             (substring (shell-command-to-string "opam config var prefix") 0 -1)
@@ -54,7 +54,7 @@ turn on `merlin` auto-complete, and finally set a couple of local key bindings
 so that I can fix up `merlin` to not conflict with my
 now-neurologically-hardwired navigation keys.
 
-```elisp
+```lisp
 (add-hook 'tuareg-mode-hook
           '(lambda ()
              (merlin-mode)
@@ -67,7 +67,7 @@ now-neurologically-hardwired navigation keys.
 
 Finally, do the usual to use `tuareg-mode` for OCaml/F# editing.
 
-```elisp
+```lisp
 (push'("\\.ml[iylp]?" . tuareg-mode) auto-mode-alist)
 (push '("\\.fs[ix]?" . tuareg-mode) auto-mode-alist)
 ```

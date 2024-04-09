@@ -1,8 +1,8 @@
----
-layout: menu
-title: teaching
-headings: [top, projects, past, links]
----
++++
+title = "teaching"
+weight = 0
+tags = ["top", "projects", "past", "links"]
++++
 
 I am currently responsible for two courses at Cambridge: first year
 (IA) [Operating Systems][ia.os] (taken by both CST [50%][] and [75%][]
@@ -259,4 +259,8 @@ Additions:
 http://cb.vu/unixtoolbox.xhtml
 
 http://www.howacarworks.com/
+
+http://wiki.osdev.org/Bare_Bones
+
+http://eagain.net/articles/git-for-computer-scientists/
 -->

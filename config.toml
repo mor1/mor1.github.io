@@ -1,0 +1,48 @@
+# base config
+base_url = "https://mort.io"
+title = "mort's mythopoeia"
+description = "with apologies"
+default_language = "en"
+theme = "lightspeed"
+
+# tagging
+taxonomies = [
+    { name = "tags", feed = true},
+]
+
+# rss
+generate_feed = true
+feed_filename = "rss.xml"
+
+# styling
+compile_sass = true
+build_search_index = false
+
+[markdown]
+highlight_code = true
+
+# custom variables
+[extra]
+nav_links = [
+    { url = "/", name = "home" },
+    { url = "/research/", name = "research" },
+    { url = "/teaching/", name = "teaching" },
+    { url = "/codes/", name = "codes" },
+    { url = "/me/", name = "me" },
+]
+footer_links = [
+    {url = "$BASE_URL/about", name = "about"},
+    {url = "$BASE_URL/rss.xml", name = "RSS"},
+    {url = "$BASE_URL/sitemap.xml", name="sitemap"},
+]
+
+# extra config
+default_base_url = "https://mort.io"
+author = "Richard Mortier"
+
+# footer contents
+zola = false
+netlify = false
+maintained_with_love = false
+
+ignore_post_dates = ["codes", "me", "research", "teaching"]

@@ -1,7 +1,7 @@
----
-layout: menu
-title: me
----
++++
+title = "me"
+weight = 0
++++
 
 I'm Richard Mortier or, more commonly, **mort**. I'm a University Lecturer
 in [NetOS][], part of the [Systems Research Group][SRG] in the [Cambridge

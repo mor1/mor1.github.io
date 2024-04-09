@@ -1,9 +1,8 @@
----
-layout: menu
-title: research
-headings: [top, projects, students, publications]
-jss: [/js/papers.js]
----
++++
+title = "research"
+weight = 0
+tags = ["top", "projects", "students", "publications"]
++++
 
 I am interested in computing infrastructures, specifically networked systems. In
 the past I have done extensive work on topics including
