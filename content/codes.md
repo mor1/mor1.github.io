@@ -1,7 +1,9 @@
 +++
 title = "codes"
-weight = 0
 tags = ["top", "mirage", "dataware", "homework", "karaka", "pyrt"]
+date = "1970-01-01"
+[extra]
+hidden = true
 +++
 
 Most of the code I write is available via my [Github][] account -- pull requests

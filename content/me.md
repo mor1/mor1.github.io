@@ -1,6 +1,8 @@
 +++
 title = "me"
-weight = 0
+date = "1970-01-01"
+[extra]
+hidden = true
 +++
 
 I'm Richard Mortier or, more commonly, **mort**. I'm a University Lecturer

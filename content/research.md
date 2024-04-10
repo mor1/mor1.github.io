@@ -1,7 +1,9 @@
 +++
 title = "research"
-weight = 0
+date = "1970-01-01"
 tags = ["top", "projects", "students", "publications"]
+[extra]
+hidden = true
 +++
 
 I am interested in computing infrastructures, specifically networked systems. In

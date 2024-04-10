@@ -1,7 +1,9 @@
 +++
 title = "teaching"
-weight = 0
+date = "1970-01-01"
 tags = ["top", "projects", "past", "links"]
+[extra]
+hidden = true
 +++
 
 I am currently responsible for two courses at Cambridge: first year

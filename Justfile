@@ -11,7 +11,7 @@ bibs   := "~/u/me/publications"
 
 # bring up the server, showing drafts as well
 @test: build
-  @zola serve --fast --drafts
+  @zola serve --drafts
 
 # build the site, minimally
 @build: papers jss
