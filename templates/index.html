@@ -75,7 +75,7 @@
 
     {% block content %}
     <ul class="homepage-list">
-      {% for page in paginator.pages  %} 
+      {% for page in paginator.pages %} 
         {% if not page.extra.hidden %}
           {{ macros::post_in_list(post=page)}}
         {% endif %}
