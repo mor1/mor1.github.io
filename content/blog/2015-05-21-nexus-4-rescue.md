@@ -1,6 +1,6 @@
 ---
 title: Rescuing a Shattered Nexus 4
-subtitle: Help! I Lost My Photos!
+description: Help! I Lost My Photos!
 layout: post
 category: blog
 ---

@@ -1,6 +1,6 @@
 ---
 title: Fame and Fortune!
-subtitle: MirageOS at TNG Big Techday 8
+description: MirageOS at TNG Big Techday 8
 layout: post
 category: blog
 ---

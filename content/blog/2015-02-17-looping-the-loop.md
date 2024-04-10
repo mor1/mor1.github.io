@@ -1,6 +1,6 @@
 ---
 title: Looping the Loop
-subtitle: Uncaching 301 Redirect in Chrome
+description: Uncaching 301 Redirect in Chrome
 layout: post
 category: blog
 ---

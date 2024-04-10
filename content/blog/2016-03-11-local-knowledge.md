@@ -1,6 +1,6 @@
 ---
 title: Local Knowledge
-subtitle: Well, Opinion Really
+description: Well, Opinion Really
 layout: post
 category: blog
 ---

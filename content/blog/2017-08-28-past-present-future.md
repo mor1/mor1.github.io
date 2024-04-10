@@ -1,6 +1,6 @@
 ---
 title: Platforms, Packaging, Progress
-subtitle: Modernising a small OCaml package
+description: Modernising a small OCaml package
 layout: post
 category: blog
 ---

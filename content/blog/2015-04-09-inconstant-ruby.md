@@ -1,6 +1,6 @@
 ---
 title: Diamonds are a Chap's Best Friend
-subtitle: ...while Rubies are inconstant at best
+description: ...while Rubies are inconstant at best
 layout: post
 category: blog
 ---

@@ -1,6 +1,6 @@
 ---
 title: I Think Someone's Following Me...
-subtitle: Human-Data Interaction, Databoxes and More!
+description: Human-Data Interaction, Databoxes and More!
 layout: post
 category: blog
 ---

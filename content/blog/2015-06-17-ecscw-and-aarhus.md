@@ -1,6 +1,6 @@
 ---
 title: Actual HCI Papers!
-subtitle: By the HCI Guy in the SRG :)
+description: By the HCI Guy in the SRG :)
 layout: post
 category: blog
 ---

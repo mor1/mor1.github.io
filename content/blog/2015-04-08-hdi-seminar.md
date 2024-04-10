@@ -1,6 +1,6 @@
 ---
 title: Taking it to the People People
-subtitle: A Human-Data Interaction Seminar
+description: A Human-Data Interaction Seminar
 layout: post
 category: blog
 ---

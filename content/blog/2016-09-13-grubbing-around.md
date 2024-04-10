@@ -1,6 +1,6 @@
 ---
 title: Grubbing Around
-subtitle: Some commands I found useful
+description: Some commands I found useful
 layout: post
 category: blog
 ---

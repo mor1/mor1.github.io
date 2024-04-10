@@ -1,6 +1,6 @@
 ---
 title: Evolving the Unikernel Revolution
-subtitle: From revolution to evolution!
+description: From revolution to evolution!
 layout: post
 category: blog
 ---

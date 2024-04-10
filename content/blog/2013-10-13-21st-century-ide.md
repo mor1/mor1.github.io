@@ -1,6 +1,6 @@
 ---
 title: A 21st Century IDE
-subtitle: Merlin, Tuareg and <code>ocp-indent</code>
+description: Merlin, Tuareg and <code>ocp-indent</code>
 layout: post
 category: blog
 ---

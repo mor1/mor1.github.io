@@ -1,6 +1,6 @@
 ---
 title: Talks, Old and New
-subtitle: Homework and Enterprise Networks
+description: Homework and Enterprise Networks
 layout: post
 category: blog
 ---

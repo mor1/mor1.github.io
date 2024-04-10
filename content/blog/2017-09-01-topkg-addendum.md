@@ -1,6 +1,6 @@
 ---
 title: Platforms, Packaging, Progress— Addendum
-subtitle: Fixing OPAM Release Metadata Errors
+description: Fixing OPAM Release Metadata Errors
 layout: post
 category: blog
 ---

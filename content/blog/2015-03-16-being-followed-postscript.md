@@ -1,6 +1,6 @@
 ---
 title: I Think Someone Else Is Also Following Me...
-subtitle: Postscript
+description: Postscript
 layout: post
 category: blog
 ---

@@ -1,6 +1,6 @@
 ---
 title: Rat Racing Jetlag
-subtitle: A trick that seems to work
+description: A trick that seems to work
 layout: post
 category: blog
 ---

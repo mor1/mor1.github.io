@@ -1,6 +1,6 @@
 ---
 title: Building Up Your ARMs
-subtitle: Creating boot images for Cubieboards
+description: Creating boot images for Cubieboards
 layout: post
 category: blog
 ---

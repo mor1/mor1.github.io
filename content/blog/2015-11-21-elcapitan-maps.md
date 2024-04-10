@@ -1,6 +1,6 @@
 ---
 title: Of Mice and Keyboards
-subtitle: El Capitan Upgrade and Microsoft Devices
+description: El Capitan Upgrade and Microsoft Devices
 layout: post
 category: blog
 ---

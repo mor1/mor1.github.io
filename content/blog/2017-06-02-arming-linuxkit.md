@@ -1,6 +1,6 @@
 ---
 title: ARMing LinuxKit
-subtitle: ARM64 support for LinuxKit on <code>packet.net</code>
+description: ARM64 support for LinuxKit on <code>packet.net</code>
 layout: post
 category: blog
 ---

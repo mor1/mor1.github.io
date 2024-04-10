@@ -1,6 +1,6 @@
 ---
 title: Moving Onto Mirage
-subtitle: Git Your Unikernel Here!
+description: Git Your Unikernel Here!
 layout: post
 category: blog
 ---

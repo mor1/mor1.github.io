@@ -1,6 +1,6 @@
 ---
 title: Spring Loading Karabiner in the Autumn
-subtitle: Don't You Mess With My Keyboard
+description: Don't You Mess With My Keyboard
 layout: post
 category: blog
 ---
