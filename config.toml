@@ -1,48 +1,88 @@
-# base config
 base_url = "https://mort.io"
+
 title = "mort's mythopoeia"
 description = "with apologies"
+
 default_language = "en"
-theme = "lightspeed"
-
-# tagging
-taxonomies = [
-    { name = "tags", feed = true},
-]
-
-# rss
-generate_feed = true
-feed_filename = "rss.xml"
-
-# styling
 compile_sass = true
+minify_html = true
 build_search_index = false
+generate_feed = true
+taxonomies = [{ name = "tags", feed = true }]
+
+feed_filename = "atom.xml"
 
 [markdown]
 highlight_code = true
+highlight_theme = "css"
+render_emoji = true
+smart_punctuation = true
 
-# custom variables
 [extra]
-nav_links = [
-    { url = "/", name = "home" },
-    { url = "/research/", name = "research" },
-    { url = "/teaching/", name = "teaching" },
-    { url = "/codes/", name = "codes" },
-    { url = "/me/", name = "me" },
+
+menu = [
+    { url = "research", name = "research", slash = true, blank = false, size = "s110" },
+    { url = "teaching", name = "teaching", slash = true, blank = false, size = "s110" },
+    { url = "codes", name = "codes", slash = true, blank = false, size = "s110" },
+    { url = "me", name = "me", slash = true, blank = false, size = "s110" },
+    { url = "tags", name = "Tags", slash = true, blank = false, size = "s110" },
 ]
-footer_links = [
-    {url = "$BASE_URL/about", name = "about"},
-    {url = "$BASE_URL/rss.xml", name = "RSS"},
-    {url = "$BASE_URL/sitemap.xml", name="sitemap"},
+menu_footer = [
+    { url = "about", name = "bout", slash = true, blank = false },
+    { url = "contact", name = "contact", slash = true, blank = false },
+    { url = "sitemap.xml", name = "sitemap", slash = false, blank = true },
 ]
 
-# extra config
-default_base_url = "https://mort.io"
-author = "Richard Mortier"
+toc = true
+recent = true
+recent_items = 9
+series = true
+series_items = 9
 
-# footer contents
-zola = false
-netlify = false
-maintained_with_love = false
+meta_index = { position = "bottom", size = "s90", author = false, readtime = false, readstring = "min", date = true, updated = false, categories_tags = true, divider = "" }
+meta_post = { position = "top", size = "s95", author = true, readtime = false, readstring = "min read", date = true, updated = true, categories_tags = true, divider = "" }
 
-ignore_post_dates = ["codes", "me", "research", "teaching"]
+hide_section_dates = false        # hides the date for sections that use posts.html as their template.
+hide_page_nextprev_titles = false # hides the next/previous titles for pages that use page.html as their template.
+title_size_index = "s85"
+footer_size = "s90"
+footer_credit = false
+
+sitedesc = true
+headhr = true
+foothr = true
+
+copyright_override = '© 2013-$CURRENT_YEAR $SITE_TITLE'
+
+title_separator = "|" 
+author = "Richad Mortier"
+twitter_meta = "mor1"
+seo = true
+
+feed = true
+mastodon = "@mort"
+twitter = "mor1"
+# linkedin = "your-user-name"
+github = "mor1"
+docker = "mor1"
+
+uglyurls = false # if set to true then links are generated with the full path. eg https://abridge.netlify.app/index.html
+integrity = true # increases site security, should normally be true. (setting to false is useful during js development)
+js_bundle = true # multiple javascript files combined into a single file (setting to false is useful during js development)
+
+# js_copycode = true           # The copy button on code blocks that allows you to copy them to the clipboard.
+# js_email_encode = true       # obfuscates email address in footer
+# js_prestyle = true           # used to preload: FontAwesome, Katex, external Google Fonts
+# js_switcher = true           # The button that allows manually changing between light/dark mode.
+# js_switcher_default = "dark" # default nojs switcher mode: dark, light (make sure to also set $switcherDefault in abridge.scss)
+
+pwa = false
+
+favicon_theme_color = "#333333"
+favicon_ms_color = "#333333"
+favicon_mask = "safari-pinned-tab.svg" # safari-pinned-tab.svg
+favicon_mask_color = "#ff9900"
+favicon_svg = "favicon.svg"            # favicon.svg
+favicon180 = "apple-touch-icon.png"    # apple-touch-icon.png
+favicon32 = "favicon-32x32.png"        # favicon-32x32.png
+favicon16 = "favicon-16x16.png"        # favicon-16x16.png

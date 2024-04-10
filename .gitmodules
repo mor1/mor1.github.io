@@ -1,3 +1,6 @@
 [submodule "themes/lightspeed"]
 	path = themes/lightspeed
 	url = git@github.com:mor1/lightspeed.git
+[submodule "themes/abridge"]
+	path = themes/abridge
+	url = git@github.com:mor1/abridge.git
