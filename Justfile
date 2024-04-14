@@ -3,7 +3,8 @@ _default:
 
 flags  := env_var_or_default('DOCKER_FLAGS', '')
 docker := "docker run -u $(id -u) -v $(pwd -P):/cwd -w /cwd $flags"
-bibs   := "~/u/me/publications"
+bibdir := "~/u/me/publications"
+papers := "research/papers/papers.json"
 
 # check internal and external links
 @check:
@@ -20,9 +21,7 @@ bibs   := "~/u/me/publications"
 # build papers data for site
 @papers:
   #!/usr/bin/env bash
-  python3 ./bib2json.py \
-    -s {{bibs}}/strings.bib {{bibs}}/rmm-[cjptwu]*.bib \
-  | tr '\r\n' '\n' >| research/papers/papers.json
+  ./bib2json.py {{bibdir}}/rmm-[cjptwu]*.bib >| {{papers}}
 
 # build JS for site
 @jss:
