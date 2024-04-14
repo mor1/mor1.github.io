@@ -4,7 +4,7 @@ _default:
 flags  := env_var_or_default('DOCKER_FLAGS', '')
 docker := "docker run -u $(id -u) -v $(pwd -P):/cwd -w /cwd $flags"
 bibdir := "/home/mort/u/me/publications"
-papers := "research/papers.html"
+papers := "templates/shortcodes/insert_publications.html"
 
 # check internal and external links
 @check:

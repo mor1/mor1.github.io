@@ -155,4 +155,5 @@ if __name__ == "__main__":
             print(f"{failure.start_line}({failure.duplicate_keys}) {failure.raw}")
 
     doc = html(library)
+    print("{{dummy}}")
     print(indent(doc.getvalue()))
