@@ -3,6 +3,7 @@ base_url = "https://mort.io"
 title = "mort's mythopoeia"
 description = "with apologies"
 
+theme = "abridge"
 default_language = "en"
 compile_sass = true
 minify_html = true
@@ -25,11 +26,8 @@ menu = [
     { url = "teaching", name = "teaching", slash = true, blank = false, size = "s110" },
     { url = "codes", name = "codes", slash = true, blank = false, size = "s110" },
     { url = "me", name = "me", slash = true, blank = false, size = "s110" },
-    { url = "tags", name = "Tags", slash = true, blank = false, size = "s110" },
 ]
 menu_footer = [
-    { url = "about", name = "bout", slash = true, blank = false },
-    { url = "contact", name = "contact", slash = true, blank = false },
     { url = "sitemap.xml", name = "sitemap", slash = false, blank = true },
 ]
 
@@ -43,7 +41,7 @@ meta_index = { position = "bottom", size = "s90", author = false, readtime = fal
 meta_post = { position = "top", size = "s95", author = true, readtime = false, readstring = "min read", date = true, updated = true, categories_tags = true, divider = "" }
 
 hide_section_dates = false        # hides the date for sections that use posts.html as their template.
-hide_page_nextprev_titles = false # hides the next/previous titles for pages that use page.html as their template.
+hide_page_nextprev_titles = true # hides the next/previous titles for pages that use page.html as their template.
 title_size_index = "s85"
 footer_size = "s90"
 footer_credit = false
