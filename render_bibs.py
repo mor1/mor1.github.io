@@ -7,12 +7,18 @@ from typing import Optional
 
 import bibtexparser
 from bibtexparser import middlewares as mw
+from rich.console import Console
 from rich.logging import RichHandler
 from yattag import Doc, indent
 
 STRINGS = r"/home/mort/u/me/publications/strings.bib"
+
+errcon = Console(stderr=True)
 logging.basicConfig(
-    level="INFO", format="%(message)s", datefmt="[%X]", handlers=[RichHandler()]
+    level="INFO",
+    format="%(message)s",
+    datefmt="[%X]",
+    handlers=[RichHandler(console=errcon, rich_tracebacks=True)],
 )
 log = logging.getLogger(__name__)
 
@@ -20,6 +26,7 @@ log = logging.getLogger(__name__)
 def html(bib, doc: Optional[Doc] = None) -> Doc:
     if doc is None:
         doc = Doc()
+    assert doc is not None
 
     if isinstance(bib, list):
         for entry in bib:
@@ -36,41 +43,67 @@ def html(bib, doc: Optional[Doc] = None) -> Doc:
                 html(entry, doc)
 
     elif isinstance(bib, bibtexparser.model.Entry):
-        authors = bib.get("author").value
-        title = bib.get("title").value
-        year = bib.get("year").value
+        try:
+            authors = bib.get("author").value
+            with doc.tag("span", klass="authors"):
+                for i, author in enumerate(authors):
+                    if i + 1 == len(authors):
+                        doc.text(" and ")
 
-        with doc.tag("span", klass="authors"):
-            for i, author in enumerate(authors):
-                if i + 1 == len(authors):
-                    doc.text(" and ")
+                    klass = "author"
+                    if (author.first[0], author.last[0]) == ("Richard", "Mortier"):
+                        klass += " highlight"
+                    author.first = [f"{author.first[0][0].strip()}."]
+                    with doc.tag("span", klass=klass):
+                        doc.text(f"{author.merge_last_name_first}")
+                    if i + 1 < len(authors):
+                        doc.text(", ")
 
-                klass = "author"
-                if (author.first[0], author.last[0]) == ("Richard", "Mortier"):
-                    klass += " highlight"
-                author.first = [f"{author.first[0][0].strip()}."]
-                with doc.tag("span", klass=klass):
-                    doc.text(f"{author.merge_last_name_first}")
-                if i + 1 < len(authors):
-                    doc.text(", ")
+            doc.stag("br")
 
-        doc.stag("br")
-        with doc.tag("span", klass="title"):
-            doc.text(f"{title}")
+            title = bib.get("title").value
+            with doc.tag("span", klass="title"):
+                doc.text(f"{title}")
 
-        doc.stag("br")
+            doc.stag("br")
 
-        year = bib.get("year").value
-        date = bib.get("issue_date")
-        if date is None:
-            month = bib.get("month").value
-            month, *day = month.split("#")
-            date = " ".join([" ".join(day).strip(), month.strip(), year])
-        else:
-            date = date.value
+            date = bib.get("issue_date")
+            if date:
+                date = date.value
+            else:
+                date = bib.get("date")
+                if date:
+                    date = date.value
+                    year, month, day = date.split("-")
+                else:
+                    year = bib.get("year").value
+                    month = bib.get("month").value if bib.get("month") else ""
+                    month, *day = month.split("#")
+                    day = " ".join(day if day else "").strip()
+                    month = {
+                        "": "",
+                        "jan": "January",
+                        "feb": "February",
+                        "mar": "March",
+                        "apr": "April",
+                        "may": "May",
+                        "jun": "June",
+                        "jul": "July",
+                        "aug": "August",
+                        "sep": "September",
+                        "oct": "October",
+                        "nov": "November",
+                        "dec": "December",
+                    }[month.strip()]
 
-        with doc.tag("span", klass="date"):
-            doc.text(f"{date.strip()}")
+                date = " ".join([day, month, year])
+            with doc.tag("span", klass="date"):
+                doc.text(f"{date.strip()}")
+
+        except Exception:
+            log.exception(f"ENTRY : {bib}")
+            raise
+            # errcon.print_exception(show_locals=True)
 
     elif isinstance(bib, bibtexparser.library.Library):
         with doc.tag("ul"):
@@ -119,9 +152,7 @@ if __name__ == "__main__":
 
     if len(library.failed_blocks) > 0:
         for failure in library.failed_blocks:
-            print(
-                f"{failure.raw}:{failure.start_line}" f" EXC:{failure.duplicate_keys}"
-            )
+            print(f"{failure.start_line}({failure.duplicate_keys}) {failure.raw}")
 
     doc = html(library)
     print(indent(doc.getvalue()))
