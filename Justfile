@@ -1,10 +1,8 @@
 _default:
     @just --list
 
-flags  := env_var_or_default('DOCKER_FLAGS', '')
-docker := "docker run -u $(id -u) -v $(pwd -P):/cwd -w /cwd $flags"
 bibdir := "/home/mort/u/me/publications"
-papers := "templates/shortcodes/insert_publications.html"
+papers := "publications.html"
 
 # check internal and external links
 @check:
@@ -15,18 +13,14 @@ papers := "templates/shortcodes/insert_publications.html"
   @zola serve --drafts
 
 # build the site, minimally
-@build: papers jss
+@build: papers
   @zola build
 
 # build papers data for site
 @papers:
   #!/usr/bin/env bash
-  ./render_bibs.py '{{bibdir}}/rmm-[cjptwu]*.bib' >| {{papers}}
-
-# build JS for site
-@jss:
-  #!/usr/bin/env bash
-  {{docker}} mor1/coffeescript -c -o static/js papers.coffee
+  cd ./templates/shortcodes
+  ./render_publications.py '{{bibdir}}/rmm-[cjptwu]*.bib' >| {{papers}}
 
 # # Publish `master` to the drafts site
 # draft:

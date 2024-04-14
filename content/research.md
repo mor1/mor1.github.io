@@ -175,6 +175,6 @@ Full citation details are available in [my github BibTeX repo][r] for up-to-date
 [r]: http://github.com/mor1/publications
 [e]: mailto:richard.mortier@cl.cam.ac.uk
 
-{% insert_publications(dummy=" ") %}
+{% publications(dummy=" ") %}
 dummy
 {% end %}
