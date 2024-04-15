@@ -1,5 +1,6 @@
 +++
 title = "me"
+template = "pages.html"
 date = "1970-01-01"
 [extra]
 hidden = true

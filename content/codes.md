@@ -1,5 +1,6 @@
 +++
 title = "codes"
+template = "pages.html"
 tags = ["top", "mirage", "dataware", "homework", "karaka", "pyrt"]
 date = "1970-01-01"
 [extra]
