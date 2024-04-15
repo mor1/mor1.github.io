@@ -26,7 +26,8 @@ Current topics include edge computing, open banking data analysis and
 visualisation, operating systems for personal computers, as well as anything
 related to [Human-Data Interaction][hdi].
 
-Past projects I have supervised include:
+Past projects I have supervised (final year undergraduate unless otherwise
+indicated) include:
 
 ### 2022--2023
   + William Pan. _Augmenting DeepDish with Face Blur_.
@@ -44,16 +45,26 @@ Past projects I have supervised include:
   + Huiyao Zheng. _A ZeroMQ implementation for MirageOS_.
   + Tom Strudwick. _Developing an application for data analysis of complex
     insect behaviours_.
+  + Al Amjad Tawfiq Isstaif (M.Phil). _Request Reconstruction in MirageOS
+    Unikernels_.
 
 ### 2017--2018
   + Chris Jones. _Achieving Distributed Consensus with Paxos_.
   + Sonny Sun. _A Tor relay on MirageOS_.
   + Harry Graham. _Deep Learning Techniques for Credit Card Fraud Detection_.
   + Junwei Yuan. _BGPv4 on MirageOS_.
+  + Tudor Tiplea (Part III). _Supporting Browser-based Machine Learning:
+    Distributed Data Processing at the Network’s Edge_.
+  + Royson Lee (M.Phil). _Adaptable Asynchrony: Improving Adaptive Stochastic
+    Optimisation in Deep Learning_.
 
 ### 2016--2017
   + Joel Jakubovic. _An XMPP Server Implementation in OCaml_.
   + Marius Latinis. _Bus Arrival Time Prediction_.
+  + Hrafn Erikson (M.Phil). _Request modelling in Mirage OS unikernels with
+    Raven_.
+  + Ben Catterall (Part III). _Probabilistic Synchronous Parallel: a barrier
+    control method for distributed machine learning_.
 
 ### 2015--2016
   + Gabriela Sklencarova. _Functional Network Stacks with MirageOS and Irmin_.

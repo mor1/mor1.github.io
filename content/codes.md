@@ -6,14 +6,15 @@ date = "1970-01-01"
 hidden = true
 +++
 
-Most of the code I write is available via my [Github][] account -- pull requests
+Most of the code I write is available via my [GitHub][] account -- pull requests
 always welcome! -- but I thought I'd collate links to some of the larger
 codebases I've been involved with as well as some of the Github organisations I
 participate in.
 
-[github]: https://github.com/mor1
+[github]: https://github.com/mor1/
 
-## [Mirage](https://mirage.io/) <small>2010---date</small>
+
+## [Mirage](https://mirage.io/) <small>2010---2018</small>
 
 MirageOS is a framework for creating _unikernels_ that revisits of library OS
 work from the 1990s joined with the application of functional programming
@@ -28,6 +29,7 @@ to [small form-factor ARM devices][cubieboard].
 [cubieboard]: https://cubieboard.org/tag/cubieboard2/
 [hdi]: https://hdiresearch.org/
 
+
 ## [Dataware](https://github.com/dataware) <small>2011---2014</small>
 
 Developed through [Horizon Digital Economy Research][horizon], Dataware
@@ -38,6 +40,7 @@ catalogue, allowing accesses to be audited and managed.
 
 [horizon]: https://www.horizon.ac.uk/
 
+
 ## [Homework](https://github.com/homework/) <small>2010---2013</small>
 
 Developed during the [Homework][] project, the Homework router reconstructs the
@@ -45,7 +48,8 @@ home router informed by ethnographic study of home networks 'in the wild'. Uses
 OpenFlow (Open vSwitch and NOX/POX) to provide novel interrogation, control and
 policy interfaces to a home router.
 
-[homework]: https://homenetworks.ac.uk/
+[homework]: https://homework.github.io/
+
 
 ## [Karaka](https://github.com/mor1/karaka/) <small>2007---2009</small>
 
@@ -54,6 +58,7 @@ distributed Skype-XMPP gateway released under the GPLv2. Copyright was acquired
 by [Voxeo Corp.][voxeo] in January 2010.
 
 [voxeo]: https://voxeo.com/
+
 
 ## [PyRT](https://github.com/mor1/pyrt/) <small>2001---2002</small>
 

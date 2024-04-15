@@ -1882,11 +1882,11 @@ now-neurologically-hardwired navigation keys.&lt;&#x2F;p&gt;
         <link rel="alternate" type="text/html" href="https://mort.io/codes/"/>
         <id>https://mort.io/codes/</id>
         
-        <content type="html" xml:base="https://mort.io/codes/">&lt;p&gt;Most of the code I write is available via my &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&quot;&gt;Github&lt;&#x2F;a&gt; account – pull requests
+        <content type="html" xml:base="https://mort.io/codes/">&lt;p&gt;Most of the code I write is available via my &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;&quot;&gt;GitHub&lt;&#x2F;a&gt; account – pull requests
 always welcome! – but I thought I’d collate links to some of the larger
 codebases I’ve been involved with as well as some of the Github organisations I
 participate in.&lt;&#x2F;p&gt;
-&lt;h2 id=&quot;mirage-2010-date&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;mirage.io&#x2F;&quot;&gt;Mirage&lt;&#x2F;a&gt; &lt;small&gt;2010—date&lt;&#x2F;small&gt;&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;mirage-2010-2018&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;mirage.io&#x2F;&quot;&gt;Mirage&lt;&#x2F;a&gt; &lt;small&gt;2010—2018&lt;&#x2F;small&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;MirageOS is a framework for creating &lt;em&gt;unikernels&lt;&#x2F;em&gt; that revisits of library OS
 work from the 1990s joined with the application of functional programming
 techniques (specifically, the &lt;a href=&quot;https:&#x2F;&#x2F;ocaml.org&#x2F;&quot;&gt;OCaml&lt;&#x2F;a&gt; language) and the of the &lt;a href=&quot;https:&#x2F;&#x2F;xen.org&#x2F;&quot;&gt;Xen&lt;&#x2F;a&gt;
@@ -1900,7 +1900,7 @@ data. Presents data via web services, and controls access via a personal
 catalogue. Third-parties access personal data by requesting permission via the
 catalogue, allowing accesses to be audited and managed.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;homework-2010-2013&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;homework&#x2F;&quot;&gt;Homework&lt;&#x2F;a&gt; &lt;small&gt;2010—2013&lt;&#x2F;small&gt;&lt;&#x2F;h2&gt;
-&lt;p&gt;Developed during the &lt;a href=&quot;https:&#x2F;&#x2F;homenetworks.ac.uk&#x2F;&quot;&gt;Homework&lt;&#x2F;a&gt; project, the Homework router reconstructs the
+&lt;p&gt;Developed during the &lt;a href=&quot;https:&#x2F;&#x2F;homework.github.io&#x2F;&quot;&gt;Homework&lt;&#x2F;a&gt; project, the Homework router reconstructs the
 home router informed by ethnographic study of home networks ‘in the wild’. Uses
 OpenFlow (Open vSwitch and NOX&#x2F;POX) to provide novel interrogation, control and
 policy interfaces to a home router.&lt;&#x2F;p&gt;
@@ -1939,14 +1939,25 @@ exercise.&lt;&#x2F;p&gt;
         
         <content type="html" xml:base="https://mort.io/me/">&lt;p&gt;I’m Richard Mortier or, more commonly, &lt;strong&gt;mort&lt;&#x2F;strong&gt;. I’m a Professor in the &lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;research&#x2F;srg&#x2F;&quot;&gt;Systems
 Research Group&lt;&#x2F;a&gt; in the &lt;a href=&quot;https:&#x2F;&#x2F;www.cam.ac.uk&#x2F;&quot;&gt;Cambridge University&lt;&#x2F;a&gt; &lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;&quot;&gt;Computer
-Laboratory&lt;&#x2F;a&gt;. Until Dec&#x2F;2014 I was a Horizon Transitional Fellow in
-Computer Science with the &lt;a href=&quot;https:&#x2F;&#x2F;www.horizon.ac.uk&#x2F;&quot;&gt;Horizon Digital Economy Research Institute&lt;&#x2F;a&gt;
-at the &lt;a href=&quot;https:&#x2F;&#x2F;www.nottingham.ac.uk&#x2F;&quot;&gt;University of Nottingham&lt;&#x2F;a&gt; &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;&quot;&gt;School of Computer Science&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+Laboratory&lt;&#x2F;a&gt;. &lt;&#x2F;p&gt;
+&lt;p&gt;Until December 2014 I was a Horizon Transitional Fellow in Computer Science with
+the &lt;a href=&quot;https:&#x2F;&#x2F;www.horizon.ac.uk&#x2F;&quot;&gt;Horizon Digital Economy Research Institute&lt;&#x2F;a&gt; at the &lt;a href=&quot;https:&#x2F;&#x2F;www.nottingham.ac.uk&#x2F;&quot;&gt;University of
+Nottingham&lt;&#x2F;a&gt; &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;&quot;&gt;School of Computer Science&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Prior to that I was founder at &lt;a href=&quot;https:&#x2F;&#x2F;vipadia.com&#x2F;&quot;&gt;Vipadia Limited&lt;&#x2F;a&gt; (technology acquired
+by &lt;a href=&quot;https:&#x2F;&#x2F;voxeo.com&#x2F;&quot;&gt;Voxeo Corp&lt;&#x2F;a&gt;), after being a permanent Researcher with the &lt;a href=&quot;https:&#x2F;&#x2F;research.microsoft.com&#x2F;en-us&#x2F;groups&#x2F;camsys&#x2F;default.aspx&quot;&gt;Systems
+&amp;amp; Networking Group&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;research.microsoft.com&#x2F;en-us&#x2F;labs&#x2F;cambridge&#x2F;default.aspx&quot;&gt;Microsoft Research Cambridge&lt;&#x2F;a&gt; and a
+post-doctoral researcher with the &lt;a href=&quot;https:&#x2F;&#x2F;www.sprintlabs.com&#x2F;ipgroup.html&quot;&gt;IP Group&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;www.sprintlabs.com&#x2F;&quot;&gt;Sprint ATL&lt;&#x2F;a&gt;. &lt;&#x2F;p&gt;
+&lt;p&gt;I completed my Ph.D., “&lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;techreports&#x2F;UCAM-CL-TR-532.pdf&quot;&gt;Internet Traffic Engineering&lt;&#x2F;a&gt;”, in 2001 with the
+&lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;research&#x2F;srg&#x2F;&quot;&gt;Systems Research Group&lt;&#x2F;a&gt; at the &lt;a href=&quot;https:&#x2F;&#x2F;www.cam.ac.uk&#x2F;&quot;&gt;University of Cambridge&lt;&#x2F;a&gt; &lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;&quot;&gt;Computer
+Laboratory&lt;&#x2F;a&gt;. &lt;&#x2F;p&gt;
+&lt;p&gt;Outside work I practice &lt;a href=&quot;https:&#x2F;&#x2F;www.taichichuan.co.uk&#x2F;&quot;&gt;Wudang Tai Chi Chuan&lt;&#x2F;a&gt; – I taught for the
+&lt;a href=&quot;https:&#x2F;&#x2F;www.srcf.ucam.org&#x2F;cutccs&#x2F;&quot;&gt;Cambridge University Tai Chi Chuan Society&lt;&#x2F;a&gt; for several years – and I
+enjoy practicing classical guitar. My Erdős number appears to be 3. &lt;&#x2F;p&gt;
+&lt;h2 id=&quot;contact&quot;&gt;Contact&lt;&#x2F;h2&gt;
 &lt;p&gt;I can be contacted by email (preferred) at
 &lt;a href=&quot;mailto:richard.mortier@cl.cam.ac.uk&quot;&gt;richard.mortier@cl.cam.ac.uk&lt;&#x2F;a&gt;, or by phone on +44 (0)1223 334419. For
 social media connections, see the footer of this page. My office in the
 &lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;&quot;&gt;Computer Lab&lt;&#x2F;a&gt; is &lt;a href=&quot;https:&#x2F;&#x2F;osm.org&#x2F;go&#x2F;0EQSAZRyg-?layers=N&quot;&gt;FN17&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
-&lt;p&gt;My Erdős number appears to be 3. &lt;&#x2F;p&gt;
 &lt;h2 id=&quot;expertise&quot;&gt;Expertise&lt;&#x2F;h2&gt;
 &lt;p&gt;I have worked on topics from distributed system performance monitoring and
 debugging, to Internet routing protocols, to real-time media platform design and
@@ -1954,23 +1965,11 @@ implementation. I have worked in a variety of roles, from high-level platform
 architect, to designer and implementer of complex networked systems, to website
 designer and builder. I have consulted and worked for a broad range of
 companies, including startups (&lt;a href=&quot;https:&#x2F;&#x2F;vipadia.com&#x2F;&quot;&gt;μ&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;camrivox.com&#x2F;&quot;&gt;S&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;cplane.com&#x2F;&quot;&gt;M&lt;&#x2F;a&gt;,
-&lt;a href=&quot;https:&#x2F;&#x2F;alertme.com&#x2F;&quot;&gt;L&lt;&#x2F;a&gt;) and corporates (&lt;a href=&quot;https:&#x2F;&#x2F;sprint.com&#x2F;&quot;&gt;M&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;microsoft.com&#x2F;&quot;&gt;L&lt;&#x2F;a&gt;) in both the US and
-UK. Following the acquisition of &lt;a href=&quot;https:&#x2F;&#x2F;unikernel.com&#x2F;&quot;&gt;Unikernel Systems&lt;&#x2F;a&gt; by &lt;a href=&quot;https:&#x2F;&#x2F;docker.com&#x2F;&quot;&gt;Docker
-Inc.&lt;&#x2F;a&gt;, I currently contract with Docker Inc.&lt;&#x2F;p&gt;
-&lt;p&gt;I do occasionally undertake other consultancy and development work – &lt;a href=&quot;mailto:richard.mortier@cl.cam.ac.uk?subject=%5BWebsite%20enquiry%5d&quot;&gt;contact
+&lt;a href=&quot;https:&#x2F;&#x2F;alertme.com&#x2F;&quot;&gt;L&lt;&#x2F;a&gt;) and corporates (&lt;a href=&quot;https:&#x2F;&#x2F;docker.com&#x2F;&quot;&gt;S&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;sprint.com&#x2F;&quot;&gt;M&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;microsoft.com&#x2F;&quot;&gt;L&lt;&#x2F;a&gt;) in both
+the US and UK.&lt;&#x2F;p&gt;
+&lt;p&gt;I occasionally undertake other consultancy and development work – &lt;a href=&quot;mailto:richard.mortier@cl.cam.ac.uk?subject=%5BWebsite%20enquiry%5d&quot;&gt;contact
 me&lt;&#x2F;a&gt; if
-desired.&lt;&#x2F;p&gt;
-&lt;h2 id=&quot;background&quot;&gt;Background&lt;&#x2F;h2&gt;
-&lt;p&gt;In 2001 I completed my Ph.D., “&lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;techreports&#x2F;UCAM-CL-TR-532.pdf&quot;&gt;Internet Traffic Engineering&lt;&#x2F;a&gt;” with the
-&lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;research&#x2F;srg&#x2F;&quot;&gt;Systems Research Group&lt;&#x2F;a&gt; at the &lt;a href=&quot;https:&#x2F;&#x2F;www.cam.ac.uk&#x2F;&quot;&gt;University of Cambridge&lt;&#x2F;a&gt; &lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;&quot;&gt;Computer
-Laboratory&lt;&#x2F;a&gt;. Since then I have worked as a researcher with the &lt;a href=&quot;https:&#x2F;&#x2F;www.sprintlabs.com&#x2F;ipgroup.html&quot;&gt;IP
-Group&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;www.sprintlabs.com&#x2F;&quot;&gt;Sprint ATL&lt;&#x2F;a&gt;; the &lt;a href=&quot;https:&#x2F;&#x2F;research.microsoft.com&#x2F;en-us&#x2F;groups&#x2F;camsys&#x2F;default.aspx&quot;&gt;Systems &amp;amp; Networking
-Group&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;research.microsoft.com&#x2F;en-us&#x2F;labs&#x2F;cambridge&#x2F;default.aspx&quot;&gt;Microsoft Research Cambridge&lt;&#x2F;a&gt;; and most recently I was
-founder at &lt;a href=&quot;https:&#x2F;&#x2F;vipadia.com&#x2F;&quot;&gt;Vipadia Limited&lt;&#x2F;a&gt; (technology acquired by &lt;a href=&quot;https:&#x2F;&#x2F;voxeo.com&#x2F;&quot;&gt;Voxeo
-Corp&lt;&#x2F;a&gt;).&lt;&#x2F;p&gt;
-&lt;p&gt;Outside work I practice &lt;a href=&quot;https:&#x2F;&#x2F;www.taichichuan.co.uk&#x2F;&quot;&gt;Wudang Tai Chi Chuan&lt;&#x2F;a&gt; – I taught for the
-&lt;a href=&quot;https:&#x2F;&#x2F;www.srcf.ucam.org&#x2F;cutccs&#x2F;&quot;&gt;Cambridge University Tai Chi Chuan Society&lt;&#x2F;a&gt; for several years – and I
-enjoy practicing classical guitarist.&lt;&#x2F;p&gt;
+interested.&lt;&#x2F;p&gt;
 </content>
         
     </entry>
@@ -1990,14 +1989,16 @@ enjoy practicing classical guitarist.&lt;&#x2F;p&gt;
         <link rel="alternate" type="text/html" href="https://mort.io/research/"/>
         <id>https://mort.io/research/</id>
         
-        <content type="html" xml:base="https://mort.io/research/">&lt;p&gt;I am interested in computing infrastructures, specifically networked systems. In
+        <content type="html" xml:base="https://mort.io/research/">&lt;p&gt;I am interested in computing infrastructures, particularly networked systems. In
 the past I have done extensive work on topics including &lt;a href=&quot;https:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;imw02-linkfailures.pdf&quot;&gt;routing behaviour in
 backbone networks&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;fdna03-plutarch.pdf&quot;&gt;future network architectures&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;osdi04-magpie.pdf&quot;&gt;performance
 analysis and modelling of distributed systems&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;usenix06-anemone.pdf&quot;&gt;enterprise network
-management&lt;&#x2F;a&gt;, and &lt;a href=&quot;https:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;ton10-wsd.pdf&quot;&gt;analysis of network topologies&lt;&#x2F;a&gt;. Most recently I
-have become interested in interdisciplinary research and particularly the
-interplay between networked systems and topics that traditionally fall under
-human-computer interaction. For example,&lt;&#x2F;p&gt;
+management&lt;&#x2F;a&gt;, and &lt;a href=&quot;https:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;ton10-wsd.pdf&quot;&gt;analysis of network topologies&lt;&#x2F;a&gt;. &lt;&#x2F;p&gt;
+&lt;p&gt;Due to spending time with &lt;a href=&quot;https:&#x2F;&#x2F;horizon.ac.uk&#x2F;&quot;&gt;Horizon Digital Economy
+Research&lt;&#x2F;a&gt;, I have a fairly broad view on what
+constitutes “computing infrastructures”. I have enjoyed interdisciplinary
+research into interplay between networked systems and topics that traditionally
+fall under human-computer interaction. For example,&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;how can we build usable &lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;homenetworks.ac.uk&#x2F;&quot;&gt;home networking infrastructure&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;?&lt;&#x2F;li&gt;
 &lt;li&gt;how can we increase legibility of current and future information
@@ -2007,10 +2008,10 @@ clouds&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;?&lt;&#x2F;li&gt;
 &lt;li&gt;how can we build systems that are &lt;em&gt;ethical by design&lt;&#x2F;em&gt;?&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;I try to maintain &lt;a href=&quot;https:&#x2F;&#x2F;mort.io&#x2F;research&#x2F;#publications&quot;&gt;a complete list of my publications&lt;&#x2F;a&gt; in addition to
-the usual sites including &lt;a href=&quot;https:&#x2F;&#x2F;scholar.google.co.uk&#x2F;citations?user=9LJgRFAAAAAJ&amp;amp;hl=en&quot;&gt;Google Scholar&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;academic.research.microsoft.com&#x2F;Author&#x2F;317246&#x2F;richard-mortier&quot;&gt;Microsoft
-Academic&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;www.citeulike.org&#x2F;search&#x2F;all?q=author%3A%22richard+mortier%22+author%3A%22r+mortier%22&quot;&gt;CiteULike&lt;&#x2F;a&gt; and the &lt;a href=&quot;https:&#x2F;&#x2F;dl.acm.org&#x2F;author_page.cfm?id=81313480954&quot;&gt;ACM DL&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+the usual sites including &lt;a href=&quot;https:&#x2F;&#x2F;scholar.google.co.uk&#x2F;citations?user=9LJgRFAAAAAJ&amp;amp;hl=en&quot;&gt;Google Scholar&lt;&#x2F;a&gt; and the &lt;a href=&quot;https:&#x2F;&#x2F;dl.acm.org&#x2F;author_page.cfm?id=81313480954&quot;&gt;ACM Digital
+Library&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;projects&quot;&gt;Projects&lt;&#x2F;h2&gt;
-&lt;p&gt;Currently active projects include:&lt;&#x2F;p&gt;
+&lt;p&gt;Currently active projects:&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;pages.cdbb.uk&#x2F;&quot;&gt;Adaptive Cities&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;edgeless-project.eu&#x2F;&quot;&gt;EDGELESS&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
@@ -2018,7 +2019,7 @@ Academic&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;www.citeulike.org&#x
 &lt;p&gt;Completed past projects include:&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;usercentricnetworking.eu&#x2F;&quot;&gt;UCN&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;homenetworks.ac.uk&#x2F;&quot;&gt;Homework&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;homework.github.io&#x2F;&quot;&gt;Homework&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;gow.epsrc.ac.uk&#x2F;NGBOViewGrant.aspx?GrantRef=EP&#x2F;K012703&#x2F;1&quot;&gt;PAWS (Public Access WiFi
 Service&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;databoxproject.uk&#x2F;&quot;&gt;Databox&lt;&#x2F;a&gt;, building infrastructure to support us
@@ -2036,9 +2037,9 @@ hardware.&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;aestheticodes.com&#x2F;&quot;&gt;Artcodes&lt;&#x2F;a&gt;, developing beautiful, machine-readable
 codes.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;p&gt;More details of my past and present EPSRC funding portfolio can be found at
-&lt;a href=&quot;https:&#x2F;&#x2F;gow.epsrc.ac.uk&#x2F;NGBOViewPerson.aspx?PersonId=-140023&quot;&gt;Grants of the
-Web&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Further details of my UKRI funding portfolio can be found at &lt;a href=&quot;https:&#x2F;&#x2F;gow.epsrc.ukri.org&#x2F;NGBOViewPerson.aspx?PersonId=-140023&quot;&gt;EPSRC Grants on
+the Web&lt;&#x2F;a&gt;, at
+least for the time being…&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;students&quot;&gt;Students&lt;&#x2F;h2&gt;
 &lt;p&gt;Any funded places that I have will be advertised via the &lt;a href=&quot;https:&#x2F;&#x2F;www.jobs.cam.ac.uk&#x2F;&quot;&gt;University&lt;&#x2F;a&gt;.
 Please read any adverts there carefully – funding eligibility requirements
@@ -2054,18 +2055,30 @@ including Ph.D. study.&lt;&#x2F;li&gt;
 &lt;p&gt;I will not respond to enquiries that do not provide this information.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;current&quot;&gt;Current&lt;&#x2F;h3&gt;
 &lt;p&gt;I am fortunate to have worked, and to continue to work, with some excellent
-Ph.D. students on a wide range of topics.&lt;&#x2F;p&gt;
-&lt;h3 id=&quot;graduated&quot;&gt;Graduated&lt;&#x2F;h3&gt;
-&lt;div class=&quot;plain&quot; media:type=&quot;text&#x2F;omd&quot; markdown=&quot;1&quot;&gt;
+Ph.D. students on a wide range of topics:&lt;&#x2F;p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Sultan Alanazi&lt;&#x2F;strong&gt; (2012, Nottingham), co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~drm&#x2F;&quot;&gt;Prof. Derek
-McAuley&lt;&#x2F;a&gt;. Recommendation systems using rich personal data.&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Luis Carlos Oviedo Garcia&lt;&#x2F;strong&gt; (2014, Nottingham), co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~drm&#x2F;&quot;&gt;Prof.
-Derek McAuley&lt;&#x2F;a&gt;. Application-Controllable Load-Balancing.&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Steven Luland&lt;&#x2F;strong&gt; (2013, Nottingham), co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~drm&#x2F;&quot;&gt;Prof. Derek
-McAuley&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;nottingham.ac.uk&#x2F;horizon&#x2F;people&#x2F;James.Pinchin&quot;&gt;Dr James Pinchin&lt;&#x2F;a&gt;. &lt;a href=&quot;https:&#x2F;&#x2F;cubiewave.wordpress.com&#x2F;&quot;&gt;https:&#x2F;&#x2F;cubiewave.wordpress.com&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Dominic Price&lt;&#x2F;strong&gt; (2013, Nottingham), co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~cmg&#x2F;&quot;&gt;Prof. Chris
-Greenhalgh&lt;&#x2F;a&gt;. User-focused social network platforms.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Al Amjad Tawfiq Isstaif&lt;&#x2F;strong&gt; (University of Cambridge, 2020–date).
+“Self-scaling services using MirageOS unikernels”.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Andrew Jeffery&lt;&#x2F;strong&gt; (University of Cambridge, 2020–date). “A decentralised
+unikernel cluster orchestration system for elastic cloud deployments”.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Chris Jensen&lt;&#x2F;strong&gt; (University of Cambridge, 2020–date). “Verified distributed
+systems”&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;graduated&quot;&gt;Graduated&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Vadim Safronov&lt;&#x2F;strong&gt; (University of Cambridge, 2019–2023). “Decentralised
+protocol-independent automation in smart buildings”.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Allison Randal&lt;&#x2F;strong&gt; (University of Cambridge, 2018–2023). “Transient execution
+vulnerabilities in the security context of server hardware”.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Marco Caballero Gutierrez&lt;&#x2F;strong&gt; (University of Cambridge, 2016–2021). “Routing
+algorithms for next-generation MANETs: Why shortest is not the greatest”.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Helen Oliver&lt;&#x2F;strong&gt; (University of Cambridge, 2016–2021). “Obstacles to wearable
+computing”.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Jianxin Zhao&lt;&#x2F;strong&gt; (University of Cambridge, 2015–2019). “Optimisation of a
+Modern Numerical Library: a Bottom-Up Approach”.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Sultan Alanazi&lt;&#x2F;strong&gt; (University of Nottingham, 2012–2017), co-supervised with
+&lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~drm&#x2F;&quot;&gt;Prof. Derek McAuley&lt;&#x2F;a&gt;. “Improving end-system recommender systems using
+cross-platform personal information”.&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https:&#x2F;&#x2F;uk.linkedin.com&#x2F;in&#x2F;christina-emmanouil-ux&quot;&gt;Dr Christina-Dialechti Emmanouil&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; (University of Nottingham,
 2014–2017), co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~drm&#x2F;&quot;&gt;Prof. Derek McAuley&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;www.nottingham.ac.uk&#x2F;engineering&#x2F;people&#x2F;michael.brown&quot;&gt;Dr Michael
 Brown&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;www.strath.ac.uk&#x2F;humanities&#x2F;courses&#x2F;law&#x2F;staff&#x2F;edwardslilianprof&#x2F;&quot;&gt;Prof. Lilian Edwards&lt;&#x2F;a&gt;. “&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;eprints.nottingham.ac.uk&#x2F;44956&#x2F;&quot;&gt;Designing for the
@@ -2080,12 +2093,12 @@ Haddadi&lt;&#x2F;a&gt;. “&lt;em&gt;Online Web Tracking Ecosystem&lt;&#x2F;em&g
 &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;rjspencer1989&quot;&gt;Dr Robert Spencer&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; (University of Nottingham, 2011–2016),
 co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~tar&#x2F;&quot;&gt;Prof. Tom Rodden&lt;&#x2F;a&gt;. “&lt;em&gt;Understanding Configuration
 History of Domestic Networks&lt;&#x2F;em&gt;”&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ToshBrown&quot;&gt;Dr Anthony Brown&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; (University of Nottingham, 2010–2015),
-co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~tar&#x2F;&quot;&gt;Prof. Tom Rodden&lt;&#x2F;a&gt;. “&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;eprints.nottingham.ac.uk&#x2F;34145&#x2F;1&#x2F;thesis.pdf&quot;&gt;Domesticating Home
-Networks&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;”&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https:&#x2F;&#x2F;about.me&#x2F;jianhuashao&quot;&gt;Dr Jianhua Shao&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; (University of Nottingham, 2010–2015),
 co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.nottingham.ac.uk&#x2F;business&#x2F;LIZGK.html&quot;&gt;Dr George Kuk&lt;&#x2F;a&gt;. “&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;eprints.nottingham.ac.uk&#x2F;32742&#x2F;&quot;&gt;Strategic Signals in the App
 Economy – An Empirical Study of Google Play Store&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;”&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ToshBrown&quot;&gt;Dr Anthony Brown&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; (University of Nottingham, 2010–2015),
+co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~tar&#x2F;&quot;&gt;Prof. Tom Rodden&lt;&#x2F;a&gt;. “&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;eprints.nottingham.ac.uk&#x2F;34145&#x2F;1&#x2F;thesis.pdf&quot;&gt;Domesticating Home
+Networks&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;”&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https:&#x2F;&#x2F;ewaluger.wordpress.com&#x2F;home&#x2F;&quot;&gt;Dr Ewa Luger&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; (University of Nottingham, 2009–2013), co-supervised
 with &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~tar&#x2F;&quot;&gt;Prof. Tom Rodden&lt;&#x2F;a&gt;. “&lt;em&gt;Consent reconsidered: reframing consent for
 ubiquitous computing systems&lt;&#x2F;em&gt;”&lt;&#x2F;li&gt;
@@ -3566,7 +3579,8 @@ interests&lt;&#x2F;a&gt;.
 Current topics include edge computing, open banking data analysis and
 visualisation, operating systems for personal computers, as well as anything
 related to &lt;a href=&quot;https:&#x2F;&#x2F;hdiresearch.org&#x2F;&quot;&gt;Human-Data Interaction&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
-&lt;p&gt;Past projects I have supervised include:&lt;&#x2F;p&gt;
+&lt;p&gt;Past projects I have supervised (final year undergraduate unless otherwise
+indicated) include:&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;2022-2023&quot;&gt;2022–2023&lt;&#x2F;h3&gt;
 &lt;ul&gt;
 &lt;li&gt;William Pan. &lt;em&gt;Augmenting DeepDish with Face Blur&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
@@ -3586,6 +3600,8 @@ acyclic graph&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
 &lt;li&gt;Huiyao Zheng. &lt;em&gt;A ZeroMQ implementation for MirageOS&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
 &lt;li&gt;Tom Strudwick. &lt;em&gt;Developing an application for data analysis of complex
 insect behaviours&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Al Amjad Tawfiq Isstaif (M.Phil). &lt;em&gt;Request Reconstruction in MirageOS
+Unikernels&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h3 id=&quot;2017-2018&quot;&gt;2017–2018&lt;&#x2F;h3&gt;
 &lt;ul&gt;
@@ -3593,11 +3609,19 @@ insect behaviours&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
 &lt;li&gt;Sonny Sun. &lt;em&gt;A Tor relay on MirageOS&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
 &lt;li&gt;Harry Graham. &lt;em&gt;Deep Learning Techniques for Credit Card Fraud Detection&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
 &lt;li&gt;Junwei Yuan. &lt;em&gt;BGPv4 on MirageOS&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Tudor Tiplea (Part III). &lt;em&gt;Supporting Browser-based Machine Learning:
+Distributed Data Processing at the Network’s Edge&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Royson Lee (M.Phil). &lt;em&gt;Adaptable Asynchrony: Improving Adaptive Stochastic
+Optimisation in Deep Learning&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h3 id=&quot;2016-2017&quot;&gt;2016–2017&lt;&#x2F;h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Joel Jakubovic. &lt;em&gt;An XMPP Server Implementation in OCaml&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
 &lt;li&gt;Marius Latinis. &lt;em&gt;Bus Arrival Time Prediction&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Hrafn Erikson (M.Phil). &lt;em&gt;Request modelling in Mirage OS unikernels with
+Raven&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Ben Catterall (Part III). &lt;em&gt;Probabilistic Synchronous Parallel: a barrier
+control method for distributed machine learning&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h3 id=&quot;2015-2016&quot;&gt;2015–2016&lt;&#x2F;h3&gt;
 &lt;ul&gt;

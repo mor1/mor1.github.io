@@ -6,14 +6,17 @@ date = "1970-01-01"
 hidden = true
 +++
 
-I am interested in computing infrastructures, specifically networked systems. In
+I am interested in computing infrastructures, particularly networked systems. In
 the past I have done extensive work on topics including [routing behaviour in
 backbone networks][pyrt], [future network architectures][plutarch], [performance
 analysis and modelling of distributed systems][magpie], [enterprise network
-management][anemone], and [analysis of network topologies][wsd]. Most recently I
-have become interested in interdisciplinary research and particularly the
-interplay between networked systems and topics that traditionally fall under
-human-computer interaction. For example,
+management][anemone], and [analysis of network topologies][wsd]. 
+
+Due to spending time with [Horizon Digital Economy
+Research](https://horizon.ac.uk/), I have a fairly broad view on what
+constitutes "computing infrastructures". I have enjoyed interdisciplinary
+research into interplay between networked systems and topics that traditionally
+fall under human-computer interaction. For example,
 
 + how can we build usable _[home networking infrastructure][homework]_?
 + how can we increase legibility of current and future information
@@ -23,8 +26,8 @@ human-computer interaction. For example,
 + how can we build systems that are _ethical by design_?
 
 I try to maintain [a complete list of my publications][papers] in addition to
-the usual sites including [Google Scholar][scholar], [Microsoft
-Academic][microsoft], [CiteULike][] and the [ACM DL][acm-dl].
+the usual sites including [Google Scholar][scholar] and the [ACM Digital
+Library][acm-dl].
 
 [pyrt]: https://mor1.github.io/publications/pdf/imw02-linkfailures.pdf
 [magpie]: https://mor1.github.io/publications/pdf/osdi04-magpie.pdf
@@ -39,12 +42,11 @@ Academic][microsoft], [CiteULike][] and the [ACM DL][acm-dl].
 [papers]: #publications
 [scholar]: https://scholar.google.co.uk/citations?user=9LJgRFAAAAAJ&hl=en
 [acm-dl]: https://dl.acm.org/author_page.cfm?id=81313480954
-[microsoft]: https://academic.research.microsoft.com/Author/317246/richard-mortier
-[citeulike]: https://www.citeulike.org/search/all?q=author%3A%22richard+mortier%22+author%3A%22r+mortier%22
+
 
 ## Projects
 
-Currently active projects include:
+Currently active projects:
 
 + [Adaptive Cities](https://pages.cdbb.uk/)
 + [EDGELESS](https://edgeless-project.eu/)
@@ -52,7 +54,7 @@ Currently active projects include:
 Completed past projects include:
 
 + [UCN](https://usercentricnetworking.eu/)
-+ [Homework](https://homenetworks.ac.uk/)
++ [Homework](https://homework.github.io/)
 + [PAWS (Public Access WiFi
   Service](https://gow.epsrc.ac.uk/NGBOViewGrant.aspx?GrantRef=EP/K012703/1)
 + [Databox](https://databoxproject.uk/), building infrastructure to support us
@@ -68,9 +70,9 @@ Completed past projects include:
 * [Artcodes](https://aestheticodes.com/), developing beautiful, machine-readable
   codes.
 
-More details of my past and present EPSRC funding portfolio can be found at
-[Grants of the
-Web](https://gow.epsrc.ac.uk/NGBOViewPerson.aspx?PersonId=-140023).
+Further details of my UKRI funding portfolio can be found at [EPSRC Grants on
+the Web](https://gow.epsrc.ukri.org/NGBOViewPerson.aspx?PersonId=-140023), at
+least for the time being...
 
 
 ## Students
@@ -90,24 +92,35 @@ I will not respond to enquiries that do not provide this information.
 
 [jobs]: https://www.jobs.cam.ac.uk/
 
+
 ### Current
 
 I am fortunate to have worked, and to continue to work, with some excellent
-Ph.D. students on a wide range of topics.
+Ph.D. students on a wide range of topics:
+
++ __Al Amjad Tawfiq Isstaif__ (University of Cambridge, 2020--date).
+  "Self-scaling services using MirageOS unikernels".
++ __Andrew Jeffery__ (University of Cambridge, 2020--date). "A decentralised
+  unikernel cluster orchestration system for elastic cloud deployments".
++ __Chris Jensen__ (University of Cambridge, 2020--date). "Verified distributed
+  systems"
 
 
 ### Graduated
 
-<div class="plain" media:type="text/omd" markdown="1">
-
-+ __Sultan Alanazi__ (2012, Nottingham), co-supervised with [Prof. Derek
-  McAuley][mac]. Recommendation systems using rich personal data.
-+ __Luis Carlos Oviedo Garcia__ (2014, Nottingham), co-supervised with [Prof.
-  Derek McAuley][mac]. Application-Controllable Load-Balancing.
-+ __Steven Luland__ (2013, Nottingham), co-supervised with [Prof. Derek
-  McAuley][mac] and [Dr James Pinchin][james]. <https://cubiewave.wordpress.com/>
-+ __Dominic Price__ (2013, Nottingham), co-supervised with [Prof. Chris
-  Greenhalgh][chris]. User-focused social network platforms.
++ __Vadim Safronov__ (University of Cambridge, 2019--2023). "Decentralised
+  protocol-independent automation in smart buildings".
++ __Allison Randal__ (University of Cambridge, 2018--2023). "Transient execution
+  vulnerabilities in the security context of server hardware".
++ __Marco Caballero Gutierrez__ (University of Cambridge, 2016--2021). "Routing
+  algorithms for next-generation MANETs: Why shortest is not the greatest".
++ __Helen Oliver__ (University of Cambridge, 2016--2021). "Obstacles to wearable
+  computing".
++ __Jianxin Zhao__ (University of Cambridge, 2015--2019). "Optimisation of a
+  Modern Numerical Library: a Bottom-Up Approach".
++ __Sultan Alanazi__ (University of Nottingham, 2012--2017), co-supervised with
+  [Prof. Derek McAuley][mac]. "Improving end-system recommender systems using
+  cross-platform personal information".
 + __[Dr Christina-Dialechti Emmanouil][christina]__ (University of Nottingham,
   2014--2017), co-supervised with [Prof. Derek McAuley][mac], [Dr Michael
   Brown][mike] and [Prof. Lilian Edwards][lilian]. "_[Designing for the
@@ -122,12 +135,12 @@ Ph.D. students on a wide range of topics.
 + __[Dr Robert Spencer][robert]__ (University of Nottingham, 2011--2016),
   co-supervised with [Prof. Tom Rodden][tom]. "_Understanding Configuration
   History of Domestic Networks_"
-+ __[Dr Anthony Brown][tosh]__ (University of Nottingham, 2010--2015),
-  co-supervised with [Prof. Tom Rodden][tom]. "_[Domesticating Home
-  Networks][tosh-phd]_"
 + __[Dr Jianhua Shao][jianhua]__ (University of Nottingham, 2010--2015),
   co-supervised with [Dr George Kuk][george]. "_[Strategic Signals in the App
   Economy -- An Empirical Study of Google Play Store][jianhua-phd]_"
++ __[Dr Anthony Brown][tosh]__ (University of Nottingham, 2010--2015),
+  co-supervised with [Prof. Tom Rodden][tom]. "_[Domesticating Home
+  Networks][tosh-phd]_"
 + __[Dr Ewa Luger][ewa]__ (University of Nottingham, 2009--2013), co-supervised
   with [Prof. Tom Rodden][tom]. "_Consent reconsidered: reframing consent for
   ubiquitous computing systems_"
