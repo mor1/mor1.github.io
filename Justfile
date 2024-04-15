@@ -9,12 +9,12 @@ papers := "publications.html"
   @zola check --drafts
 
 # bring up the server, showing drafts as well
-@test: build
+@test: 
   @zola serve --drafts
 
 # build the site, minimally
 @build: papers
-  @zola build
+  @zola build --force --output-dir docs
 
 # build papers data for site
 @papers:
@@ -31,4 +31,4 @@ papers := "publications.html"
 #   @git push origin master:publish
 
 @clean:
-  rm -rf public
+  rm -rf docs
