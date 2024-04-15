@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/mort
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://mort.io
+  * I am mort (https://keybase.io/mort) on keybase.
+  * I have a public key ASAvI9kSpMQRAJsW5qeNiVhn6U-yrS4IHGQDc_vDIj9_Bgo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "010143b4a3c15b0061e2f9927e89dc1f6b0744396105745e4bb71d6e120e21bdf5770a",
+            "host": "keybase.io",
+            "kid": "01202f23d912a4c411009b16e6a78d895867e94fb2ad2e081c640373fbc3223f7f060a",
+            "uid": "557adf42e021741fac90359399bc7800",
+            "username": "mort"
+        },
+        "service": {
+            "hostname": "mort.io",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.16"
+    },
+    "ctime": 1469004234,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1469004217,
+        "hash": "0e42ae25d75edadb00cccc2d47d55f47bf3e69490e8106cd7e9044458b4ee40482716a8b92eb93439c0e50dd6219c64c57ddad7ffb299e466b899c4d1f282f28",
+        "seqno": 533344
+    },
+    "prev": "31a14bfe917c73fc4afd7ac4181da7d80f1643fcb0563c11e9193dcc361781ee",
+    "seqno": 31,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgLyPZEqTEEQCbFuanjYlYZ+lPsq0uCBxkA3P7wyI/fwYKp3BheWxvYWTFAut7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTAxNDNiNGEzYzE1YjAwNjFlMmY5OTI3ZTg5ZGMxZjZiMDc0NDM5NjEwNTc0NWU0YmI3MWQ2ZTEyMGUyMWJkZjU3NzBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwMmYyM2Q5MTJhNGM0MTEwMDliMTZlNmE3OGQ4OTU4NjdlOTRmYjJhZDJlMDgxYzY0MDM3M2ZiYzMyMjNmN2YwNjBhIiwidWlkIjoiNTU3YWRmNDJlMDIxNzQxZmFjOTAzNTkzOTliYzc4MDAiLCJ1c2VybmFtZSI6Im1vcnQifSwic2VydmljZSI6eyJob3N0bmFtZSI6Im1vcnQuaW8iLCJwcm90b2NvbCI6Imh0dHA6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjE2In0sImN0aW1lIjoxNDY5MDA0MjM0LCJleHBpcmVfaW4iOjUwNDU3NjAwMCwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE0NjkwMDQyMTcsImhhc2giOiIwZTQyYWUyNWQ3NWVkYWRiMDBjY2NjMmQ0N2Q1NWY0N2JmM2U2OTQ5MGU4MTA2Y2Q3ZTkwNDQ0NThiNGVlNDA0ODI3MTZhOGI5MmViOTM0MzljMGU1MGRkNjIxOWM2NGM1N2RkYWQ3ZmZiMjk5ZTQ2NmI4OTljNGQxZjI4MmYyOCIsInNlcW5vIjo1MzMzNDR9LCJwcmV2IjoiMzFhMTRiZmU5MTdjNzNmYzRhZmQ3YWM0MTgxZGE3ZDgwZjE2NDNmY2IwNTYzYzExZTkxOTNkY2MzNjE3ODFlZSIsInNlcW5vIjozMSwidGFnIjoic2lnbmF0dXJlIn2jc2lnxEAswQpHNad7MnM3l1dbW1ifmvarRfnGgHxtjbDKMgS7EO1TsRaAFEPwHMB1aOlEnJJ1uKc68fs9UjM2KNzO/xwAqHNpZ190eXBlIKRoYXNogqR0eXBlCKV2YWx1ZcQg6L87d0VAHyEWxE+VEGPYKCEm2MXD4kpXiIuqftrse52jdGFnzQICp3ZlcnNpb24B
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/mort
+
+==================================================================
