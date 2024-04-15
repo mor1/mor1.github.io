@@ -1884,55 +1884,39 @@ now-neurologically-hardwired navigation keys.&lt;&#x2F;p&gt;
         
         <content type="html" xml:base="https://mort.io/codes/">&lt;p&gt;Most of the code I write is available via my &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&quot;&gt;Github&lt;&#x2F;a&gt; account – pull requests
 always welcome! – but I thought I’d collate links to some of the larger
-codebases I’ve been involved with as well as some of the Github organisations
-I’m involved in.&lt;&#x2F;p&gt;
-&lt;h2 data-magellan-destination=&quot;mirage&quot; id=&quot;mirage&quot;&gt;
-  &lt;a href=&quot;http:&#x2F;&#x2F;openmirage.org&quot;&gt;Mirage&lt;&#x2F;a&gt; &lt;small&gt;2010&amp;ndash;date&lt;&#x2F;small&gt;
-&lt;&#x2F;h2&gt;
+codebases I’ve been involved with as well as some of the Github organisations I
+participate in.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;mirage-2010-date&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;mirage.io&#x2F;&quot;&gt;Mirage&lt;&#x2F;a&gt; &lt;small&gt;2010—date&lt;&#x2F;small&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;MirageOS is a framework for creating &lt;em&gt;unikernels&lt;&#x2F;em&gt; that revisits of library OS
 work from the 1990s joined with the application of functional programming
-techniques (specifically, the &lt;a href=&quot;http:&#x2F;&#x2F;ocaml.org&#x2F;&quot;&gt;OCaml&lt;&#x2F;a&gt; language) and the of the &lt;a href=&quot;http:&#x2F;&#x2F;xen.org&#x2F;&quot;&gt;Xen&lt;&#x2F;a&gt;
+techniques (specifically, the &lt;a href=&quot;https:&#x2F;&#x2F;ocaml.org&#x2F;&quot;&gt;OCaml&lt;&#x2F;a&gt; language) and the of the &lt;a href=&quot;https:&#x2F;&#x2F;xen.org&#x2F;&quot;&gt;Xen&lt;&#x2F;a&gt;
 hypervisor. Compact, efficient, lightweight, self-contained, MirageOS unikernels
-can be generated from a single codebase to target anything from &lt;a href=&quot;http:&#x2F;&#x2F;aws.amazon.com&#x2F;&quot;&gt;the cloud&lt;&#x2F;a&gt;
-to &lt;a href=&quot;http:&#x2F;&#x2F;cubieboard.org&#x2F;tag&#x2F;cubieboard2&#x2F;&quot;&gt;small form-factor ARM devices&lt;&#x2F;a&gt;. Our current focus is on support
-for the Internet-of-Things and the use of MirageOS to produce infrastructure
-that can be deployed by non-expert users as part of the &lt;a href=&quot;http:&#x2F;&#x2F;hdiresearch.org&#x2F;&quot;&gt;HDI&lt;&#x2F;a&gt; agenda.&lt;&#x2F;p&gt;
-&lt;h2 data-magellan-destination=&quot;dataware&quot; id=&quot;dataware&quot;&gt;
-  &lt;a href=&quot;http:&#x2F;&#x2F;github.com&#x2F;dataware&quot;&gt;Dataware&lt;&#x2F;a&gt;
-  &lt;small&gt;2011&amp;ndash;2014&lt;&#x2F;small&gt;
-&lt;&#x2F;h2&gt;
-&lt;p&gt;Developed through &lt;a href=&quot;http:&#x2F;&#x2F;www.horizon.ac.uk&#x2F;&quot;&gt;Horizon Digital Economy Research&lt;&#x2F;a&gt;, Dataware
+can be generated from a single codebase to target anything from &lt;a href=&quot;https:&#x2F;&#x2F;aws.amazon.com&#x2F;&quot;&gt;the cloud&lt;&#x2F;a&gt;
+to &lt;a href=&quot;https:&#x2F;&#x2F;cubieboard.org&#x2F;tag&#x2F;cubieboard2&#x2F;&quot;&gt;small form-factor ARM devices&lt;&#x2F;a&gt;. &lt;&#x2F;p&gt;
+&lt;h2 id=&quot;dataware-2011-2014&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;dataware&quot;&gt;Dataware&lt;&#x2F;a&gt; &lt;small&gt;2011—2014&lt;&#x2F;small&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Developed through &lt;a href=&quot;https:&#x2F;&#x2F;www.horizon.ac.uk&#x2F;&quot;&gt;Horizon Digital Economy Research&lt;&#x2F;a&gt;, Dataware
 represents a set of prototype services enabling control over access to personal
 data. Presents data via web services, and controls access via a personal
 catalogue. Third-parties access personal data by requesting permission via the
 catalogue, allowing accesses to be audited and managed.&lt;&#x2F;p&gt;
-&lt;h2 data-magellan-destination=&quot;homework&quot; id=&quot;homework&quot;&gt;
-  &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;homework&#x2F;&quot;&gt;Homework&lt;&#x2F;a&gt;
-  &lt;small&gt;2010&amp;ndash;2013&lt;&#x2F;small&gt;
-&lt;&#x2F;h2&gt;
-&lt;p&gt;Developed during the &lt;a href=&quot;http:&#x2F;&#x2F;homenetworks.ac.uk&#x2F;&quot;&gt;Homework&lt;&#x2F;a&gt; project, the Homework router reconstructs the
+&lt;h2 id=&quot;homework-2010-2013&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;homework&#x2F;&quot;&gt;Homework&lt;&#x2F;a&gt; &lt;small&gt;2010—2013&lt;&#x2F;small&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Developed during the &lt;a href=&quot;https:&#x2F;&#x2F;homenetworks.ac.uk&#x2F;&quot;&gt;Homework&lt;&#x2F;a&gt; project, the Homework router reconstructs the
 home router informed by ethnographic study of home networks ‘in the wild’. Uses
 OpenFlow (Open vSwitch and NOX&#x2F;POX) to provide novel interrogation, control and
 policy interfaces to a home router.&lt;&#x2F;p&gt;
-&lt;h2 data-magellan-destination=&quot;karaka&quot; id=&quot;karaka&quot;&gt;
-  &lt;a href=&quot;http:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;karaka&#x2F;&quot;&gt;Karaka&lt;&#x2F;a&gt;
-  &lt;small&gt;2007&amp;ndash;2009&lt;&#x2F;small&gt;
-&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;karaka-2007-2009&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;karaka&#x2F;&quot;&gt;Karaka&lt;&#x2F;a&gt; &lt;small&gt;2007—2009&lt;&#x2F;small&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;Developed at Vipadia Limited, this is a scalable software system implementing a
 distributed Skype-XMPP gateway released under the GPLv2. Copyright was acquired
-by &lt;a href=&quot;http:&#x2F;&#x2F;voxeo.com&#x2F;&quot;&gt;Voxeo Corp.&lt;&#x2F;a&gt; in January 2010.&lt;&#x2F;p&gt;
-&lt;h2 data-magellan-destination=&quot;pyrt&quot; id=&quot;pyrt&quot;&gt;
-  &lt;a href=&quot;http:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;pyrt&quot;&gt;PyRT&lt;&#x2F;a&gt;
-  &lt;small&gt;2001&amp;ndash;2002&lt;&#x2F;small&gt;
-&lt;&#x2F;h2&gt;
+by &lt;a href=&quot;https:&#x2F;&#x2F;voxeo.com&#x2F;&quot;&gt;Voxeo Corp.&lt;&#x2F;a&gt; in January 2010.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;pyrt-2001-2002&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;pyrt&#x2F;&quot;&gt;PyRT&lt;&#x2F;a&gt; &lt;small&gt;2001—2002&lt;&#x2F;small&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;I developed the Python Routeing Toolkit while at Sprint ATL, who released it
 under the GPLv2. It comprises code for collecting and analysing routeing data.
 This package currently collects BGPv4 and ISIS, and dumps and parses MRTD files
-including MRTD &lt;code&gt;TABLE_DUMP&lt;&#x2F;code&gt; files (as available from, e.g., &lt;a href=&quot;http:&#x2F;&#x2F;www.routeviews.org&#x2F;&quot;&gt;RouteViews&lt;&#x2F;a&gt; and
-&lt;a href=&quot;http:&#x2F;&#x2F;www.ripe.net&#x2F;data-tools&#x2F;stats&#x2F;ris&#x2F;ris-raw-data&quot;&gt;RIPE&#x2F;RIS&lt;&#x2F;a&gt;). A number of utilities for manipulating these dumps are
+including MRTD &lt;code&gt;TABLE_DUMP&lt;&#x2F;code&gt; files (as available from, e.g., &lt;a href=&quot;https:&#x2F;&#x2F;www.routeviews.org&#x2F;&quot;&gt;RouteViews&lt;&#x2F;a&gt; and
+&lt;a href=&quot;https:&#x2F;&#x2F;www.ripe.net&#x2F;data-tools&#x2F;stats&#x2F;ris&#x2F;ris-raw-data&quot;&gt;RIPE&#x2F;RIS&lt;&#x2F;a&gt;). A number of utilities for manipulating these dumps are
 also provided. Since the code on &lt;a href=&quot;https:&#x2F;&#x2F;research.sprintlabs.com&#x2F;pyrt&#x2F;&quot;&gt;Sprint’s website&lt;&#x2F;a&gt; appears to be
-orphaned, I have created a &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;pyrt&#x2F;&quot;&gt;github repository here&lt;&#x2F;a&gt; for it. I have
-also subsequently written an &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocaml-mrt&quot;&gt;OCaml&lt;&#x2F;a&gt; MRT dump parser as a learning
+orphaned, I have created a &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;pyrt&#x2F;&quot;&gt;GitHub repository here&lt;&#x2F;a&gt; for it. I have
+also subsequently written an &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocaml-mrt&#x2F;&quot;&gt;OCaml&lt;&#x2F;a&gt; MRT dump parser as a learning
 exercise.&lt;&#x2F;p&gt;
 </content>
         
@@ -1953,62 +1937,40 @@ exercise.&lt;&#x2F;p&gt;
         <link rel="alternate" type="text/html" href="https://mort.io/me/"/>
         <id>https://mort.io/me/</id>
         
-        <content type="html" xml:base="https://mort.io/me/">&lt;p&gt;I’m Richard Mortier or, more commonly, &lt;strong&gt;mort&lt;&#x2F;strong&gt;. I’m a University Lecturer
-in &lt;a href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;research&#x2F;srg&#x2F;netos&#x2F;&quot;&gt;NetOS&lt;&#x2F;a&gt;, part of the &lt;a href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;research&#x2F;srg&#x2F;&quot;&gt;Systems Research Group&lt;&#x2F;a&gt; in the &lt;a href=&quot;http:&#x2F;&#x2F;www.cam.ac.uk&#x2F;&quot;&gt;Cambridge
-University&lt;&#x2F;a&gt; &lt;a href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;&quot;&gt;Computer Laboratory&lt;&#x2F;a&gt;. Until Dec&#x2F;2014 I was a Horizon
-Transitional Fellow in Computer Science with
-the &lt;a href=&quot;http:&#x2F;&#x2F;www.horizon.ac.uk&#x2F;&quot;&gt;Horizon Digital Economy Research Institute&lt;&#x2F;a&gt; at the &lt;a href=&quot;http:&#x2F;&#x2F;www.nottingham.ac.uk&#x2F;&quot;&gt;University of
-Nottingham&lt;&#x2F;a&gt; &lt;a href=&quot;http:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;&quot;&gt;School of Computer Science&lt;&#x2F;a&gt;. I can be contacted by
-email (preferred) at &lt;a href=&quot;mailto:richard.mortier@cl.cam.ac.uk&quot;&gt;richard.mortier@cl.cam.ac.uk&lt;&#x2F;a&gt;, or by phone on +44
-(0)1223 334419. I am online at &lt;a href=&quot;http:&#x2F;&#x2F;twitter.com&#x2F;mort___&quot;&gt;Twitter&lt;&#x2F;a&gt; and &lt;a href=&quot;http:&#x2F;&#x2F;github.com&#x2F;mor1&quot;&gt;Github&lt;&#x2F;a&gt;. My Erdős number
-appears to be 3.&lt;&#x2F;p&gt;
-&lt;h2 id=&quot;hcard&quot;&gt;HCard&lt;&#x2F;h2&gt;
-&lt;div id=&quot;hcard-Richard-Mortier&quot; class=&quot;vcard&quot;&gt;
-  &lt;a class=&quot;url fn&quot; href=&quot;http:&#x2F;&#x2F;mort.io&#x2F;&quot;&gt;Richard Mortier&lt;&#x2F;a&gt;
-  &lt;div class=&quot;org&quot;&gt;Cambridge University&lt;&#x2F;div&gt;
-  &lt;div class=&quot;adr&quot;&gt;
-    &lt;div class=&quot;street-address&quot;&gt;15, JJ Thomson Ave&lt;&#x2F;div&gt;
-    &lt;span class=&quot;locality&quot;&gt;Cambridge&lt;&#x2F;span&gt;,
-    &lt;span class=&quot;postal-code&quot;&gt;CB3 0FD&lt;&#x2F;span&gt;
-    &lt;span class=&quot;country-name&quot;&gt;UK&lt;&#x2F;span&gt;
-  &lt;&#x2F;div&gt;
-  &lt;div class=&quot;tel&quot;&gt;+44 (0)1223 334419&lt;&#x2F;div&gt;
-  &lt;a class=&quot;email&quot; href=&quot;mailto:richard.mortier@cl.cam.ac.uk&quot;&gt;
-    richard.mortier@cl.cam.ac.uk
-  &lt;&#x2F;a&gt;
-  &lt;br &#x2F;&gt;
-  &lt;a class=&quot;skype&quot; href=&quot;skype:mort___&quot;&gt;mort___&lt;&#x2F;a&gt;
-&lt;&#x2F;div&gt;
-&lt;h2 id=&quot;location-view-larger-map&quot;&gt;Location &lt;small&gt;&lt;a href=&quot;http:&#x2F;&#x2F;osm.org&#x2F;go&#x2F;0EQSAZQ6x-?layers=N&quot;&gt;View Larger Map&lt;&#x2F;a&gt;&lt;&#x2F;small&gt;&lt;&#x2F;h2&gt;
-&lt;p&gt;My office in the &lt;a href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;&quot;&gt;Computer Lab&lt;&#x2F;a&gt; is &lt;a href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;research&#x2F;dtg&#x2F;openroommap&#x2F;static&#x2F;?s=FN17&quot;&gt;FN17&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
-&lt;iframe width=&quot;425&quot; height=&quot;350&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot; src=&quot;http:&#x2F;&#x2F;www.openstreetmap.org&#x2F;export&#x2F;embed.html?bbox=0.09029388427734374%2C52.20889528631561%2C0.09372711181640624%2C52.212859510682065&amp;amp;layer=mapnik&amp;amp;marker=52.210877442716104%2C0.092010498046875&quot; style=&quot;border: 1px solid black&quot;&gt;&lt;&#x2F;iframe&gt;
-&lt;p&gt;[cardcloud]: http:&#x2F;&#x2F;cardcloud.com&#x2F;mort [about.me]: http:&#x2F;&#x2F;about.me&#x2F;mort&lt;&#x2F;p&gt;
+        <content type="html" xml:base="https://mort.io/me/">&lt;p&gt;I’m Richard Mortier or, more commonly, &lt;strong&gt;mort&lt;&#x2F;strong&gt;. I’m a Professor in the &lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;research&#x2F;srg&#x2F;&quot;&gt;Systems
+Research Group&lt;&#x2F;a&gt; in the &lt;a href=&quot;https:&#x2F;&#x2F;www.cam.ac.uk&#x2F;&quot;&gt;Cambridge University&lt;&#x2F;a&gt; &lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;&quot;&gt;Computer
+Laboratory&lt;&#x2F;a&gt;. Until Dec&#x2F;2014 I was a Horizon Transitional Fellow in
+Computer Science with the &lt;a href=&quot;https:&#x2F;&#x2F;www.horizon.ac.uk&#x2F;&quot;&gt;Horizon Digital Economy Research Institute&lt;&#x2F;a&gt;
+at the &lt;a href=&quot;https:&#x2F;&#x2F;www.nottingham.ac.uk&#x2F;&quot;&gt;University of Nottingham&lt;&#x2F;a&gt; &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;&quot;&gt;School of Computer Science&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I can be contacted by email (preferred) at
+&lt;a href=&quot;mailto:richard.mortier@cl.cam.ac.uk&quot;&gt;richard.mortier@cl.cam.ac.uk&lt;&#x2F;a&gt;, or by phone on +44 (0)1223 334419. For
+social media connections, see the footer of this page. My office in the
+&lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;&quot;&gt;Computer Lab&lt;&#x2F;a&gt; is &lt;a href=&quot;https:&#x2F;&#x2F;osm.org&#x2F;go&#x2F;0EQSAZRyg-?layers=N&quot;&gt;FN17&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;My Erdős number appears to be 3. &lt;&#x2F;p&gt;
 &lt;h2 id=&quot;expertise&quot;&gt;Expertise&lt;&#x2F;h2&gt;
 &lt;p&gt;I have worked on topics from distributed system performance monitoring and
 debugging, to Internet routing protocols, to real-time media platform design and
 implementation. I have worked in a variety of roles, from high-level platform
 architect, to designer and implementer of complex networked systems, to website
 designer and builder. I have consulted and worked for a broad range of
-companies, including startups
-(&lt;a href=&quot;http:&#x2F;&#x2F;vipadia.com&#x2F;&quot;&gt;μ&lt;&#x2F;a&gt;, &lt;a href=&quot;http:&#x2F;&#x2F;camrivox.com&#x2F;&quot;&gt;S&lt;&#x2F;a&gt;, &lt;a href=&quot;http:&#x2F;&#x2F;cplane.com&#x2F;&quot;&gt;M&lt;&#x2F;a&gt;, &lt;a href=&quot;http:&#x2F;&#x2F;alertme.com&#x2F;&quot;&gt;L&lt;&#x2F;a&gt;) and corporates
-(&lt;a href=&quot;http:&#x2F;&#x2F;sprint.com&#x2F;&quot;&gt;M&lt;&#x2F;a&gt;, &lt;a href=&quot;http:&#x2F;&#x2F;microsoft.com&#x2F;&quot;&gt;L&lt;&#x2F;a&gt;) in both the US and UK. Following the acquisition
-of &lt;a href=&quot;http:&#x2F;&#x2F;unikernel.com&quot;&gt;Unikernel Systems&lt;&#x2F;a&gt;
-by &lt;a href=&quot;https:&#x2F;&#x2F;docker.com&quot;&gt;Docker Inc.&lt;&#x2F;a&gt;, I currently contract with Docker Inc.&lt;&#x2F;p&gt;
+companies, including startups (&lt;a href=&quot;https:&#x2F;&#x2F;vipadia.com&#x2F;&quot;&gt;μ&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;camrivox.com&#x2F;&quot;&gt;S&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;cplane.com&#x2F;&quot;&gt;M&lt;&#x2F;a&gt;,
+&lt;a href=&quot;https:&#x2F;&#x2F;alertme.com&#x2F;&quot;&gt;L&lt;&#x2F;a&gt;) and corporates (&lt;a href=&quot;https:&#x2F;&#x2F;sprint.com&#x2F;&quot;&gt;M&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;microsoft.com&#x2F;&quot;&gt;L&lt;&#x2F;a&gt;) in both the US and
+UK. Following the acquisition of &lt;a href=&quot;https:&#x2F;&#x2F;unikernel.com&#x2F;&quot;&gt;Unikernel Systems&lt;&#x2F;a&gt; by &lt;a href=&quot;https:&#x2F;&#x2F;docker.com&#x2F;&quot;&gt;Docker
+Inc.&lt;&#x2F;a&gt;, I currently contract with Docker Inc.&lt;&#x2F;p&gt;
 &lt;p&gt;I do occasionally undertake other consultancy and development work – &lt;a href=&quot;mailto:richard.mortier@cl.cam.ac.uk?subject=%5BWebsite%20enquiry%5d&quot;&gt;contact
 me&lt;&#x2F;a&gt; if
 desired.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;background&quot;&gt;Background&lt;&#x2F;h2&gt;
-&lt;p&gt;In 2001 I completed my Ph.D., “&lt;a href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;techreports&#x2F;UCAM-CL-TR-532.pdf&quot;&gt;Internet Traffic Engineering&lt;&#x2F;a&gt;” with
-the &lt;a href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;research&#x2F;srg&#x2F;&quot;&gt;Systems Research Group&lt;&#x2F;a&gt; at the &lt;a href=&quot;http:&#x2F;&#x2F;www.cam.ac.uk&#x2F;&quot;&gt;University of
-Cambridge&lt;&#x2F;a&gt; &lt;a href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;&quot;&gt;Computer Laboratory&lt;&#x2F;a&gt;. Since then I have worked as a
-researcher with the &lt;a href=&quot;http:&#x2F;&#x2F;www.sprintlabs.com&#x2F;ipgroup.html&quot;&gt;IP Group&lt;&#x2F;a&gt;, &lt;a href=&quot;http:&#x2F;&#x2F;www.sprintlabs.com&#x2F;&quot;&gt;Sprint ATL&lt;&#x2F;a&gt;;
-the
-&lt;a href=&quot;http:&#x2F;&#x2F;research.microsoft.com&#x2F;en-us&#x2F;groups&#x2F;camsys&#x2F;default.aspx&quot;&gt;Systems &amp;amp; Networking Group&lt;&#x2F;a&gt;, &lt;a href=&quot;http:&#x2F;&#x2F;research.microsoft.com&#x2F;en-us&#x2F;labs&#x2F;cambridge&#x2F;default.aspx&quot;&gt;Microsoft Research Cambridge&lt;&#x2F;a&gt;;
-and most recently I was founder at &lt;a href=&quot;http:&#x2F;&#x2F;vipadia.com&#x2F;&quot;&gt;Vipadia Limited&lt;&#x2F;a&gt; (technology
-acquired by &lt;a href=&quot;http:&#x2F;&#x2F;voxeo.com&#x2F;&quot;&gt;Voxeo Corp&lt;&#x2F;a&gt;).&lt;&#x2F;p&gt;
-&lt;p&gt;Outside work I practice &lt;a href=&quot;http:&#x2F;&#x2F;www.taichichuan.co.uk&#x2F;&quot;&gt;Wudang Tai Chi Chuan&lt;&#x2F;a&gt;, and taught for
-the &lt;a href=&quot;http:&#x2F;&#x2F;www.srcf.ucam.org&#x2F;cutccs&#x2F;&quot;&gt;Cambridge University Tai Chi Chuan Society&lt;&#x2F;a&gt; for several years. I am
-also a keen, if woefully out-of-practice, classical guitarist.&lt;&#x2F;p&gt;
+&lt;p&gt;In 2001 I completed my Ph.D., “&lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;techreports&#x2F;UCAM-CL-TR-532.pdf&quot;&gt;Internet Traffic Engineering&lt;&#x2F;a&gt;” with the
+&lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;research&#x2F;srg&#x2F;&quot;&gt;Systems Research Group&lt;&#x2F;a&gt; at the &lt;a href=&quot;https:&#x2F;&#x2F;www.cam.ac.uk&#x2F;&quot;&gt;University of Cambridge&lt;&#x2F;a&gt; &lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;&quot;&gt;Computer
+Laboratory&lt;&#x2F;a&gt;. Since then I have worked as a researcher with the &lt;a href=&quot;https:&#x2F;&#x2F;www.sprintlabs.com&#x2F;ipgroup.html&quot;&gt;IP
+Group&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;www.sprintlabs.com&#x2F;&quot;&gt;Sprint ATL&lt;&#x2F;a&gt;; the &lt;a href=&quot;https:&#x2F;&#x2F;research.microsoft.com&#x2F;en-us&#x2F;groups&#x2F;camsys&#x2F;default.aspx&quot;&gt;Systems &amp;amp; Networking
+Group&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;research.microsoft.com&#x2F;en-us&#x2F;labs&#x2F;cambridge&#x2F;default.aspx&quot;&gt;Microsoft Research Cambridge&lt;&#x2F;a&gt;; and most recently I was
+founder at &lt;a href=&quot;https:&#x2F;&#x2F;vipadia.com&#x2F;&quot;&gt;Vipadia Limited&lt;&#x2F;a&gt; (technology acquired by &lt;a href=&quot;https:&#x2F;&#x2F;voxeo.com&#x2F;&quot;&gt;Voxeo
+Corp&lt;&#x2F;a&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;Outside work I practice &lt;a href=&quot;https:&#x2F;&#x2F;www.taichichuan.co.uk&#x2F;&quot;&gt;Wudang Tai Chi Chuan&lt;&#x2F;a&gt; – I taught for the
+&lt;a href=&quot;https:&#x2F;&#x2F;www.srcf.ucam.org&#x2F;cutccs&#x2F;&quot;&gt;Cambridge University Tai Chi Chuan Society&lt;&#x2F;a&gt; for several years – and I
+enjoy practicing classical guitarist.&lt;&#x2F;p&gt;
 </content>
         
     </entry>
@@ -2029,55 +1991,56 @@ also a keen, if woefully out-of-practice, classical guitarist.&lt;&#x2F;p&gt;
         <id>https://mort.io/research/</id>
         
         <content type="html" xml:base="https://mort.io/research/">&lt;p&gt;I am interested in computing infrastructures, specifically networked systems. In
-the past I have done extensive work on topics including
-&lt;a href=&quot;http:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;imw02-linkfailures.pdf&quot;&gt;routing behaviour in backbone networks&lt;&#x2F;a&gt;,
-&lt;a href=&quot;http:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;fdna03-plutarch.pdf&quot;&gt;future network architectures&lt;&#x2F;a&gt;,
-&lt;a href=&quot;http:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;osdi04-magpie.pdf&quot;&gt;performance analysis and modelling of distributed systems&lt;&#x2F;a&gt;,
-&lt;a href=&quot;http:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;usenix06-anemone.pdf&quot;&gt;enterprise network management&lt;&#x2F;a&gt;, and
-&lt;a href=&quot;http:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;ton10-wsd.pdf&quot;&gt;analysis of network topologies&lt;&#x2F;a&gt;. Most recently I have become interested in
-interdisciplinary research and particularly the interplay between networked
-systems and topics that traditionally fall under human-computer interaction. For
-example,&lt;&#x2F;p&gt;
+the past I have done extensive work on topics including &lt;a href=&quot;https:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;imw02-linkfailures.pdf&quot;&gt;routing behaviour in
+backbone networks&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;fdna03-plutarch.pdf&quot;&gt;future network architectures&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;osdi04-magpie.pdf&quot;&gt;performance
+analysis and modelling of distributed systems&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;usenix06-anemone.pdf&quot;&gt;enterprise network
+management&lt;&#x2F;a&gt;, and &lt;a href=&quot;https:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;ton10-wsd.pdf&quot;&gt;analysis of network topologies&lt;&#x2F;a&gt;. Most recently I
+have become interested in interdisciplinary research and particularly the
+interplay between networked systems and topics that traditionally fall under
+human-computer interaction. For example,&lt;&#x2F;p&gt;
 &lt;ul&gt;
-&lt;li&gt;how can we build usable &lt;em&gt;&lt;a href=&quot;http:&#x2F;&#x2F;homenetworks.ac.uk&#x2F;&quot;&gt;home networking infrastructure&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;?&lt;&#x2F;li&gt;
+&lt;li&gt;how can we build usable &lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;homenetworks.ac.uk&#x2F;&quot;&gt;home networking infrastructure&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;?&lt;&#x2F;li&gt;
 &lt;li&gt;how can we increase legibility of current and future information
-infrastructures, supporting &lt;em&gt;&lt;a href=&quot;http:&#x2F;&#x2F;hdiresearch.org&#x2F;&quot;&gt;human-data interaction&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;?&lt;&#x2F;li&gt;
-&lt;li&gt;how can we rebuild infrastructures to support users deploying
-&lt;em&gt;&lt;a href=&quot;http:&#x2F;&#x2F;openmirage.org&#x2F;&quot;&gt;personal clouds&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;?&lt;&#x2F;li&gt;
+infrastructures, supporting &lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;hdiresearch.org&#x2F;&quot;&gt;human-data interaction&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;?&lt;&#x2F;li&gt;
+&lt;li&gt;how can we rebuild infrastructures to support users deploying &lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;openmirage.org&#x2F;&quot;&gt;personal
+clouds&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;?&lt;&#x2F;li&gt;
 &lt;li&gt;how can we build systems that are &lt;em&gt;ethical by design&lt;&#x2F;em&gt;?&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;I try to maintain &lt;a href=&quot;https:&#x2F;&#x2F;mort.io&#x2F;research&#x2F;#publications&quot;&gt;a complete list of my publications&lt;&#x2F;a&gt; in addition to
-the usual sites including &lt;a href=&quot;http:&#x2F;&#x2F;scholar.google.co.uk&#x2F;citations?user=9LJgRFAAAAAJ&amp;amp;hl=en&quot;&gt;Google Scholar&lt;&#x2F;a&gt;,
-&lt;a href=&quot;http:&#x2F;&#x2F;academic.research.microsoft.com&#x2F;Author&#x2F;317246&#x2F;richard-mortier&quot;&gt;Microsoft Academic&lt;&#x2F;a&gt;, &lt;a href=&quot;http:&#x2F;&#x2F;www.citeulike.org&#x2F;search&#x2F;all?q=author%3A%22richard+mortier%22+author%3A%22r+mortier%22&quot;&gt;CiteULike&lt;&#x2F;a&gt; and the &lt;a href=&quot;http:&#x2F;&#x2F;dl.acm.org&#x2F;author_page.cfm?id=81313480954&quot;&gt;ACM DL&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
-&lt;h2 data-magellan-destination=&quot;projects&quot; id=&quot;projects&quot;&gt;Projects&lt;&#x2F;h2&gt;
-&lt;p&gt;I am actively involved in a number of current projects, including:&lt;&#x2F;p&gt;
+the usual sites including &lt;a href=&quot;https:&#x2F;&#x2F;scholar.google.co.uk&#x2F;citations?user=9LJgRFAAAAAJ&amp;amp;hl=en&quot;&gt;Google Scholar&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;academic.research.microsoft.com&#x2F;Author&#x2F;317246&#x2F;richard-mortier&quot;&gt;Microsoft
+Academic&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;www.citeulike.org&#x2F;search&#x2F;all?q=author%3A%22richard+mortier%22+author%3A%22r+mortier%22&quot;&gt;CiteULike&lt;&#x2F;a&gt; and the &lt;a href=&quot;https:&#x2F;&#x2F;dl.acm.org&#x2F;author_page.cfm?id=81313480954&quot;&gt;ACM DL&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;projects&quot;&gt;Projects&lt;&#x2F;h2&gt;
+&lt;p&gt;Currently active projects include:&lt;&#x2F;p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;databoxproject.uk&#x2F;&quot;&gt;Databox&lt;&#x2F;a&gt;, building infrastructure to support us
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;pages.cdbb.uk&#x2F;&quot;&gt;Adaptive Cities&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;edgeless-project.eu&#x2F;&quot;&gt;EDGELESS&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Completed past projects include:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;usercentricnetworking.eu&#x2F;&quot;&gt;UCN&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;homenetworks.ac.uk&#x2F;&quot;&gt;Homework&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;gow.epsrc.ac.uk&#x2F;NGBOViewGrant.aspx?GrantRef=EP&#x2F;K012703&#x2F;1&quot;&gt;PAWS (Public Access WiFi
+Service&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;databoxproject.uk&#x2F;&quot;&gt;Databox&lt;&#x2F;a&gt;, building infrastructure to support us
 all in managing our personal data.&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;gow.epsrc.ac.uk&#x2F;NGBOViewGrant.aspx?GrantRef=EP&#x2F;N028422&#x2F;1&quot;&gt;Contrive&lt;&#x2F;a&gt;,
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;gow.epsrc.ac.uk&#x2F;NGBOViewGrant.aspx?GrantRef=EP&#x2F;N028422&#x2F;1&quot;&gt;Contrive&lt;&#x2F;a&gt;,
 supporting
 the
-&lt;a href=&quot;http:&#x2F;&#x2F;hubofallthings.com&quot;&gt;HAT&lt;&#x2F;a&gt; &lt;a href=&quot;http:&#x2F;&#x2F;hubofallthings.com&#x2F;hall&#x2F;&quot;&gt;Living Labs&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.naas-project.org&#x2F;&quot;&gt;Networks as a Service&lt;&#x2F;a&gt;, exploring how to
+&lt;a href=&quot;https:&#x2F;&#x2F;hubofallthings.com&quot;&gt;HAT&lt;&#x2F;a&gt; &lt;a href=&quot;https:&#x2F;&#x2F;hubofallthings.com&#x2F;hall&#x2F;&quot;&gt;Living Labs&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.naas-project.org&#x2F;&quot;&gt;Networks as a Service&lt;&#x2F;a&gt;, exploring how to
 provide application control over network resources, down to programmable
 hardware.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;mirage.io&#x2F;&quot;&gt;MirageOS&lt;&#x2F;a&gt;, developing the OCaml unikernel, Mirage.&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;aestheticodes.com&#x2F;&quot;&gt;Artcodes&lt;&#x2F;a&gt;, developing beautiful, machine-readable
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;aestheticodes.com&#x2F;&quot;&gt;Artcodes&lt;&#x2F;a&gt;, developing beautiful, machine-readable
 codes.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;p&gt;Completed past projects include:&lt;&#x2F;p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;usercentricnetworking.eu&#x2F;&quot;&gt;UCN&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;homenetworks.ac.uk&#x2F;&quot;&gt;Homework&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;gow.epsrc.ac.uk&#x2F;NGBOViewGrant.aspx?GrantRef=EP&#x2F;K012703&#x2F;1&quot;&gt;PAWS (Public Access WiFi Service&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;p&gt;More details of my past and present EPSRC funding portfolio can be found
-at
-&lt;a href=&quot;http:&#x2F;&#x2F;gow.epsrc.ac.uk&#x2F;NGBOViewPerson.aspx?PersonId=-140023&quot;&gt;Grants of the Web&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
-&lt;h2 data-magellan-destination=&quot;students&quot; id=&quot;students&quot;&gt;Students&lt;&#x2F;h2&gt;
-&lt;p&gt;Any funded places that I have will be advertised via the &lt;a href=&quot;http:&#x2F;&#x2F;www.jobs.cam.ac.uk&#x2F;&quot;&gt;University&lt;&#x2F;a&gt;.
+&lt;p&gt;More details of my past and present EPSRC funding portfolio can be found at
+&lt;a href=&quot;https:&#x2F;&#x2F;gow.epsrc.ac.uk&#x2F;NGBOViewPerson.aspx?PersonId=-140023&quot;&gt;Grants of the
+Web&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;students&quot;&gt;Students&lt;&#x2F;h2&gt;
+&lt;p&gt;Any funded places that I have will be advertised via the &lt;a href=&quot;https:&#x2F;&#x2F;www.jobs.cam.ac.uk&#x2F;&quot;&gt;University&lt;&#x2F;a&gt;.
 Please read any adverts there carefully – funding eligibility requirements
 often mean that studentships are only accessible by UK&#x2F;EU students. If you are
 interested in applying to undertake a Ph.D. with me, before I can consider your
@@ -2092,52 +2055,48 @@ including Ph.D. study.&lt;&#x2F;li&gt;
 &lt;h3 id=&quot;current&quot;&gt;Current&lt;&#x2F;h3&gt;
 &lt;p&gt;I am fortunate to have worked, and to continue to work, with some excellent
 Ph.D. students on a wide range of topics.&lt;&#x2F;p&gt;
-&lt;div class=&quot;plain&quot; media:type=&quot;text&#x2F;omd&quot; markdown=&quot;1&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Sultan Alanazi&lt;&#x2F;strong&gt; (2012, Nottingham), co-supervised with
-&lt;a href=&quot;http:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~drm&#x2F;&quot;&gt;Prof. Derek McAuley&lt;&#x2F;a&gt;. Recommendation systems using rich personal data.&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Luis Carlos Oviedo Garcia&lt;&#x2F;strong&gt; (2014, Nottingham), co-supervised with
-&lt;a href=&quot;http:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~drm&#x2F;&quot;&gt;Prof. Derek McAuley&lt;&#x2F;a&gt;. Application-Controllable Load-Balancing.&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Steven Luland&lt;&#x2F;strong&gt; (2013, Nottingham), co-supervised with
-&lt;a href=&quot;http:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~drm&#x2F;&quot;&gt;Prof. Derek McAuley&lt;&#x2F;a&gt; and &lt;a href=&quot;http:&#x2F;&#x2F;nottingham.ac.uk&#x2F;horizon&#x2F;people&#x2F;James.Pinchin&quot;&gt;Dr James Pinchin&lt;&#x2F;a&gt;.
-&lt;a href=&quot;http:&#x2F;&#x2F;cubiewave.wordpress.com&#x2F;&quot;&gt;http:&#x2F;&#x2F;cubiewave.wordpress.com&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Dominic Price&lt;&#x2F;strong&gt; (2013, Nottingham), co-supervised with
-&lt;a href=&quot;http:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~cmg&#x2F;&quot;&gt;Prof. Chris Greenhalgh&lt;&#x2F;a&gt;. User-focused social network platforms.&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;&#x2F;div&gt;
 &lt;h3 id=&quot;graduated&quot;&gt;Graduated&lt;&#x2F;h3&gt;
 &lt;div class=&quot;plain&quot; media:type=&quot;text&#x2F;omd&quot; markdown=&quot;1&quot;&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Sultan Alanazi&lt;&#x2F;strong&gt; (2012, Nottingham), co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~drm&#x2F;&quot;&gt;Prof. Derek
+McAuley&lt;&#x2F;a&gt;. Recommendation systems using rich personal data.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Luis Carlos Oviedo Garcia&lt;&#x2F;strong&gt; (2014, Nottingham), co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~drm&#x2F;&quot;&gt;Prof.
+Derek McAuley&lt;&#x2F;a&gt;. Application-Controllable Load-Balancing.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Steven Luland&lt;&#x2F;strong&gt; (2013, Nottingham), co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~drm&#x2F;&quot;&gt;Prof. Derek
+McAuley&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;nottingham.ac.uk&#x2F;horizon&#x2F;people&#x2F;James.Pinchin&quot;&gt;Dr James Pinchin&lt;&#x2F;a&gt;. &lt;a href=&quot;https:&#x2F;&#x2F;cubiewave.wordpress.com&#x2F;&quot;&gt;https:&#x2F;&#x2F;cubiewave.wordpress.com&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Dominic Price&lt;&#x2F;strong&gt; (2013, Nottingham), co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~cmg&#x2F;&quot;&gt;Prof. Chris
+Greenhalgh&lt;&#x2F;a&gt;. User-focused social network platforms.&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https:&#x2F;&#x2F;uk.linkedin.com&#x2F;in&#x2F;christina-emmanouil-ux&quot;&gt;Dr Christina-Dialechti Emmanouil&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; (University of Nottingham,
-2014–2017), co-supervised with &lt;a href=&quot;http:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~drm&#x2F;&quot;&gt;Prof. Derek McAuley&lt;&#x2F;a&gt;, &lt;a href=&quot;http:&#x2F;&#x2F;www.nottingham.ac.uk&#x2F;engineering&#x2F;people&#x2F;michael.brown&quot;&gt;Dr Michael
-Brown&lt;&#x2F;a&gt; and &lt;a href=&quot;http:&#x2F;&#x2F;www.strath.ac.uk&#x2F;humanities&#x2F;courses&#x2F;law&#x2F;staff&#x2F;edwardslilianprof&#x2F;&quot;&gt;Prof. Lilian Edwards&lt;&#x2F;a&gt;. “&lt;em&gt;&lt;a href=&quot;http:&#x2F;&#x2F;eprints.nottingham.ac.uk&#x2F;44956&#x2F;&quot;&gt;Designing for the
+2014–2017), co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~drm&#x2F;&quot;&gt;Prof. Derek McAuley&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;www.nottingham.ac.uk&#x2F;engineering&#x2F;people&#x2F;michael.brown&quot;&gt;Dr Michael
+Brown&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;www.strath.ac.uk&#x2F;humanities&#x2F;courses&#x2F;law&#x2F;staff&#x2F;edwardslilianprof&#x2F;&quot;&gt;Prof. Lilian Edwards&lt;&#x2F;a&gt;. “&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;eprints.nottingham.ac.uk&#x2F;44956&#x2F;&quot;&gt;Designing for the
 commercial exploitation of online identity&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;”&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https:&#x2F;&#x2F;dowthwaite.wordpress.com&#x2F;&quot;&gt;Dr Liz Dowthwaite&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; (University of Nottingham, 2012–2017),
-co-supervised with &lt;a href=&quot;http:&#x2F;&#x2F;www.nottingham.ac.uk&#x2F;engineering&#x2F;people&#x2F;robert.houghton&quot;&gt;Dr Robert Houghton&lt;&#x2F;a&gt; and &lt;a href=&quot;http:&#x2F;&#x2F;www.nottingham.ac.uk&#x2F;psychology&#x2F;people&#x2F;alexa.spence&quot;&gt;Dr Alexa Spence&lt;&#x2F;a&gt;.
+co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.nottingham.ac.uk&#x2F;engineering&#x2F;people&#x2F;robert.houghton&quot;&gt;Dr Robert Houghton&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;www.nottingham.ac.uk&#x2F;psychology&#x2F;people&#x2F;alexa.spence&quot;&gt;Dr Alexa Spence&lt;&#x2F;a&gt;.
 “&lt;em&gt;Crowdfunding Webcomics: The Role of Incentives &amp;amp; Reciprocity in Monetising
 Free Content&lt;&#x2F;em&gt;”&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.eecs.qmul.ac.uk&#x2F;~marjan&#x2F;&quot;&gt;Dr Marjan Falahrastegar&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; (Queen Mary, University of London,
-2012–2016), co-supervised with &lt;a href=&quot;http:&#x2F;&#x2F;www.eecs.qmul.ac.uk&#x2F;~steve&#x2F;&quot;&gt;Prof. Steve Uhlig&lt;&#x2F;a&gt;
-and &lt;a href=&quot;http:&#x2F;&#x2F;www.eecs.qmul.ac.uk&#x2F;~hamed&#x2F;&quot;&gt;Dr Hamed Haddadi&lt;&#x2F;a&gt;. “&lt;em&gt;Online Web Tracking Ecosystem&lt;&#x2F;em&gt;”&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.eecs.qmul.ac.uk&#x2F;~marjan&#x2F;&quot;&gt;Dr Marjan Falahrastegar&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; (Queen Mary, University of London,
+2012–2016), co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.eecs.qmul.ac.uk&#x2F;~steve&#x2F;&quot;&gt;Prof. Steve Uhlig&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;www.eecs.qmul.ac.uk&#x2F;~hamed&#x2F;&quot;&gt;Dr Hamed
+Haddadi&lt;&#x2F;a&gt;. “&lt;em&gt;Online Web Tracking Ecosystem&lt;&#x2F;em&gt;”&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;rjspencer1989&quot;&gt;Dr Robert Spencer&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; (University of Nottingham, 2011–2016),
-co-supervised with &lt;a href=&quot;http:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~tar&#x2F;&quot;&gt;Prof. Tom Rodden&lt;&#x2F;a&gt;. “&lt;em&gt;Understanding Configuration
+co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~tar&#x2F;&quot;&gt;Prof. Tom Rodden&lt;&#x2F;a&gt;. “&lt;em&gt;Understanding Configuration
 History of Domestic Networks&lt;&#x2F;em&gt;”&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ToshBrown&quot;&gt;Dr Anthony Brown&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; (University of Nottingham, 2010–2015),
-co-supervised with &lt;a href=&quot;http:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~tar&#x2F;&quot;&gt;Prof. Tom Rodden&lt;&#x2F;a&gt;.
-“&lt;em&gt;&lt;a href=&quot;http:&#x2F;&#x2F;eprints.nottingham.ac.uk&#x2F;34145&#x2F;1&#x2F;thesis.pdf&quot;&gt;Domesticating Home Networks&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;”&lt;&#x2F;li&gt;
+co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~tar&#x2F;&quot;&gt;Prof. Tom Rodden&lt;&#x2F;a&gt;. “&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;eprints.nottingham.ac.uk&#x2F;34145&#x2F;1&#x2F;thesis.pdf&quot;&gt;Domesticating Home
+Networks&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;”&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https:&#x2F;&#x2F;about.me&#x2F;jianhuashao&quot;&gt;Dr Jianhua Shao&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; (University of Nottingham, 2010–2015),
-co-supervised with &lt;a href=&quot;http:&#x2F;&#x2F;www.nottingham.ac.uk&#x2F;business&#x2F;LIZGK.html&quot;&gt;Dr George Kuk&lt;&#x2F;a&gt;.
-“&lt;em&gt;&lt;a href=&quot;http:&#x2F;&#x2F;eprints.nottingham.ac.uk&#x2F;32742&#x2F;&quot;&gt;Strategic Signals in the App Economy – An Empirical Study of Google Play Store&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;”&lt;&#x2F;li&gt;
+co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.nottingham.ac.uk&#x2F;business&#x2F;LIZGK.html&quot;&gt;Dr George Kuk&lt;&#x2F;a&gt;. “&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;eprints.nottingham.ac.uk&#x2F;32742&#x2F;&quot;&gt;Strategic Signals in the App
+Economy – An Empirical Study of Google Play Store&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;”&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https:&#x2F;&#x2F;ewaluger.wordpress.com&#x2F;home&#x2F;&quot;&gt;Dr Ewa Luger&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; (University of Nottingham, 2009–2013), co-supervised
-with &lt;a href=&quot;http:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~tar&#x2F;&quot;&gt;Prof. Tom Rodden&lt;&#x2F;a&gt;. “&lt;em&gt;Consent reconsidered: reframing consent for
+with &lt;a href=&quot;https:&#x2F;&#x2F;www.cs.nott.ac.uk&#x2F;~tar&#x2F;&quot;&gt;Prof. Tom Rodden&lt;&#x2F;a&gt;. “&lt;em&gt;Consent reconsidered: reframing consent for
 ubiquitous computing systems&lt;&#x2F;em&gt;”&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.eecs.qmul.ac.uk&#x2F;~hamed&#x2F;&quot;&gt;Dr Hamed Haddadi&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; (University College London, 2004–2008),
-co-supervised with &lt;a href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;~awm22&#x2F;&quot;&gt;Dr Andrew W. Moore&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;www.ee.ucl.ac.uk&#x2F;~mrio&#x2F;&quot;&gt;Dr Miguel Rio&lt;&#x2F;a&gt;.
-“&lt;em&gt;&lt;a href=&quot;http:&#x2F;&#x2F;discovery.ucl.ac.uk&#x2F;14222&#x2F;&quot;&gt;Topological Characteristics of IP Networks&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;”&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.eecs.qmul.ac.uk&#x2F;~hamed&#x2F;&quot;&gt;Dr Hamed Haddadi&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; (University College London, 2004–2008),
+co-supervised with &lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;~awm22&#x2F;&quot;&gt;Dr Andrew W. Moore&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;www.ee.ucl.ac.uk&#x2F;~mrio&#x2F;&quot;&gt;Dr Miguel Rio&lt;&#x2F;a&gt;.
+“&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;discovery.ucl.ac.uk&#x2F;14222&#x2F;&quot;&gt;Topological Characteristics of IP Networks&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;”&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;&#x2F;div&gt;
-&lt;h2 data-magellan-destination=&quot;publications&quot; id=&quot;publications&quot;&gt;Publications&lt;&#x2F;h2&gt;
-&lt;p&gt;Full citation details are available in &lt;a href=&quot;http:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;publications&quot;&gt;my github BibTeX repo&lt;&#x2F;a&gt; for up-to-date citation details. Please &lt;a href=&quot;mailto:richard.mortier@cl.cam.ac.uk&quot;&gt;contact me&lt;&#x2F;a&gt; if you have any problems obtaining any of these.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;publications&quot;&gt;Publications&lt;&#x2F;h2&gt;
+&lt;p&gt;Full citation details are available in &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;publications&quot;&gt;my github BibTeX repo&lt;&#x2F;a&gt; for up-to-date
+citation details. Please &lt;a href=&quot;mailto:richard.mortier@cl.cam.ac.uk&quot;&gt;contact me&lt;&#x2F;a&gt; if you have any problems obtaining any
+of these.&lt;&#x2F;p&gt;
  
 &lt;ul&gt;
   &lt;li id=&quot;10.1145&#x2F;3592533.3592807&quot; class=&quot;paper conference&quot;&gt;
@@ -3595,46 +3554,82 @@ co-supervised with &lt;a href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;~awm2
         <link rel="alternate" type="text/html" href="https://mort.io/teaching/"/>
         <id>https://mort.io/teaching/</id>
         
-        <content type="html" xml:base="https://mort.io/teaching/">&lt;p&gt;I am currently responsible for two courses at Cambridge: first year
-(IA) &lt;a href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;teaching&#x2F;1617&#x2F;OpSystems&#x2F;&quot;&gt;Operating Systems&lt;&#x2F;a&gt; (taken by both CST &lt;a href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;teaching&#x2F;1617&#x2F;part1a-50.html&quot;&gt;50%&lt;&#x2F;a&gt; and &lt;a href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;teaching&#x2F;1617&#x2F;part1a-75.html&quot;&gt;75%&lt;&#x2F;a&gt;
-candidates) and the &lt;a href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;teaching&#x2F;1617&#x2F;acs.html&quot;&gt;M.Phil in Advanced Computer Science&lt;&#x2F;a&gt;
-and &lt;a href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;teaching&#x2F;1617&#x2F;part3.html&quot;&gt;Part III&lt;&#x2F;a&gt; course, &lt;a href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;teaching&#x2F;1617&#x2F;R01&#x2F;&quot;&gt;R01 Advanced Topics in Computer Systems&lt;&#x2F;a&gt;.
+        <content type="html" xml:base="https://mort.io/teaching/">&lt;p&gt;I am currently responsible for two courses at Cambridge: first year (IA)
+&lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;teaching&#x2F;current&#x2F;OpSystems&#x2F;&quot;&gt;Operating Systems&lt;&#x2F;a&gt; and the &lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;teaching&#x2F;current&#x2F;acs.html&quot;&gt;M.Phil in Advanced Computer Science&lt;&#x2F;a&gt;
+and &lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;teaching&#x2F;current&#x2F;part3.html&quot;&gt;Part III&lt;&#x2F;a&gt; course, &lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;teaching&#x2F;current&#x2F;R01&#x2F;&quot;&gt;R01 Advanced Topics in Computer Systems&lt;&#x2F;a&gt;.
 The former is a standard lecture course, the latter is a reading-based course
 where students read, review and present assigned papers.&lt;&#x2F;p&gt;
-&lt;h2 data-magellan-destination=&quot;projects&quot; id=&quot;projects&quot;&gt;Projects&lt;&#x2F;h2&gt;
-&lt;p&gt;I am always interested in supervising good final year and Masters projects that
-relate to my research. Of particular interest are projects that use &lt;a href=&quot;http:&#x2F;&#x2F;openmirage.org&#x2F;&quot;&gt;Mirage&lt;&#x2F;a&gt;,
-produce network trace processing tools or visualisations,  or relate
-to &lt;a href=&quot;http:&#x2F;&#x2F;hdiresearch.org&#x2F;&quot;&gt;Human-Data Interaction&lt;&#x2F;a&gt;. Please &lt;a href=&quot;mailto:richard.mortier@cl.cam.ac.uk&quot;&gt;contact me&lt;&#x2F;a&gt; if you have ideas or
-proposals related to these topics.&lt;&#x2F;p&gt;
-&lt;p&gt;Among the past projects I have supervised are:&lt;&#x2F;p&gt;
-&lt;h3 id=&quot;2015-16&quot;&gt;2015&#x2F;16&lt;&#x2F;h3&gt;
+&lt;h2 id=&quot;projects&quot;&gt;Projects&lt;&#x2F;h2&gt;
+&lt;p&gt;I am happy to &lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;~rmm1002&#x2F;l&#x2F;project-suggestions.html&quot;&gt;consider supervising final year and Masters’ projects related to
+my research
+interests&lt;&#x2F;a&gt;.
+Current topics include edge computing, open banking data analysis and
+visualisation, operating systems for personal computers, as well as anything
+related to &lt;a href=&quot;https:&#x2F;&#x2F;hdiresearch.org&#x2F;&quot;&gt;Human-Data Interaction&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Past projects I have supervised include:&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;2022-2023&quot;&gt;2022–2023&lt;&#x2F;h3&gt;
 &lt;ul&gt;
+&lt;li&gt;William Pan. &lt;em&gt;Augmenting DeepDish with Face Blur&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;2019-2020&quot;&gt;2019–2020&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Anik Roy. &lt;em&gt;A probabilistic programming language in OCaml&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;2018-2019&quot;&gt;2018–2019&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Aaron Hutton. &lt;em&gt;Self-Archiving Website on MirageOS&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Harri Bell-Thomas. &lt;em&gt;Peer-to-Peer Social Networking atop Kademlia Distributed
+Hash Tables&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Andrew Jeffery. &lt;em&gt;XMPP Server on MirageOS&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Chris Jensen. &lt;em&gt;Diffing the DAG: Finding the minimum edit script of an
+acyclic graph&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Huiyao Zheng. &lt;em&gt;A ZeroMQ implementation for MirageOS&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Tom Strudwick. &lt;em&gt;Developing an application for data analysis of complex
+insect behaviours&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;2017-2018&quot;&gt;2017–2018&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Chris Jones. &lt;em&gt;Achieving Distributed Consensus with Paxos&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Sonny Sun. &lt;em&gt;A Tor relay on MirageOS&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Harry Graham. &lt;em&gt;Deep Learning Techniques for Credit Card Fraud Detection&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Junwei Yuan. &lt;em&gt;BGPv4 on MirageOS&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;2016-2017&quot;&gt;2016–2017&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Joel Jakubovic. &lt;em&gt;An XMPP Server Implementation in OCaml&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Marius Latinis. &lt;em&gt;Bus Arrival Time Prediction&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;2015-2016&quot;&gt;2015–2016&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Gabriela Sklencarova. &lt;em&gt;Functional Network Stacks with MirageOS and Irmin&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
 &lt;li&gt;Rupert Horlick. &lt;em&gt;Encrypted Keyword Search Using Path ORAM on MirageOS&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
 &lt;li&gt;Daniel Karaj. &lt;em&gt;Unikernels for Bus Data Serving&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
 &lt;li&gt;Alex Rakowski. &lt;em&gt;TCP Stack Spoofing with MirageOS&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
-&lt;li&gt;Sean Saville, &lt;em&gt;Simulating Scheduling Algorithms&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
-&lt;li&gt;Gabriela Sklencarova. &lt;em&gt;Functional Network Stacks with MirageOS and Irmin&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Sean Saville. &lt;em&gt;Simulating Scheduling Algorithms&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
 &lt;li&gt;Daniel Spencer. &lt;em&gt;Secure Auditable Logging with Dog&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;h2 data-magellan-destination=&quot;past&quot; id=&quot;past&quot;&gt;Past&lt;&#x2F;h2&gt;
-&lt;p&gt;While at the &lt;a href=&quot;http:&#x2F;&#x2F;www.nottingham.ac.uk&#x2F;&quot;&gt;University of Nottingham&lt;&#x2F;a&gt; I taught
+&lt;h3 id=&quot;2014-2015&quot;&gt;2014–2015&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Ke Chen. &lt;em&gt;Topology aware TCP bottleneck detection&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Samuel Williams. &lt;em&gt;Erlang on Xen&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;teaching-nottingham&quot;&gt;Teaching @ Nottingham&lt;&#x2F;h2&gt;
+&lt;p&gt;While at the &lt;a href=&quot;https:&#x2F;&#x2F;www.nottingham.ac.uk&#x2F;&quot;&gt;University of Nottingham&lt;&#x2F;a&gt; I taught
 on the following modules:&lt;&#x2F;p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;moodle.nottingham.ac.uk&#x2F;course&#x2F;view.php?id=14379&quot;&gt;G52GRP&lt;&#x2F;a&gt; Software Engineering Group Projects&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;moodle.nottingham.ac.uk&#x2F;course&#x2F;view.php?id=20434&quot;&gt;G53ID*&lt;&#x2F;a&gt; Undergraduate Final Year Projects&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;moodle.nottingham.ac.uk&#x2F;course&#x2F;view.php?id=14433&quot;&gt;G54ACC&lt;&#x2F;a&gt; Advanced Computer Communications (convened)&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;moodle.nottingham.ac.uk&#x2F;course&#x2F;view.php?id=14445&quot;&gt;G54GRP&lt;&#x2F;a&gt; Horizon DTC Group Project&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;moodle.nottingham.ac.uk&#x2F;course&#x2F;view.php?id=14450&quot;&gt;G54CCS&lt;&#x2F;a&gt; Connected Computing at Scale (convened)&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;moodle.nottingham.ac.uk&#x2F;course&#x2F;view.php?id=20432&quot;&gt;G64P*&lt;&#x2F;a&gt; MSc Projects (IT, MIT, HCI)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;moodle.nottingham.ac.uk&#x2F;course&#x2F;view.php?id=14379&quot;&gt;G52GRP&lt;&#x2F;a&gt; Software Engineering Group Projects&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;moodle.nottingham.ac.uk&#x2F;course&#x2F;view.php?id=20434&quot;&gt;G53ID*&lt;&#x2F;a&gt; Undergraduate Final Year Projects&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;moodle.nottingham.ac.uk&#x2F;course&#x2F;view.php?id=14433&quot;&gt;G54ACC&lt;&#x2F;a&gt; Advanced Computer Communications (convened)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;moodle.nottingham.ac.uk&#x2F;course&#x2F;view.php?id=14445&quot;&gt;G54GRP&lt;&#x2F;a&gt; Horizon DTC Group Project&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;moodle.nottingham.ac.uk&#x2F;course&#x2F;view.php?id=14450&quot;&gt;G54CCS&lt;&#x2F;a&gt; Connected Computing at Scale (convened)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;moodle.nottingham.ac.uk&#x2F;course&#x2F;view.php?id=20432&quot;&gt;G64P*&lt;&#x2F;a&gt; MSc Projects (IT, MIT, HCI)&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;h2 data-magellan-destination=&quot;links&quot; id=&quot;links&quot;&gt;Links&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;links&quot;&gt;Links&lt;&#x2F;h2&gt;
 &lt;p&gt;Finally, a collection of links to material that I have found interesting, useful
 or amusing, related (however tangentially) to Computer Science. Please note that
 these take you away from my pages and so &lt;strong&gt;I am not responsible for their
-content&lt;&#x2F;strong&gt;. If you happen to spot that any are broken, please
-do
-&lt;a href=&quot;mailto:richard.mortier@cl.cam.ac.uk?subject=%5BWebsite%20broken%20link%5d&quot;&gt;let me know&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+content&lt;&#x2F;strong&gt;. If you happen to spot that any are broken, please do &lt;a href=&quot;mailto:richard.mortier@cl.cam.ac.uk?subject=%5BWebsite%20broken%20link%5d&quot;&gt;let me
+know&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 &lt;dl class=&quot;tabs&quot; data-tab=&quot;&quot;&gt;
   &lt;dd class=&quot;active&quot;&gt;&lt;a href=&quot;#links-misc&quot;&gt;misc&lt;&#x2F;a&gt;&lt;&#x2F;dd&gt;
   &lt;dd&gt;&lt;a href=&quot;#links-programming&quot;&gt;coding&lt;&#x2F;a&gt;&lt;&#x2F;dd&gt;
@@ -3644,186 +3639,186 @@ do
 &lt;div media:type=&quot;text&#x2F;omd&quot; class=&quot;tabs-content&quot;&gt;
 &lt;div media:type=&quot;text&#x2F;omd&quot; class=&quot;content active&quot; id=&quot;links-misc&quot; markdown=&quot;1&quot;&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;shop.brookes.ac.uk&#x2F;browse&#x2F;extra_info.asp?compid=1&amp;amp;modid=1&amp;amp;deptid=47&amp;amp;catid=227&amp;amp;prodid=1174&quot;&gt;Twenty terrible reasons for lecturing&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;shop.brookes.ac.uk&#x2F;browse&#x2F;extra_info.asp?compid=1&amp;amp;modid=1&amp;amp;deptid=47&amp;amp;catid=227&amp;amp;prodid=1174&quot;&gt;Twenty terrible reasons for lecturing&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.cs.utexas.edu&#x2F;~EWD&#x2F;transcriptions&#x2F;EWD10xx&#x2F;EWD1036.html&quot;&gt;On the cruelty of really teaching computing science&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;queue.acm.org&#x2F;detail.cfm?id=1805128&quot;&gt;A Tour through the Visualization Zoo&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;courses.csail.mit.edu&#x2F;6.006&#x2F;spring11&#x2F;notes.shtml&quot;&gt;6.006: Introduction to Algorithms&lt;&#x2F;a&gt; (MIT)&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;libraries.mit.edu&#x2F;archives&#x2F;exhibits&#x2F;exam&#x2F;index.html&quot;&gt;An entrance exam, MIT, 1869&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.fordham.edu&#x2F;academics&#x2F;programs_at_fordham_&#x2F;mathematics_departme&#x2F;what_math&#x2F;index.asp&quot;&gt;Mathematics, the most misunderstood subject&lt;&#x2F;a&gt;. Quite relevant to computer science (and probably other similarly “academic” subjects too).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;queue.acm.org&#x2F;detail.cfm?id=1805128&quot;&gt;A Tour through the Visualization Zoo&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;courses.csail.mit.edu&#x2F;6.006&#x2F;spring11&#x2F;notes.shtml&quot;&gt;6.006: Introduction to Algorithms&lt;&#x2F;a&gt; (MIT)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;libraries.mit.edu&#x2F;archives&#x2F;exhibits&#x2F;exam&#x2F;index.html&quot;&gt;An entrance exam, MIT, 1869&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.fordham.edu&#x2F;academics&#x2F;programs_at_fordham_&#x2F;mathematics_departme&#x2F;what_math&#x2F;index.asp&quot;&gt;Mathematics, the most misunderstood subject&lt;&#x2F;a&gt;. Quite relevant to computer science (and probably other similarly “academic” subjects too).&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;archive.org&#x2F;details&#x2F;AMathematiciansApology&quot;&gt;A Mathematician’s Apology&lt;&#x2F;a&gt;, G.H. Hardy&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.covingtoninnovations.com&#x2F;mc&#x2F;WriteThinkLearn.pdf&quot;&gt;How to Write More Clearly, Think More Clearly, and Learn Complex Material More Easily&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;fellinlovewithdata.com&#x2F;guides&#x2F;7-classic-foundational-vis-papers&quot;&gt;Seven selected Information Visualization papers&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;blog.asmartbear.com&#x2F;color-wheels.html&quot;&gt;Colo(u)r wheels&lt;&#x2F;a&gt; and from that, for more detail &lt;a href=&quot;http:&#x2F;&#x2F;www.handprint.com&#x2F;HP&#x2F;WCL&#x2F;color1.html&quot;&gt;Light and the eye&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.math.dartmouth.edu&#x2F;~euler&#x2F;&quot;&gt;The Euler Archive&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.cs.purdue.edu&#x2F;homes&#x2F;dec&#x2F;essay.criticize.html&quot;&gt;How To Criticize Computer Scientists&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.nand2tetris.org&#x2F;&quot;&gt;From NAND to Tetris&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;scpd.stanford.edu&#x2F;knuth&#x2F;index.jsp&quot;&gt;Knuth’s Computer Musings&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;people.xiph.org&#x2F;~xiphmont&#x2F;demo&#x2F;neil-young.html&quot;&gt;24&#x2F;192 music downloads&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;nlpwp.org&#x2F;book&#x2F;&quot;&gt;Natural Language Processing for the Working Programmer&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;~rja14&#x2F;book.html&quot;&gt;Security Engineering&lt;&#x2F;a&gt;, Ross Anderson&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;nostarch.com&#x2F;xboxfree&quot;&gt;Hacking the Xbox&lt;&#x2F;a&gt;, Andrew “bunnie” Huang&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.covingtoninnovations.com&#x2F;mc&#x2F;WriteThinkLearn.pdf&quot;&gt;How to Write More Clearly, Think More Clearly, and Learn Complex Material More Easily&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;fellinlovewithdata.com&#x2F;guides&#x2F;7-classic-foundational-vis-papers&quot;&gt;Seven selected Information Visualization papers&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;blog.asmartbear.com&#x2F;color-wheels.html&quot;&gt;Colo(u)r wheels&lt;&#x2F;a&gt; and from that, for more detail &lt;a href=&quot;https:&#x2F;&#x2F;www.handprint.com&#x2F;HP&#x2F;WCL&#x2F;color1.html&quot;&gt;Light and the eye&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.math.dartmouth.edu&#x2F;~euler&#x2F;&quot;&gt;The Euler Archive&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.cs.purdue.edu&#x2F;homes&#x2F;dec&#x2F;essay.criticize.html&quot;&gt;How To Criticize Computer Scientists&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.nand2tetris.org&#x2F;&quot;&gt;From NAND to Tetris&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;scpd.stanford.edu&#x2F;knuth&#x2F;index.jsp&quot;&gt;Knuth’s Computer Musings&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;people.xiph.org&#x2F;~xiphmont&#x2F;demo&#x2F;neil-young.html&quot;&gt;24&#x2F;192 music downloads&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;nlpwp.org&#x2F;book&#x2F;&quot;&gt;Natural Language Processing for the Working Programmer&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;~rja14&#x2F;book.html&quot;&gt;Security Engineering&lt;&#x2F;a&gt;, Ross Anderson&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;nostarch.com&#x2F;xboxfree&quot;&gt;Hacking the Xbox&lt;&#x2F;a&gt;, Andrew “bunnie” Huang&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.scss.tcd.ie&#x2F;Andrew.Butterfield&#x2F;Teaching&#x2F;CS4003&#x2F;&quot;&gt;Formal Methods&lt;&#x2F;a&gt;, Andrew Butterfield, TCD&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;people.cis.ksu.edu&#x2F;~schmidt&#x2F;text&#x2F;densem.html&quot;&gt;Denotational Semantics: A Methodology for Language Development&lt;&#x2F;a&gt;, David Schmidt, Kansas State University (book)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;people.cis.ksu.edu&#x2F;~schmidt&#x2F;text&#x2F;densem.html&quot;&gt;Denotational Semantics: A Methodology for Language Development&lt;&#x2F;a&gt;, David Schmidt, Kansas State University (book)&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;&#x2F;div&gt;
 &lt;div media:type=&quot;text&#x2F;omd&quot; class=&quot;content&quot; id=&quot;links-programming&quot; markdown=&quot;1&quot;&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;blog.fogus.me&#x2F;2011&#x2F;09&#x2F;08&#x2F;10-technical-papers-every-programmer-should-read-at-least-twice&#x2F;&quot;&gt;10 papers every programmer should read at least twice&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;htdp.org&#x2F;2003-09-26&#x2F;Book&#x2F;&quot;&gt;How to Design Programs&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.cleveralgorithms.com&#x2F;&quot;&gt;Clever Algorithms: Nature-Inspired Programming Recipes&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;500607&#x2F;what-are-the-lesser-known-but-cool-data-structures&quot;&gt;Interesting but lesser known data structures&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;graphics.stanford.edu&#x2F;~seander&#x2F;bithacks.html&quot;&gt;Bit twiddling&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.few.vu.nl&#x2F;~dick&#x2F;PTAPG.html&quot;&gt;Parsing Techniques - A Practical Guide&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;chaosinmotion.com&#x2F;blog&#x2F;?p=622&quot;&gt;If you think you’re a Java programmer, just read this&lt;&#x2F;a&gt;.  Please.&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;blog.llvm.org&#x2F;2011&#x2F;05&#x2F;what-every-c-programmer-should-know.html&quot;&gt;What every C programmer should know&lt;&#x2F;a&gt;, followed by especially &lt;a href=&quot;http:&#x2F;&#x2F;blog.llvm.org&#x2F;2011&#x2F;05&#x2F;what-every-c-programmer-should-know_14.html&quot;&gt;part 2&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;codekata.com&#x2F;&quot;&gt;Coding Kata&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.plantation-productions.com&#x2F;Webster&#x2F;www.artofasm.com&#x2F;Linux&#x2F;HTML&#x2F;AoATOC.html&quot;&gt;The Art of Assembly Language Programming&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.html5rocks.com&#x2F;en&#x2F;tutorials&#x2F;internals&#x2F;howbrowserswork&#x2F;&quot;&gt;How Browsers Work&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;compilers.iecc.com&#x2F;crenshaw&#x2F;&quot;&gt;Let’s build a compiler!&lt;&#x2F;a&gt; &lt;em&gt;per&lt;&#x2F;em&gt; &lt;a href=&quot;http:&#x2F;&#x2F;prog21.dadgum.com&#x2F;30.html&quot;&gt;http:&#x2F;&#x2F;prog21.dadgum.com&#x2F;30.html&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.smallmemory.com&#x2F;&quot;&gt;Small Memory Software&lt;&#x2F;a&gt; with &lt;a href=&quot;http:&#x2F;&#x2F;www.smallmemory.com&#x2F;book.html&quot;&gt;online PDF copy&lt;&#x2F;a&gt; available&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.moderngpu.com&#x2F;&quot;&gt;Modern GPU&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;fabiensanglard.net&#x2F;quake2&#x2F;index.php&quot;&gt;Quake2 source code review&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.catonmat.net&#x2F;blog&#x2F;worlds-best-introduction-to-sed&#x2F;&quot;&gt;The World’s Best Introduction to &lt;code&gt;sed&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;blog.fogus.me&#x2F;2011&#x2F;10&#x2F;18&#x2F;programming-language-development-the-past-5-years&#x2F;&quot;&gt;Programming language development: the past 5 years&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;doc.cat-v.org&#x2F;bell_labs&#x2F;pikestyle&quot;&gt;Rob Pike’s Notes on Programming in C&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;repository.readscheme.org&#x2F;ftp&#x2F;papers&#x2F;plsemantics&#x2F;textbooks&#x2F;Hennessy-sembookWiley.pdf&quot;&gt;Semantics of Programming Languages&lt;&#x2F;a&gt;, Hennesey (book, out-of-print, online copy)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;blog.fogus.me&#x2F;2011&#x2F;09&#x2F;08&#x2F;10-technical-papers-every-programmer-should-read-at-least-twice&#x2F;&quot;&gt;10 papers every programmer should read at least twice&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;htdp.org&#x2F;2003-09-26&#x2F;Book&#x2F;&quot;&gt;How to Design Programs&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.cleveralgorithms.com&#x2F;&quot;&gt;Clever Algorithms: Nature-Inspired Programming Recipes&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;500607&#x2F;what-are-the-lesser-known-but-cool-data-structures&quot;&gt;Interesting but lesser known data structures&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;graphics.stanford.edu&#x2F;~seander&#x2F;bithacks.html&quot;&gt;Bit twiddling&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.few.vu.nl&#x2F;~dick&#x2F;PTAPG.html&quot;&gt;Parsing Techniques - A Practical Guide&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;chaosinmotion.com&#x2F;blog&#x2F;?p=622&quot;&gt;If you think you’re a Java programmer, just read this&lt;&#x2F;a&gt;.  Please.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;blog.llvm.org&#x2F;2011&#x2F;05&#x2F;what-every-c-programmer-should-know.html&quot;&gt;What every C programmer should know&lt;&#x2F;a&gt;, followed by especially &lt;a href=&quot;https:&#x2F;&#x2F;blog.llvm.org&#x2F;2011&#x2F;05&#x2F;what-every-c-programmer-should-know_14.html&quot;&gt;part 2&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;codekata.com&#x2F;&quot;&gt;Coding Kata&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.plantation-productions.com&#x2F;Webster&#x2F;www.artofasm.com&#x2F;Linux&#x2F;HTML&#x2F;AoATOC.html&quot;&gt;The Art of Assembly Language Programming&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.html5rocks.com&#x2F;en&#x2F;tutorials&#x2F;internals&#x2F;howbrowserswork&#x2F;&quot;&gt;How Browsers Work&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;compilers.iecc.com&#x2F;crenshaw&#x2F;&quot;&gt;Let’s build a compiler!&lt;&#x2F;a&gt; &lt;em&gt;per&lt;&#x2F;em&gt; &lt;a href=&quot;https:&#x2F;&#x2F;prog21.dadgum.com&#x2F;30.html&quot;&gt;https:&#x2F;&#x2F;prog21.dadgum.com&#x2F;30.html&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.smallmemory.com&#x2F;&quot;&gt;Small Memory Software&lt;&#x2F;a&gt; with &lt;a href=&quot;https:&#x2F;&#x2F;www.smallmemory.com&#x2F;book.html&quot;&gt;online PDF copy&lt;&#x2F;a&gt; available&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.moderngpu.com&#x2F;&quot;&gt;Modern GPU&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;fabiensanglard.net&#x2F;quake2&#x2F;index.php&quot;&gt;Quake2 source code review&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.catonmat.net&#x2F;blog&#x2F;worlds-best-introduction-to-sed&#x2F;&quot;&gt;The World’s Best Introduction to &lt;code&gt;sed&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;blog.fogus.me&#x2F;2011&#x2F;10&#x2F;18&#x2F;programming-language-development-the-past-5-years&#x2F;&quot;&gt;Programming language development: the past 5 years&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;doc.cat-v.org&#x2F;bell_labs&#x2F;pikestyle&quot;&gt;Rob Pike’s Notes on Programming in C&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;repository.readscheme.org&#x2F;ftp&#x2F;papers&#x2F;plsemantics&#x2F;textbooks&#x2F;Hennessy-sembookWiley.pdf&quot;&gt;Semantics of Programming Languages&lt;&#x2F;a&gt;, Hennesey (book, out-of-print, online copy)&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;tutorials&quot;&gt;Tutorials&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;learnpythonthehardway.org&#x2F;&quot;&gt;Learn Python the Hard Way&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;learncodethehardway.org&#x2F;&quot;&gt;Learn C the Hard Way&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;regex.learncodethehardway.org&#x2F;book&#x2F;&quot;&gt;Learn Regex the Hard Way&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;qntm.org&#x2F;files&#x2F;perl&#x2F;perl.html&quot;&gt;Learn Perl in about 2 hours 30 minutes&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;cs.union.edu&#x2F;~striegnk&#x2F;learn-prolog-now&#x2F;lpnpage.php?pageid=online&quot;&gt;Learn Prolog Now&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.cs.cmu.edu&#x2F;~dst&#x2F;LispBook&#x2F;index.html&quot;&gt;Common Lisp: A Gentle Introduction to Symbolic Computation&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;learnyouahaskell.com&#x2F;chapters&quot;&gt;Learn You A Haskell for a Great Good&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;learnyousomeerlang.com&#x2F;&quot;&gt;Learn You Some Erlang for Great Good&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;learnpythonthehardway.org&#x2F;&quot;&gt;Learn Python the Hard Way&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;learncodethehardway.org&#x2F;&quot;&gt;Learn C the Hard Way&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;regex.learncodethehardway.org&#x2F;book&#x2F;&quot;&gt;Learn Regex the Hard Way&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;qntm.org&#x2F;files&#x2F;perl&#x2F;perl.html&quot;&gt;Learn Perl in about 2 hours 30 minutes&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;cs.union.edu&#x2F;~striegnk&#x2F;learn-prolog-now&#x2F;lpnpage.php?pageid=online&quot;&gt;Learn Prolog Now&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.cs.cmu.edu&#x2F;~dst&#x2F;LispBook&#x2F;index.html&quot;&gt;Common Lisp: A Gentle Introduction to Symbolic Computation&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;learnyouahaskell.com&#x2F;chapters&quot;&gt;Learn You A Haskell for a Great Good&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;learnyousomeerlang.com&#x2F;&quot;&gt;Learn You Some Erlang for Great Good&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;python&quot;&gt;Python&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;tech.dropbox.com&#x2F;?p=89&quot;&gt;A Python Optimization Anecdote&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;blog.fogus.me&#x2F;2011&#x2F;10&#x2F;18&#x2F;programming-language-development-the-past-5-years&#x2F;&quot;&gt;Programming Language Development: the last 5 years&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;python.net&#x2F;~goodger&#x2F;projects&#x2F;pycon&#x2F;2007&#x2F;idiomatic&#x2F;handout.html&quot;&gt;Code Like a Pythonista: Idiomatic Python&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;excess.org&#x2F;article&#x2F;2011&#x2F;12&#x2F;unfortunate-python&#x2F;&quot;&gt;Unfortunate Python&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.rafekettler.com&#x2F;magicmethods.html&quot;&gt;Python Magic Methods&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;tech.dropbox.com&#x2F;?p=89&quot;&gt;A Python Optimization Anecdote&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;blog.fogus.me&#x2F;2011&#x2F;10&#x2F;18&#x2F;programming-language-development-the-past-5-years&#x2F;&quot;&gt;Programming Language Development: the last 5 years&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;python.net&#x2F;~goodger&#x2F;projects&#x2F;pycon&#x2F;2007&#x2F;idiomatic&#x2F;handout.html&quot;&gt;Code Like a Pythonista: Idiomatic Python&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;excess.org&#x2F;article&#x2F;2011&#x2F;12&#x2F;unfortunate-python&#x2F;&quot;&gt;Unfortunate Python&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.rafekettler.com&#x2F;magicmethods.html&quot;&gt;Python Magic Methods&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;javascript&quot;&gt;JavaScript&lt;&#x2F;h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en&#x2F;JavaScript&#x2F;Guide&quot;&gt;JavaScript Guide&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;eloquentjavascript.net&#x2F;&quot;&gt;Eloquent Javascript&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.keyframesandcode.com&#x2F;resources&#x2F;javascript&#x2F;deconstructed&#x2F;&quot;&gt;JS libs, deconcstructed&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;ofps.oreilly.com&#x2F;titles&#x2F;9781449398583&#x2F;index.html&quot;&gt;Up and Running with Node.js&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;eloquentjavascript.net&#x2F;&quot;&gt;Eloquent Javascript&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.keyframesandcode.com&#x2F;resources&#x2F;javascript&#x2F;deconstructed&#x2F;&quot;&gt;JS libs, deconcstructed&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;ofps.oreilly.com&#x2F;titles&#x2F;9781449398583&#x2F;index.html&quot;&gt;Up and Running with Node.js&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;visionmedia&#x2F;masteringnode&#x2F;&quot;&gt;Mastering Node&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;code.google.com&#x2F;p&#x2F;jslibs&#x2F;wiki&#x2F;JavascriptTips&quot;&gt;JavaScript Language Advanced Tips ‘n’ Tricks&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;addyosmani.com&#x2F;resources&#x2F;essentialjsdesignpatterns&#x2F;book&#x2F;&quot;&gt;Javascript Patterns&lt;&#x2F;a&gt;, mini-book&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;yuiblog.com&#x2F;blog&#x2F;2010&#x2F;02&#x2F;03&#x2F;video-crockonjs-1&#x2F;&quot;&gt;Crockford on Javascript&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.catonmat.net&#x2F;blog&#x2F;announcing-testling&#x2F;&quot;&gt;Automated Cross-browser Javascript Testing&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;autotelicum.github.com&#x2F;Smooth-CoffeeScript&#x2F;SmoothCoffeeScript.html&quot;&gt;Smooth CoffeeScript&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;maxtaco.github.com&#x2F;coffee-script&#x2F;&quot;&gt;Iced CoffeScript&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;bost.ocks.org&#x2F;mike&#x2F;d3&#x2F;workshop&#x2F;&quot;&gt;d3 Tutorial&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;code.google.com&#x2F;p&#x2F;jslibs&#x2F;wiki&#x2F;JavascriptTips&quot;&gt;JavaScript Language Advanced Tips ‘n’ Tricks&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;addyosmani.com&#x2F;resources&#x2F;essentialjsdesignpatterns&#x2F;book&#x2F;&quot;&gt;Javascript Patterns&lt;&#x2F;a&gt;, mini-book&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;yuiblog.com&#x2F;blog&#x2F;2010&#x2F;02&#x2F;03&#x2F;video-crockonjs-1&#x2F;&quot;&gt;Crockford on Javascript&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.catonmat.net&#x2F;blog&#x2F;announcing-testling&#x2F;&quot;&gt;Automated Cross-browser Javascript Testing&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;autotelicum.github.com&#x2F;Smooth-CoffeeScript&#x2F;SmoothCoffeeScript.html&quot;&gt;Smooth CoffeeScript&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;maxtaco.github.com&#x2F;coffee-script&#x2F;&quot;&gt;Iced CoffeScript&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bost.ocks.org&#x2F;mike&#x2F;d3&#x2F;workshop&#x2F;&quot;&gt;d3 Tutorial&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;functional-programming&quot;&gt;Functional Programming&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;tryfs.net&#x2F;&quot;&gt;Try F#&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;book.realworldhaskell.org&#x2F;&quot;&gt;Real World Haskell&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.tryerlang.org&#x2F;&quot;&gt;Try Erlang&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;research.microsoft.com&#x2F;en-us&#x2F;um&#x2F;people&#x2F;simonpj&#x2F;papers&#x2F;slpj-book-1987&#x2F;&quot;&gt;The implementation of functional programming languages&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;scheme.com&#x2F;tspl4&#x2F;&quot;&gt;The Scheme Programming Language&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www-formal.stanford.edu&#x2F;jmc&#x2F;recursive.html&quot;&gt;RECURSIVE FUNCTIONS OF SYMBOLIC EXPRESSIONS AND THEIR COMPUTATION BY MACHINE (Part I)&lt;&#x2F;a&gt; – the original paper on LISP&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;tryfs.net&#x2F;&quot;&gt;Try F#&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;book.realworldhaskell.org&#x2F;&quot;&gt;Real World Haskell&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.tryerlang.org&#x2F;&quot;&gt;Try Erlang&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;research.microsoft.com&#x2F;en-us&#x2F;um&#x2F;people&#x2F;simonpj&#x2F;papers&#x2F;slpj-book-1987&#x2F;&quot;&gt;The implementation of functional programming languages&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;scheme.com&#x2F;tspl4&#x2F;&quot;&gt;The Scheme Programming Language&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www-formal.stanford.edu&#x2F;jmc&#x2F;recursive.html&quot;&gt;RECURSIVE FUNCTIONS OF SYMBOLIC EXPRESSIONS AND THEIR COMPUTATION BY MACHINE (Part I)&lt;&#x2F;a&gt; – the original paper on LISP&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;objective-c&quot;&gt;Objective-C&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.cocoalab.com&#x2F;?q=becomeanxcoder&quot;&gt;Become an XCoder&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.techotopia.com&#x2F;index.php&#x2F;Objective-C_2.0_Essentials&quot;&gt;Objective C 2.0 essentials&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;commons.oreilly.com&#x2F;wiki&#x2F;index.php&#x2F;Learning_Cocoa_with_Objective-C&quot;&gt;Learning Cocoa with Objective-C&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.cocoalab.com&#x2F;?q=becomeanxcoder&quot;&gt;Become an XCoder&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.techotopia.com&#x2F;index.php&#x2F;Objective-C_2.0_Essentials&quot;&gt;Objective C 2.0 essentials&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;commons.oreilly.com&#x2F;wiki&#x2F;index.php&#x2F;Learning_Cocoa_with_Objective-C&quot;&gt;Learning Cocoa with Objective-C&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;developer.apple.com&#x2F;library&#x2F;mac&#x2F;documentation&#x2F;Cocoa&#x2F;Conceptual&#x2F;ProgrammingWithObjectiveC&#x2F;Introduction&#x2F;Introduction.html&quot;&gt;The Objective-C programming language&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.informit.com&#x2F;articles&#x2F;article.aspx?p=1568732&quot;&gt;Objective-C for Java programmers&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;ashfurrow.com&#x2F;2011&#x2F;12&#x2F;learn-how-to-write-ios-apps&#x2F;&quot;&gt;Learn how to write iOS apps&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.informit.com&#x2F;articles&#x2F;article.aspx?p=1568732&quot;&gt;Objective-C for Java programmers&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;ashfurrow.com&#x2F;2011&#x2F;12&#x2F;learn-how-to-write-ios-apps&#x2F;&quot;&gt;Learn how to write iOS apps&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;&#x2F;div&gt;
 &lt;div media:type=&quot;text&#x2F;omd&quot; class=&quot;content&quot; id=&quot;links-mathematics&quot; markdown=&quot;1&quot;&gt;
 &lt;h2 id=&quot;probability-and-statisics&quot;&gt;Probability and Statisics&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.greenteapress.com&#x2F;thinkstats&#x2F;&quot;&gt;Think Stats&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;computervisionmodels.blogspot.com&#x2F;&quot;&gt;Computer Vision Models&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.inference.phy.cam.ac.uk&#x2F;mackay&#x2F;itila&#x2F;&quot;&gt;Information Theory, Inference and Learning Algorithms&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;lesswrong.com&#x2F;lw&#x2F;2b0&#x2F;bayes_theorem_illustrated_my_way&quot;&gt;Bayes’ Theorem, illustrated&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.greenteapress.com&#x2F;thinkstats&#x2F;&quot;&gt;Think Stats&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;computervisionmodels.blogspot.com&#x2F;&quot;&gt;Computer Vision Models&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.inference.phy.cam.ac.uk&#x2F;mackay&#x2F;itila&#x2F;&quot;&gt;Information Theory, Inference and Learning Algorithms&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;lesswrong.com&#x2F;lw&#x2F;2b0&#x2F;bayes_theorem_illustrated_my_way&quot;&gt;Bayes’ Theorem, illustrated&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;machine-learning&quot;&gt;Machine Learning&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;infolab.stanford.edu&#x2F;~ullman&#x2F;pub&#x2F;book.pdf&quot;&gt;Mining of Massive Datasets&lt;&#x2F;a&gt; (book)&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;mldemos.epfl.ch&#x2F;&quot;&gt;ML Demos&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.ml-class.org&#x2F;&quot;&gt;Stanford Machine Learning class&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.cs.cmu.edu&#x2F;~tom&#x2F;10701_sp11&#x2F;lectures.shtml&quot;&gt;CMU Machine Learning class&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.cmpe.boun.edu.tr&#x2F;~ethem&#x2F;i2ml2e&#x2F;index.html&quot;&gt;Introduction to Machine Learning, 2nd ed.&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;infolab.stanford.edu&#x2F;~ullman&#x2F;pub&#x2F;book.pdf&quot;&gt;Mining of Massive Datasets&lt;&#x2F;a&gt; (book)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;mldemos.epfl.ch&#x2F;&quot;&gt;ML Demos&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.ml-class.org&#x2F;&quot;&gt;Stanford Machine Learning class&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.cs.cmu.edu&#x2F;~tom&#x2F;10701_sp11&#x2F;lectures.shtml&quot;&gt;CMU Machine Learning class&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.cmpe.boun.edu.tr&#x2F;~ethem&#x2F;i2ml2e&#x2F;index.html&quot;&gt;Introduction to Machine Learning, 2nd ed.&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;graph-theory&quot;&gt;Graph Theory&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;diestel-graph-theory.com&#x2F;&quot;&gt;Graph Theory&lt;&#x2F;a&gt;, Reinhard Diestel (book)&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.iro.umontreal.ca&#x2F;~hahn&#x2F;IFT3545&#x2F;GTWA.pdf&quot;&gt;Graph Theory with Applications&lt;&#x2F;a&gt;, J.A. Bondy and U.S.R. Murty (book)&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.math.ucsd.edu&#x2F;~fan&#x2F;research&#x2F;revised.html&quot;&gt;Spectral Graph Theory&lt;&#x2F;a&gt;, Fan Chung (book chapters)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;diestel-graph-theory.com&#x2F;&quot;&gt;Graph Theory&lt;&#x2F;a&gt;, Reinhard Diestel (book)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.iro.umontreal.ca&#x2F;~hahn&#x2F;IFT3545&#x2F;GTWA.pdf&quot;&gt;Graph Theory with Applications&lt;&#x2F;a&gt;, J.A. Bondy and U.S.R. Murty (book)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.math.ucsd.edu&#x2F;~fan&#x2F;research&#x2F;revised.html&quot;&gt;Spectral Graph Theory&lt;&#x2F;a&gt;, Fan Chung (book chapters)&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;calculus&quot;&gt;Calculus&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.math.upenn.edu&#x2F;~ghrist&#x2F;FLCT&#x2F;&quot;&gt;funny little calculus text&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.math.upenn.edu&#x2F;~ghrist&#x2F;FLCT&#x2F;&quot;&gt;funny little calculus text&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;&#x2F;div&gt;
 &lt;div media:type=&quot;text&#x2F;omd&quot; class=&quot;content&quot; id=&quot;links-systems&quot; markdown=&quot;1&quot;&gt;
 &lt;h2 id=&quot;networking&quot;&gt;Networking&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.tcpipguide.com&#x2F;free&#x2F;index.htm&quot;&gt;The TCP&#x2F;IP Guide&lt;&#x2F;a&gt;, Charles M. Kozierok&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;blizzard.cs.uwaterloo.ca&#x2F;keshav&#x2F;home&#x2F;Papers&#x2F;data&#x2F;12&#x2F;book.htm&quot;&gt;Mathematical Foundations of Computer Networking&lt;&#x2F;a&gt;, S. Keshav&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;wps.aw.com&#x2F;aw_kurose_network_5&#x2F;111&#x2F;28536&#x2F;7305314.cw&#x2F;index.html&quot;&gt;Applets&lt;&#x2F;a&gt; for &lt;a href=&quot;http:&#x2F;&#x2F;www.aw-bc.com&#x2F;kurose_ross&#x2F;&quot;&gt;Computer Networking: A Top-Down Approach&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.epanorama.net&#x2F;circuits&#x2F;teleinterface.html&quot;&gt;Telephone line audio interface circuits&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;inl.info.ucl.ac.be&#x2F;CNP3&quot;&gt;Computer Networking: Principles, Protocols and Practice&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.cs.ucsb.edu&#x2F;~almeroth&#x2F;conf&#x2F;stats&#x2F;&quot;&gt;Networking Conference Statistics&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;wndw.net&#x2F;&quot;&gt;Wireless Networking in the Developing World, 3rd Edition&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.tcpipguide.com&#x2F;free&#x2F;index.htm&quot;&gt;The TCP&#x2F;IP Guide&lt;&#x2F;a&gt;, Charles M. Kozierok&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;blizzard.cs.uwaterloo.ca&#x2F;keshav&#x2F;home&#x2F;Papers&#x2F;data&#x2F;12&#x2F;book.htm&quot;&gt;Mathematical Foundations of Computer Networking&lt;&#x2F;a&gt;, S. Keshav&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;wps.aw.com&#x2F;aw_kurose_network_5&#x2F;111&#x2F;28536&#x2F;7305314.cw&#x2F;index.html&quot;&gt;Applets&lt;&#x2F;a&gt; for &lt;a href=&quot;https:&#x2F;&#x2F;www.aw-bc.com&#x2F;kurose_ross&#x2F;&quot;&gt;Computer Networking: A Top-Down Approach&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.epanorama.net&#x2F;circuits&#x2F;teleinterface.html&quot;&gt;Telephone line audio interface circuits&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;inl.info.ucl.ac.be&#x2F;CNP3&quot;&gt;Computer Networking: Principles, Protocols and Practice&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.cs.ucsb.edu&#x2F;~almeroth&#x2F;conf&#x2F;stats&#x2F;&quot;&gt;Networking Conference Statistics&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;wndw.net&#x2F;&quot;&gt;Wireless Networking in the Developing World, 3rd Edition&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;operating-systems&quot;&gt;Operating Systems&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;orkinos.cmpe.boun.edu.tr&#x2F;~kosar&#x2F;odd.html&quot;&gt;Odd Comments and Strange Doings in Unix&lt;&#x2F;a&gt;, Dennis Ritchie&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.facebook.com&#x2F;notes&#x2F;facebook-engineering&#x2F;scalable-memory-allocation-using-jemalloc&#x2F;480222803919&quot;&gt;Scalable memory allocation using jemalloc&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;mikeos.sourceforge.net&#x2F;write-your-own-os.html&quot;&gt;Write your own (simple) OS&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.jamesmolloy.co.uk&#x2F;tutorial_html&#x2F;index.html&quot;&gt;Roll your own toy-Unix OS&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;duartes.org&#x2F;gustavo&#x2F;blog&#x2F;category&#x2F;internals&quot;&gt;Gustavo Duarte blog: Internals&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;homepage.ntlworld.com&#x2F;edmund.grimley-evans&#x2F;bcompiler.html&quot;&gt;Bootstrapping a compiler from nothing&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;code.google.com&#x2F;p&#x2F;unix-jun72&#x2F;&quot;&gt;UNIX kernel sources, 1st edition&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;dosmandrivel.blogspot.com&#x2F;&quot;&gt;DOSManDrivel&lt;&#x2F;a&gt;, the blog of Tim Paterson, original author of DOS.&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.forthos.org&#x2F;&quot;&gt;ForthOS&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;lists.kernelnewbies.org&#x2F;pipermail&#x2F;kernelnewbies&#x2F;2011-November&#x2F;003906.html&quot;&gt;How bzImage gets created&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;dtrace.org&#x2F;blogs&#x2F;brendan&#x2F;2011&#x2F;10&#x2F;10&#x2F;top-10-dtrace-scripts-for-mac-os-x&#x2F;&quot;&gt;Top 10 DTrace scripts for OSX&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.ibm.com&#x2F;developerworks&#x2F;aix&#x2F;library&#x2F;au-unixtext&#x2F;index.html&quot;&gt;Introduction to text manipulation on UNIX systems&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;orkinos.cmpe.boun.edu.tr&#x2F;~kosar&#x2F;odd.html&quot;&gt;Odd Comments and Strange Doings in Unix&lt;&#x2F;a&gt;, Dennis Ritchie&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.facebook.com&#x2F;notes&#x2F;facebook-engineering&#x2F;scalable-memory-allocation-using-jemalloc&#x2F;480222803919&quot;&gt;Scalable memory allocation using jemalloc&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;mikeos.sourceforge.net&#x2F;write-your-own-os.html&quot;&gt;Write your own (simple) OS&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.jamesmolloy.co.uk&#x2F;tutorial_html&#x2F;index.html&quot;&gt;Roll your own toy-Unix OS&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;duartes.org&#x2F;gustavo&#x2F;blog&#x2F;category&#x2F;internals&quot;&gt;Gustavo Duarte blog: Internals&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;homepage.ntlworld.com&#x2F;edmund.grimley-evans&#x2F;bcompiler.html&quot;&gt;Bootstrapping a compiler from nothing&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;code.google.com&#x2F;p&#x2F;unix-jun72&#x2F;&quot;&gt;UNIX kernel sources, 1st edition&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;dosmandrivel.blogspot.com&#x2F;&quot;&gt;DOSManDrivel&lt;&#x2F;a&gt;, the blog of Tim Paterson, original author of DOS.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.forthos.org&#x2F;&quot;&gt;ForthOS&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;lists.kernelnewbies.org&#x2F;pipermail&#x2F;kernelnewbies&#x2F;2011-November&#x2F;003906.html&quot;&gt;How bzImage gets created&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;dtrace.org&#x2F;blogs&#x2F;brendan&#x2F;2011&#x2F;10&#x2F;10&#x2F;top-10-dtrace-scripts-for-mac-os-x&#x2F;&quot;&gt;Top 10 DTrace scripts for OSX&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.ibm.com&#x2F;developerworks&#x2F;aix&#x2F;library&#x2F;au-unixtext&#x2F;index.html&quot;&gt;Introduction to text manipulation on UNIX systems&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;performance&quot;&gt;Performance&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.cs.washington.edu&#x2F;homes&#x2F;lazowska&#x2F;qsp&#x2F;&quot;&gt;Quantitative System Performance&lt;&#x2F;a&gt; (book)&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;doi.acm.org&#x2F;10.1145&#x2F;800200.806196&quot;&gt;Fundamental laws of computer system performance&lt;&#x2F;a&gt; (paper)&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;highscalability.com&#x2F;numbers-everyone-should-know&quot;&gt;Numbers Everyone Should Know&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.cs.washington.edu&#x2F;homes&#x2F;lazowska&#x2F;qsp&#x2F;&quot;&gt;Quantitative System Performance&lt;&#x2F;a&gt; (book)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;doi.acm.org&#x2F;10.1145&#x2F;800200.806196&quot;&gt;Fundamental laws of computer system performance&lt;&#x2F;a&gt; (paper)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;highscalability.com&#x2F;numbers-everyone-should-know&quot;&gt;Numbers Everyone Should Know&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;hardware&quot;&gt;Hardware&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;jeelabs.net&#x2F;projects&#x2F;cafe&#x2F;wiki&#x2F;Easy_Electrons&quot;&gt;Easy electrons&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;lcamtuf.coredump.cx&#x2F;electronics&#x2F;&quot;&gt;Concise electronics for geeks&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;research.swtch.com&#x2F;2011&#x2F;01&#x2F;mos-6502-and-best-layout-guy-in-world.html&quot;&gt;The MOS 6502 and the Best Layout Guy in the World&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.lighterra.com&#x2F;papers&#x2F;modernmicroprocessors&#x2F;&quot;&gt;Modern micro-processors&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;jeelabs.net&#x2F;projects&#x2F;cafe&#x2F;wiki&#x2F;Easy_Electrons&quot;&gt;Easy electrons&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;lcamtuf.coredump.cx&#x2F;electronics&#x2F;&quot;&gt;Concise electronics for geeks&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;research.swtch.com&#x2F;2011&#x2F;01&#x2F;mos-6502-and-best-layout-guy-in-world.html&quot;&gt;The MOS 6502 and the Best Layout Guy in the World&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.lighterra.com&#x2F;papers&#x2F;modernmicroprocessors&#x2F;&quot;&gt;Modern micro-processors&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;databases&quot;&gt;Databases&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;nlp.stanford.edu&#x2F;IR-book&#x2F;&quot;&gt;Introduction to Information Retrieval&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;i.stanford.edu&#x2F;~ullman&#x2F;mmds.html&quot;&gt;Mining of Massive Datasets&lt;&#x2F;a&gt; (book)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;nlp.stanford.edu&#x2F;IR-book&#x2F;&quot;&gt;Introduction to Information Retrieval&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;i.stanford.edu&#x2F;~ullman&#x2F;mmds.html&quot;&gt;Mining of Massive Datasets&lt;&#x2F;a&gt; (book)&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;&#x2F;div&gt;
 &lt;&#x2F;div&gt;
 &lt;!--
 Additions:
 
-http:&#x2F;&#x2F;cb.vu&#x2F;unixtoolbox.xhtml
+https:&#x2F;&#x2F;cb.vu&#x2F;unixtoolbox.xhtml
 
-http:&#x2F;&#x2F;www.howacarworks.com&#x2F;
+https:&#x2F;&#x2F;www.howacarworks.com&#x2F;
 
-http:&#x2F;&#x2F;wiki.osdev.org&#x2F;Bare_Bones
+https:&#x2F;&#x2F;wiki.osdev.org&#x2F;Bare_Bones
 
-http:&#x2F;&#x2F;eagain.net&#x2F;articles&#x2F;git-for-computer-scientists&#x2F;
+https:&#x2F;&#x2F;eagain.net&#x2F;articles&#x2F;git-for-computer-scientists&#x2F;
 --&gt;
 </content>
         
