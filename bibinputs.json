@@ -1,0 +1,21 @@
+{
+    "bibdir": "/home/mort/u/me/publications",
+    "strings": "/home/mort/u/me/publications/strings.bib",
+    "homepages": "homepages.json",
+    "sections": {
+        "Peer-reviewed journal papers": [
+            "rmm-journal.bib"
+        ],
+        "Peer-reviewed conference papers": [
+            "rmm-conference.bib"
+        ],
+        "Peer-reviewed workshop papers": [
+            "rmm-workshop.bib"
+        ],
+        "Technical reports, editorials, book chapters, patents, etc.": [
+            "rmm-techreport.bib",
+            "rmm-patent.bib",
+            "rmm-unpublished.bib"
+        ]
+    }
+}
