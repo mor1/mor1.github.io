@@ -1,3 +1,21 @@
-/******************************************************************************
- *   Extra - Put your extra SASS/CSS here, it will get bundled with abridge.css
- *****************************************************************************/
+section.papers {
+    padding-left: 0;
+    color: var(--f2);
+    margin: var(--s2) 0 var(--s1);
+    font-weight: var(--fh);
+    font-size: var(--fs);
+    line-height: var(--lhh);
+    font-size: 1.5rem;
+}
+
+ol.papers {
+    li.paper {
+        span.venue {
+            font-style: italic;
+        }
+
+        span.author.highlight>a {
+            font-weight: bold;
+        }
+    }
+}
