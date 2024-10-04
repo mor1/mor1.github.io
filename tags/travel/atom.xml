@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>mort’s mythopœia - travel</title>
+    <subtitle>with apologies</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://mort.io/tags/travel/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://mort.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2016-11-04T00:00:00+00:00</updated>
+    <id>https://mort.io/tags/travel/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Rat Racing Jetlag</title>
+        <published>2016-11-04T00:00:00+00:00</published>
+        <updated>2016-11-04T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/jetlag-fasting/"/>
+        <id>https://mort.io/blog/jetlag-fasting/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/jetlag-fasting/">&lt;p&gt;As I’ve found myself repeating the same information several times recently, and
+have to dig out the links in question every time, I figured it’d be useful to
+write this down once so I can point at it.&lt;&#x2F;p&gt;
+&lt;p&gt;Jetlag is a first-world problem but can be an annoying one– in recent years
+I’ve found I have a particular problem getting up in the morning when flying
+east. So, one day, bored in an airport in the US and with only the entire
+Internet to hand, I thought I’d look around for an explanation at least.&lt;&#x2F;p&gt;
+&lt;p&gt;I ended up coming across reports of some physiological research – in rats of
+course – that suggested a way to avoid jetlag. I’ve since tried it over a dozen
+times, and found it to work in all cases. At this point I no longer care if it’s
+placebo affect or a genuine explanation or something else :)&lt;&#x2F;p&gt;
+&lt;p&gt;The TL;DR is: fast for &amp;gt;16 hours before your time of arrival, then eat as
+appropriate. Definitely &amp;gt;16 hours though – the occasions I’ve not quite managed
+it (at least once I miscounted and managed only about 14 hours) it didn’t seem
+to work as effectively.&lt;&#x2F;p&gt;
+&lt;p&gt;As I interpret the information in the
+&lt;a href=&quot;https:&#x2F;&#x2F;dx.doi.org&#x2F;10.1126&#x2F;science.1153277&quot;&gt;article&lt;&#x2F;a&gt;, found via
+&lt;a href=&quot;http:&#x2F;&#x2F;news.bbc.co.uk&#x2F;2&#x2F;hi&#x2F;health&#x2F;7414437.stm&quot;&gt;BBC&lt;&#x2F;a&gt; and
+&lt;a href=&quot;http:&#x2F;&#x2F;news.harvard.edu&#x2F;gazette&#x2F;story&#x2F;2008&#x2F;05&#x2F;study-identifies-food-related-clock-in-the-brain&#x2F;&quot;&gt;Harvard&lt;&#x2F;a&gt;
+reports, through my “I can barely do computer science and certainly not biology”
+brain, mammals have two body clocks, one driven by daylight and one by
+metabolism. The daylight can’t be shifted quickly, but the metabolic one can be
+made to float by fasting. The metabolic also being a lower level clock means
+that, when you resync it by consuming calories, it syncs back to whatever light
+conditions are current.&lt;&#x2F;p&gt;
+&lt;p&gt;As I say, this isn’t my area of expertise – but it seems to work anyway.&lt;&#x2F;p&gt;
+&lt;p&gt;Also, because a surprisingly large (or perhaps not) number of people also ask–
+as far as I know and have experienced, fasting means &lt;strong&gt;no&lt;&#x2F;strong&gt; calories,
+&lt;strong&gt;including alcohol&lt;&#x2F;strong&gt;, even it it’s free… :)&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
