@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>mort’s mythopœia - dev</title>
+      <link>https://mort.io</link>
+      <description>with apologies</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mort.io/tags/dev/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Sun, 26 Feb 2023 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>OCaml operators</title>
+          <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mort.io/blog/ocaml-operators/</link>
+          <guid>https://mort.io/blog/ocaml-operators/</guid>
+          <description xml:base="https://mort.io/blog/ocaml-operators/">&lt;p&gt;An &lt;a href=&quot;https:&#x2F;&#x2F;www.brendanlong.com&#x2F;ocaml-operator-cheatsheet.html&quot;&gt;OCaml operator
+cheatsheet&lt;&#x2F;a&gt; for
+&lt;a href=&quot;https:&#x2F;&#x2F;ocaml.org&#x2F;&quot;&gt;OCaml&lt;&#x2F;a&gt; operators that I have found useful.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Software folklore</title>
+          <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mort.io/blog/software-folklore/</link>
+          <guid>https://mort.io/blog/software-folklore/</guid>
+          <description xml:base="https://mort.io/blog/software-folklore/">&lt;p&gt;Truly cursed bugs that have become &lt;a href=&quot;http:&#x2F;&#x2F;beza1e1.tuxen.de&#x2F;lore&#x2F;&quot;&gt;software
+folklore&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Data visualisation links</title>
+          <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mort.io/blog/dataviz/</link>
+          <guid>https://mort.io/blog/dataviz/</guid>
+          <description xml:base="https://mort.io/blog/dataviz/">&lt;p&gt;Some possibly useful data visualisation links:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;medium.economist.com&#x2F;why-you-sometimes-need-to-break-the-rules-in-data-viz-4d8ece284919&quot;&gt;https:&#x2F;&#x2F;medium.economist.com&#x2F;why-you-sometimes-need-to-break-the-rules-in-data-viz-4d8ece284919&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;colororacle.org&#x2F;&quot;&gt;https:&#x2F;&#x2F;colororacle.org&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</description>
+      </item>
+      <item>
+          <title>Falsehoods</title>
+          <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mort.io/blog/falsehoods/</link>
+          <guid>https://mort.io/blog/falsehoods/</guid>
+          <description xml:base="https://mort.io/blog/falsehoods/">&lt;p&gt;Being a list of some cool “Falsehoods programmers believe about …” sites, now
+redundant thanks to &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kdeldycke&#x2F;awesome-falsehood&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;kdeldycke&#x2F;awesome-falsehood&lt;&#x2F;a&gt;:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;infiniteundo.com&#x2F;post&#x2F;25326999628&#x2F;falsehoods-programmers-believe-about-time&quot;&gt;…time&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;infiniteundo.com&#x2F;post&#x2F;25509354022&#x2F;more-falsehoods-programmers-believe-about-time&quot;&gt;…time, more&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.kalzumeus.com&#x2F;2010&#x2F;06&#x2F;17&#x2F;falsehoods-programmers-believe-about-names&#x2F;&quot;&gt;…names&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.mjt.me.uk&#x2F;posts&#x2F;falsehoods-programmers-believe-about-addresses&#x2F;&quot;&gt;…addresses&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;wiesmann.codiferes.net&#x2F;wordpress&#x2F;?p=15187&amp;amp;lang=en&quot;&gt;…geography&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</description>
+      </item>
+    </channel>
+</rss>
