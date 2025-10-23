@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>mort’s mythopœia - cambridge</title>
+      <link>https://mort.io</link>
+      <description>with apologies</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mort.io/tags/cambridge/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Sat, 18 Oct 2025 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Sabbatical Diary: Week 2</title>
+          <pubDate>Sat, 18 Oct 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w2/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w2/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w2/">&lt;p&gt;As predicted, this week was some Emacs configuration polishing interspersed with
+some writing using &lt;a href=&quot;https:&#x2F;&#x2F;typst.app&#x2F;&quot;&gt;&lt;code&gt;typst&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;. I quite like &lt;code&gt;typst&lt;&#x2F;code&gt; I think
+– it seems pretty capable, it’s pretty sensible, and it’s certainly easier to
+read than LaTeX. And there’s even &lt;a href=&quot;https:&#x2F;&#x2F;imaginarytext.ca&#x2F;posts&#x2F;2024&#x2F;pandoc-typst-tutorial&#x2F;&quot;&gt;runes
+available&lt;&#x2F;a&gt; to invoke
+&lt;a href=&quot;https:&#x2F;&#x2F;pandoc.org&#x2F;&quot;&gt;&lt;code&gt;pandoc&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; to allow production of body text in Markdown, to
+be rendered using &lt;code&gt;typst&lt;&#x2F;code&gt; as the backend. The piece of writing in question
+didn’t go as fast as I wanted, but it did start in earnest. Which is, at least,
+a start :)&lt;&#x2F;p&gt;
+&lt;p&gt;First cut at configuration polishing is also now done I think – now into
+tweaking and refining as the different packages actually get used. Probably the
+biggest improvement noticed so far is the use of
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;minad&#x2F;jinx&quot;&gt;&lt;code&gt;jinx&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; the “enchanted spell checker” which does
+seem considerably better than the various &lt;code&gt;ispell&lt;&#x2F;code&gt;&#x2F;&lt;code&gt;hunspell&lt;&#x2F;code&gt; incantation
+packages I’ve historically used:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;lisp&quot; class=&quot;language-lisp z-code&quot;&gt;&lt;code class=&quot;language-lisp&quot; data-lang=&quot;lisp&quot;&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-support z-function z-lisp&quot;&gt;use-package&lt;&#x2F;span&gt; jinx
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;  :diminish jinx&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;mode
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;  :hook &lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;emacs&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;startup . global&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;jinx&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;mode&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;  :bind &lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-string z-quoted z-double z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-lisp&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;C-;&lt;span class=&quot;z-punctuation z-definition z-string z-end z-lisp&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; . jinx&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;correct&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-string z-quoted z-double z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-lisp&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;C-M-$&lt;span class=&quot;z-punctuation z-definition z-string z-end z-lisp&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; . jinx&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;languages&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;  :config
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;  &lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;vertico&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;multiform&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;mode&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;  &lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;add&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-control z-lisp&quot;&gt;to&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;&lt;span class=&quot;z-support z-function z-lisp&quot;&gt;list&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;   &amp;#39;vertico&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;multiform&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;categories
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;   &amp;#39;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;jinx grid &lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;vertico&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;grid&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;annotate . &lt;span class=&quot;z-constant z-numeric z-lisp&quot;&gt;20&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;vertico&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;&lt;span class=&quot;z-support z-function z-lisp&quot;&gt;count&lt;&#x2F;span&gt; . &lt;span class=&quot;z-constant z-numeric z-lisp&quot;&gt;4&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The &lt;code&gt;:config&lt;&#x2F;code&gt; block integrates it with the
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;minad&#x2F;vertico&quot;&gt;&lt;code&gt;vertico&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; vertical completion system that
+I’ve recently started using; simply remove if you don’t use that. This did also
+require the NixOS package to be installed already:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;nix&quot; class=&quot;language-nix z-code&quot;&gt;&lt;code class=&quot;language-nix&quot; data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;z-source z-nix&quot;&gt;  &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;programs&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;emacs&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;extraPackages&lt;&#x2F;span&gt; &lt;span class=&quot;z-invalid z-illegal&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-function z-4 z-nix&quot;&gt;epkgs&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-function z-nix&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-nix&quot;&gt;with&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;epkgs&lt;&#x2F;span&gt;; &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-list z-nix&quot;&gt;[&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;jinx&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-list z-nix&quot;&gt;]&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-invalid z-illegal&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The biggest visible change though was finally getting an auto-formatter for my
+elisp code, specifically
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-emacs&#x2F;blob&#x2F;main&#x2F;init.el&quot;&gt;&lt;code&gt;init.el&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; configured:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;lisp&quot; class=&quot;language-lisp z-code&quot;&gt;&lt;code class=&quot;language-lisp&quot; data-lang=&quot;lisp&quot;&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-support z-function z-lisp&quot;&gt;use-package&lt;&#x2F;span&gt; elisp&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;autofmt
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;  :commands &lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;elisp&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;autofmt&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;mode elisp&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;autofmt&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;buffer&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;  :hook &lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;emacs&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;lisp&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;mode . elisp&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;autofmt&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;mode&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Ensuring it is applied to &lt;code&gt;init.el&lt;&#x2F;code&gt; simply required adding the (currently empty,
+might become configuration in future apparently) flag file
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-emacs&#x2F;blob&#x2F;main&#x2F;.elisp-autofmt&quot;&gt;&lt;code&gt;.elisp-autofmt&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; to
+my &lt;code&gt;~&#x2F;.emacs.d&#x2F;&lt;&#x2F;code&gt;, and adding the following trailer to my
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-emacs&#x2F;blob&#x2F;f06fc8fb9c280e11a8ddd8548ad245c8eba71484&#x2F;init.el#L1349-L1351&quot;&gt;&lt;code&gt;init.el&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;lisp&quot; class=&quot;language-lisp z-code&quot;&gt;&lt;code class=&quot;language-lisp&quot; data-lang=&quot;lisp&quot;&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-comment z-line z-semicolon z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-lisp&quot;&gt;;&lt;&#x2F;span&gt;; Local variables:
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-comment z-line z-semicolon z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-lisp&quot;&gt;;&lt;&#x2F;span&gt;; elisp-autofmt-load-packages-local: (&amp;quot;use-package&amp;quot; &amp;quot;use-package-core&amp;quot;)
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-comment z-line z-semicolon z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-lisp&quot;&gt;;&lt;&#x2F;span&gt;; end:
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The other big change has been moving to &lt;code&gt;tree-sitter&lt;&#x2F;code&gt; and &lt;code&gt;eglot&lt;&#x2F;code&gt; for language
+support, but that’ll be a longer post so more on that later.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Sabbatical Diary: Weeks 0 &amp; 1</title>
+          <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w1/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w1/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w1/">&lt;p&gt;Well, the sabbatical began. Your protagonist set off with a song in his heart
+and the freedom to roam. And all that.&lt;&#x2F;p&gt;
+&lt;p&gt;So what did I do? Well, initially I spent some time finishing up the handful of
+things I hadn’t managed to do before 1 October came along. Tedious but probably
+inevitable. If I forgot something you were waiting for, sorry – you may need to
+remind me…!&lt;&#x2F;p&gt;
+&lt;p&gt;I then finally gave up on trying out new &lt;a href=&quot;https:&#x2F;&#x2F;vscodium.com&#x2F;&quot;&gt;ed&lt;&#x2F;a&gt;&lt;a href=&quot;https:&#x2F;&#x2F;zed.dev&#x2F;&quot;&gt;it&lt;&#x2F;a&gt;&lt;a href=&quot;https:&#x2F;&#x2F;lap.dev&#x2F;lapce&#x2F;&quot;&gt;or&lt;&#x2F;a&gt;s – I
+suspect the problem was largely me not them to be honest – and spent some
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-emacs&quot;&gt;updating my emacs configuration&lt;&#x2F;a&gt; because
+giving one’s tools a clean and polish occasionally seems a worthwhile thing plus
+it eased me into a life of not attending committee meetings. Having done that
+for a while, I rewarded myself by finishing off &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;bibtox&quot;&gt;a little bit of Python code I
+have called &lt;code&gt;bibtox&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; for processing my &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;publications&quot;&gt;BibTeX
+files&lt;&#x2F;a&gt; so I can keep them well-formatted
+as well as produce HTML output for &lt;a href=&quot;&#x2F;research&#x2F;&quot;&gt;this website&lt;&#x2F;a&gt;. And I finally got
+&lt;a href=&quot;https:&#x2F;&#x2F;typst.app&#x2F;&quot;&gt;&lt;code&gt;typst&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; installed, began to learn how to use it at least a little bit,
+and started writing. I also spent a few days travelling connected to some external work.&lt;&#x2F;p&gt;
+&lt;p&gt;So– perhaps not the most spectacularly interesting first week. But I made a
+start. So there’s that. The plan for week 2 is to finish polishing my configuration and probably blog about at least some of the updates – emacs has moved on since I last looked – and then do some writing in earnest. Let’s see how I get on :)&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>All Change!</title>
+          <pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/all-change/</link>
+          <guid>https://mort.io/blog/all-change/</guid>
+          <description xml:base="https://mort.io/blog/all-change/">&lt;p&gt;New (academic) year, new responsibilities. Or more precisely, far fewer
+responsibilities :)&lt;&#x2F;p&gt;
+&lt;p&gt;I’m on sabbatical for this academic year&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; and, as a result, have been
+required to give up almost all the various roles I’ve had over the past few
+years. I keep being – or perhaps more precisely, revert to being – a
+professor, of course, I’ll remain a Fellow of Christ’s College, and I’m allowed
+to remain on the University Council.&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#2&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; I’ll also retain external roles, like
+my &lt;a href=&quot;https:&#x2F;&#x2F;www.ipco.org.uk&#x2F;&quot;&gt;IPCO&lt;&#x2F;a&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.ipco.org.uk&#x2F;who-we-are&#x2F;technology-advisory-panel&#x2F;&quot;&gt;TAP&lt;&#x2F;a&gt; membership.&lt;&#x2F;p&gt;
+&lt;p&gt;However, &lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;univ&#x2F;so&#x2F;&quot;&gt;University rules&lt;&#x2F;a&gt; mean that I
+have to give up all teaching, admin and College Officer roles – everything
+that’s not research basically. I’m allowed to supervise Ph.D. students and
+remain on University Council, and that’s pretty much it.&lt;&#x2F;p&gt;
+&lt;p&gt;So I’m not planning to supervise any Part II&#x2F;Part III&#x2F;M.Phil. projects, I won’t
+be lecturing, Directing Studies, or supervising. Whatever will I do with
+myself… Well, more on that later perhaps – I do have ideas if not yet actual
+plans :)&lt;&#x2F;p&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;1&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
+&lt;p&gt;I did notice one stupidity in the rules around sabbatical in the course of
+applying for this one. I had always assumed sabbatical leave accrued at one
+term in every seven (it does, cf. the sabbath), and that you could never
+accrue more than one year (~ three terms) leave. But it turns out that’s not
+quite correct – the actual rule is that &lt;em&gt;reckonable terms&lt;&#x2F;em&gt; (those that
+count toward sabbatical leave – so six reckonable terms gets you one term
+of sabbatical leave) expire after six years. In my case I hit an edge case
+as a result of having taken two terms sabbatical leave back in 2021 (Lent
+and Easter terms 2021 to be precise). During periods of sabbatical leave,
+the clock keeps ticking to expire reckonable terms already accrued. The
+result was that when I came to apply for this year’s sabbatical leave, I was
+actually two reckonable terms short – they’d fallen off the end due to the
+expiry clock not stopping while I was on leave in 2021. Fortunately, while
+HR wanted me to ask my Faculty to “mortgage” two future reckonable terms,
+there was another route: the Faculty Board can just declare that they’re
+going to count the expired terms anyway. And, happily, they did.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;2&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;2&lt;&#x2F;sup&gt;
+&lt;p&gt;I also remain a member of most of the various committees of Council that
+I’m on, though I’m exempted from attending meetings. By which it turns out
+is meant &lt;em&gt;forbidden&lt;&#x2F;em&gt; from attending meetings.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+</description>
+      </item>
+      <item>
+          <title>Orating honours</title>
+          <pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/orating-honors/</link>
+          <guid>https://mort.io/blog/orating-honors/</guid>
+          <description xml:base="https://mort.io/blog/orating-honors/">&lt;p&gt;This is a bit of a niche one but – here in &lt;a href=&quot;https:&#x2F;&#x2F;www.cam.ac.uk&#x2F;&quot;&gt;Cambridge&lt;&#x2F;a&gt;
+we have a number of quaint &#x2F; historic &#x2F; weird &#x2F; cool (take your pick)
+traditions. One that I think is at the quite cool end is that, when we award
+honorary degrees, the &lt;a href=&quot;https:&#x2F;&#x2F;glossary.lib.cam.ac.uk&#x2F;term&#x2F;orator&quot;&gt;University
+Orator&lt;&#x2F;a&gt; writes and delivers an
+oration introducing the honorand and explaining why they’re getting the degree.
+In Latin. And, occasionally, also with fragments in Greek and Sindarin.&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#elvish&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;
+And when I say “delivers”, I really mean “performs” based on what I saw when in
+the audience for the honorary degree ceremony this year for the first time.&lt;&#x2F;p&gt;
+&lt;p&gt;Happily, as we’re not totally behind the times, English translations are also
+provided, in &lt;a href=&quot;https:&#x2F;&#x2F;www.reporter.admin.cam.ac.uk&#x2F;&quot;&gt;the Reporter&lt;&#x2F;a&gt; naturally.
+And I decided to take a look back through some as I thought some of the ones I
+saw this year were pretty good. And as it was a slow Sunday afternoon, I went
+back as far as the online Reporter allowed. And here are the results – a list
+of links to all of the oration texts that are online, with some honorands called
+out where I thought they were particularly cool or interesting or
+moving,&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#moving&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; or I’d heard of the recipient.&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#culture&quot;&gt;3&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Enjoy?&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Year&lt;&#x2F;th&gt;&lt;th&gt;Honorands&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2024-25&#x2F;weekly&#x2F;6791&#x2F;section7.shtml#heading2-12&quot;&gt;2025&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Stormzy&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2023-24&#x2F;weekly&#x2F;6747&#x2F;section4.shtml#heading2-9&quot;&gt;2024&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Kip Thorne&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2022-23&#x2F;weekly&#x2F;6706&#x2F;6706.pdf#page=22&quot;&gt;2023&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2021-22&#x2F;weekly&#x2F;6664&#x2F;6664.pdf#page=17&quot;&gt;2022&lt;&#x2F;a&gt;&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#absentia&quot;&gt;4&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;td&gt;&lt;td&gt;Roger Penrose • Simon Schama&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020&lt;&#x2F;td&gt;&lt;td&gt;no ceremony due to the COVID-19 pandemic so none conferred&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2018-19&#x2F;weekly&#x2F;6553&#x2F;section5.shtml#heading2-14&quot;&gt;2019&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Doreen Lawrence • Jane Goodall&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2017-18&#x2F;weekly&#x2F;6512&#x2F;section7.shtml#heading2-16&quot;&gt;2018&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Borys • Michael Edwards&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2016-17&#x2F;weekly&#x2F;6471&#x2F;section8.shtml#heading2-22&quot;&gt;2017&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Stephanie Shirley • Sophie Wilson • Manuel Castells&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2015-16&#x2F;weekly&#x2F;6431&#x2F;section9.shtml#heading2-48&quot;&gt;2016&lt;&#x2F;a&gt; [&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2015-16&#x2F;weekly&#x2F;6431&#x2F;6431-CambridgeHonoraryDegrees-2016.pdf&quot;&gt;pdf&lt;&#x2F;a&gt;]&lt;&#x2F;td&gt;&lt;td&gt;Keith Peters • Jonny Ive&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2014-15&#x2F;weekly&#x2F;6392&#x2F;section7.shtml#heading2-23&quot;&gt;2015&lt;&#x2F;a&gt; [&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2014-15&#x2F;weekly&#x2F;6392&#x2F;6392-CambridgeHonoraryDegrees-2015.pdf&quot;&gt;pdf&lt;&#x2F;a&gt;]&lt;&#x2F;td&gt;&lt;td&gt;Julia Neuberger • Neil Macgregor&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2013-14&#x2F;weekly&#x2F;6353&#x2F;section6.shtml#heading2-18&quot;&gt;2014&lt;&#x2F;a&gt; [&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2013-14&#x2F;weekly&#x2F;6353&#x2F;6353-Honorary-Degrees-June2014.pdf&quot;&gt;pdf&lt;&#x2F;a&gt;]&lt;&#x2F;td&gt;&lt;td&gt;Albie Sachs • Yusuf Hamied • Martin Rees • Ian Mckellan&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2012-13&#x2F;weekly&#x2F;6315&#x2F;Cambridge_Honorary_Degree_Congregation_2013.pdf&quot;&gt;2013&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Hilary Mantel&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2011-12&#x2F;weekly&#x2F;6273&#x2F;hon_degrees_2012.pdf&quot;&gt;2012&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Peter Higgs • Alfred Brendel&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2010-11&#x2F;weekly&#x2F;6231&#x2F;hon_degs_2011.pdf&quot;&gt;2011&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2009-10&#x2F;weekly&#x2F;6195&#x2F;section12.shtml#heading2-49&quot;&gt;2010&lt;&#x2F;a&gt; [&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2009-10&#x2F;weekly&#x2F;6195&#x2F;honorary_degrees.pdf&quot;&gt;pdf&lt;&#x2F;a&gt;]&lt;&#x2F;td&gt;&lt;td&gt;Andrew Wiles • Evelyn Glennie&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2008-09&#x2F;weekly&#x2F;6156&#x2F;25.html&quot;&gt;2009&lt;&#x2F;a&gt; [&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2008-09&#x2F;weekly&#x2F;6156&#x2F;acta.pdf&quot;&gt;pdf&lt;&#x2F;a&gt;]&lt;&#x2F;td&gt;&lt;td&gt;The Aga Khan • Melinda Gates • Bill Gates • Shirley Williams • William Broecker [ global warming ] • Amartya Sen&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2007-08&#x2F;weekly&#x2F;6117&#x2F;29.html&quot;&gt;2008&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;John Sentamu&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2006-07&#x2F;weekly&#x2F;6080&#x2F;20.html&quot;&gt;2007&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Hans Blix • Ann Cotton • Onora O’Neill • Nicholas Stern&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2005-06&#x2F;weekly&#x2F;6043&#x2F;26.html&quot;&gt;2006&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2004-05&#x2F;weekly&#x2F;6006&#x2F;23.html&quot;&gt;2005&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2003-04&#x2F;weekly&#x2F;5968&#x2F;34.html&quot;&gt;2004&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Robert Horvitz • Quentin Blake • John Dankworth • Cleo Laine&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2002-03&#x2F;weekly&#x2F;5930&#x2F;28.html&quot;&gt;2003&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Alan Macdiarmid • John Sulston • John Adams&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2001-02&#x2F;weekly&#x2F;5891&#x2F;15.html&quot;&gt;2002&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2000-01&#x2F;weekly&#x2F;5851&#x2F;45.html&quot;&gt;2001&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Sydney Brenner • Mamphela Ramphele • Margaret Atwood&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;1999-2000&#x2F;weekly&#x2F;5817&#x2F;17.html&quot;&gt;2000&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;1998-99&#x2F;weekly&#x2F;5781&#x2F;25.html&quot;&gt;1999&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Desmond Tutu • Gordon Moore • Miriam Rothschild&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;1997-98&#x2F;weekly&#x2F;5744&#x2F;4.html&quot;&gt;1998&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Aung San Suu Kyi (in absentia!) • Barbara Castle • Helmut Kohl • Aaron Klug&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;…and there, sadly, the Reporter online record ends.&lt;&#x2F;p&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;elvish&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
+&lt;p&gt;Elvish to those not well versed in Tolkien. I once posted to
+&lt;code&gt;rec.arts.sf.tolkien&lt;&#x2F;code&gt;. Just saying.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;moving&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;2&lt;&#x2F;sup&gt;
+&lt;p&gt;Seriously. See, for example, those for &lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2018-19&#x2F;weekly&#x2F;6553&#x2F;section5.shtml#heading2-14&quot;&gt;Doreen
+Lawrence&lt;&#x2F;a&gt;
+or &lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2013-14&#x2F;weekly&#x2F;6353&#x2F;6353-Honorary-Degrees-June2014.pdf&quot;&gt;Yusuf
+Hamied&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;culture&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;3&lt;&#x2F;sup&gt;
+&lt;p&gt;I am not particularly well-versed in culture, being mostly a geek of
+sorts. Whatevs.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;absentia&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;4&lt;&#x2F;sup&gt;
+&lt;p&gt;Included celebration of those conferred in absentia in 2021 due to
+COVID-19.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+</description>
+      </item>
+      <item>
+          <title>Coping and Capping</title>
+          <pubDate>Tue, 08 Apr 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/coping-and-capping/</link>
+          <guid>https://mort.io/blog/coping-and-capping/</guid>
+          <description xml:base="https://mort.io/blog/coping-and-capping/">&lt;p&gt;Well that was fun! Quite high up there in the set of things that I never even
+considered I might do would’ve been awarding degrees. But by dint of being
+President and thus standing in for
+&lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Simon_McDonald%2C_Baron_McDonald_of_Salford&quot;&gt;Simon&lt;&#x2F;a&gt;,
+on Saturday I did exactly that.&lt;&#x2F;p&gt;
+ &lt;img src=&quot;coped.jpg&quot; class=&quot;fl pd1&quot; alt=&quot;Me, coped and capped in the superman cape and mortarboard&quot; width=&quot;360&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;p&gt;The University held a Congregation for those being admitted to the &lt;a href=&quot;https:&#x2F;&#x2F;www.cambridgestudents.cam.ac.uk&#x2F;your-course&#x2F;graduation-and-what-next&#x2F;cambridge-ma&quot;&gt;Cambridge
+MA&lt;&#x2F;a&gt;
+(“Magistri in Artibus” – Master of Arts). Degrees are conferred by the
+Chancellor, Vice-Chancellor or nominated deputy. Apparently, typically, for this
+one and the main undergraduate congregation in July, that nominated deputy
+Vice-Chancellor is usually the Head of House for the College concerned. In this
+case, as President at Christ’s is effectively deputy Master (~ Head of House),
+it me.&lt;&#x2F;p&gt;
+&lt;p&gt;So instead of the usual Batman-style black gown, I got to wear the rather natty
+Superman-style &lt;em&gt;cope&lt;&#x2F;em&gt;, hence I was &lt;em&gt;coped&lt;&#x2F;em&gt;. I also got to wear one of the fancy
+hats (“square cap” or mortarboard) for the first time, hence I was also
+&lt;em&gt;capped&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;And as many other officers were also appropriately hatted, and out of respect
+to the role would &lt;em&gt;cap&lt;&#x2F;em&gt; me at many available opportunities, the written advice I
+received was literally that “officers will cap you – you do not have to cap
+back” because the cope makes it difficult to do so.&lt;&#x2F;p&gt;
+&lt;p&gt;So, in brief, it seems I coped with being coped and capped but could not cope
+with capping while coped. To add to the excitement, I also had to Do Some Latin.
+Thankfully it’s a dead language so I assume all it could do was turn in its
+grave while I butchered it.&lt;&#x2F;p&gt;
+&lt;p&gt;I hope everyone had a good time anyway!&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>`nmcli` connection to internal WiFi</title>
+          <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/internalcl-wifi/</link>
+          <guid>https://mort.io/blog/internalcl-wifi/</guid>
+          <description xml:base="https://mort.io/blog/internalcl-wifi/">&lt;p&gt;Using my fancy (?) new(-ish) Linux laptop running &lt;a href=&quot;https:&#x2F;&#x2F;nixos.org&#x2F;&quot;&gt;NixOS&lt;&#x2F;a&gt;, I
+finally had cause to connect to our internal Wi-Fi network. This was not
+entirely trivial due to the various configuration options required. So here
+goes, for the record, what I did as an aide memoir for me and in case it’s
+useful for anyone else…&lt;&#x2F;p&gt;
+&lt;p&gt;First, create the connection – the Wi-Fi network in question is named
+&lt;code&gt;Internal-CL&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;$&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; sudo nmcli connection add type wifi con-name Internal-CL ssid Internal-CL&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;Connection&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; &lt;span class=&quot;z-string z-quoted z-single z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;Internal-CL&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; (8f1ddcc9-4b1f-4e5d-9992-522714685eb4&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;&#x2F;span&gt;) &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;successfully&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; added.&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then, configure it:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;$&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; sudo nmcli connection edit Internal-CL&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-keyword z-operator z-assignment z-shell&quot;&gt;=&lt;&#x2F;span&gt;&lt;span class=&quot;z-string z-unquoted z-shell&quot;&gt;==&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-logical z-pipe z-shell&quot;&gt;|&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;nmcli&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; interactive connection editor&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-logical z-pipe z-shell&quot;&gt;|&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-assignment z-shell&quot;&gt;=&lt;&#x2F;span&gt;&lt;span class=&quot;z-string z-unquoted z-shell&quot;&gt;==&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;Editing&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; existing &lt;span class=&quot;z-string z-quoted z-single z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;802-11-wireless&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; connection: &lt;span class=&quot;z-string z-quoted z-single z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;Internal-CL&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;Type&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; &lt;span class=&quot;z-string z-quoted z-single z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;help&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; or &lt;span class=&quot;z-string z-quoted z-single z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;?&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; for available commands.&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;Type&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; &lt;span class=&quot;z-string z-quoted z-single z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;print&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; to show all the connection properties.&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;Type&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; &lt;span class=&quot;z-string z-quoted z-single z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;describe [&amp;lt;setting&amp;gt;.&amp;lt;prop&amp;gt;]&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; for detailed property description.&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;You&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; may edit the following settings: connection, 802-11-wireless (wifi&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;&#x2F;span&gt;)&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; 802-11-wireless-security (wifi-sec&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;&#x2F;span&gt;)&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; 802-1x, ethtool, match, ipv4, ipv6, hostname, link, tc, proxy&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;nmcli&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; set 802-1x.eap peap&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;nmcli&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; set 802-1x.phase2-auth mschapv2&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;nmcli&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; set 802-1x.identity YOUR-IDENTITY&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;nmcli&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; set 802-1x.password YOUR-PASSWORD&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;nmcli&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; set wifi-sec.key-mgmt wpa-eap&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;nmcli&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; save&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;Connection&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; &lt;span class=&quot;z-string z-quoted z-single z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;Internal-CL&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; (8f1ddcc9-4b1f-4e5d-9992-522714685eb4&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;&#x2F;span&gt;) &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;successfully&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; updated.&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;nmcli&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; activate&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;Monitoring&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; connection activation (press any key to continue&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;&#x2F;span&gt;)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;Connection&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; successfully activated (D-Bus active path: &#x2F;org&#x2F;freedesktop&#x2F;NetworkManager&#x2F;ActiveConnection&#x2F;12&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;&#x2F;span&gt;)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;nmcli&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; quit&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Obviously you will need to provide your own values for &lt;code&gt;YOUR-IDENTITY&lt;&#x2F;code&gt; and
+&lt;code&gt;YOUR-PASSWORD&lt;&#x2F;code&gt; :)&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>PhD viva, UK style</title>
+          <pubDate>Fri, 31 Jan 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/phd-viva/</link>
+          <guid>https://mort.io/blog/phd-viva/</guid>
+          <description xml:base="https://mort.io/blog/phd-viva/">&lt;p&gt;Having recently, happily, had several PhD students completing in short order,
+I’ve been approaching external PhD examiners. Occasionally I find myself asking
+someone who’s not done any &#x2F; many in the UK previously. As our system – as all
+such systems! – is a bit different to those in other parts of the world, I’ve
+written a few notes on a couple of occasions about what to expect. So I figured
+I might as well publish them.&lt;&#x2F;p&gt;
+&lt;p&gt;What follows is my impression &#x2F; understanding based on experience here in the
+&lt;a href=&quot;https:&#x2F;&#x2F;www.cst.cam.ac.uk&#x2F;&quot;&gt;Department of Computer Science &amp;amp; Technology&lt;&#x2F;a&gt;,
+&lt;a href=&quot;https:&#x2F;&#x2F;www.cam.ac.uk&#x2F;&quot;&gt;Cambridge University&lt;&#x2F;a&gt; ca. 2025. Your Mileage May Vary
+anywhen and anywhere else, including anywhere else in the UK – check local
+regulations to be sure.&lt;&#x2F;p&gt;
+&lt;p&gt;In terms of process, the system here is that candidates submit their complete
+dissertation and then undergo a “viva voce” (oral examination). It would be
+usual for the viva to take place within 2—3 months of submission. It’s better
+(IMO, much better) if it can happen in person but we may still be able to
+arrange to do it online in extremis.&lt;&#x2F;p&gt;
+&lt;p&gt;There are two examiners:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;The &lt;em&gt;internal examiner&lt;&#x2F;em&gt; (typically connected to the Department) who ensures
+the process is followed properly but may not be a deep expert in the specific
+topic, and&lt;&#x2F;li&gt;
+&lt;li&gt;The &lt;em&gt;external examiner&lt;&#x2F;em&gt; (from outside the University) who is there as the
+subject matter expert.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;The viva consists of the two examiners asking the candidate questions about
+their dissertation until they’re satisfied; typically this takes at least 2h and
+can go longer, though more than 3.5—4h is unusual in my experience.&lt;&#x2F;p&gt;
+&lt;p&gt;The examiners are each expected to read the dissertation in detail before the
+viva and each write a short (typically 1—2pp) independent report giving their
+opinion, outlining any concerns they will have and the resulting
+topics&#x2F;questions they will be exploring in the viva, and indicating what their a
+priori judgement is in terms of recommendation (roughly: pass&#x2F;pass with
+corrections&#x2F;revise &amp;amp; resubmit&#x2F;no Ph.D. but you can have a Masters&#x2F;fail).&lt;&#x2F;p&gt;
+&lt;p&gt;The examiners will then typically meet ~30min or so before the viva to discuss
+their independent reports and decide on the approach to take in the viva. After
+the viva they write a joint report (usually shorter than their independent
+reports; perhaps 0.5pp) outlining what happened in the viva, as well as making a
+final recommendation and providing (if appropriate) a list of corrections that
+must be satisfied for the candidate to pass.&lt;&#x2F;p&gt;
+&lt;p&gt;Finally, the University pays a (risibly small) honorarium to the external
+examiner for doing the viva plus reasonable expenses.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Local Knowledge</title>
+          <pubDate>Fri, 11 Mar 2016 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/local-knowledge/</link>
+          <guid>https://mort.io/blog/local-knowledge/</guid>
+          <description xml:base="https://mort.io/blog/local-knowledge/">&lt;p&gt;A relatively long hiatus this time – blame the Cambridge housing market and the
+need to simultaneously act both incredibly quickly and mind-numbingly slowly.
+Also obtaining a &lt;a href=&quot;http:&#x2F;&#x2F;www.christs.cam.ac.uk&#x2F;content&#x2F;dr-richard-mortier&quot;&gt;College
+Fellowship&lt;&#x2F;a&gt; and
+experiencing a &lt;a href=&quot;https:&#x2F;&#x2F;blog.docker.com&#x2F;2016&#x2F;01&#x2F;unikernel&#x2F;&quot;&gt;Company Acquisition&lt;&#x2F;a&gt;
+were considerable (interesting, welcome) distractions… :)&lt;&#x2F;p&gt;
+&lt;p&gt;As an interim measure, and because I’ve been asked relatively frequently over
+the last few months, I thought I’d collect some local knowledge^Wopinion,
+garnered over many long hard years of hanging about in both Cambridge and
+Nottingham. What follows should be viewed as indicating nothing more than my
+lack of imagination.&lt;&#x2F;p&gt;
+&lt;p&gt;Both Cambridge and Nottingham are blessed with many fine pubs, as well as
+several truly terrible ones. Less said about the latter the better. But among
+those that I like, and will occasionally drag various people to (including the
+&lt;a href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;research&#x2F;srg&#x2F;&quot;&gt;SRG&lt;&#x2F;a&gt;) are, arranged roughly in
+geographical order from the Computer Lab to the Station:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.theploughcoton.co.uk&#x2F;&quot;&gt;The Plough, Coton&lt;&#x2F;a&gt;. Gastro-pub-ish.
+Frequently changed management over recent years, but currently seems pretty
+consistent and (finally!) is not limited to Greene King beers.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;thecastleinncambridge.com&#x2F;&quot;&gt;The Castle Inn&lt;&#x2F;a&gt;. Major long-standing
+Adnams “proper pub”. Very consistent. Castle Burger and chips please.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.taylor-walker.co.uk&#x2F;pub&#x2F;pickerel-cambridge&#x2F;c3602&#x2F;&quot;&gt;The Pickerel&lt;&#x2F;a&gt;.
+Also largely unchanged in a couple of decades. Good for a pint before entering
+the Greene King desert.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;whatpub.com&#x2F;pubs&#x2F;CAM&#x2F;184&#x2F;st-radegund-cambridge&quot;&gt;The Radegund&lt;&#x2F;a&gt;.
+Tiniest pub I know of. Recently quite radically refurbished. But, while not
+what it was, seems pretty decent nonetheless.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;whatpub.com&#x2F;pubs&#x2F;CAM&#x2F;79&#x2F;free-press-cambridge&quot;&gt;The Free Press&lt;&#x2F;a&gt;. Has
+improved significantly while I was in Nottingham. Very good food and beer.
+Stocks the only actually pleasant Greene King beer
+(&lt;a href=&quot;http:&#x2F;&#x2F;www.ratebeer.com&#x2F;beer&#x2F;greene-king-xx-mild&#x2F;14879&#x2F;&quot;&gt;XX Mild&lt;&#x2F;a&gt;), as well
+as an interesting range of others. Quite small and often packed if it’s too
+cold to sit outside.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.the-cambridgeblue.co.uk&#x2F;&quot;&gt;The Cambridge Blue&lt;&#x2F;a&gt;. Surely one of the
+best pubs for many many miles. Excellent and huge range of beer (and,
+apparently, cider; won’t touch the stuff myself). Good food. Large and with a
+large garden too – rarely a problem finding somewhere to sit during the week.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.kingston-arms.co.uk&#x2F;&quot;&gt;The Kingston Arms&lt;&#x2F;a&gt;. Another excellent pub in
+the station area. Possibly better food than the Blue, potentially slightly
+less wide ranging set of beers (and, certainly, ciders). Also a nice garden,
+though in all respects somewhat smaller than the Blue so prone to being
+absolutely packed. Doesn’t serve lager – a certain German colleague makes do
+with JHB though.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;whatpub.com&#x2F;pubs&#x2F;CAM&#x2F;118&#x2F;live-let-live-cambridge&quot;&gt;The Live and Let Live&lt;&#x2F;a&gt;.
+Yet one more excellent and, though small, often less busy pub near the
+station. No food in the evenings.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.individualpubs.co.uk&#x2F;devonshire&#x2F;&quot;&gt;The Devonshire Arms&lt;&#x2F;a&gt;. Largest
+range of Milton Brewery beers I know of. Food = pizzas I believe (though not,
+last time I tried, as good as those at
+&lt;a href=&quot;http:&#x2F;&#x2F;www.carpentersarmscambridge.co.uk&#x2F;&quot;&gt;The Carpenters Arms&lt;&#x2F;a&gt;).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I don’t get out to the villages as often as I’d like now, but &lt;a href=&quot;http:&#x2F;&#x2F;www.thegreenmangrantchester.co.uk&#x2F;#the-green-man-grantchester&quot;&gt;The Green Man,
+Grantchester&lt;&#x2F;a&gt;,
+&lt;a href=&quot;http:&#x2F;&#x2F;www.bluelionhardwick.co.uk&#x2F;&quot;&gt;The Blue Lion, Hardwick&lt;&#x2F;a&gt; and especially
+&lt;a href=&quot;http:&#x2F;&#x2F;theredlionhiston.co.uk&#x2F;&quot;&gt;The Red Lion, Histon&lt;&#x2F;a&gt; are (or were last time I
+went) all excellent too. The latter is still possibly my favourite pub anywhere
+in fact.&lt;&#x2F;p&gt;
+&lt;p&gt;I only spent a few years in Nottingham, and it’s a Proper City unlike Cambridge,
+so I can’t claim to have tested it thoroughly. However, places I did visit
+fairly regularly in Nottingham, Beeston, and Wollaton that I certainly enjoyed
+include:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.theroundhousenottingham.co.uk&#x2F;&quot;&gt;The Roundhouse&lt;&#x2F;a&gt;. A little pricey
+for Nottingham, but good quality beer and food, nice atmosphere.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.castlerockbrewery.co.uk&#x2F;pubs&#x2F;lincolnshire-poacher&#x2F;&quot;&gt;The Lincolnshire Poacher&lt;&#x2F;a&gt;.
+Very excellent pub. Good whisky range too.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.fellowsmortonandclayton.co.uk&#x2F;&quot;&gt;Fellows, Morton &amp;amp; Clayton&lt;&#x2F;a&gt;.
+Consistently good, proper pub food, about 4 minutes walk from the station
+platforms.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.castlerockbrewery.co.uk&#x2F;pubs&#x2F;vat-and-fiddle&#x2F;&quot;&gt;The Vat &amp;amp; Fiddle&lt;&#x2F;a&gt;.
+Only finally tried more recently. Castle Rock brewery tap. Good food and beer,
+also about 4 minutes walk from your station platform.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.thehandandheart.co.uk&#x2F;&quot;&gt;The Hand &amp;amp; Heart&lt;&#x2F;a&gt;. In a cave! It’s a pub
+in a cave! With excellent beer and good food! And not owned by Greene King!
+(Unlike &lt;a href=&quot;http:&#x2F;&#x2F;triptojerusalem.com&#x2F;&quot;&gt;Ye Olde Trip to Jerusalem&lt;&#x2F;a&gt; which has
+bigger, better caves but markedly less good beer or food.)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.bluemonkeybrewery.com&#x2F;pubs&#x2F;organ-grinder-nottingham&quot;&gt;The Organ Grinder&lt;&#x2F;a&gt;.
+Another fine pub at Canning Circus. Blue Monkey brewery this time – rather
+good. Food limited to (nice!) pork pies and such, but the beer is good.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.nottinghambrewery.co.uk&#x2F;the_plough_inn.html&quot;&gt;The Plough Inn&lt;&#x2F;a&gt;.
+Closest (decent) pub to Jubilee Campus. Nottingham City brewery tap. Excellent
+beer, no food in the evenings, and prices that make me think I’m 15 years
+younger…&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.victoriabeeston.co.uk&#x2F;&quot;&gt;The Victoria Hotel, Beeston&lt;&#x2F;a&gt;. Consistently
+excellent pub. Excellent beer, very good food.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.everards.co.uk&#x2F;our-pubs&#x2F;crown-inn-beeston&#x2F;&quot;&gt;The Crown Inn, Beeston&lt;&#x2F;a&gt;.
+Also consistently excellent beer, though no food in the evenings.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.molefacepubcompany.co.uk&#x2F;the-wollaton-pub-and-kitchen.html&quot;&gt;The Wollaton Pub and Kitchen, Wollaton&lt;&#x2F;a&gt;.
+Gastro-pub-ish. Generally good beer, often excellent but occasionally
+patchy food.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;So there you go. Some opinions if relatively little knowledge. YMMV. Etc.&lt;&#x2F;p&gt;
+&lt;p&gt;(PS. If I know you, I’ll also be happy to give recommendations of solicitors,
+builders and other house-associated professionals too. And a couple of
+warnings.)&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>
