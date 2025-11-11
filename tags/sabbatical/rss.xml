@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>mort’s mythopœia - sabbatical</title>
+      <link>https://mort.io</link>
+      <description>with apologies</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mort.io/tags/sabbatical/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Fri, 07 Nov 2025 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Sabbatical Diary: Week 5</title>
+          <pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w5/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w5/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w5/">&lt;p&gt;Another week gone, a little more done. Finally (albeit too slowly) progressing
+some industrial funding through the system to go alongside the small grant
+application of last week. Some other paperwork done.&lt;&#x2F;p&gt;
+&lt;p&gt;Polished this website a little as a reward—see the shiny new &lt;a href=&quot;https:&#x2F;&#x2F;www.brailleinstitute.org&#x2F;freefont&#x2F;&quot;&gt;Atkinson
+Hyperlegible font&lt;&#x2F;a&gt; for extra
+readability. I started using it for all my windowing and editing setup so
+thought I’d push it out here too. Maybe I’ll tweak the colour scheme one day too
+:)&lt;&#x2F;p&gt;
+&lt;p&gt;Apart from that, external work completed, and jolly interesting it was too;
+continued reading the Ph.D. dissertations that I’m examining—three to do
+before Christmas; reviewed Eurosys’26 paper submissions. Nothing too exciting
+really but progress of a sort on a couple of fronts, so not too bad.&lt;&#x2F;p&gt;
+&lt;p&gt;Next: writing.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Sabbatical Diary: Week 4 &#x2F; Month 1</title>
+          <pubDate>Sun, 02 Nov 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w4/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w4/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w4/">&lt;p&gt;Well, that was a slightly slower week: it was school half-term so I had the
+children for three days.&lt;&#x2F;p&gt;
+&lt;p&gt;I did manage to finally finish&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; polishing my Emacs
+&lt;a href=&quot;&#x2F;blog&#x2F;treesitting-emacs&#x2F;&quot;&gt;Tree-sitter&lt;&#x2F;a&gt; and &lt;a href=&quot;&#x2F;blog&#x2F;emacs-eglot&#x2F;&quot;&gt;Eglot&lt;&#x2F;a&gt; though.
+Hopefully someone finds that useful, even if only future-me.&lt;&#x2F;p&gt;
+&lt;p&gt;I also finally did a “proper” sabbatical thing and submitted a proposal for some
+(small, local) funding to continue developing &lt;a href=&quot;https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2508.15703&quot;&gt;Amjad’s excellent
+work&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I’m travelling doing some external work this coming week in London, so I think
+I’ll use some of the travel time to push the writing I said I’d do through to
+completion so I can move on to more “proper” sabbatical work: developing
+research funding proposals. And maybe if it all goes well I’ll even allow myself
+some light coding as well – configuration polishing is all very well but it’s
+not really the same!&lt;&#x2F;p&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;1&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
+&lt;p&gt;For now. Polishing configuration is never finished of course. A living
+breathing thing and all that.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+</description>
+      </item>
+      <item>
+          <title>Sabbatical Diary: Week 3</title>
+          <pubDate>Mon, 27 Oct 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w3/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w3/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w3/">&lt;p&gt;Not much to say this week – largely more of the same. &lt;a href=&quot;&#x2F;blog&#x2F;treesitting-emacs&#x2F;&quot;&gt;Blogged about
+&lt;code&gt;tree-sitter&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; and (written, &lt;del&gt;to be published
+shortly&lt;&#x2F;del&gt;now published!) &lt;a href=&quot;&#x2F;blog&#x2F;emacs-eglot&#x2F;&quot;&gt;&lt;code&gt;eglot&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;, configuring both for an
+increasing number of languages.&lt;&#x2F;p&gt;
+&lt;p&gt;Also continued trying to land some small funding for continuing
+&lt;a href=&quot;https:&#x2F;&#x2F;www.cst.cam.ac.uk&#x2F;people&#x2F;aati2&quot;&gt;Amjad’s&lt;&#x2F;a&gt; excellent work. Following
+meticulous characterisation of Linux’s process scheduler, his Ph.D. developed an
+alternative approach that enables a 30% smaller cluster to satisfy the same
+“serverless” workload.&lt;&#x2F;p&gt;
+&lt;p&gt;Serverless computing is a popular style of cloud computing enabling customers to
+ignore all application deployment details, instead encapsulating their
+application – most commonly using “container” technology – so the platform can
+take responsibility for providing the necessary resources for it to run, scaling
+resources up and down in response to changes in demand. Providers typically
+provision resources as a shared cluster of (physical or virtual) machines,
+orchestrated using a cluster orchestrator based on the popular Kubernetes
+orchestrator. That orchestrator is then responsible for running encapsulated
+application code, ensuring each job is allocated sufficient resources.&lt;&#x2F;p&gt;
+&lt;p&gt;The cluster’s machines typically run Linux, and so it is Linux’s kernel
+scheduler that is responsible for running a machine’s allocated jobs. That
+scheduler’s behaviour is taken for granted by the plethora of work that has
+sought to improve cluster performance. Unfortunately, close examination of
+cluster performance results showed significant discrepancies when compared to
+the intended behaviour – current practice masks these discrepancies by
+over-provisioning the cluster.&lt;&#x2F;p&gt;
+&lt;p&gt;Meticulous examination of the results and the Linux kernel scheduler code
+revealed that the behaviour of a particular core data structure in conjunction
+with treatment of multi-core processors causes overheads to increase
+disproportionately as demand increases. This increase in overheads is especially
+prominent with serverless workloads due to their particular characteristics, and
+causes the cluster orchestrator makes ever poorer job placement decisions. The
+net effect is that, in practice, clusters must be significantly over-provisioned
+to achieve acceptable performance.&lt;&#x2F;p&gt;
+&lt;p&gt;This thesis reports how meticulous measurement revealed and unpicked this
+problem, and describes and evaluates a set of relatively small – just a few
+hundred lines of code – but critical changes in Linux’s kernel scheduler in
+mitigation. The final outcome is that these mitigations allow an identical and
+representative serverless workload to be supported by a cluster comprising 30%
+fewer machines.&lt;&#x2F;p&gt;
+&lt;p&gt;See our arXiv paper, “&lt;a href=&quot;https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2508.15703&quot;&gt;Mitigating context switching in densely packed Linux
+clusters with Latency-Aware Group Scheduling&lt;&#x2F;a&gt;”
+for more details :)&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Sabbatical Diary: Week 2</title>
+          <pubDate>Sat, 18 Oct 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w2/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w2/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w2/">&lt;p&gt;As predicted, this week was some Emacs configuration polishing interspersed with
+some writing using &lt;a href=&quot;https:&#x2F;&#x2F;typst.app&#x2F;&quot;&gt;&lt;code&gt;typst&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;. I quite like &lt;code&gt;typst&lt;&#x2F;code&gt; I think
+– it seems pretty capable, it’s pretty sensible, and it’s certainly easier to
+read than LaTeX. And there’s even &lt;a href=&quot;https:&#x2F;&#x2F;imaginarytext.ca&#x2F;posts&#x2F;2024&#x2F;pandoc-typst-tutorial&#x2F;&quot;&gt;runes
+available&lt;&#x2F;a&gt; to invoke
+&lt;a href=&quot;https:&#x2F;&#x2F;pandoc.org&#x2F;&quot;&gt;&lt;code&gt;pandoc&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; to allow production of body text in Markdown, to
+be rendered using &lt;code&gt;typst&lt;&#x2F;code&gt; as the backend. The piece of writing in question
+didn’t go as fast as I wanted, but it did start in earnest. Which is, at least,
+a start :)&lt;&#x2F;p&gt;
+&lt;p&gt;First cut at configuration polishing is also now done I think – now into
+tweaking and refining as the different packages actually get used. Probably the
+biggest improvement noticed so far is the use of
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;minad&#x2F;jinx&quot;&gt;&lt;code&gt;jinx&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; the “enchanted spell checker” which does
+seem considerably better than the various &lt;code&gt;ispell&lt;&#x2F;code&gt;&#x2F;&lt;code&gt;hunspell&lt;&#x2F;code&gt; incantation
+packages I’ve historically used:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;lisp&quot; class=&quot;language-lisp z-code&quot;&gt;&lt;code class=&quot;language-lisp&quot; data-lang=&quot;lisp&quot;&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-support z-function z-lisp&quot;&gt;use-package&lt;&#x2F;span&gt; jinx
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;  :diminish jinx&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;mode
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;  :hook &lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;emacs&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;startup . global&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;jinx&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;mode&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;  :bind &lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-string z-quoted z-double z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-lisp&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;C-;&lt;span class=&quot;z-punctuation z-definition z-string z-end z-lisp&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; . jinx&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;correct&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-string z-quoted z-double z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-lisp&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;C-M-$&lt;span class=&quot;z-punctuation z-definition z-string z-end z-lisp&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; . jinx&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;languages&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;  :config
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;  &lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;vertico&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;multiform&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;mode&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;  &lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;add&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-control z-lisp&quot;&gt;to&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;&lt;span class=&quot;z-support z-function z-lisp&quot;&gt;list&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;   &amp;#39;vertico&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;multiform&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;categories
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;   &amp;#39;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;jinx grid &lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;vertico&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;grid&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;annotate . &lt;span class=&quot;z-constant z-numeric z-lisp&quot;&gt;20&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;vertico&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;&lt;span class=&quot;z-support z-function z-lisp&quot;&gt;count&lt;&#x2F;span&gt; . &lt;span class=&quot;z-constant z-numeric z-lisp&quot;&gt;4&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The &lt;code&gt;:config&lt;&#x2F;code&gt; block integrates it with the
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;minad&#x2F;vertico&quot;&gt;&lt;code&gt;vertico&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; vertical completion system that
+I’ve recently started using; simply remove if you don’t use that. This did also
+require the NixOS package to be installed already:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;nix&quot; class=&quot;language-nix z-code&quot;&gt;&lt;code class=&quot;language-nix&quot; data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;z-source z-nix&quot;&gt;  &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;programs&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;emacs&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;extraPackages&lt;&#x2F;span&gt; &lt;span class=&quot;z-invalid z-illegal&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-function z-4 z-nix&quot;&gt;epkgs&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-function z-nix&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-nix&quot;&gt;with&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;epkgs&lt;&#x2F;span&gt;; &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-list z-nix&quot;&gt;[&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;jinx&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-list z-nix&quot;&gt;]&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-invalid z-illegal&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The biggest visible change though was finally getting an auto-formatter for my
+elisp code, specifically
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-emacs&#x2F;blob&#x2F;main&#x2F;init.el&quot;&gt;&lt;code&gt;init.el&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; configured:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;lisp&quot; class=&quot;language-lisp z-code&quot;&gt;&lt;code class=&quot;language-lisp&quot; data-lang=&quot;lisp&quot;&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-support z-function z-lisp&quot;&gt;use-package&lt;&#x2F;span&gt; elisp&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;autofmt
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;  :commands &lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;elisp&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;autofmt&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;mode elisp&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;autofmt&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;buffer&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;  :hook &lt;span class=&quot;z-meta z-group z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-lisp&quot;&gt;(&lt;&#x2F;span&gt;emacs&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;lisp&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;mode . elisp&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;autofmt&lt;span class=&quot;z-keyword z-operator z-arithmetic z-lisp&quot;&gt;-&lt;&#x2F;span&gt;mode&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-end z-lisp&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Ensuring it is applied to &lt;code&gt;init.el&lt;&#x2F;code&gt; simply required adding the (currently empty,
+might become configuration in future apparently) flag file
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-emacs&#x2F;blob&#x2F;main&#x2F;.elisp-autofmt&quot;&gt;&lt;code&gt;.elisp-autofmt&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; to
+my &lt;code&gt;~&#x2F;.emacs.d&#x2F;&lt;&#x2F;code&gt;, and adding the following trailer to my
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-emacs&#x2F;blob&#x2F;f06fc8fb9c280e11a8ddd8548ad245c8eba71484&#x2F;init.el#L1349-L1351&quot;&gt;&lt;code&gt;init.el&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;lisp&quot; class=&quot;language-lisp z-code&quot;&gt;&lt;code class=&quot;language-lisp&quot; data-lang=&quot;lisp&quot;&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-comment z-line z-semicolon z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-lisp&quot;&gt;;&lt;&#x2F;span&gt;; Local variables:
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-comment z-line z-semicolon z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-lisp&quot;&gt;;&lt;&#x2F;span&gt;; elisp-autofmt-load-packages-local: (&amp;quot;use-package&amp;quot; &amp;quot;use-package-core&amp;quot;)
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-lisp&quot;&gt;&lt;span class=&quot;z-comment z-line z-semicolon z-lisp&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-lisp&quot;&gt;;&lt;&#x2F;span&gt;; end:
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The other big change has been moving to &lt;code&gt;tree-sitter&lt;&#x2F;code&gt; and &lt;code&gt;eglot&lt;&#x2F;code&gt; for language
+support, but that’ll be a longer post so more on that later.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Sabbatical Diary: Weeks 0 &amp; 1</title>
+          <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w1/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w1/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w1/">&lt;p&gt;Well, the sabbatical began. Your protagonist set off with a song in his heart
+and the freedom to roam. And all that.&lt;&#x2F;p&gt;
+&lt;p&gt;So what did I do? Well, initially I spent some time finishing up the handful of
+things I hadn’t managed to do before 1 October came along. Tedious but probably
+inevitable. If I forgot something you were waiting for, sorry – you may need to
+remind me…!&lt;&#x2F;p&gt;
+&lt;p&gt;I then finally gave up on trying out new &lt;a href=&quot;https:&#x2F;&#x2F;vscodium.com&#x2F;&quot;&gt;ed&lt;&#x2F;a&gt;&lt;a href=&quot;https:&#x2F;&#x2F;zed.dev&#x2F;&quot;&gt;it&lt;&#x2F;a&gt;&lt;a href=&quot;https:&#x2F;&#x2F;lap.dev&#x2F;lapce&#x2F;&quot;&gt;or&lt;&#x2F;a&gt;s – I
+suspect the problem was largely me not them to be honest – and spent some
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-emacs&quot;&gt;updating my emacs configuration&lt;&#x2F;a&gt; because
+giving one’s tools a clean and polish occasionally seems a worthwhile thing plus
+it eased me into a life of not attending committee meetings. Having done that
+for a while, I rewarded myself by finishing off &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;bibtox&quot;&gt;a little bit of Python code I
+have called &lt;code&gt;bibtox&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; for processing my &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;publications&quot;&gt;BibTeX
+files&lt;&#x2F;a&gt; so I can keep them well-formatted
+as well as produce HTML output for &lt;a href=&quot;&#x2F;research&#x2F;&quot;&gt;this website&lt;&#x2F;a&gt;. And I finally got
+&lt;a href=&quot;https:&#x2F;&#x2F;typst.app&#x2F;&quot;&gt;&lt;code&gt;typst&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; installed, began to learn how to use it at least a little bit,
+and started writing. I also spent a few days travelling connected to some external work.&lt;&#x2F;p&gt;
+&lt;p&gt;So– perhaps not the most spectacularly interesting first week. But I made a
+start. So there’s that. The plan for week 2 is to finish polishing my configuration and probably blog about at least some of the updates – emacs has moved on since I last looked – and then do some writing in earnest. Let’s see how I get on :)&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>All Change!</title>
+          <pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/all-change/</link>
+          <guid>https://mort.io/blog/all-change/</guid>
+          <description xml:base="https://mort.io/blog/all-change/">&lt;p&gt;New (academic) year, new responsibilities. Or more precisely, far fewer
+responsibilities :)&lt;&#x2F;p&gt;
+&lt;p&gt;I’m on sabbatical for this academic year&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; and, as a result, have been
+required to give up almost all the various roles I’ve had over the past few
+years. I keep being – or perhaps more precisely, revert to being – a
+professor, of course, I’ll remain a Fellow of Christ’s College, and I’m allowed
+to remain on the University Council.&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#2&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; I’ll also retain external roles, like
+my &lt;a href=&quot;https:&#x2F;&#x2F;www.ipco.org.uk&#x2F;&quot;&gt;IPCO&lt;&#x2F;a&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.ipco.org.uk&#x2F;who-we-are&#x2F;technology-advisory-panel&#x2F;&quot;&gt;TAP&lt;&#x2F;a&gt; membership.&lt;&#x2F;p&gt;
+&lt;p&gt;However, &lt;a href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;univ&#x2F;so&#x2F;&quot;&gt;University rules&lt;&#x2F;a&gt; mean that I
+have to give up all teaching, admin and College Officer roles – everything
+that’s not research basically. I’m allowed to supervise Ph.D. students and
+remain on University Council, and that’s pretty much it.&lt;&#x2F;p&gt;
+&lt;p&gt;So I’m not planning to supervise any Part II&#x2F;Part III&#x2F;M.Phil. projects, I won’t
+be lecturing, Directing Studies, or supervising. Whatever will I do with
+myself… Well, more on that later perhaps – I do have ideas if not yet actual
+plans :)&lt;&#x2F;p&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;1&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
+&lt;p&gt;I did notice one stupidity in the rules around sabbatical in the course of
+applying for this one. I had always assumed sabbatical leave accrued at one
+term in every seven (it does, cf. the sabbath), and that you could never
+accrue more than one year (~ three terms) leave. But it turns out that’s not
+quite correct – the actual rule is that &lt;em&gt;reckonable terms&lt;&#x2F;em&gt; (those that
+count toward sabbatical leave – so six reckonable terms gets you one term
+of sabbatical leave) expire after six years. In my case I hit an edge case
+as a result of having taken two terms sabbatical leave back in 2021 (Lent
+and Easter terms 2021 to be precise). During periods of sabbatical leave,
+the clock keeps ticking to expire reckonable terms already accrued. The
+result was that when I came to apply for this year’s sabbatical leave, I was
+actually two reckonable terms short – they’d fallen off the end due to the
+expiry clock not stopping while I was on leave in 2021. Fortunately, while
+HR wanted me to ask my Faculty to “mortgage” two future reckonable terms,
+there was another route: the Faculty Board can just declare that they’re
+going to count the expired terms anyway. And, happily, they did.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;2&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;2&lt;&#x2F;sup&gt;
+&lt;p&gt;I also remain a member of most of the various committees of Council that
+I’m on, though I’m exempted from attending meetings. By which it turns out
+is meant &lt;em&gt;forbidden&lt;&#x2F;em&gt; from attending meetings.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+</description>
+      </item>
+    </channel>
+</rss>
