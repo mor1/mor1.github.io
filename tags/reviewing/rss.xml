@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>mort’s mythopœia - reviewing</title>
+      <link>https://mort.io</link>
+      <description>with apologies</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mort.io/tags/reviewing/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Mon, 09 Sep 2024 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Post-COVID19 TPC experience</title>
+          <pubDate>Mon, 09 Sep 2024 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/post-covid-tpc/</link>
+          <guid>https://mort.io/blog/post-covid-tpc/</guid>
+          <description xml:base="https://mort.io/blog/post-covid-tpc/">&lt;p&gt;I do not participate in a huge number of TPCs (Technical Programme Committees)
+as a general rule– partly time constraints but mostly no-one knows who I am so
+I don’t often get asked… (!)&lt;&#x2F;p&gt;
+&lt;p&gt;I have done a few though, some big (e.g., &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.usenix.org&#x2F;conference&#x2F;nsdi15&quot;&gt;USENIX NSDI&lt;&#x2F;a&gt;, &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;conferences.sigcomm.org&#x2F;imc&#x2F;2018&#x2F;&quot;&gt;ACM IMC&lt;&#x2F;a&gt;),
+some small (&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;uksystems.org&#x2F;&quot;&gt;UK Systems&lt;&#x2F;a&gt;,
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;link.springer.com&#x2F;conference&#x2F;pam&quot;&gt;PAM&lt;&#x2F;a&gt;), and perhaps because I only do
+a couple every few years, while doing &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;conferences2.sigcomm.org&#x2F;co-next&#x2F;&quot;&gt;ACM
+CoNEXT&lt;&#x2F;a&gt; and &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;acm-ieee-sec.org&#x2F;list&#x2F;&quot;&gt;ACM&#x2F;IEEE
+SEC&lt;&#x2F;a&gt; this week, I found myself particularly
+noticing some changes in practice since that last TPCs I recall (notably
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.usenix.org&#x2F;conference&#x2F;nsdi15&quot;&gt;NSDI&lt;&#x2F;a&gt; and &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;conferences.sigcomm.org&#x2F;imc&#x2F;2018&#x2F;&quot;&gt;IMC&lt;&#x2F;a&gt;). So here are three observations.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;1-online-first-and-only&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#1-online-first-and-only&quot; aria-label=&quot;Anchor link for: 1-online-first-and-only&quot;&gt;1. Online, first and only&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;The biggest obvious change is that TPC meetings are now online rather than
+in-person. This has one big disadvantage for me: I really enjoyed travelling to
+the meeting to meet colleagues and (usually) participate in some TPC-oriented
+workshop with presentations of recent an in-progress work. In many ways, I found
+this sort of activity more interesting than the conference itself (sorry!). It
+also has the unfortunate effect that, at least for international TPCs, timezones
+make scheduling tricky – one benefit of travelling was that at least the
+meeting took place in localtime for (almost) everyone.&lt;&#x2F;p&gt;
+&lt;p&gt;However, it also has clear benefits: the CO2 footprint of the event is
+dramatically reduced which can only be a good thing. The financial cost
+reduction probably also opens up the experience to attendees who would never
+previously have been able to make it. I’ve rarely seen really poor meeting
+behaviour on the TPCs I’ve been involved in, but I also find that in an online
+meeting, chairing tends to be more easily more rigorous and the sometimes
+dominating effect of a single confident (perhaps I might say over-confident, or
+even just loud) individual is significantly reduced. Which is good.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2-offline-dominance&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#2-offline-dominance&quot; aria-label=&quot;Anchor link for: 2-offline-dominance&quot;&gt;2. Offline dominance&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;I now see &lt;strong&gt;dramatically&lt;&#x2F;strong&gt; more use being made of commenting and discussions in
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;read.seas.harvard.edu&#x2F;~kohler&#x2F;hotcrp&#x2F;&quot;&gt;HotCRP&lt;&#x2F;a&gt;, which remains the only
+conference management and paper reviewing platform I will willingly use (thanks
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Eddie_Kohler&quot;&gt;Eddie&lt;&#x2F;a&gt;!). I don’t know whether this
+is a post-pandemic effect, or just the fact that the old old guard has largely
+shuffled out of active TPC duties and we now have a new old guard (ie., people
+of my era) and younger who are perhaps happier to communicate and express views
+without needing to be in the same room.&lt;&#x2F;p&gt;
+&lt;p&gt;I think this is another dramatic improvement in process, and puts us in a
+similar place to how, for example, we handled marking final year undergraduate
+projects at &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.nottingham.ac.uk&#x2F;&quot;&gt;Nottingham University&lt;&#x2F;a&gt;. It means
+that discussion is recorded, and usually more coherently and explicitly argued
+due to the need to write it down.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;3-reduction-in-extremism&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#3-reduction-in-extremism&quot; aria-label=&quot;Anchor link for: 3-reduction-in-extremism&quot;&gt;3. Reduction in extremism&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;The one arguably slightly negative comment I would have is – and this is only
+my anecdotal impression, and not something I can pretend to have data on – that
+I think I see a tendency for reviewers to perhaps be a little less clear in
+their scoring. Once the across the board strong rejects (a fair number) and
+strong accepts (a much smaller number) were taken out, I saw an awful lot of
+weak reject (but happy to consider weak accept after discussion) and weak accept
+(but happy to consider weak reject after discussion). This made it quite hard
+for me, as another reviewer, sometimes to get a clear signal as to what the
+other reviews were recommending.&lt;&#x2F;p&gt;
+&lt;p&gt;This is a challenge I sometimes see in admissions interviewing: less experienced
+interviewers are sometimes  reluctant to give a clear signal, exhibiting instead
+a tendency to score near or perhaps just above the middle of the scale. (I
+remember doing this myself.) This feels more comfortable – putting one’s head
+above the parapet by taking a clear stance often feels more socially awkward
+than giving a “fine, ok, pretty good, sure” response, not least because it needs
+stronger supporting argument – but in the end I think it misses the point of
+being an interviewer &#x2F; a TPC member which is exactly to accept or reject papers
+based on having been recognised for your expertise.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;So in the end, two good points, two potential (but minor) negatives, and one
+completely unjustifiable and purely selfish negative. Which on the whole is a
+good thing. Though having come back to this after a break for a couple of years,
+I find I am even more sceptical of the whole process than I was. More later
+perhaps, once I get my thoughts in order.&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>
