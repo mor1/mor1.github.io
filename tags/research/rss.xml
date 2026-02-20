@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>mort’s mythopœia - research</title>
+      <link>https://mort.io</link>
+      <description>with apologies</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mort.io/tags/research/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Fri, 12 Sep 2025 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Systematising the obvious</title>
+          <pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/research-matrix/</link>
+          <guid>https://mort.io/blog/research-matrix/</guid>
+          <description xml:base="https://mort.io/blog/research-matrix/">&lt;p&gt;Ok, so this is one of those that comes about because I found myself saying the
+same thing to different people a couple of times within a week or so. Which I
+usually think means I should probably write it down.&lt;&#x2F;p&gt;
+&lt;p&gt;I had been talking with Ph.D. students about selecting research topics, doing
+research, and what is interesting subsequently to report in papers. In doing so
+I recalled some advice that was given to me during my Ph.D. — so I’m not taking
+credit for this, though I can’t recall who specifically said it to me like this
+first; possibly Ralph Becket. What follows is of course scoped to computer
+systems research as far as I’m concerned, though it may well apply more broadly.&lt;&#x2F;p&gt;
+ &lt;figure class=&quot;fi fr pd1&quot;&gt;&lt;img src=&quot;research-matrix.jpg&quot; class=&quot;fr pd1&quot; alt=&quot;A plain whiteboard sketch of the matrix described in the main text&quot; width=&quot;480&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;A whiteboard sketch of the obvious&#x2F;successful matrix.&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+&lt;p&gt;Anyway, to the point. I have sometimes found it useful to think about research
+topics and their results as placed along two axes, each of which I split into
+two categories. The first axis might be labelled &lt;em&gt;obviousness&lt;&#x2F;em&gt; with the two
+categories labelled “&lt;em&gt;obviously…&lt;&#x2F;em&gt;” and “&lt;em&gt;non-obviously…&lt;&#x2F;em&gt;”.&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; The second
+axis might be labelled &lt;em&gt;success&lt;&#x2F;em&gt; with the two categories “&lt;em&gt;…works&lt;&#x2F;em&gt;” and
+“&lt;em&gt;…doesn’t work&lt;&#x2F;em&gt;”. Finally, I put an indicator in each quadrant as to the
+desirability of work in that quadrant – shown in the picture as ticks (the more
+ticks, the more desirable), or crosses (undesirable).&lt;&#x2F;p&gt;
+&lt;p&gt;Considering each of the quadrants then, we have in order of desirability:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;non-obviously works&lt;&#x2F;strong&gt;: Bingo! This is when you’ve done something that
+people didn’t think would work but it turns out you had sufficient insight,
+skill, luck, resources, or whatever to make it work. Reporting this sort of
+work is happy times – fame, glory, riches, the prize. No, wait, that’s not
+right. Oh yes — you get a good published paper. Nice.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;obviously works&lt;&#x2F;strong&gt;: The bulk of published research in my experience.
+Certainly not bad, and definitely contributing to knowledge. But not really
+surprising — unlikely to create that elusive “wow! that’s cool!” feeling.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;non-obviously doesn’t work&lt;&#x2F;strong&gt;: Far too little of this sort of thing is
+published in my opinion. I feel quite pleased when I manage work like this
+because I don’t need to care quite so much as I used to about getting papers
+accepted and I find the process and outcome interesting. But it is sometimes
+hard to get this work out there as it often seems too easy for reviewers to
+focus on the fact the thing didn’t work rather than considering the
+contribution you’ve made by showing that everyone else’s intuitions are
+wrong. Sad but mildly self-righteous times ensue.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;obviously doesn’t work&lt;&#x2F;strong&gt;: No-one cares. Tends to get a big “yeah? and?
+idiot” from reviewers. I wouldn’t usually bother except as a personal
+learning exercise.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;In retrospect, I realise that the more natural word here would have been
+&lt;em&gt;surprisingly&lt;&#x2F;em&gt;. Sigh. &lt;a href=&quot;#fr-1-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</description>
+      </item>
+      <item>
+          <title>Rewarding influence</title>
+          <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/happy-day/</link>
+          <guid>https://mort.io/blog/happy-day/</guid>
+          <description xml:base="https://mort.io/blog/happy-day/">&lt;p&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;2025.eurosys.org&#x2F;index.html&quot;&gt;EuroSys 2025&lt;&#x2F;a&gt; was co-located with &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.asplos-conference.org&#x2F;asplos2025&#x2F;&quot;&gt;ASPLOS
+2025&lt;&#x2F;a&gt; this year. Other
+commitments meant I (again) couldn’t stay for the whole conference, attending
+primarily because &lt;a href=&quot;..&#x2F;tdis-accepted&#x2F;&quot;&gt;two students had papers in the TDIS
+workshop&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+ &lt;img src=&quot;stage.jpg&quot; class=&quot;fl pd1&quot; alt=&quot;A photograph of me in a yellow t-shirt receiving the award&quot; width=&quot;480&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;p&gt;But happily I &lt;em&gt;was&lt;&#x2F;em&gt; able to stay for the first day of the conference –
+“happily” not only because it gave me a chance to catch up with some old friends
+I hadn’t seen in a decade or more, but also because &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;2451116.2451167&quot;&gt;the Mirage unikernels
+paper&lt;&#x2F;a&gt; which appeared at &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;asplos13.rice.edu&#x2F;&quot;&gt;ASPLOS
+2013&lt;&#x2F;a&gt; won one of two &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.asplos-conference.org&#x2F;asplos2025&#x2F;awards&#x2F;&quot;&gt;ASPLOS 2025 Influential Papers
+awards&lt;&#x2F;a&gt; :)&lt;&#x2F;p&gt;
+&lt;p&gt;This is obviously very flattering – typically doing research is necessarily its
+own reward because the work can seem fruitless much of the time. Even when a
+paper gets written and submitted it will most likely be rejected – I think
+EuroSys this year reported something like a 12% acceptance rate, so rejection is
+&lt;em&gt;a priori&lt;&#x2F;em&gt; the most likely outcome. Finally, if the paper does finally get
+accepted, it will most likely sink without trace – perhaps a brief flurry of
+interest for a few months or so, the paper gets cited a few times, and then it
+fades away. This seems inevitable in a reasonably fast moving field that is also
+growing at pace – EuroSys had ~160 attendees in 2006, growing to ~330 in the 10
+years to 2016, but hitting ~1100 this year; while submissions grew from ~200 in
+2019 to 696 this year.&lt;&#x2F;p&gt;
+ &lt;img src=&quot;official.jpg&quot; class=&quot;fr pd1&quot; alt=&quot;A photograph of the certificate&quot; width=&quot;320&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;p&gt;So to win an award recognising that others feel a paper actually had some
+influence is rare, and makes me very happy :) At the same time, it reinforces a
+couple of lessons that I really should’ve internalised by now.&lt;&#x2F;p&gt;
+&lt;p&gt;The first is that papers inevitably get better for thoughtful considered
+feedback from experts a step or several away from the work – so drafts should
+be produced in plenty of time and distributed to anyone who’s willing to take
+the time for feedback. In the case of this paper the previous failed submission
+to &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.usenix.org&#x2F;conference&#x2F;osdi12&quot;&gt;OSDI 2012&lt;&#x2F;a&gt; had, let’s say, reviews
+of mixed quality. But one stood out, from Jon Howell (who signs his reviews so I
+know it was him), who gave us a firm “reject” which (in retrospect) was actually
+fairly well-deserved but in an incredibly constructive way. To paraphrase him
+slightly, the work was interesting but the paper was crap – &lt;em&gt;and here’s how to
+rewrite it so it makes sense&lt;&#x2F;em&gt;. We basically did what he said, ASPLOS accepted
+it, and the rest is now history. (Over a decade ago, good grief.)&lt;&#x2F;p&gt;
+&lt;p&gt;The second is that I simply cannot predict whether any research I’m doing is
+actually going to turn out to have any value. The only other equivalent award
+I’ve had was an &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;infocom2024.ieee-infocom.org&#x2F;awards&quot;&gt;INFOCOM 2024 Test of Time
+award&lt;&#x2F;a&gt; for &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;doi.org&#x2F;10.1109&#x2F;INFCOM.2012.6195845&quot;&gt;our 2012 paper on a
+system called &lt;em&gt;Thinkair&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;, about
+mobile-code offload from devices to the cloud. That paper had received
+considerably more than just one rejection prior to acceptance, and if I recall
+my final contribution correctly, I recommended not submitting it to INFOCOM as I
+didn’t think we’d done enough to address previous review comments.&lt;&#x2F;p&gt;
+&lt;p&gt;Shows what I know. But then, how boring would life be without a little
+ignorance… :)&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Not one but two accepted papers and a Ph.D.</title>
+          <pubDate>Sun, 30 Mar 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/tdis-accepted/</link>
+          <guid>https://mort.io/blog/tdis-accepted/</guid>
+          <description xml:base="https://mort.io/blog/tdis-accepted/">&lt;p&gt;As I find myself once more on a train to parts unknown (to me at least), a brief
+update :)&lt;&#x2F;p&gt;
+&lt;p&gt;The parts unknown in question is Rotterdam, NL (so really quite well-known to
+quite a lot of people, just not me) for &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;2025.eurosys.org&#x2F;&quot;&gt;EURO&#x2F;SYS
+2025&lt;&#x2F;a&gt; (being held jointly with &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.asplos-conference.org&#x2F;asplos2025&quot;&gt;ASPLOS
+2025&lt;&#x2F;a&gt;, although I can’t stay for
+the whole thing unfortunately) and specifically the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;tdis.gitlab.io&#x2F;tdis25&#x2F;&quot;&gt;3rd International Workshop
+of Testing Distributed Internet of Things Systems
+(TDIS)&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Why? Happily the programme committee decided to accept two papers from my
+(ex-)students – which is nice :) The two in question are&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3719159.3721222&quot;&gt;Reckon-ing Kubernetes at the Edge using Emulated
+Clusters&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; with Alessandro Sassi
+(University of Cambridge &#x2F; Politecnico di Milano) and Christopher Jensen
+(University of Cambridge &#x2F; Microsoft Research). This describes Alessandro’s
+M.Sc. research project undertaken as a visitor with my group. He built on
+Chris’ earlier work on &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3447851.3458739&quot;&gt;Reckon, an emulator setup for examining consensus
+system behaviour&lt;&#x2F;a&gt;. Alessandor
+extended this to use ContainerNet enabling it to emulate Kubernetes clusters
+on a single node, and used this to examine Kubernetes performance in some
+edge network scenarios. Source available on GitHub at
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;AleSassi&#x2F;reckon-k8s&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;AleSassi&#x2F;reckon-k8s&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3719159.3721221&quot;&gt;LoRaLive: Efficient LoRaWAN Traffic
+Generation&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; with Vadim Safronov
+(University of Oxford &#x2F; University of Cambridge). This reports a component of
+Vadim’s Ph.D. work where he built a system to enable dense deployment LoRaWAN
+trace-playback using a minimal number of nodes while respecting legal
+constraints on duty cycles. Source available on GitHub at
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;LoRaLive&#x2F;LoRaLive&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;LoRaLive&#x2F;LoRaLive&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Both nice tools that we hope might be of community interest!&lt;&#x2F;p&gt;
+&lt;p&gt;The Ph.D. in question is Chris Jensen’s – happily he passed his viva on
+Thursday just gone, titled “Separating conflict-recovery from failure-recovery
+in distributed consensus”, examined by &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;timharris.uk&#x2F;&quot;&gt;Tim Harris&lt;&#x2F;a&gt; and
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;charap.co&#x2F;&quot;&gt;Aleksey Charapko&lt;&#x2F;a&gt;. Other recent passes include Al-Amjad
+Tawfiq Isstaif, titled “Contention-resilient overcommitment for serverless
+deployments” and Andrew Jeffery, titled “Modelling orchestration”. The race&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;
+is now on for the first to &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;techreports&#x2F;&quot;&gt;tech
+report&lt;&#x2F;a&gt;…&lt;&#x2F;p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;It’s not really a race. That would be weird. &lt;a href=&quot;#fr-1-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</description>
+      </item>
+      <item>
+          <title>PhD viva, UK style</title>
+          <pubDate>Fri, 31 Jan 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/phd-viva/</link>
+          <guid>https://mort.io/blog/phd-viva/</guid>
+          <description xml:base="https://mort.io/blog/phd-viva/">&lt;p&gt;Having recently, happily, had several PhD students completing in short order,
+I’ve been approaching external PhD examiners. Occasionally I find myself asking
+someone who’s not done any &#x2F; many in the UK previously. As our system – as all
+such systems! – is a bit different to those in other parts of the world, I’ve
+written a few notes on a couple of occasions about what to expect. So I figured
+I might as well publish them.&lt;&#x2F;p&gt;
+&lt;p&gt;What follows is my impression &#x2F; understanding based on experience here in the
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cst.cam.ac.uk&#x2F;&quot;&gt;Department of Computer Science &amp;amp; Technology&lt;&#x2F;a&gt;,
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cam.ac.uk&#x2F;&quot;&gt;Cambridge University&lt;&#x2F;a&gt; ca. 2025. Your Mileage May Vary
+anywhen and anywhere else, including anywhere else in the UK – check local
+regulations to be sure.&lt;&#x2F;p&gt;
+&lt;p&gt;In terms of process, the system here is that candidates submit their complete
+dissertation and then undergo a “viva voce” (oral examination). It would be
+usual for the viva to take place within 2—3 months of submission. It’s better
+(IMO, much better) if it can happen in person but we may still be able to
+arrange to do it online in extremis.&lt;&#x2F;p&gt;
+&lt;p&gt;There are two examiners:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;The &lt;em&gt;internal examiner&lt;&#x2F;em&gt; (typically connected to the Department) who ensures
+the process is followed properly but may not be a deep expert in the specific
+topic, and&lt;&#x2F;li&gt;
+&lt;li&gt;The &lt;em&gt;external examiner&lt;&#x2F;em&gt; (from outside the University) who is there as the
+subject matter expert.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;The viva consists of the two examiners asking the candidate questions about
+their dissertation until they’re satisfied; typically this takes at least 2h and
+can go longer, though more than 3.5—4h is unusual in my experience.&lt;&#x2F;p&gt;
+&lt;p&gt;The examiners are each expected to read the dissertation in detail before the
+viva and each write a short (typically 1—2pp) independent report giving their
+opinion, outlining any concerns they will have and the resulting
+topics&#x2F;questions they will be exploring in the viva, and indicating what their a
+priori judgement is in terms of recommendation (roughly: pass&#x2F;pass with
+corrections&#x2F;revise &amp;amp; resubmit&#x2F;no Ph.D. but you can have a Masters&#x2F;fail).&lt;&#x2F;p&gt;
+&lt;p&gt;The examiners will then typically meet ~30min or so before the viva to discuss
+their independent reports and decide on the approach to take in the viva. After
+the viva they write a joint report (usually shorter than their independent
+reports; perhaps 0.5pp) outlining what happened in the viva, as well as making a
+final recommendation and providing (if appropriate) a list of corrections that
+must be satisfied for the candidate to pass.&lt;&#x2F;p&gt;
+&lt;p&gt;Finally, the University pays a (risibly small) honorarium to the external
+examiner for doing the viva plus reasonable expenses.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Fontsizing in LaTeX</title>
+          <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/fontsizing/</link>
+          <guid>https://mort.io/blog/fontsizing/</guid>
+          <description xml:base="https://mort.io/blog/fontsizing/">&lt;p&gt;I recently had colleagues hit an issue that I have hit myself in the past, and
+so I finally decided to figure out a fix.&lt;&#x2F;p&gt;
+&lt;p&gt;Specifically, when building EPSRC research proposals in LaTeX, getting a
+complaint that the font size is non compliant – it should be 11pt Arial, but
+the standard LaTeX options generate something slightly smaller, with Adobe
+Acrobat and Microsoft tools both reporting a size of 10.45pt or so.&lt;&#x2F;p&gt;
+&lt;p&gt;One proposed solution was the to add the following in the preamble:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;\usepackage&lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;anyfontsize&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;\AtBeginDocument&lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;\fontsize&lt;&#x2F;span&gt;&lt;span&gt;{11bp}{13.35bp}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;\selectfont&lt;&#x2F;span&gt;&lt;span&gt;} &lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;…but that did not work unfortunately.&lt;&#x2F;p&gt;
+&lt;p&gt;After some poking about and staring at output and searching the interwebs, it
+appears that this was triggered, at least for me, by the
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;ctan.org&#x2F;pkg&#x2F;fontspec&quot;&gt;&lt;code&gt;fontspec&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; package that was being used to sort
+out fonts and unicode and so on in conjunction with
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;xetex.sourceforge.net&#x2F;&quot;&gt;XeLaTeX&lt;&#x2F;a&gt; as a backend driver.&lt;&#x2F;p&gt;
+&lt;p&gt;A key piece of debug logic was to add the following text in a document:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;The quick fox --- &lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;\the\fontdimen&lt;&#x2F;span&gt;&lt;span&gt;6&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;\font\relax&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;…which ensured there was some text and then inserted the font dimesions
+according to LaTeX. It did indeed produce the output &lt;code&gt;The quick fox — 9.54147pt&lt;&#x2F;code&gt; when it should’ve been &lt;code&gt;10pt&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The font runes I was using were&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;\usepackage&lt;&#x2F;span&gt;&lt;span&gt;[T1]{&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;fontenc&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;\usepackage&lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;lmodern&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;\usepackage&lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;amssymb,amsmath&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;\usepackage&lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;eurosym&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;\usepackage&lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;upquote&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;\usepackage&lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;microtype&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;\usepackage&lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;fontspec&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;\usepackage&lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;xltxtra,xunicode&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;\defaultfontfeatures&lt;&#x2F;span&gt;&lt;span&gt;{Mapping=tex-text,Scale=MatchUppercase}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #93A1A1;font-weight: bold;&quot;&gt;\renewcommand&lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;\familydefault&lt;&#x2F;span&gt;&lt;span&gt;}{&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;\rmdefault&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;\setmainfont&lt;&#x2F;span&gt;&lt;span&gt;{Arial}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;\setmonofont&lt;&#x2F;span&gt;&lt;span&gt;{Hack Nerd Font}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;…and it seemed to be the &lt;code&gt;Scale=MatchUppercase&lt;&#x2F;code&gt; clause that caused the
+problem. Further investigation suggested that most of that was actually
+copypasta legacy code that was no longer required; replacing with&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;\usepackage&lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;fontspec&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;\setmainfont&lt;&#x2F;span&gt;&lt;span&gt;{Arial}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;\setmonofont&lt;&#x2F;span&gt;&lt;span&gt;{Hack Nerd Font}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;…gave the output &lt;code&gt;The quick fox — 10.0pt&lt;&#x2F;code&gt; in Arial as expected. Which was
+nice.&lt;&#x2F;p&gt;
+&lt;p&gt;I also realised in the course of doing this that &lt;code&gt;xelatex&lt;&#x2F;code&gt; is now deprecated as
+a backend, so I have started using the still actively developed
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.luatex.org&#x2F;&quot;&gt;&lt;code&gt;luatex&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; backend driver instead by passing
+&lt;code&gt;-lualatex&lt;&#x2F;code&gt; to &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;mgeier.github.io&#x2F;latexmk.html&quot;&gt;&lt;code&gt;latexmk&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; and that has
+worked fine so far&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Introducing `bibtox`</title>
+          <pubDate>Fri, 03 Jan 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/bibtox/</link>
+          <guid>https://mort.io/blog/bibtox/</guid>
+          <description xml:base="https://mort.io/blog/bibtox/">&lt;p&gt;After some time using various tools and scripts to format and sort my files of
+BibTeX&#x2F;BibLaTeX entries, I finally gave up back in March and &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;bibtox&quot;&gt;wrote one myself
+– &lt;code&gt;bibtox&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;. This replaced some very nasty
+combination of server-side &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;bibtox&#x2F;blob&#x2F;83eda34bc9e79bd5251b1ae9623b5e905532c599&#x2F;bib2json.py&quot;&gt;Python&lt;&#x2F;a&gt; and in-page &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;bibtox&#x2F;blob&#x2F;83eda34bc9e79bd5251b1ae9623b5e905532c599&#x2F;papers.coffee&quot;&gt;CoffeeScript&lt;&#x2F;a&gt;, plus a
+third-party tool &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;backtracking&#x2F;bibtex2html&quot;&gt;&lt;code&gt;bib2bib&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; I
+would run on an ad hoc basis.&lt;&#x2F;p&gt;
+&lt;p&gt;Per the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;bibtox&#x2F;blob&#x2F;main&#x2F;README.md&quot;&gt;README&lt;&#x2F;a&gt;, this
+processes either a stream of entries on &lt;code&gt;stdin&lt;&#x2F;code&gt; or a set of files arranged into
+sections specified by a simple configuration file. It outputs sorted or
+unsorted, either as canonicalised entries or marked up HTML.&lt;&#x2F;p&gt;
+&lt;p&gt;And it means that, hopefully, finally, my list of publications on this site is
+consistently formatted and sorted. Completeness is, of course, a process rather
+than a state so achieving that is left for other times and places.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;bibtox&#x2F;issues&quot;&gt;Issues&lt;&#x2F;a&gt; or &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;bibtox&#x2F;pulls&quot;&gt;pull
+requests&lt;&#x2F;a&gt; welcome!&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Retreat from TUM</title>
+          <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/tum-retreat/</link>
+          <guid>https://mort.io/blog/tum-retreat/</guid>
+          <description xml:base="https://mort.io/blog/tum-retreat/">&lt;p&gt;Ok, ok, I exaggerate – it’s not really that far. But any time I have to set the
+alarm for 02.30, it feels like it’s a long long way away!&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.ce.cit.tum.de&#x2F;cm&#x2F;research-group&#x2F;&quot;&gt;TU Munchen&lt;&#x2F;a&gt; host an &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.ce.cit.tum.de&#x2F;cm&#x2F;events&#x2F;mir3&#x2F;&quot;&gt;annual
+retreat&lt;&#x2F;a&gt;, and thanks to &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.ce.cit.tum.de&#x2F;cm&#x2F;research-group&#x2F;joerg-ott&#x2F;&quot;&gt;Prof. Joerg
+Ott&lt;&#x2F;a&gt; I was invited this
+year for the first time. It’s held in TUM’s &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.raitenhaslach.tum.de&#x2F;en&#x2F;raitenhaslach&#x2F;home&#x2F;&quot;&gt;Retreat Centre at
+Raitenhaslach&lt;&#x2F;a&gt;,
+originally a Cistercian monastery which is a lovely location except that it’s a
+bus ride from the hotel used and a bus and three trains from the nearest airport
+– which is, mildly confusingly,
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.salzburg-airport.com&#x2F;en&#x2F;&quot;&gt;Salzburg&lt;&#x2F;a&gt; not
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.munich-airport.com&#x2F;&quot;&gt;Munich&lt;&#x2F;a&gt;. The latter point made me assume that
+there would be good directions via public transport from Salzburg, but that
+turned out not to be the case. And as Google Maps is, at best, patchy in terms
+of public transport coverage in this part of the world – it doesn’t know about
+all the buses at least – I thought it might be useful to record the process of
+getting there from Cambridge.&lt;&#x2F;p&gt;
+ &lt;a href=&quot;https:&#x2F;&#x2F;www.ce.cit.tum.de&#x2F;cm&#x2F;events&#x2F;mir3&#x2F;mir3-2024-10&#x2F;&quot;&gt;&lt;img src=&quot;photo.jpg&quot; class=&quot;fl pd1&quot; alt=&quot;A photograph of the presenter in next to a slide in an ornately
+    decorated room&quot; width=&quot;480&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;&#x2F;a&gt;
+&lt;p&gt;First, to fly to Salzburg or Munich? In the end I picked Salzburg as it was
+closer to the retreat centre itself and meant I didn’t need to fly via Heathrow
+or Gatwick. As I had to be in Cambridge the night before for family reasons,
+picking a closer airport for my very early flight seemed sensible. Unfortunately
+this means flying Wizzair UK from &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.london-luton.co.uk&#x2F;&quot;&gt;London Luton
+Airport&lt;&#x2F;a&gt;, which after just twice flying from
+there remains my least favourite UK airport. Given the flight departed at 05.55,
+a £77.50 taxi from Cambridge was the only option.&lt;&#x2F;p&gt;
+&lt;p&gt;Per Panther’s recommmendation I allowed 70 minutes for the journey, and on my
+own recommendation I aimed to arrive ~1.5h before the flight resulting in a taxi
+booking for 03.15. Happily when I get in the taxi the driver said it would be
+around 45-50 minutes, which was nice. Less happily when I checked in the day
+before – using a laptop as neither Safari nor Firefox on iOS was able to
+display the boarding pass – I got an automatic email from Wizzair telling me
+that I needed to arrive at the airport by 02.15 as the airport was upgrading
+their “central search facilities”. After trying to call the airport half a dozen
+times but getting trapped in the IVR menus at the inevitable “read the FAQ on
+the website” end state, I gave up trying to check if that really was necessary
+and decided to risk my original timings.&lt;&#x2F;p&gt;
+&lt;p&gt;I did however spot one useful thing: “prebooked security check”. This appears to
+be the ability to book, at 15 minute granularity, a security check during peak
+hours (03.00-04.30). Given my estimated arrival time of 04.15, that seemed
+perfect.
+ &lt;img src=&quot;road.jpg&quot; class=&quot;fr pd1&quot; alt=&quot;A photograph of a road being worked&quot; width=&quot;240&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+
+As it was also &lt;strong&gt;completely free&lt;&#x2F;strong&gt; requiring nothing more than my
+flight number and an email address (not even the one associated with my ticket),
+I booked it resulting in an email with a QR code to show to security. This
+worked perfectly when I arrived at the airport: show the person on security the
+QR code on the phone screen, and they simply jump you past the security queue to
+the front. Did I mention this was completely free? Seems a strange system to me
+but hey, I’ll take it!&lt;&#x2F;p&gt;
+&lt;p&gt;In the end, the public transport worked though there was a short walk at the end
+that was longer than I expected – rebuilding a road meant I could get through
+but the bus couldn’t! And then the retreat happened – but you can &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.ce.cit.tum.de&#x2F;cm&#x2F;events&#x2F;mir3&#x2F;mir3-2024-10&#x2F;&quot;&gt;read about
+that elsewhere&lt;&#x2F;a&gt; :)&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Workshopping, across the universe</title>
+          <pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/workshopping-edgeless/</link>
+          <guid>https://mort.io/blog/workshopping-edgeless/</guid>
+          <description xml:base="https://mort.io/blog/workshopping-edgeless/">&lt;p&gt;One of the pleasures of being an academic is to travel to nice places to meet
+interesting people, and interesting places to meet nice people. In one of my
+first such trips for a few years I recently went to Sweden to participate in the
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;cloudresearch.org&#x2F;workshops&#x2F;17th&#x2F;&quot;&gt;17th Cloud Control Workshop&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+ &lt;a href=&quot;https:&#x2F;&#x2F;cloudresearch.org&#x2F;workshops&#x2F;17th&#x2F;&quot;&gt;&lt;img src=&quot;photo.jpg&quot; class=&quot;fr&quot; alt=&quot;A photograph of the presenter in front of a slide&quot; width=&quot;480&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;&#x2F;a&gt;
+&lt;p&gt;I’d previously attended the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;cloudresearch.org&#x2F;workshops&#x2F;15th&#x2F;&quot;&gt;15th Cloud Control
+Workshop&lt;&#x2F;a&gt; shortly before the pandemic
+happened, causing the series to pause briefly. This was the reboot, and as
+before, it was a great deal of fun: good company, good food, beautiful location.
+If you get the chance to go, take it if you can!&lt;&#x2F;p&gt;
+&lt;p&gt;The workshop is a really nice mix of keynote presentations – not too many and
+not too long at 20 minutes (mostly) – and discussion sessions proposed
+beforehand or on site by participants. I gave one of the keynotes, talking about
+the challenges posed and opportunities offered by edge computing. Can share
+slides on request, or when I decide on a good way to publish them!&lt;&#x2F;p&gt;
+&lt;p&gt;I also enjoyed many good discussions and conversations, topped off with a great
+BBQ, but two topics stand out. First, a great discussion session organised by
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;anakli.inf.ethz.ch&#x2F;&quot;&gt;Prof. Ana Klimović&lt;&#x2F;a&gt; about serverless computing
+which immediately triggered some thoughts about possible followup publications
+from &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;edgeless-project.eu&#x2F;&quot;&gt;EDGELESS&lt;&#x2F;a&gt;, and collaboration possibilities.&lt;&#x2F;p&gt;
+&lt;p&gt;Second, several conversations on a topic I know little about, low-earth orbit
+(LEO) satellite networking, and what could be done with it.&lt;&#x2F;p&gt;
+&lt;p&gt;For what it’s worth, my thought was whether a LEO constellation plus a little
+edge compute could provide a difficult-to-disrupt out-of-band monitoring network
+for critical infrastructure like datacenters and power grids: although data
+bandwidth is limited and a bit complicated due to the constraints on ground
+stations, they have pretty decent cameras, so why not use those to capture and
+locally process images of the roofs of large rectangular buildings like
+datacenters and the like which could continually display various status data.&lt;&#x2F;p&gt;
+&lt;p&gt;Such status information would only need to be locally generated, so it would
+take fairly substantial physical disruption of the facility (also presumably
+noticeable by camera) to prevent that working. Alternatively, the constellation
+(perhaps shared across multiple facilities in different jurisdictions) would
+need to be substantially disrupted to prevent it being able to monitor targets.&lt;&#x2F;p&gt;
+&lt;p&gt;It was a fun discussion anyway, combining a network technology I knew little
+about with possibly interesting applications of edge computing to resiliency.&lt;&#x2F;p&gt;
+&lt;p&gt;Postcript: in case you’re curious, the title is a passing reference to &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Star_Trekkin%27&quot;&gt;Star
+Trekkin’&lt;&#x2F;a&gt;, a fine popular music
+single from my youth. Which has a much longer back-story on Wikipedia than I had
+anticipated.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Fame and Fortune!</title>
+          <pubDate>Wed, 24 Jun 2015 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/bigtechday-mirage/</link>
+          <guid>https://mort.io/blog/bigtechday-mirage/</guid>
+          <description xml:base="https://mort.io/blog/bigtechday-mirage/">&lt;p&gt;After a slew of HDI related items, a quick &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;openmirage.org&#x2F;&quot;&gt;MirageOS&lt;&#x2F;a&gt; note. I was invited to
+give a presentation on MirageOS at the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.tngtech.com&#x2F;en.html&quot;&gt;TNG&lt;&#x2F;a&gt;
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.tngtech.com&#x2F;en&#x2F;big-techday.html&quot;&gt;Big TechDay 8&lt;&#x2F;a&gt; conference. This
+was an interesting, and very broad based, event. It brought together about 500
+people with about 25 speakers over one day, on topics from cognitive science to
+AI to chess playing algorithms to obviating testing through proof reasoning.
+And, of course, operating systems and &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;openmirage.org&#x2F;&quot;&gt;MirageOS&lt;&#x2F;a&gt;! If you’re interested, the
+slides used are available at
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;decks.openmirage.org&#x2F;bigtechday8&quot;&gt;decks.openmirage.org&lt;&#x2F;a&gt; in the usual
+way, and if you really want to hear me droning on, TNG are making the video
+(with synchronised slides)
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.techcast.com&#x2F;events&#x2F;bigtechday8&#x2F;salvator-1130&#x2F;?q=salvator-1130&quot;&gt;available&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;As ever, comments welcome!&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Actual HCI Papers!</title>
+          <pubDate>Wed, 17 Jun 2015 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/ecscw-and-aarhus/</link>
+          <guid>https://mort.io/blog/ecscw-and-aarhus/</guid>
+          <description xml:base="https://mort.io/blog/ecscw-and-aarhus/">&lt;p&gt;I have to confess to being quite pleased to having a couple of
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;hdiresearch.org&#x2F;&quot;&gt;HDI&lt;&#x2F;a&gt;-related papers accepted recently (even if we
+can’t even get proper reviews on the
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;ssrn.com&#x2F;abstract=2508051&quot;&gt;original HDI paper&lt;&#x2F;a&gt; – recently judged
+out-of-scope for the third time, even though the Special Issue in question
+seemed bang on target!).&lt;&#x2F;p&gt;
+&lt;p&gt;The first is a full paper to &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.ecscw2015.no&#x2F;&quot;&gt;ECSCW’15&lt;&#x2F;a&gt; titled
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;ecscw15-hdi.pdf&quot;&gt;&lt;em&gt;Human Data Interaction: Historical Lessons from Social Studies and CSCW&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;.
+A collaboration with &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.andy-crabtree.com&#x2F;&quot;&gt;Dr Andy Crabtree&lt;&#x2F;a&gt;, it
+examines particularly the role of &lt;em&gt;interaction&lt;&#x2F;em&gt; in HDI and explores how past
+technical approaches, such as
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;comsnets11-dataware.pdf&quot;&gt;Dataware&lt;&#x2F;a&gt;, to
+the challenges posed by HDI haven’t fully considered the inherently social
+nature of data.&lt;&#x2F;p&gt;
+&lt;p&gt;The second is a short paper to the decennial – seriously: every ten years! –
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;aarhus2015.org&quot;&gt;Aarhus 2015&lt;&#x2F;a&gt; conference titled
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;aarhus15-databox.pdf&quot;&gt;&lt;em&gt;Personal Data: Thinking Inside the Box&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;.
+This sets out a vision for an embodiment of a &lt;em&gt;Databox&lt;&#x2F;em&gt;: a physical device
+supported by online services that empowers us to take back control of our online
+lives. Building a Databox, using &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;mirage.io&#x2F;&quot;&gt;MirageOS&lt;&#x2F;a&gt;, is hopefully
+going to be a key activity for me in the coming months…&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Taking it to the People People</title>
+          <pubDate>Wed, 08 Apr 2015 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/hdi-seminar/</link>
+          <guid>https://mort.io/blog/hdi-seminar/</guid>
+          <description xml:base="https://mort.io/blog/hdi-seminar/">&lt;p&gt;Looks like I get a chance to run my mouth off again :) Upcoming
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;hdiresearch.org&#x2F;&quot;&gt;HDI&lt;&#x2F;a&gt; &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.crassh.cam.ac.uk&#x2F;events&#x2F;26198&quot;&gt;research
+seminar&lt;&#x2F;a&gt;, organised by &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.bigdata.cam.ac.uk&#x2F;&quot;&gt;Cambridge Big
+Data&lt;&#x2F;a&gt;&#x2F;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.digitalhumanities.cam.ac.uk&#x2F;&quot;&gt;Digital
+Humanities&lt;&#x2F;a&gt;. In short, details are:
+&lt;strong&gt;20th April 2015, 14:00–16:00&lt;&#x2F;strong&gt; in &lt;strong&gt;S1, Alison Richard Building, West Road,
+Cambridge&lt;&#x2F;strong&gt;. If you’d like to attend, please do register at
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.eventbrite.co.uk&#x2F;e&#x2F;human-data-interaction-cambridge-big-datadigital-humanities-seminar-tickets-16337148852&quot;&gt;http:&#x2F;&#x2F;www.eventbrite.co.uk&#x2F;e&#x2F;human-data-interaction-cambridge-big-datadigital-humanities-seminar-tickets-16337148852&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;And just because pixels are, in some loose sense, nearly free, here’s the
+abstract from the seminar link above:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The increasing generation and collection of personal data has created a
+complex ecosystem, often collaborative but sometimes combative, around
+companies and individuals engaging in the use of these data. We propose that
+the interactions between these agents warrant a new topic of study: Human-Data
+Interaction (HDI), that sits at the intersection of various disciplines,
+including computer science, statistics, sociology, psychology and behavioural
+economics._&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In this brief presentation I will pose some of the challenges that HDI raises,
+organised into three core themes of legibility, agency and negotiability. I
+will also outline some of the technical work we are currently undertaking that
+attempts to address some of the underlying platform problems. My hope is to
+elicit discussion of both the HDI framework and the technical solutions we are
+pursuing, as well as to engage in a broader conversation about the ways we
+should approach the personal data ecosystem with other interested parties._&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</description>
+      </item>
+      <item>
+          <title>I Think Someone Else Is Also Following Me...</title>
+          <pubDate>Mon, 16 Mar 2015 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/being-followed-postscript/</link>
+          <guid>https://mort.io/blog/being-followed-postscript/</guid>
+          <description xml:base="https://mort.io/blog/being-followed-postscript/">&lt;p&gt;Turns out others were listening too – notably the USA’s &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.darpa.mil&#x2F;&quot;&gt;DARPA&lt;&#x2F;a&gt;. The recent
+announcement of the &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.darpa.mil&#x2F;NewsEvents&#x2F;Releases&#x2F;2015&#x2F;03&#x2F;11.aspx&quot;&gt;Brandeis&lt;&#x2F;a&gt; programme makes explicit reference to &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;ssrn.com&#x2F;abstract=2508051&quot;&gt;HDI&lt;&#x2F;a&gt;
+and &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;hdiresearch.org&#x2F;&quot;&gt;our website&lt;&#x2F;a&gt;. This has been picked up by &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;gcn.com&#x2F;articles&#x2F;2015&#x2F;03&#x2F;12&#x2F;darpa-brandeis.aspx&quot;&gt;GCN&lt;&#x2F;a&gt;, &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.usatoday.com&#x2F;story&#x2F;nation&#x2F;2015&#x2F;03&#x2F;16&#x2F;data-privacy-darpa-brandeis&#x2F;70222556&#x2F;&quot;&gt;USAToday&lt;&#x2F;a&gt;,
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.nbcnews.com&#x2F;tech&#x2F;security&#x2F;darpa-unexpectedly-announces-program-improve-online-piracy-n322601&quot;&gt;NBCNews&lt;&#x2F;a&gt;, &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.engadget.com&#x2F;2015&#x2F;03&#x2F;12&#x2F;darpa-is-trying-to-reinvent-online-privacy&#x2F;&quot;&gt;Engadget&lt;&#x2F;a&gt; among others. With $60M potentially on the table, I
+hope that there’ll be many more who get interested in pushing HDI forwards now
+:)&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>I Think Someone&#x27;s Following Me...</title>
+          <pubDate>Mon, 02 Mar 2015 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/someones-following-me/</link>
+          <guid>https://mort.io/blog/someones-following-me/</guid>
+          <description xml:base="https://mort.io/blog/someones-following-me/">&lt;p&gt;It’s always&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; nice when someone notices what you’re doing, and I was
+pleasantly surprised recently to find that someone had indeed been watching.&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-2-1&quot;&gt;&lt;a href=&quot;#fn-2&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Specifically, it appears that someone at MIT Technology Review has noticed the
+work of me and some of my pals: our work on &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.technologyreview.com&#x2F;2015&#x2F;01&#x2F;05&#x2F;169715&#x2F;the-emerging-science-of-human-data-interaction&#x2F;&quot;&gt;HDI&lt;&#x2F;a&gt; and a recent sketch of some
+follow-on work we’re pursuing around building a personal &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.technologyreview.com&#x2F;2015&#x2F;01&#x2F;26&#x2F;169495&#x2F;how-a-box-could-solve-the-personal-data-conundrum&#x2F;&quot;&gt;Databox&lt;&#x2F;a&gt;.
+Independently of that, the latter also happened to get picked up by
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.theguardian.com&#x2F;profile&#x2F;johnnaughton&quot;&gt;John Naughton&lt;&#x2F;a&gt; in the &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.theguardian.com&#x2F;technology&#x2F;2015&#x2F;feb&#x2F;01&#x2F;control-personal-data-databox-end-user-agreement&quot;&gt;Guardian&lt;&#x2F;a&gt;, which ended up with a pretty
+active comments thread, including one from Richard Stallman himself…&lt;&#x2F;p&gt;
+&lt;p&gt;Guess we’d better get on and deliver it now then :)&lt;&#x2F;p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;Well, usually. Unless you’re doing something embarrassing like, e.g.,
+dancing. &lt;a href=&quot;#fr-1-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-2&quot;&gt;
+&lt;p&gt;Though in fact, given the pattern involved, I suspect it may be my
+colleague, &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.eecs.qmul.ac.uk&#x2F;~hamed&#x2F;&quot;&gt;Dr Hamed Haddadi&lt;&#x2F;a&gt; who’s
+actually being followed. To whit, the fact that they also picked up on &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.technologyreview.com&#x2F;2014&#x2F;09&#x2F;12&#x2F;171400&#x2F;the-murky-world-of-third-party-web-tracking&#x2F;&quot;&gt;a
+study&lt;&#x2F;a&gt;
+of third-party web-tracking from last year. &lt;a href=&quot;#fr-2-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</description>
+      </item>
+      <item>
+          <title>Talks, Old and New</title>
+          <pubDate>Sat, 14 Feb 2015 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/talks-old-and-new/</link>
+          <guid>https://mort.io/blog/talks-old-and-new/</guid>
+          <description xml:base="https://mort.io/blog/talks-old-and-new/">&lt;p&gt;Thanks to an invitation from &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;research.microsoft.com&#x2F;en-us&#x2F;um&#x2F;people&#x2F;hiballan&#x2F;&quot;&gt;Hitesh&lt;&#x2F;a&gt;, I recently got the chance to revisit my
+old stomping ground at &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;research.microsoft.com&#x2F;en-us&#x2F;labs&#x2F;cambridge&#x2F;&quot;&gt;Microsoft Research Cambridge&lt;&#x2F;a&gt;. Well, I say “old”
+– in the intervening 7 years, they’ve moved to a rather splendid new building
+at the other end of Cambridge, just next to the station. (And improved the
+coffee too, not that it wasn’t pretty good to start with!)&lt;&#x2F;p&gt;
+&lt;p&gt;Anyway, this was a pleasant chance to catch up with some old colleagues, meet
+some new ones, and even speak to my most recently graduated Ph.D. student,
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;research.microsoft.com&#x2F;en-us&#x2F;people&#x2F;a-ewluge&#x2F;&quot;&gt;Dr Ewa Luger&lt;&#x2F;a&gt; – and who’d’ve thought that I’d ever end up supervising
+someone coming from the discipline of Political Science too!&lt;&#x2F;p&gt;
+&lt;p&gt;The ostensible reason was to talk about the &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;homenetworks.ac.uk&#x2F;&quot;&gt;Homework&lt;&#x2F;a&gt; project – a talk I’ve
+given a &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=AdtVSrazVaQ&quot;&gt;few times now&lt;&#x2F;a&gt; – and to lead from that into discussing some
+of my current agenda, around &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;hdiresearch.org&#x2F;&quot;&gt;Human-Data Interaction&lt;&#x2F;a&gt; and
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;mort.io&#x2F;research&#x2F;&quot;&gt;User-Centred Systems&lt;&#x2F;a&gt;. It seemed to go pretty well – a few
+questions, and some lively discussion over lunch followed.&lt;&#x2F;p&gt;
+&lt;p&gt;Happily, the fine folk at &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;research.microsoft.com&#x2F;en-us&#x2F;labs&#x2F;cambridge&#x2F;&quot;&gt;MSRC&lt;&#x2F;a&gt; recorded it and have made it available, so if
+you’re really interested, you can take a look – direct your browser of choice to &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;research.microsoft.com&#x2F;apps&#x2F;video&#x2F;default.aspx?id=238157&quot;&gt;Interacting with Infrastructure: Home Networking and Beyond&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I have to say, when I checked that link in the course of writing this, one thing
+that did come as something of a surprise was to notice that a talk I didn’t
+remember giving – it was 8 years ago to be fair! – is also available. So if
+you’ve a burning desire to find out about
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;research.microsoft.com&#x2F;apps&#x2F;video&#x2F;default.aspx?id=104278&quot;&gt;Measuring and Monitoring Microsoft’s Enterprise Network&lt;&#x2F;a&gt;,
+it turns out you can do that too. The past haunts us they say. In my case, it
+seems that the haunting has happened already, and turned my hair mostly white in
+the process… :)&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

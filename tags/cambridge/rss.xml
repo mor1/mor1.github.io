@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>mort’s mythopœia - cambridge</title>
+      <link>https://mort.io</link>
+      <description>with apologies</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mort.io/tags/cambridge/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Sat, 07 Feb 2026 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Sabbatical Diary: Week 18</title>
+          <pubDate>Sat, 07 Feb 2026 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w18/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w18/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w18/">&lt;p&gt;So. That was a rather stop-start week.&lt;&#x2F;p&gt;
+&lt;p&gt;It started off pretty well: as &lt;a href=&quot;&#x2F;blog&#x2F;sabbatical-diary-w16-17&#x2F;&quot;&gt;noted last
+week&lt;&#x2F;a&gt;, I was in Brussels to attend &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;fosdem.org&#x2F;2026&#x2F;&quot;&gt;FOSDEM
+2026&lt;&#x2F;a&gt; for the first time in a decade. As well as
+getting my tax return submitted to HMRC before the deadline on the Saturday, I
+also managed to finish my slides—more precisely, editing Amjad’s slides—to
+give my talk on Sunday literally &lt;em&gt;hours&lt;&#x2F;em&gt;&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-hours-1&quot;&gt;&lt;a href=&quot;#fn-hours&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; beforehand.&lt;&#x2F;p&gt;
+ &lt;a href=&quot;https:&#x2F;&#x2F;video.fosdem.org&#x2F;2026&#x2F;ua2114&#x2F;F33P7S-unlocking_extra_cluster_capacity_with_enhanced_linux_cgroup_scheduling.av1.webm&quot;&gt;&lt;img src=&quot;talk-title.webp&quot; class=&quot;fl pd1&quot; alt=&quot;Splash slide for a FOSDEM 2026 talk title _Unlocking extra cluster
+        capacity with enhanced Linux cgroup scheduling&quot; width=&quot;480&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;&#x2F;a&gt;
+&lt;p&gt;I found &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;neilzone.co.uk&#x2F;2026&#x2F;02&#x2F;reflections-on-my-first-day-ever-at-fosdem&#x2F;&quot;&gt;as others have
+commented&lt;&#x2F;a&gt;
+it was very busy, and the venue quality was a bit patchy: some rooms seemed to
+work really well, some were rather hot with lots of background noise. It was
+great to catch up with a few folk though, as well as to give &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;video.fosdem.org&#x2F;2026&#x2F;ua2114&#x2F;F33P7S-unlocking_extra_cluster_capacity_with_enhanced_linux_cgroup_scheduling.av1.webm&quot;&gt;Amjad’s talk,
+“Unlocking extra cluster capacity with enhanced Linux cgroup
+scheduling”&lt;&#x2F;a&gt;. Got a couple of good questions, plus a couple more
+follow-up chats off-mic. All-in-all I was pretty pleased with the attendance
+given it was the graveyard shift as the last talk in the Kernel devroom before
+the closing conference keynote in another building. For those who want more than
+the video, &lt;a href=&quot;https:&#x2F;&#x2F;mort.io&#x2F;blog&#x2F;sabbatical-diary-w18&#x2F;.&#x2F;fosdem26-mortier.pdf&quot;&gt;find the slides here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I even managed to make it to the station on time notwithstanding having to bail
+off the tram and walk a bit to the metro due to police cars blocking the way,
+and then putting up with the usual rather stringent approach Brussels Eurostar
+seems to take to gate closing times.&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-eurostar-1&quot;&gt;&lt;a href=&quot;#fn-eurostar&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; So that was nice.&lt;&#x2F;p&gt;
+&lt;p&gt;Unfortunately most of the rest of the week after I got back was taken up with a
+meeting for some external work I do (fun!) followed by a stomach bug for ~36
+hours (not fun!). And then recovery, both physical and catching up on the
+resulting backlog.&lt;&#x2F;p&gt;
+&lt;p&gt;Ho hum. Hopefully next week will be better! Or at least less… runny.&lt;&#x2F;p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-hours&quot;&gt;
+&lt;p&gt;At least one. Maybe as much as two. &lt;a href=&quot;#fr-hours-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-eurostar&quot;&gt;
+&lt;p&gt;Seriously. Why does Brussels seem to be so much more rigid about
+this. I never have a problem at stations in London, Paris,
+Amsterdam. But for some reason, Brussels seems to close the gate
+absolutely on the dot of 30min before the train, no matter what. In
+this case I arrived to an almost empty hall—about three other
+people going through security ahead of me—to “are you for the
+18.52?” “yes” “you have one minute before the gate closes”. &lt;a href=&quot;#fr-eurostar-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</description>
+      </item>
+      <item>
+          <title>Sabbatical Diary: Weeks 16&#x2F;17 &#x2F; Months 2---4</title>
+          <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w16-17/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w16-17/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w16-17/">&lt;p&gt;More personal and suchlike stuff going on the last two weeks, hence the week’s
+gap. Felt less productive as a result, though some things got done I guess.&lt;&#x2F;p&gt;
+&lt;p&gt;I engaged with a range of students:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;some Ph.D. supervising of my newest student, Yaman Kalaji (more later)&lt;&#x2F;li&gt;
+&lt;li&gt;helped out the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.srcf.net&#x2F;&quot;&gt;SRCF&lt;&#x2F;a&gt; for which I appear to have
+become Senior Treasurer&lt;&#x2F;li&gt;
+&lt;li&gt;did some more Ph.D. and M.Phil. assessment and interviewing&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I started wrapping up the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;edgeless-project.eu&#x2F;&quot;&gt;EDGELESS&lt;&#x2F;a&gt; project in
+the sense of getting the no-cost extension sorted out, signing off on the
+(almost) final timesheets, and other exciting administrative tasks. I also think
+I’ve unblocked (finally!) the industrial funding project proposal &lt;a href=&quot;&#x2F;blog&#x2F;sabbatical-diary-w11-12&#x2F;&quot;&gt;I’ve
+mentioned previously&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I participated in a visit by a Ukrainian Teachers’ association, answering
+questions about Christ’s and Computer Science.&lt;&#x2F;p&gt;
+&lt;p&gt;I finished the review process for EuroSys 2026—just one of my batch of five
+from this round accepted (but I think 20% is about usual for EuroSys).&lt;&#x2F;p&gt;
+&lt;p&gt;I circulated and got initial feedback from several people on the &lt;a href=&quot;&#x2F;blog&#x2F;sabbatical-diary-w6-9&#x2F;&quot;&gt;writing
+previously mentioned&lt;&#x2F;a&gt; in which I try to give an
+overview of how undergraduate education works at the University. Feedback was
+both less bad than I’d feared and more useful than I’d hoped (!) in that I
+didn’t think it was close to being ready for detailed feedback, but apparently
+it was. Though it’s already eight pages and counting; looks like it’ll be about
+ten by the time it’s done.&lt;&#x2F;p&gt;
+&lt;p&gt;I also fed into a consultation about end-to-end encryption and law enforcement
+activity, largely repeating many of the things &lt;a href=&quot;&#x2F;blog&#x2F;cosi-lawful-access&#x2F;&quot;&gt;said to the COSI
+meeting&lt;&#x2F;a&gt;, which was an interesting chat.&lt;&#x2F;p&gt;
+&lt;p&gt;I even did some Actual Science™ by walking the William Gates Building to
+validate that the building management system’s temperature sensors really were
+behaving themselves as we’d spotted room temperatures ranging from 12—25°C
+on a cold day a couple of weeks ago, which seemed rather a wide range. But they
+did seem to be. Possibly more evidence that sorting the heating out really could
+have some useful impact on energy consumption (and thus both bills and carbon
+output).&lt;&#x2F;p&gt;
+&lt;p&gt;…And finally! Earlier today I travelled to lovely Brussels to attend &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;fosdem.org&#x2F;2026&#x2F;&quot;&gt;FOSDEM
+2026&lt;&#x2F;a&gt; for the first time in a decade. Due to visa
+issues it looks like I’ll be presenting Amjad’s work&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-visa-1&quot;&gt;&lt;a href=&quot;#fn-visa&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; on Sunday—maybe
+see you there :)&lt;&#x2F;p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-visa&quot;&gt;
+&lt;p&gt;This is the second time this happened, the first being the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;sesame23.github.io&#x2F;&quot;&gt;SESAME
+2023&lt;&#x2F;a&gt;
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3592533.3592807&quot;&gt;paper&lt;&#x2F;a&gt; in Rome. &lt;a href=&quot;#fr-visa-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</description>
+      </item>
+      <item>
+          <title>Sabbatical Diary: Week 15</title>
+          <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w15/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w15/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w15/">&lt;p&gt;That feels like it was a relatively productive week :)&lt;&#x2F;p&gt;
+&lt;p&gt;I interviewed a couple of Ph.D. candidates—good luck!&lt;&#x2F;p&gt;
+&lt;p&gt;I obtained a short extension to the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;edgeless-project.eu&#x2F;&quot;&gt;EU EDGELESS&lt;&#x2F;a&gt;
+project to allow us to spend up the remaining funds and complete all the work.&lt;&#x2F;p&gt;
+&lt;p&gt;I extracted myself from Ramblr: &lt;a href=&quot;&#x2F;blog&#x2F;extracting-rambling&#x2F;&quot;&gt;downloaded my existing
+trips&lt;&#x2F;a&gt;, &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;pramblr&quot;&gt;wrote a script to generate nice
+visualisations&lt;&#x2F;a&gt;, and &lt;a href=&quot;&#x2F;tracks&#x2F;&quot;&gt;integrated it into this
+website&lt;&#x2F;a&gt;. More polishing to follow, of both the visualisations and the
+integration, but it feels like a decent start.&lt;&#x2F;p&gt;
+&lt;p&gt;And finally! I actually got round to writing some funding proposal-related text
+for the work we’re seeking to do relating to the “Digital Plant Room” and making
+existing buildings more energy efficient.&lt;&#x2F;p&gt;
+&lt;p&gt;Plenty more to do, but that feels like it wasn’t a bad week in the end.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Sabbatical Diary: Week 14</title>
+          <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w14/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w14/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w14/">&lt;p&gt;The calendar year started with some sysadmin work. Had to &lt;a href=&quot;&#x2F;blog&#x2F;eduroam-update&#x2F;&quot;&gt;get devices
+reconnected to &lt;code&gt;eduroam&lt;&#x2F;code&gt; and &lt;code&gt;Internal-CL&lt;&#x2F;code&gt; Wi-Fi
+networks&lt;&#x2F;a&gt; which was happily quite straightforward.&lt;&#x2F;p&gt;
+&lt;p&gt;Research work was primarily getting a bit more seriously started on &lt;a href=&quot;&#x2F;blog&#x2F;sabbatical-diary-w6-9&#x2F;&quot;&gt;unexpected
+work mentioned previously&lt;&#x2F;a&gt; looking at digital
+support for HVAC control—a better “Digital Plant Room” if you will.&lt;&#x2F;p&gt;
+&lt;p&gt;I also did some recreational coding around various family duties which was nice
+:) I used to use &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;everytrail.com&#x2F;&quot;&gt;EveryTrail&lt;&#x2F;a&gt; to record GPS tracks
+while out walking. This became &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.alltrails.com&#x2F;&quot;&gt;AllTrails&lt;&#x2F;a&gt; and (at
+the time, not used it in years) got worse and probably wanted me to start
+paying. About a decade ago I switched to
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.ramblr.com&#x2F;web&#x2F;main&quot;&gt;ramblr&lt;&#x2F;a&gt;—but unfortunately that has also
+degraded over time, with their website setup and app bit-rotting as far as I
+could tell, while also reducing the free functionality and forcing users towards
+their paid service.&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-enshittification-1&quot;&gt;&lt;a href=&quot;#fn-enshittification&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;So I decided the time had come to extricate myself. Due to the aforementioned
+bit-rot of the &lt;em&gt;ramblr&lt;&#x2F;em&gt; app, some time ago I had found a reasonable if
+comparatively basic iOS app for recording GPS tracks, &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;apps.apple.com&#x2F;us&#x2F;app&#x2F;gps-tracker-pro&#x2F;id984920064&quot;&gt;GPS-Tracker
+Pro&lt;&#x2F;a&gt;,&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-stalker-1&quot;&gt;&lt;a href=&quot;#fn-stalker&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; but
+wanted some way to display and host the tracks online nicely with photos
+included. It ended up being straightforward to automatically extract the ~188
+tracks from &lt;em&gt;ramblr&lt;&#x2F;em&gt;, I’d already got those from Everytrails when I switched
+away from it, and GPS-Tracker Pro makes it straightforward enough to share GPX
+and KML tracks out to e.g., cloud storage.&lt;&#x2F;p&gt;
+&lt;p&gt;So I’m now partway through a simple Python script to visualise them using
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;pypi.org&#x2F;project&#x2F;gpxplotter&#x2F;&quot;&gt;GPXPlotter&lt;&#x2F;a&gt; and
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;pypi.org&#x2F;project&#x2F;folium&#x2F;&quot;&gt;Folium&lt;&#x2F;a&gt;. Much more straightofrward so far
+than I thought it might be. More to follow—it turns out coding is fun and I
+enjoy it, so I plan to do more… :)&lt;&#x2F;p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-enshittification&quot;&gt;
+&lt;p&gt;I believe the cool kids are now calling this
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Enshittification&quot;&gt;enshittification&lt;&#x2F;a&gt;. &lt;a href=&quot;#fr-enshittification-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-stalker&quot;&gt;
+&lt;p&gt;Rather worryingly, reading that page today I see that the first
+rating review appears to be from someone who used it to stalk their
+ex-, apparently by getting a private investigator to install it on
+their phone. That’s bad. Don’t do that. I only use it to record my
+own tracks, obviously. &lt;a href=&quot;#fr-stalker-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</description>
+      </item>
+      <item>
+          <title>Sabbatical Diary: Week 13</title>
+          <pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w13/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w13/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w13/">&lt;p&gt;Nothing of note done, work-wise, for the last week or so. Hey, it was the
+holidays. Which meant a lot of driving around, and I find it difficult to do
+much other than think and sing along to the tunes while I’m driving.&lt;&#x2F;p&gt;
+&lt;p&gt;I did get a chance to watch and listen to a link my mum sent me a while ago
+though to a film from the BBC series &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.bbc.co.uk&#x2F;programmes&#x2F;b00tgz5d&quot;&gt;In Their Own Words: British
+Novelists&lt;&#x2F;a&gt;, linked from
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.openculture.com&#x2F;2012&#x2F;01&#x2F;jrr_tolkien_in_his_own_words.html&quot;&gt;https:&#x2F;&#x2F;www.openculture.com&#x2F;2012&#x2F;01&#x2F;jrr_tolkien_in_his_own_words.html&lt;&#x2F;a&gt;. As it
+was Tolkien’s anniversary yesterday (he was born 3 January 1892), it seemed an
+appropriate moment to link it here.&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-title-1&quot;&gt;&lt;a href=&quot;#fn-title&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The following quote from the man particularly resonated:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Well it is meant to be escapist. Because I use escapism in its proper sense,
+as of a man getting out of prison.&lt;br&gt;
+&lt;em&gt;&lt;div align=&quot;right&quot;&gt;J.R.R. Tolkien&lt;&#x2F;div&gt;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;I also enjoyed the distinction drawn between &lt;em&gt;allegory&lt;&#x2F;em&gt; and &lt;em&gt;application&lt;&#x2F;em&gt;,
+noting that Shakespeare is mostly application rather than allegory. (This may be
+obvious to those who are students of literature, but that ain’t me!)&lt;&#x2F;p&gt;
+&lt;p&gt;Merry New Year!&lt;&#x2F;p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-title&quot;&gt;
+&lt;p&gt;Some may also note the nod to Tolkien in the title of this blog :) &lt;a href=&quot;#fr-title-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</description>
+      </item>
+      <item>
+          <title>Sabbatical Diary: Weeks 11---12 &#x2F; Month 3</title>
+          <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w11-12/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w11-12/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w11-12/">&lt;p&gt;Another two weeks gone, and suddenly we’re at the end of the Calendar
+Year.&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-year-1&quot;&gt;&lt;a href=&quot;#fn-year&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Not an idle two weeks but not the most productive either. A lot of personal
+stuff—collecting the eldest from University, Christmas preparations and the
+like.&lt;&#x2F;p&gt;
+&lt;p&gt;Some M.Phil. and Ph.D. application processing and candidate interviewing.
+Knowledge transfer from Amjad before he leaves. Made some corrections to &lt;a href=&quot;&#x2F;blog&#x2F;emacs-eglot&#x2F;&quot;&gt;a past
+blog post about Emacs &lt;code&gt;eglot&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;. A bit of time spent trying
+to get moving the two potential research projects that I didn’t anticipate:
+starting to fill out a funding application for one, chasing the University over
+some blocked industrial funding for the other.&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-funding-1&quot;&gt;&lt;a href=&quot;#fn-funding&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Initial meetings about the M.Phil. research project I’m supervising this year.
+Not strictly necessary due to the sabbatical, but the topic is bang on the
+second of the two research projects mentioned above. Building on Amjad’s work,
+the project will extend in two directions. First, determine whether his results
+can be ported to the
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.kernel.org&#x2F;doc&#x2F;html&#x2F;next&#x2F;scheduler&#x2F;sched-ext.html&quot;&gt;&lt;code&gt;sched_ext&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;, a
+scheduler class where behaviours can be written using BPF. Second, for added
+&lt;del&gt;pain&lt;&#x2F;del&gt;excitement, do it on a Raspberry Pi as an example of a small(-ish) edge
+device with a different architecture.&lt;&#x2F;p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-year&quot;&gt;
+&lt;p&gt;… vs Academic Year, which always begins on 1 October of course. As
+does the Michaelmas Term. Which is of course not the Full Term. Because
+Full Term is shorter than Term. Naturally. &lt;a href=&quot;#fr-year-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-funding&quot;&gt;
+&lt;p&gt;I remain constantly amazed at how bad our processes around pursuing
+and landing research funding are, from any funder really. &lt;a href=&quot;#fr-funding-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</description>
+      </item>
+      <item>
+          <title>Sabbatical Diary: Week 10</title>
+          <pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w10/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w10/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w10/">&lt;p&gt;An odd week that. About 10 reference letters submitted throughout the week, the
+latest about 30 minutes ago. Remember: a student is for life, not just a degree.
+There was also a police statement to make following an unpleasant interaction on
+a train. Apparently photos, CCTV and AI will all be involved seeking the
+individual in question. Here’s hoping.&lt;&#x2F;p&gt;
+ &lt;figure class=&quot;fi fl pd1&quot;&gt;&lt;img src=&quot;defence-in-progress.webp&quot; class=&quot;fl pd1&quot; alt=&quot;The PhD defence in progress; yours truly on the right, furthest from the candidate&quot; width=&quot;360&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;PhD defence in progress.x&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+&lt;p&gt;However, the main event was the one it started with: the viva &lt;a href=&quot;&#x2F;blog&#x2F;sabbatical-diary-w6-9&#x2F;&quot;&gt;previously
+mentioned&lt;&#x2F;a&gt; at &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.tudelft.nl&#x2F;en&#x2F;&quot;&gt;TU
+Delft&lt;&#x2F;a&gt;. That was good fun: my first viva abroad
+(indeed, my first outside England). People had told me it was different, being a
+public defence, and it was: much &lt;a href=&quot;&#x2F;blog&#x2F;phd-viva&#x2F;&quot;&gt;more formal than ours&lt;&#x2F;a&gt; with
+much wearing of &lt;em&gt;paraphernalia&lt;&#x2F;em&gt; (their word not mine :) doffing of caps (er,
+doctors’ bonnets anyway), and so forth.&lt;&#x2F;p&gt;
+ &lt;figure class=&quot;fi fr pd1&quot;&gt;&lt;img src=&quot;success.webp&quot; class=&quot;fr pd1&quot; alt=&quot;Post-defence selfie by the supervisor showing yours truly and the candidate.&quot; width=&quot;320&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;Post-defence selfie by the supervisor showing yours truly and the candidate.&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+&lt;p&gt;It was only when it finished that I finally realized why: the viva wasn’t just
+the viva but also incorporated the graduation ceremony. Probably a good thing
+that I didn’t take literally the part of the instructions where it said I could
+wear whatever was customary at my own institution for a viva (shorts?
+T-shirt?)—more appropriate would’ve been to wear what as customary for
+graduation. Which I did.&lt;&#x2F;p&gt;
+&lt;p&gt;That was followed by two days of admissions interviewing. Technically I didn’t
+need to do any this year due to the sabbatical but (&lt;em&gt;i&lt;&#x2F;em&gt;) we were back up to
+about 40—45 being interviewed so I thought I should help and (&lt;em&gt;ii&lt;&#x2F;em&gt;)
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;~djw1005&#x2F;&quot;&gt;Damon&lt;&#x2F;a&gt; who has taken over as DOS while I’m
+on sabbatical very kindly did several days interviewing for me last year while
+he was on sabbatical. So there was at least a moral debt, now hopefully paid, at
+least in part.&lt;&#x2F;p&gt;
+&lt;p&gt;Next: writing. No, really this time. Honest.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Sabbatical Diary: Weeks 6---9 &#x2F; Month 2</title>
+          <pubDate>Mon, 08 Dec 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w6-9/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w6-9/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w6-9/">&lt;p&gt;Hmm. So that was a blogging hiatus, not for any particularly good reason – just
+a little busier than expected with a little less time in front of a computer
+than needed.&lt;&#x2F;p&gt;
+ &lt;figure class=&quot;fi fr pd1&quot;&gt;&lt;img src=&quot;roman-well.webp&quot; class=&quot;fr pd1&quot; alt=&quot;A top-down shot of a covered, backlit well in a Lancaster pub floor, apparently Roman&quot; width=&quot;300&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;A covered well in a Lancaster pub floor, apparently Roman.&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+&lt;p&gt;Spent the time reading dissertations and then carrying out Ph.D. vivas – one at
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.lancaster.ac.uk&#x2F;scc&#x2F;&quot;&gt;Lancaster University&lt;&#x2F;a&gt;, one at &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.imperial.ac.uk&#x2F;design-engineering&#x2F;&quot;&gt;Imperial
+College&lt;&#x2F;a&gt;. Currently en route to
+the third, at &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.tudelft.nl&#x2F;tbm&#x2F;ess&#x2F;&quot;&gt;TU Delft&lt;&#x2F;a&gt;. Having done Ph.D.
+vivas at a rate of slightly less than one every ~2 years since doing my own,
+this has been a bit of a burst load. I think I might need to slow it back down
+again!&lt;&#x2F;p&gt;
+&lt;p&gt;We wrote and submitted a rebuttal&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-rebuttal-1&quot;&gt;&lt;a href=&quot;#fn-rebuttal&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; for our ASPLOS 2026 submission on
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2508.15703&quot;&gt;Amjad’s excellent work&lt;&#x2F;a&gt;. I largely managed to
+manage my temper while doing so—it’s rare I get a set of paper reviews without
+at least one of them saying something I consider enraging, and this set was no
+exception.&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-reviews-1&quot;&gt;&lt;a href=&quot;#fn-reviews&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; Inevitably it made no difference—onwards and upwards to
+OSDI. This is starting to feel like the &lt;a href=&quot;&#x2F;blog&#x2F;happy-day&#x2F;&quot;&gt;Unikernels ASPLOS’13
+paper&lt;&#x2F;a&gt;, which I shall choose to treat as a good omen, for now
+at least.&lt;&#x2F;p&gt;
+ &lt;figure class=&quot;fi fl pd1&quot;&gt;&lt;img src=&quot;electric-pylon.webp&quot; class=&quot;fl pd1&quot; alt=&quot;A moody electric pylon looking towards some office buildings&quot; width=&quot;300&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;A moody electric pylon looking towards some office buildings.&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+&lt;p&gt;Took part in the final plenary meeting for the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;edgeless-project.eu&#x2F;&quot;&gt;EU
+EDGELESS&lt;&#x2F;a&gt; project, which was fun.
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Gennevilliers&quot;&gt;Gennevilliers&lt;&#x2F;a&gt; may not be the most
+picturesque part of Paris—though the electric pylons did have a slightly
+Eiffel Tower-ish feel at times—but I enjoyed having dinner in &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;restaurants-de-france.fr&#x2F;fr&#x2F;au-rendez-vous-des-chauffeurs-gennevilliers-1981692.html&quot;&gt;the most French
+truck-stop&lt;&#x2F;a&gt;
+I’ve ever been into.&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-truckstop-1&quot;&gt;&lt;a href=&quot;#fn-truckstop&quot;&gt;3&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+ &lt;figure class=&quot;fi fr pd1&quot;&gt;&lt;img src=&quot;lentil-stew.webp&quot; class=&quot;fr pd1&quot; alt=&quot;A delicious lentil stew with some smoked sausages floating&quot; width=&quot;300&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;A delicious lentil stew with some smoked sausages floating.&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+&lt;p&gt;I also managed to (finally!) nail a complete draft of that writing I mentioned.
+Time to start circulating for feedback.&lt;&#x2F;p&gt;
+&lt;p&gt;Somewhat unexpected work came along: some initially promising interest in
+picking up some of the work we originally did for &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;pages.cdbb.uk&#x2F;&quot;&gt;CDBB&lt;&#x2F;a&gt;
+but targeted specifically at in-building heating and energy optimisation.
+Several useful conversations already, looking forward to taking this further
+through December and January. Will be interesting to see where we get to.&lt;&#x2F;p&gt;
+&lt;p&gt;Less unexpected, though not anticipated, was that I won £14,000 from &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.tech.cam.ac.uk&#x2F;&quot;&gt;the
+School&lt;&#x2F;a&gt; to take Amjad’s work further with the
+intent to complete on some industrial funding proposals currently in discussion.
+Unfortunately&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-amjad-1&quot;&gt;&lt;a href=&quot;#fn-amjad&quot;&gt;4&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; at the same time Amjad managed to land a role elsewhere so
+we’re now in handover mode. C’est la vie.&lt;&#x2F;p&gt;
+&lt;p&gt;Next: finally make a start on the two research proposals originally planned, and
+get the one on Amjad’s work that’s in development through to completion. And to
+emit some of the posts currently trapped, half-written, in the pipeline.&lt;&#x2F;p&gt;
+&lt;p&gt;We’ll see.&lt;&#x2F;p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-rebuttal&quot;&gt;
+&lt;p&gt;A pretty good rebuttal if I do say so myself. &lt;a href=&quot;#fr-rebuttal-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-reviews&quot;&gt;
+&lt;p&gt;I’m quite sure many of my reviews engender similar responses in
+those authors unfortunate enough to have their papers reviewed by me. It seems
+impossible to avoid—I’m not trying to get at anyone in particular here! &lt;a href=&quot;#fr-reviews-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-truckstop&quot;&gt;
+&lt;p&gt;I will confess that I haven’t been into many. But still. It was a very
+nice lentil stew indeed, ! &lt;a href=&quot;#fr-truckstop-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-amjad&quot;&gt;
+&lt;p&gt;…for me, not for him! &lt;a href=&quot;#fr-amjad-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</description>
+      </item>
+      <item>
+          <title>Sabbatical Diary: Week 5</title>
+          <pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w5/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w5/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w5/">&lt;p&gt;Another week gone, a little more done. Finally (albeit too slowly) progressing
+some industrial funding through the system to go alongside the small grant
+application of last week. Some other paperwork done.&lt;&#x2F;p&gt;
+&lt;p&gt;Polished this website a little as a reward—see the shiny new &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.brailleinstitute.org&#x2F;freefont&#x2F;&quot;&gt;Atkinson
+Hyperlegible font&lt;&#x2F;a&gt; for extra
+readability. I started using it for all my windowing and editing setup so
+thought I’d push it out here too. Maybe I’ll tweak the colour scheme one day too
+:)&lt;&#x2F;p&gt;
+&lt;p&gt;Apart from that, external work completed, and jolly interesting it was too;
+continued reading the Ph.D. dissertations that I’m examining—three to do
+before Christmas; reviewed Eurosys’26 paper submissions. Nothing too exciting
+really but progress of a sort on a couple of fronts, so not too bad.&lt;&#x2F;p&gt;
+&lt;p&gt;Next: writing.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Sabbatical Diary: Week 4 &#x2F; Month 1</title>
+          <pubDate>Sun, 02 Nov 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w4/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w4/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w4/">&lt;p&gt;Well, that was a slightly slower week: it was school half-term so I had the
+children for three days.&lt;&#x2F;p&gt;
+&lt;p&gt;I did manage to finally finish&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; polishing my Emacs
+&lt;a href=&quot;&#x2F;blog&#x2F;treesitting-emacs&#x2F;&quot;&gt;Tree-sitter&lt;&#x2F;a&gt; and &lt;a href=&quot;&#x2F;blog&#x2F;emacs-eglot&#x2F;&quot;&gt;Eglot&lt;&#x2F;a&gt; though.
+Hopefully someone finds that useful, even if only future-me.&lt;&#x2F;p&gt;
+&lt;p&gt;I also finally did a “proper” sabbatical thing and submitted a proposal for some
+(small, local) funding to continue developing &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2508.15703&quot;&gt;Amjad’s excellent
+work&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I’m travelling doing some external work this coming week in London, so I think
+I’ll use some of the travel time to push the writing I said I’d do through to
+completion so I can move on to more “proper” sabbatical work: developing
+research funding proposals. And maybe if it all goes well I’ll even allow myself
+some light coding as well – configuration polishing is all very well but it’s
+not really the same!&lt;&#x2F;p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;For now. Polishing configuration is never finished of course. A living
+breathing thing and all that. &lt;a href=&quot;#fr-1-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</description>
+      </item>
+      <item>
+          <title>Sabbatical Diary: Week 3</title>
+          <pubDate>Mon, 27 Oct 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w3/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w3/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w3/">&lt;p&gt;Not much to say this week – largely more of the same. &lt;a href=&quot;&#x2F;blog&#x2F;treesitting-emacs&#x2F;&quot;&gt;Blogged about
+&lt;code&gt;tree-sitter&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; and (written, &lt;del&gt;to be published
+shortly&lt;&#x2F;del&gt;now published!) &lt;a href=&quot;&#x2F;blog&#x2F;emacs-eglot&#x2F;&quot;&gt;&lt;code&gt;eglot&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;, configuring both for an
+increasing number of languages.&lt;&#x2F;p&gt;
+&lt;p&gt;Also continued trying to land some small funding for continuing
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cst.cam.ac.uk&#x2F;people&#x2F;aati2&quot;&gt;Amjad’s&lt;&#x2F;a&gt; excellent work. Following
+meticulous characterisation of Linux’s process scheduler, his Ph.D. developed an
+alternative approach that enables a 30% smaller cluster to satisfy the same
+“serverless” workload.&lt;&#x2F;p&gt;
+&lt;p&gt;Serverless computing is a popular style of cloud computing enabling customers to
+ignore all application deployment details, instead encapsulating their
+application – most commonly using “container” technology – so the platform can
+take responsibility for providing the necessary resources for it to run, scaling
+resources up and down in response to changes in demand. Providers typically
+provision resources as a shared cluster of (physical or virtual) machines,
+orchestrated using a cluster orchestrator based on the popular Kubernetes
+orchestrator. That orchestrator is then responsible for running encapsulated
+application code, ensuring each job is allocated sufficient resources.&lt;&#x2F;p&gt;
+&lt;p&gt;The cluster’s machines typically run Linux, and so it is Linux’s kernel
+scheduler that is responsible for running a machine’s allocated jobs. That
+scheduler’s behaviour is taken for granted by the plethora of work that has
+sought to improve cluster performance. Unfortunately, close examination of
+cluster performance results showed significant discrepancies when compared to
+the intended behaviour – current practice masks these discrepancies by
+over-provisioning the cluster.&lt;&#x2F;p&gt;
+&lt;p&gt;Meticulous examination of the results and the Linux kernel scheduler code
+revealed that the behaviour of a particular core data structure in conjunction
+with treatment of multi-core processors causes overheads to increase
+disproportionately as demand increases. This increase in overheads is especially
+prominent with serverless workloads due to their particular characteristics, and
+causes the cluster orchestrator makes ever poorer job placement decisions. The
+net effect is that, in practice, clusters must be significantly over-provisioned
+to achieve acceptable performance.&lt;&#x2F;p&gt;
+&lt;p&gt;This thesis reports how meticulous measurement revealed and unpicked this
+problem, and describes and evaluates a set of relatively small – just a few
+hundred lines of code – but critical changes in Linux’s kernel scheduler in
+mitigation. The final outcome is that these mitigations allow an identical and
+representative serverless workload to be supported by a cluster comprising 30%
+fewer machines.&lt;&#x2F;p&gt;
+&lt;p&gt;See our arXiv paper, “&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2508.15703&quot;&gt;Mitigating context switching in densely packed Linux
+clusters with Latency-Aware Group Scheduling&lt;&#x2F;a&gt;”
+for more details :)&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Sabbatical Diary: Week 2</title>
+          <pubDate>Sat, 18 Oct 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w2/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w2/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w2/">&lt;p&gt;As predicted, this week was some Emacs configuration polishing interspersed with
+some writing using &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;typst.app&#x2F;&quot;&gt;&lt;code&gt;typst&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;. I quite like &lt;code&gt;typst&lt;&#x2F;code&gt; I think
+– it seems pretty capable, it’s pretty sensible, and it’s certainly easier to
+read than LaTeX. And there’s even &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;imaginarytext.ca&#x2F;posts&#x2F;2024&#x2F;pandoc-typst-tutorial&#x2F;&quot;&gt;runes
+available&lt;&#x2F;a&gt; to invoke
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;pandoc.org&#x2F;&quot;&gt;&lt;code&gt;pandoc&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; to allow production of body text in Markdown, to
+be rendered using &lt;code&gt;typst&lt;&#x2F;code&gt; as the backend. The piece of writing in question
+didn’t go as fast as I wanted, but it did start in earnest. Which is, at least,
+a start :)&lt;&#x2F;p&gt;
+&lt;p&gt;First cut at configuration polishing is also now done I think – now into
+tweaking and refining as the different packages actually get used. Probably the
+biggest improvement noticed so far is the use of
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;minad&#x2F;jinx&quot;&gt;&lt;code&gt;jinx&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; the “enchanted spell checker” which does
+seem considerably better than the various &lt;code&gt;ispell&lt;&#x2F;code&gt;&#x2F;&lt;code&gt;hunspell&lt;&#x2F;code&gt; incantation
+packages I’ve historically used:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;common-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;use-package&lt;&#x2F;span&gt;&lt;span&gt; jinx&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :diminish jinx-mode&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :hook (emacs-startup &lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt; global-jinx-mode)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :bind ((&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;C-;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; .&lt;&#x2F;span&gt;&lt;span&gt; jinx-correct) (&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;C-M-$&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; .&lt;&#x2F;span&gt;&lt;span&gt; jinx-languages))&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :config&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (vertico-multiform-mode)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (add-to-list&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;   &amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;vertico-multiform-categories&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;   &amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;(jinx grid (vertico-grid-annotate &lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 20&lt;&#x2F;span&gt;&lt;span&gt;) (vertico-count &lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 4&lt;&#x2F;span&gt;&lt;span&gt;))))&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The &lt;code&gt;:config&lt;&#x2F;code&gt; block integrates it with the
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;minad&#x2F;vertico&quot;&gt;&lt;code&gt;vertico&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; vertical completion system that
+I’ve recently started using; simply remove if you don’t use that. This did also
+require the NixOS package to be installed already:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  programs&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;emacs&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;extraPackages&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span&gt; epkgs:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; with&lt;&#x2F;span&gt;&lt;span&gt; epkgs; ([ jinx ])&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The biggest visible change though was finally getting an auto-formatter for my
+elisp code, specifically
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-emacs&#x2F;blob&#x2F;main&#x2F;init.el&quot;&gt;&lt;code&gt;init.el&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; configured:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;common-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;use-package&lt;&#x2F;span&gt;&lt;span&gt; elisp-autofmt&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :commands (elisp-autofmt-mode elisp-autofmt-buffer)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :hook (emacs-lisp-mode &lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt; elisp-autofmt-mode))&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Ensuring it is applied to &lt;code&gt;init.el&lt;&#x2F;code&gt; simply required adding the (currently empty,
+might become configuration in future apparently) flag file
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-emacs&#x2F;blob&#x2F;main&#x2F;.elisp-autofmt&quot;&gt;&lt;code&gt;.elisp-autofmt&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; to
+my &lt;code&gt;~&#x2F;.emacs.d&#x2F;&lt;&#x2F;code&gt;, and adding the following trailer to my
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-emacs&#x2F;blob&#x2F;f06fc8fb9c280e11a8ddd8548ad245c8eba71484&#x2F;init.el#L1349-L1351&quot;&gt;&lt;code&gt;init.el&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;common-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;;; Local variables:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;;; elisp-autofmt-load-packages-local: (&amp;quot;use-package&amp;quot; &amp;quot;use-package-core&amp;quot;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;;; end:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The other big change has been moving to &lt;code&gt;tree-sitter&lt;&#x2F;code&gt; and &lt;code&gt;eglot&lt;&#x2F;code&gt; for language
+support, but that’ll be a longer post so more on that later.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Sabbatical Diary: Weeks 0 &amp; 1</title>
+          <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/sabbatical-diary-w1/</link>
+          <guid>https://mort.io/blog/sabbatical-diary-w1/</guid>
+          <description xml:base="https://mort.io/blog/sabbatical-diary-w1/">&lt;p&gt;Well, the sabbatical began. Your protagonist set off with a song in his heart
+and the freedom to roam. And all that.&lt;&#x2F;p&gt;
+&lt;p&gt;So what did I do? Well, initially I spent some time finishing up the handful of
+things I hadn’t managed to do before 1 October came along. Tedious but probably
+inevitable. If I forgot something you were waiting for, sorry – you may need to
+remind me…!&lt;&#x2F;p&gt;
+&lt;p&gt;I then finally gave up on trying out new &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;vscodium.com&#x2F;&quot;&gt;ed&lt;&#x2F;a&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;zed.dev&#x2F;&quot;&gt;it&lt;&#x2F;a&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;lap.dev&#x2F;lapce&#x2F;&quot;&gt;or&lt;&#x2F;a&gt;s – I
+suspect the problem was largely me not them to be honest – and spent some
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-emacs&quot;&gt;updating my emacs configuration&lt;&#x2F;a&gt; because
+giving one’s tools a clean and polish occasionally seems a worthwhile thing plus
+it eased me into a life of not attending committee meetings. Having done that
+for a while, I rewarded myself by finishing off &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;bibtox&quot;&gt;a little bit of Python code I
+have called &lt;code&gt;bibtox&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; for processing my &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;publications&quot;&gt;BibTeX
+files&lt;&#x2F;a&gt; so I can keep them well-formatted
+as well as produce HTML output for &lt;a href=&quot;&#x2F;research&#x2F;&quot;&gt;this website&lt;&#x2F;a&gt;. And I finally got
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;typst.app&#x2F;&quot;&gt;&lt;code&gt;typst&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; installed, began to learn how to use it at least a little bit,
+and started writing. I also spent a few days travelling connected to some external work.&lt;&#x2F;p&gt;
+&lt;p&gt;So– perhaps not the most spectacularly interesting first week. But I made a
+start. So there’s that. The plan for week 2 is to finish polishing my configuration and probably blog about at least some of the updates – emacs has moved on since I last looked – and then do some writing in earnest. Let’s see how I get on :)&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>All Change!</title>
+          <pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/all-change/</link>
+          <guid>https://mort.io/blog/all-change/</guid>
+          <description xml:base="https://mort.io/blog/all-change/">&lt;p&gt;New (academic) year, new responsibilities. Or more precisely, far fewer
+responsibilities :)&lt;&#x2F;p&gt;
+&lt;p&gt;I’m on sabbatical for this academic year&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; and, as a result, have been
+required to give up almost all the various roles I’ve had over the past few
+years. I keep being – or perhaps more precisely, revert to being – a
+professor, of course, I’ll remain a Fellow of Christ’s College, and I’m allowed
+to remain on the University Council.&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-2-1&quot;&gt;&lt;a href=&quot;#fn-2&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; I’ll also retain external roles, like
+my &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.ipco.org.uk&#x2F;&quot;&gt;IPCO&lt;&#x2F;a&gt;
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.ipco.org.uk&#x2F;who-we-are&#x2F;technology-advisory-panel&#x2F;&quot;&gt;TAP&lt;&#x2F;a&gt; membership.&lt;&#x2F;p&gt;
+&lt;p&gt;However, &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;univ&#x2F;so&#x2F;&quot;&gt;University rules&lt;&#x2F;a&gt; mean that I
+have to give up all teaching, admin and College Officer roles – everything
+that’s not research basically. I’m allowed to supervise Ph.D. students and
+remain on University Council, and that’s pretty much it.&lt;&#x2F;p&gt;
+&lt;p&gt;So I’m not planning to supervise any Part II&#x2F;Part III&#x2F;M.Phil. projects, I won’t
+be lecturing, Directing Studies, or supervising. Whatever will I do with
+myself… Well, more on that later perhaps – I do have ideas if not yet actual
+plans :)&lt;&#x2F;p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;I did notice one stupidity in the rules around sabbatical in the course of
+applying for this one. I had always assumed sabbatical leave accrued at one
+term in every seven (it does, cf. the sabbath), and that you could never
+accrue more than one year (~ three terms) leave. But it turns out that’s not
+quite correct – the actual rule is that &lt;em&gt;reckonable terms&lt;&#x2F;em&gt; (those that
+count toward sabbatical leave – so six reckonable terms gets you one term
+of sabbatical leave) expire after six years. In my case I hit an edge case
+as a result of having taken two terms sabbatical leave back in 2021 (Lent
+and Easter terms 2021 to be precise). During periods of sabbatical leave,
+the clock keeps ticking to expire reckonable terms already accrued. The
+result was that when I came to apply for this year’s sabbatical leave, I was
+actually two reckonable terms short – they’d fallen off the end due to the
+expiry clock not stopping while I was on leave in 2021. Fortunately, while
+HR wanted me to ask my Faculty to “mortgage” two future reckonable terms,
+there was another route: the Faculty Board can just declare that they’re
+going to count the expired terms anyway. And, happily, they did. &lt;a href=&quot;#fr-1-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-2&quot;&gt;
+&lt;p&gt;I also remain a member of most of the various committees of Council that
+I’m on, though I’m exempted from attending meetings. By which it turns out
+is meant &lt;em&gt;forbidden&lt;&#x2F;em&gt; from attending meetings. &lt;a href=&quot;#fr-2-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</description>
+      </item>
+      <item>
+          <title>Orating honours</title>
+          <pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/orating-honors/</link>
+          <guid>https://mort.io/blog/orating-honors/</guid>
+          <description xml:base="https://mort.io/blog/orating-honors/">&lt;p&gt;This is a bit of a niche one but – here in &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cam.ac.uk&#x2F;&quot;&gt;Cambridge&lt;&#x2F;a&gt;
+we have a number of quaint &#x2F; historic &#x2F; weird &#x2F; cool (take your pick)
+traditions. One that I think is at the quite cool end is that, when we award
+honorary degrees, the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;glossary.lib.cam.ac.uk&#x2F;term&#x2F;orator&quot;&gt;University
+Orator&lt;&#x2F;a&gt; writes and delivers an
+oration introducing the honorand and explaining why they’re getting the degree.
+In Latin. And, occasionally, also with fragments in Greek and Sindarin.&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-elvish-1&quot;&gt;&lt;a href=&quot;#fn-elvish&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;
+And when I say “delivers”, I really mean “performs” based on what I saw when in
+the audience for the honorary degree ceremony this year for the first time.&lt;&#x2F;p&gt;
+&lt;p&gt;Happily, as we’re not totally behind the times, English translations are also
+provided, in &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.reporter.admin.cam.ac.uk&#x2F;&quot;&gt;the Reporter&lt;&#x2F;a&gt; naturally.
+And I decided to take a look back through some as I thought some of the ones I
+saw this year were pretty good. And as it was a slow Sunday afternoon, I went
+back as far as the online Reporter allowed. And here are the results – a list
+of links to all of the oration texts that are online, with some honorands called
+out where I thought they were particularly cool or interesting or
+moving,&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-moving-1&quot;&gt;&lt;a href=&quot;#fn-moving&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; or I’d heard of the recipient.&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-culture-1&quot;&gt;&lt;a href=&quot;#fn-culture&quot;&gt;3&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Enjoy?&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Year&lt;&#x2F;th&gt;&lt;th&gt;Honorands&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2024-25&#x2F;weekly&#x2F;6791&#x2F;section7.shtml#heading2-12&quot;&gt;2025&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Stormzy&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2023-24&#x2F;weekly&#x2F;6747&#x2F;section4.shtml#heading2-9&quot;&gt;2024&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Kip Thorne&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2022-23&#x2F;weekly&#x2F;6706&#x2F;6706.pdf#page=22&quot;&gt;2023&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2021-22&#x2F;weekly&#x2F;6664&#x2F;6664.pdf#page=17&quot;&gt;2022&lt;&#x2F;a&gt;&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-absentia-1&quot;&gt;&lt;a href=&quot;#fn-absentia&quot;&gt;4&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;td&gt;&lt;td&gt;Roger Penrose • Simon Schama&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020&lt;&#x2F;td&gt;&lt;td&gt;no ceremony due to the COVID-19 pandemic so none conferred&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2018-19&#x2F;weekly&#x2F;6553&#x2F;section5.shtml#heading2-14&quot;&gt;2019&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Doreen Lawrence • Jane Goodall&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2017-18&#x2F;weekly&#x2F;6512&#x2F;section7.shtml#heading2-16&quot;&gt;2018&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Borys • Michael Edwards&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2016-17&#x2F;weekly&#x2F;6471&#x2F;section8.shtml#heading2-22&quot;&gt;2017&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Stephanie Shirley • Sophie Wilson • Manuel Castells&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2015-16&#x2F;weekly&#x2F;6431&#x2F;section9.shtml#heading2-48&quot;&gt;2016&lt;&#x2F;a&gt; [&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2015-16&#x2F;weekly&#x2F;6431&#x2F;6431-CambridgeHonoraryDegrees-2016.pdf&quot;&gt;pdf&lt;&#x2F;a&gt;]&lt;&#x2F;td&gt;&lt;td&gt;Keith Peters • Jonny Ive&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2014-15&#x2F;weekly&#x2F;6392&#x2F;section7.shtml#heading2-23&quot;&gt;2015&lt;&#x2F;a&gt; [&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2014-15&#x2F;weekly&#x2F;6392&#x2F;6392-CambridgeHonoraryDegrees-2015.pdf&quot;&gt;pdf&lt;&#x2F;a&gt;]&lt;&#x2F;td&gt;&lt;td&gt;Julia Neuberger • Neil Macgregor&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2013-14&#x2F;weekly&#x2F;6353&#x2F;section6.shtml#heading2-18&quot;&gt;2014&lt;&#x2F;a&gt; [&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2013-14&#x2F;weekly&#x2F;6353&#x2F;6353-Honorary-Degrees-June2014.pdf&quot;&gt;pdf&lt;&#x2F;a&gt;]&lt;&#x2F;td&gt;&lt;td&gt;Albie Sachs • Yusuf Hamied • Martin Rees • Ian Mckellan&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2012-13&#x2F;weekly&#x2F;6315&#x2F;Cambridge_Honorary_Degree_Congregation_2013.pdf&quot;&gt;2013&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Hilary Mantel&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2011-12&#x2F;weekly&#x2F;6273&#x2F;hon_degrees_2012.pdf&quot;&gt;2012&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Peter Higgs • Alfred Brendel&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2010-11&#x2F;weekly&#x2F;6231&#x2F;hon_degs_2011.pdf&quot;&gt;2011&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2009-10&#x2F;weekly&#x2F;6195&#x2F;section12.shtml#heading2-49&quot;&gt;2010&lt;&#x2F;a&gt; [&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2009-10&#x2F;weekly&#x2F;6195&#x2F;honorary_degrees.pdf&quot;&gt;pdf&lt;&#x2F;a&gt;]&lt;&#x2F;td&gt;&lt;td&gt;Andrew Wiles • Evelyn Glennie&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2008-09&#x2F;weekly&#x2F;6156&#x2F;25.html&quot;&gt;2009&lt;&#x2F;a&gt; [&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2008-09&#x2F;weekly&#x2F;6156&#x2F;acta.pdf&quot;&gt;pdf&lt;&#x2F;a&gt;]&lt;&#x2F;td&gt;&lt;td&gt;The Aga Khan • Melinda Gates • Bill Gates • Shirley Williams • William Broecker [ global warming ] • Amartya Sen&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2007-08&#x2F;weekly&#x2F;6117&#x2F;29.html&quot;&gt;2008&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;John Sentamu&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2006-07&#x2F;weekly&#x2F;6080&#x2F;20.html&quot;&gt;2007&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Hans Blix • Ann Cotton • Onora O’Neill • Nicholas Stern&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2005-06&#x2F;weekly&#x2F;6043&#x2F;26.html&quot;&gt;2006&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2004-05&#x2F;weekly&#x2F;6006&#x2F;23.html&quot;&gt;2005&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2003-04&#x2F;weekly&#x2F;5968&#x2F;34.html&quot;&gt;2004&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Robert Horvitz • Quentin Blake • John Dankworth • Cleo Laine&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2002-03&#x2F;weekly&#x2F;5930&#x2F;28.html&quot;&gt;2003&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Alan Macdiarmid • John Sulston • John Adams&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2001-02&#x2F;weekly&#x2F;5891&#x2F;15.html&quot;&gt;2002&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2000-01&#x2F;weekly&#x2F;5851&#x2F;45.html&quot;&gt;2001&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Sydney Brenner • Mamphela Ramphele • Margaret Atwood&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;1999-2000&#x2F;weekly&#x2F;5817&#x2F;17.html&quot;&gt;2000&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;1998-99&#x2F;weekly&#x2F;5781&#x2F;25.html&quot;&gt;1999&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Desmond Tutu • Gordon Moore • Miriam Rothschild&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;1997-98&#x2F;weekly&#x2F;5744&#x2F;4.html&quot;&gt;1998&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Aung San Suu Kyi (in absentia!) • Barbara Castle • Helmut Kohl • Aaron Klug&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;…and there, sadly, the Reporter online record ends.&lt;&#x2F;p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-elvish&quot;&gt;
+&lt;p&gt;Elvish to those not well versed in Tolkien. I once posted to
+&lt;code&gt;rec.arts.sf.tolkien&lt;&#x2F;code&gt;. Just saying. &lt;a href=&quot;#fr-elvish-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-moving&quot;&gt;
+&lt;p&gt;Seriously. See, for example, those for &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2018-19&#x2F;weekly&#x2F;6553&#x2F;section5.shtml#heading2-14&quot;&gt;Doreen
+Lawrence&lt;&#x2F;a&gt;
+or &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.admin.cam.ac.uk&#x2F;reporter&#x2F;2013-14&#x2F;weekly&#x2F;6353&#x2F;6353-Honorary-Degrees-June2014.pdf&quot;&gt;Yusuf
+Hamied&lt;&#x2F;a&gt;. &lt;a href=&quot;#fr-moving-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-culture&quot;&gt;
+&lt;p&gt;I am not particularly well-versed in culture, being mostly a geek of
+sorts. Whatevs. &lt;a href=&quot;#fr-culture-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-absentia&quot;&gt;
+&lt;p&gt;Included celebration of those conferred in absentia in 2021 due to
+COVID-19. &lt;a href=&quot;#fr-absentia-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</description>
+      </item>
+      <item>
+          <title>Coping and Capping</title>
+          <pubDate>Tue, 08 Apr 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/coping-and-capping/</link>
+          <guid>https://mort.io/blog/coping-and-capping/</guid>
+          <description xml:base="https://mort.io/blog/coping-and-capping/">&lt;p&gt;Well that was fun! Quite high up there in the set of things that I never even
+considered I might do would’ve been awarding degrees. But by dint of being
+President and thus standing in for
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Simon_McDonald%2C_Baron_McDonald_of_Salford&quot;&gt;Simon&lt;&#x2F;a&gt;,
+on Saturday I did exactly that.&lt;&#x2F;p&gt;
+ &lt;img src=&quot;coped.jpg&quot; class=&quot;fl pd1&quot; alt=&quot;Me, coped and capped in the superman cape and mortarboard&quot; width=&quot;360&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;p&gt;The University held a Congregation for those being admitted to the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cambridgestudents.cam.ac.uk&#x2F;your-course&#x2F;graduation-and-what-next&#x2F;cambridge-ma&quot;&gt;Cambridge
+MA&lt;&#x2F;a&gt;
+(“Magistri in Artibus” – Master of Arts). Degrees are conferred by the
+Chancellor, Vice-Chancellor or nominated deputy. Apparently, typically, for this
+one and the main undergraduate congregation in July, that nominated deputy
+Vice-Chancellor is usually the Head of House for the College concerned. In this
+case, as President at Christ’s is effectively deputy Master (~ Head of House),
+it me.&lt;&#x2F;p&gt;
+&lt;p&gt;So instead of the usual Batman-style black gown, I got to wear the rather natty
+Superman-style &lt;em&gt;cope&lt;&#x2F;em&gt;, hence I was &lt;em&gt;coped&lt;&#x2F;em&gt;. I also got to wear one of the fancy
+hats (“square cap” or mortarboard) for the first time, hence I was also
+&lt;em&gt;capped&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;And as many other officers were also appropriately hatted, and out of respect
+to the role would &lt;em&gt;cap&lt;&#x2F;em&gt; me at many available opportunities, the written advice I
+received was literally that “officers will cap you – you do not have to cap
+back” because the cope makes it difficult to do so.&lt;&#x2F;p&gt;
+&lt;p&gt;So, in brief, it seems I coped with being coped and capped but could not cope
+with capping while coped. To add to the excitement, I also had to Do Some Latin.
+Thankfully it’s a dead language so I assume all it could do was turn in its
+grave while I butchered it.&lt;&#x2F;p&gt;
+&lt;p&gt;I hope everyone had a good time anyway!&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>`nmcli` connection to internal WiFi</title>
+          <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/internalcl-wifi/</link>
+          <guid>https://mort.io/blog/internalcl-wifi/</guid>
+          <description xml:base="https://mort.io/blog/internalcl-wifi/">&lt;p&gt;Using my fancy (?) new(-ish) Linux laptop running &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;nixos.org&#x2F;&quot;&gt;NixOS&lt;&#x2F;a&gt;, I
+finally had cause to connect to our internal Wi-Fi network. This was not
+entirely trivial due to the various configuration options required. So here
+goes, for the record, what I did as an aide memoir for me and in case it’s
+useful for anyone else…&lt;&#x2F;p&gt;
+&lt;p&gt;First, create the connection – the Wi-Fi network in question is named
+&lt;code&gt;Internal-CL&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; sudo nmcli connection add type wifi con-name Internal-CL ssid Internal-CL&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;Connection&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;#39;Internal-CL&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt; (8f1ddcc9-4b1f-4e5d-9992-522714685eb4) successfully added.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then, configure it:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; sudo nmcli connection edit Internal-CL&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;===&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; nmcli&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; interactive connection editor&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; |&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;===&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;Editing&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; existing &amp;#39;802-11-wireless&amp;#39; connection: &amp;#39;Internal-CL&amp;#39;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;Type&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;#39;help&amp;#39; or &amp;#39;?&amp;#39; for available commands.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;Type&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;#39;print&amp;#39; to show all the connection properties.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;Type&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;#39;describe [&amp;lt;setting&amp;gt;.&amp;lt;prop&amp;gt;]&amp;#39; for detailed property description.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;You&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; may edit the following settings: connection, 802-11-wireless&lt;&#x2F;span&gt;&lt;span&gt; (wifi), 802-11-wireless-security (&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;wifi-sec&lt;&#x2F;span&gt;&lt;span&gt;), 802-1x, ethtool, match, ipv4, ipv6, hostname, link, tc, proxy&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;nmcli&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; set 802-1x.eap peap&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;nmcli&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; set 802-1x.phase2-auth mschapv2&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;nmcli&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; set 802-1x.identity YOUR-IDENTITY&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;nmcli&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; set 802-1x.password YOUR-PASSWORD&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;nmcli&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; set wifi-sec.key-mgmt wpa-eap&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;nmcli&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; save&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;Connection&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;#39;Internal-CL&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt; (8f1ddcc9-4b1f-4e5d-9992-522714685eb4) successfully updated.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;nmcli&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; activate&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;Monitoring&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; connection activation&lt;&#x2F;span&gt;&lt;span&gt; (press&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; any key to continue&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;Connection&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; successfully activated&lt;&#x2F;span&gt;&lt;span&gt; (D-Bus&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; active path: &#x2F;org&#x2F;freedesktop&#x2F;NetworkManager&#x2F;ActiveConnection&#x2F;12&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;nmcli&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; quit&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Obviously you will need to provide your own values for &lt;code&gt;YOUR-IDENTITY&lt;&#x2F;code&gt; and
+&lt;code&gt;YOUR-PASSWORD&lt;&#x2F;code&gt; :)&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>PhD viva, UK style</title>
+          <pubDate>Fri, 31 Jan 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/phd-viva/</link>
+          <guid>https://mort.io/blog/phd-viva/</guid>
+          <description xml:base="https://mort.io/blog/phd-viva/">&lt;p&gt;Having recently, happily, had several PhD students completing in short order,
+I’ve been approaching external PhD examiners. Occasionally I find myself asking
+someone who’s not done any &#x2F; many in the UK previously. As our system – as all
+such systems! – is a bit different to those in other parts of the world, I’ve
+written a few notes on a couple of occasions about what to expect. So I figured
+I might as well publish them.&lt;&#x2F;p&gt;
+&lt;p&gt;What follows is my impression &#x2F; understanding based on experience here in the
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cst.cam.ac.uk&#x2F;&quot;&gt;Department of Computer Science &amp;amp; Technology&lt;&#x2F;a&gt;,
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cam.ac.uk&#x2F;&quot;&gt;Cambridge University&lt;&#x2F;a&gt; ca. 2025. Your Mileage May Vary
+anywhen and anywhere else, including anywhere else in the UK – check local
+regulations to be sure.&lt;&#x2F;p&gt;
+&lt;p&gt;In terms of process, the system here is that candidates submit their complete
+dissertation and then undergo a “viva voce” (oral examination). It would be
+usual for the viva to take place within 2—3 months of submission. It’s better
+(IMO, much better) if it can happen in person but we may still be able to
+arrange to do it online in extremis.&lt;&#x2F;p&gt;
+&lt;p&gt;There are two examiners:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;The &lt;em&gt;internal examiner&lt;&#x2F;em&gt; (typically connected to the Department) who ensures
+the process is followed properly but may not be a deep expert in the specific
+topic, and&lt;&#x2F;li&gt;
+&lt;li&gt;The &lt;em&gt;external examiner&lt;&#x2F;em&gt; (from outside the University) who is there as the
+subject matter expert.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;The viva consists of the two examiners asking the candidate questions about
+their dissertation until they’re satisfied; typically this takes at least 2h and
+can go longer, though more than 3.5—4h is unusual in my experience.&lt;&#x2F;p&gt;
+&lt;p&gt;The examiners are each expected to read the dissertation in detail before the
+viva and each write a short (typically 1—2pp) independent report giving their
+opinion, outlining any concerns they will have and the resulting
+topics&#x2F;questions they will be exploring in the viva, and indicating what their a
+priori judgement is in terms of recommendation (roughly: pass&#x2F;pass with
+corrections&#x2F;revise &amp;amp; resubmit&#x2F;no Ph.D. but you can have a Masters&#x2F;fail).&lt;&#x2F;p&gt;
+&lt;p&gt;The examiners will then typically meet ~30min or so before the viva to discuss
+their independent reports and decide on the approach to take in the viva. After
+the viva they write a joint report (usually shorter than their independent
+reports; perhaps 0.5pp) outlining what happened in the viva, as well as making a
+final recommendation and providing (if appropriate) a list of corrections that
+must be satisfied for the candidate to pass.&lt;&#x2F;p&gt;
+&lt;p&gt;Finally, the University pays a (risibly small) honorarium to the external
+examiner for doing the viva plus reasonable expenses.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Local Knowledge</title>
+          <pubDate>Fri, 11 Mar 2016 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/local-knowledge/</link>
+          <guid>https://mort.io/blog/local-knowledge/</guid>
+          <description xml:base="https://mort.io/blog/local-knowledge/">&lt;p&gt;A relatively long hiatus this time – blame the Cambridge housing market and the
+need to simultaneously act both incredibly quickly and mind-numbingly slowly.
+Also obtaining a &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.christs.cam.ac.uk&#x2F;content&#x2F;dr-richard-mortier&quot;&gt;College
+Fellowship&lt;&#x2F;a&gt; and
+experiencing a &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;blog.docker.com&#x2F;2016&#x2F;01&#x2F;unikernel&#x2F;&quot;&gt;Company Acquisition&lt;&#x2F;a&gt;
+were considerable (interesting, welcome) distractions… :)&lt;&#x2F;p&gt;
+&lt;p&gt;As an interim measure, and because I’ve been asked relatively frequently over
+the last few months, I thought I’d collect some local knowledge^Wopinion,
+garnered over many long hard years of hanging about in both Cambridge and
+Nottingham. What follows should be viewed as indicating nothing more than my
+lack of imagination.&lt;&#x2F;p&gt;
+&lt;p&gt;Both Cambridge and Nottingham are blessed with many fine pubs, as well as
+several truly terrible ones. Less said about the latter the better. But among
+those that I like, and will occasionally drag various people to (including the
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;research&#x2F;srg&#x2F;&quot;&gt;SRG&lt;&#x2F;a&gt;) are, arranged roughly in
+geographical order from the Computer Lab to the Station:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.theploughcoton.co.uk&#x2F;&quot;&gt;The Plough, Coton&lt;&#x2F;a&gt;. Gastro-pub-ish.
+Frequently changed management over recent years, but currently seems pretty
+consistent and (finally!) is not limited to Greene King beers.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;thecastleinncambridge.com&#x2F;&quot;&gt;The Castle Inn&lt;&#x2F;a&gt;. Major long-standing
+Adnams “proper pub”. Very consistent. Castle Burger and chips please.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.taylor-walker.co.uk&#x2F;pub&#x2F;pickerel-cambridge&#x2F;c3602&#x2F;&quot;&gt;The Pickerel&lt;&#x2F;a&gt;.
+Also largely unchanged in a couple of decades. Good for a pint before entering
+the Greene King desert.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;whatpub.com&#x2F;pubs&#x2F;CAM&#x2F;184&#x2F;st-radegund-cambridge&quot;&gt;The Radegund&lt;&#x2F;a&gt;.
+Tiniest pub I know of. Recently quite radically refurbished. But, while not
+what it was, seems pretty decent nonetheless.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;whatpub.com&#x2F;pubs&#x2F;CAM&#x2F;79&#x2F;free-press-cambridge&quot;&gt;The Free Press&lt;&#x2F;a&gt;. Has
+improved significantly while I was in Nottingham. Very good food and beer.
+Stocks the only actually pleasant Greene King beer
+(&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.ratebeer.com&#x2F;beer&#x2F;greene-king-xx-mild&#x2F;14879&#x2F;&quot;&gt;XX Mild&lt;&#x2F;a&gt;), as well
+as an interesting range of others. Quite small and often packed if it’s too
+cold to sit outside.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.the-cambridgeblue.co.uk&#x2F;&quot;&gt;The Cambridge Blue&lt;&#x2F;a&gt;. Surely one of the
+best pubs for many many miles. Excellent and huge range of beer (and,
+apparently, cider; won’t touch the stuff myself). Good food. Large and with a
+large garden too – rarely a problem finding somewhere to sit during the week.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.kingston-arms.co.uk&#x2F;&quot;&gt;The Kingston Arms&lt;&#x2F;a&gt;. Another excellent pub in
+the station area. Possibly better food than the Blue, potentially slightly
+less wide ranging set of beers (and, certainly, ciders). Also a nice garden,
+though in all respects somewhat smaller than the Blue so prone to being
+absolutely packed. Doesn’t serve lager – a certain German colleague makes do
+with JHB though.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;whatpub.com&#x2F;pubs&#x2F;CAM&#x2F;118&#x2F;live-let-live-cambridge&quot;&gt;The Live and Let Live&lt;&#x2F;a&gt;.
+Yet one more excellent and, though small, often less busy pub near the
+station. No food in the evenings.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.individualpubs.co.uk&#x2F;devonshire&#x2F;&quot;&gt;The Devonshire Arms&lt;&#x2F;a&gt;. Largest
+range of Milton Brewery beers I know of. Food = pizzas I believe (though not,
+last time I tried, as good as those at
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.carpentersarmscambridge.co.uk&#x2F;&quot;&gt;The Carpenters Arms&lt;&#x2F;a&gt;).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I don’t get out to the villages as often as I’d like now, but &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.thegreenmangrantchester.co.uk&#x2F;#the-green-man-grantchester&quot;&gt;The Green Man,
+Grantchester&lt;&#x2F;a&gt;,
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.bluelionhardwick.co.uk&#x2F;&quot;&gt;The Blue Lion, Hardwick&lt;&#x2F;a&gt; and especially
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;theredlionhiston.co.uk&#x2F;&quot;&gt;The Red Lion, Histon&lt;&#x2F;a&gt; are (or were last time I
+went) all excellent too. The latter is still possibly my favourite pub anywhere
+in fact.&lt;&#x2F;p&gt;
+&lt;p&gt;I only spent a few years in Nottingham, and it’s a Proper City unlike Cambridge,
+so I can’t claim to have tested it thoroughly. However, places I did visit
+fairly regularly in Nottingham, Beeston, and Wollaton that I certainly enjoyed
+include:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.theroundhousenottingham.co.uk&#x2F;&quot;&gt;The Roundhouse&lt;&#x2F;a&gt;. A little pricey
+for Nottingham, but good quality beer and food, nice atmosphere.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.castlerockbrewery.co.uk&#x2F;pubs&#x2F;lincolnshire-poacher&#x2F;&quot;&gt;The Lincolnshire Poacher&lt;&#x2F;a&gt;.
+Very excellent pub. Good whisky range too.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.fellowsmortonandclayton.co.uk&#x2F;&quot;&gt;Fellows, Morton &amp;amp; Clayton&lt;&#x2F;a&gt;.
+Consistently good, proper pub food, about 4 minutes walk from the station
+platforms.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.castlerockbrewery.co.uk&#x2F;pubs&#x2F;vat-and-fiddle&#x2F;&quot;&gt;The Vat &amp;amp; Fiddle&lt;&#x2F;a&gt;.
+Only finally tried more recently. Castle Rock brewery tap. Good food and beer,
+also about 4 minutes walk from your station platform.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.thehandandheart.co.uk&#x2F;&quot;&gt;The Hand &amp;amp; Heart&lt;&#x2F;a&gt;. In a cave! It’s a pub
+in a cave! With excellent beer and good food! And not owned by Greene King!
+(Unlike &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;triptojerusalem.com&#x2F;&quot;&gt;Ye Olde Trip to Jerusalem&lt;&#x2F;a&gt; which has
+bigger, better caves but markedly less good beer or food.)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.bluemonkeybrewery.com&#x2F;pubs&#x2F;organ-grinder-nottingham&quot;&gt;The Organ Grinder&lt;&#x2F;a&gt;.
+Another fine pub at Canning Circus. Blue Monkey brewery this time – rather
+good. Food limited to (nice!) pork pies and such, but the beer is good.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.nottinghambrewery.co.uk&#x2F;the_plough_inn.html&quot;&gt;The Plough Inn&lt;&#x2F;a&gt;.
+Closest (decent) pub to Jubilee Campus. Nottingham City brewery tap. Excellent
+beer, no food in the evenings, and prices that make me think I’m 15 years
+younger…&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.victoriabeeston.co.uk&#x2F;&quot;&gt;The Victoria Hotel, Beeston&lt;&#x2F;a&gt;. Consistently
+excellent pub. Excellent beer, very good food.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.everards.co.uk&#x2F;our-pubs&#x2F;crown-inn-beeston&#x2F;&quot;&gt;The Crown Inn, Beeston&lt;&#x2F;a&gt;.
+Also consistently excellent beer, though no food in the evenings.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.molefacepubcompany.co.uk&#x2F;the-wollaton-pub-and-kitchen.html&quot;&gt;The Wollaton Pub and Kitchen, Wollaton&lt;&#x2F;a&gt;.
+Gastro-pub-ish. Generally good beer, often excellent but occasionally
+patchy food.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;So there you go. Some opinions if relatively little knowledge. YMMV. Etc.&lt;&#x2F;p&gt;
+&lt;p&gt;(PS. If I know you, I’ll also be happy to give recommendations of solicitors,
+builders and other house-associated professionals too. And a couple of
+warnings.)&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

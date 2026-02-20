@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>mort’s mythopœia - policy</title>
+      <link>https://mort.io</link>
+      <description>with apologies</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mort.io/tags/policy/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Thu, 22 Jan 2026 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Some Remarks on the Risks of Lawful Access</title>
+          <pubDate>Thu, 22 Jan 2026 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/cosi-lawful-access/</link>
+          <guid>https://mort.io/blog/cosi-lawful-access/</guid>
+          <description xml:base="https://mort.io/blog/cosi-lawful-access/">&lt;p&gt;Last summer I was invited to participate in an informal meeting of the EU
+Standing Committee on Operational Cooperation on Internal Security (COSI). The
+session I was asked to join concerned end-to-end encryption (“E2EE”). I was
+asked to “…set the scene for the discussion laying out in layman’s terms the
+technical possibilities of access to data and the technical consequences of it”,
+before being followed by the two other organizations presenting.&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-chatham-1&quot;&gt;&lt;a href=&quot;#fn-chatham&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;I present below the remarks I made. Unusually for me, I actually wrote down all
+the words I intended to say in advance rather than using slides and winging it
+in the usual way. The context and topic felt like it would be worth avoiding
+slips of the tongue in this case. I gave it pretty much as written—even when I
+try, I can’t help a small amount of ad libbing! But I did not deviate
+significantly from this text.&lt;&#x2F;p&gt;
+&lt;p&gt;Having sought feedback from others on this, I would like to add a couple of
+remarks as a preface.&lt;&#x2F;p&gt;
+&lt;p&gt;First, the “Police Behaving Badly” paper puts the percentage of cybercrime
+convictions involving police at 56% in the first half of 2024, and details how
+police have had encrypted communication data but had it leaked by a corrupt
+intelligence analyst advising her drug dealer friend that it was compromised.&lt;&#x2F;p&gt;
+&lt;p&gt;Second, although I did try to be clear, I could have been more explicit that a
+significant challenge in this space is the inevitability of software bugs.
+(Approximately) All software contains bugs and it is almost certain that any
+exceptional access system, due to the unavoidable complexity of such systems,
+will contain bugs and so will not work as intended. The position I am trying to
+take is that, while that is insufficient reason to reject every such proposal,
+it is important to be realistic about the risks so that the costs and benefits
+can be weighed rationally.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&quot;who-am-i&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#who-am-i&quot; aria-label=&quot;Anchor link for: who-am-i&quot;&gt;Who am I?&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;First, I should introduce myself. I am Richard Mortier, more commonly known as
+Mort. I am a professor in the Department of Computer Science &amp;amp; Technology at
+Cambridge University, UK, and Fellow of Christ’s College, Cambridge. I
+previously spent 6 years as a researcher with Microsoft Research Cambridge,
+and 6 months with Sprint Advanced Technology Labs, California, and I have
+founded three startups. I am currently also a member of the UK’s Investigatory
+Powers’ Commissioner’s Office Technology Advisory Panel.&lt;&#x2F;p&gt;
+&lt;p&gt;My primary expertise is in computer systems and networking, and human-computer
+interaction. I thus speak on this topic as a computer scientist with general
+expertise in computer systems rather than as a specialist in encryption or
+messaging systems. I make these remarks in a personal capacity, representing
+no-one’s views but my own.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&quot;this-debate&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#this-debate&quot; aria-label=&quot;Anchor link for: this-debate&quot;&gt;This debate&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;I have been asked to speak to you today about &lt;strong&gt;lawful&lt;&#x2F;strong&gt; or &lt;strong&gt;exceptional
+access&lt;&#x2F;strong&gt;. I will stay above the nitty-gritty technical details of encryption,
+communications protocols and so on, while still staying sufficiently grounded
+in technology that this is not a purely abstract, philosophical debate.&lt;&#x2F;p&gt;
+&lt;p&gt;My impression of this debate is that it can often descend into an unhelpful
+back and forth between two extreme positions that I might simplistically
+characterize as “We must provide lawful access—think of the children!” and
+“We cannot provide lawful access—privacy is a fundamental right!”. “We
+must!” “We can’t!” and so on.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&quot;my-position&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#my-position&quot; aria-label=&quot;Anchor link for: my-position&quot;&gt;My position&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;I wish to re-frame this debate to place those positions at the two extremes of
+what is actually a spectrum of possibilities ranging from one where we have
+mechanisms to provide perfectly secure, invisible communication among group
+members where groups can form and dissolve on an ad hoc basis, to one where no
+communication is possible without authorized bodies having full access to all
+communication content and metadata.&lt;&#x2F;p&gt;
+&lt;p&gt;Neither extreme is sensible or achievable in my view—but intermediate
+positions might be. The basis for a society to decide where it wants to be on
+that spectrum requires articulation and evaluation of the risks involved. I
+observe, as a computer scientist, that building any large-scale
+network-connected secure system is complex, and all complexity has costs and
+introduces risks. Typically, the more complex, the more cost and the more
+risk. Implementation of lawful access mechanisms is inevitably complex as they
+are powerful and must be secured against external and internal bad actors.&lt;&#x2F;p&gt;
+&lt;p&gt;This needs to be acknowledged in the discussion. These are not trivial
+mechanisms and may even involve research activity in order to articulate the
+design space and understand the trade-offs involved. Justification for these
+mechanisms thus needs to be stronger than “we once had this ability, so we are
+worried about losing it”.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&quot;relevant-terms&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#relevant-terms&quot; aria-label=&quot;Anchor link for: relevant-terms&quot;&gt;Relevant terms&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;I will define some relevant terms.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Encryption&lt;&#x2F;strong&gt; refers to the transformation of &lt;em&gt;plain text&lt;&#x2F;em&gt; information into a
+&lt;em&gt;cipher text&lt;&#x2F;em&gt; such that only the authorized parties can decrypt the cipher
+text, transforming it back into the plain text. Such transformations are
+usually described in mathematical terms.&lt;&#x2F;p&gt;
+&lt;p&gt;An &lt;strong&gt;encryption scheme&lt;&#x2F;strong&gt; is a scheme for exchanging secret data over an
+insecure channel using encryption. As they are based on mathematical
+operations, it is generally possible to give guarantees about how
+computationally difficult it is to, for example, work out the plain text that
+produced a given cipher text—that is, to break the encryption scheme.&lt;&#x2F;p&gt;
+&lt;p&gt;There are many such schemes with a range of trade-offs between complexity,
+computational cost, and how difficult they make it for an unauthorized party
+to decrypt a cipher text. All rely at some level on the creation and
+consumption of secret &lt;strong&gt;key material&lt;&#x2F;strong&gt; to perform transformations between
+plain text and cipher text.&lt;&#x2F;p&gt;
+&lt;p&gt;In practice, an encryption scheme has to be reduced to an implementation,
+usually in software. It takes considerable effort to ensure that a given
+implementation correctly implements the encryption scheme, and even more
+effort to ensure that it does not leak information about the plain text
+message or the secret key material during encryption or (attempted)
+decryption.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Secure messaging systems&lt;&#x2F;strong&gt; are Internet-connected services that provide for
+exchange of messages between two or more individual devices. Older systems
+provide message exchange by having devices send messages to central servers
+that then replicate those messages, transmitting them to other devices
+participating in the conversation. This requires those central servers to have
+access to the secret key material so that they can decrypt messages to work
+out where to send them on to.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;End-to-end encryption&lt;&#x2F;strong&gt; refers to those encryption systems where this is not
+the case: the central servers that assist in replication of messages to the
+intended recipients do not have access to the secret key material and so
+cannot decrypt the encrypted messages. Only the participating devices can do
+that. End-to-end encryption is increasingly common in consumer-grade messaging
+applications.&lt;&#x2F;p&gt;
+&lt;p&gt;Finally, &lt;strong&gt;lawful&lt;&#x2F;strong&gt; (or &lt;strong&gt;exceptional&lt;&#x2F;strong&gt;) &lt;strong&gt;access&lt;&#x2F;strong&gt; in this context refers to
+technical mechanisms provided to enable authorized bodies such as law
+enforcement and intelligence services to access communications systems on
+production of suitable authorization. In the UK, for example, this would
+entail the relevant body seeking a suitable warrant under the Investigatory
+Powers Act (2016) as amended. Lawful access mechanisms have historically been
+provided in many communication systems.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&quot;the-problem&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#the-problem&quot; aria-label=&quot;Anchor link for: the-problem&quot;&gt;The problem&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;End-to-end encryption does make provision of lawful access more difficult: the
+secret key material is in principle never held by the service provider and so
+they cannot simply grant access to messages. Mechanisms would need to be added
+to enable such access. But as soon as any mechanism exists for a third party
+to gain access to decrypted messages, bad actors will also seek to exploit it.&lt;&#x2F;p&gt;
+&lt;p&gt;As such mechanisms are powerful, as with any additional feature they add
+complexity and increase the likelihood of creating vulnerabilities that can be
+attacked. And so the argument goes that we &lt;strong&gt;cannot&lt;&#x2F;strong&gt; provide lawful access
+mechanisms because it would be irresponsible to do so, weakening protections
+that law-abiding members of society rely upon for so many different purposes.&lt;&#x2F;p&gt;
+&lt;p&gt;But, so the counter-argument continues, lawful access is necessary to protect
+the public including the vulnerable and children. Bad actors make use of
+secure messaging services to exchange illegal material, to plan and execute
+serious crimes, to commit terrorism and so forth. So mechanisms for lawful
+access &lt;strong&gt;must&lt;&#x2F;strong&gt; be provided otherwise it is impossible for law enforcement to
+carry out their duties to enforce the law and protect society. And so the
+argument continues that we must provide mechanisms for lawful access.&lt;&#x2F;p&gt;
+&lt;p&gt;We can’t. We must. We can’t. We must. Both positions are extreme points in a
+spectrum of risk. What I believe we can and must do is take a risk-based
+approach to this challenge: articulate the risks and, if we decide they are
+worth taking, develop mechanisms to mitigate them. Lawful access can be done
+and has been done—but should it be done, and how?&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&quot;two-principles&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#two-principles&quot; aria-label=&quot;Anchor link for: two-principles&quot;&gt;Two principles&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;So what are the principles to consider, what risks do such mechanisms create,
+and how might we consider them?&lt;&#x2F;p&gt;
+&lt;p&gt;The first principle is that any lawful access mechanism is, by definition,
+powerful. It allows an authorized party to access information that people wish
+to keep secret. It is not therefore something that is easy to design,
+implement, test, maintain and operate: considerable care will be required, and
+potentially considerable expense incurred.&lt;&#x2F;p&gt;
+&lt;p&gt;The second is that any such mechanism can and will be abused. Bad actors will
+seek to exploit it to gain access to information, and may well succeed from
+time to time. Those unauthorized accesses will come from external bad actors
+but also internal bad actors. As well as the maintenance costs this creates,
+it also suggests that accountability and transparency are critical.&lt;&#x2F;p&gt;
+&lt;p&gt;For example, the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;~ah793&#x2F;cccd.html&quot;&gt;Cambridge Computer Crime
+Database&lt;&#x2F;a&gt; is a database of
+cybercrime events of many kinds where the offender or alleged offender has
+been arrested, charged and&#x2F;or prosecuted in the UK, dating from 1 January
+2010. In the last 6 months of 2023, nearly half of the cases involved police
+as offenders. I am not saying that these directly involve lawful access or
+similar mechanisms, or that such incidents are commonplace—but it is
+undeniable that they do occur, and that lawful access mechanisms could create
+another route by which they can be carried out. Bad actors will also be
+present in the service providers. Strong powers require strong oversight.&lt;&#x2F;p&gt;
+&lt;p&gt;The debate cannot continue under the assumptions that this is a
+straightforward technology to build and protect against unauthorized use, and
+that authorized users will always use it lawfully.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&quot;thinking-about-risk-necessity-proportionality&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#thinking-about-risk-necessity-proportionality&quot; aria-label=&quot;Anchor link for: thinking-about-risk-necessity-proportionality&quot;&gt;Thinking about risk: necessity &amp;amp; proportionality&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;I think it is useful to think about the risks from a perspective of necessity
+and proportionality.&lt;&#x2F;p&gt;
+&lt;p&gt;First, &lt;strong&gt;necessity&lt;&#x2F;strong&gt;: what is it that lawful access enables, and why?
+Mechanisms could be built to enable a range of types of lawful access. For
+example, access to the content of all messages; access to the content of all
+messages involving certain keywords or with attached images that trigger some
+flag; access to the content of all messages involving certain participants;
+access to the content of selected messages; or access to metadata about
+messages such as participant identifiers, message timestamps, locations of
+transmission and reception, whether for all messages, all messages involving
+certain parties, or specific messages. To determine what access is appropriate
+requires articulating the purpose: to what use will the information be put? By
+whom? And are there really no existing mechanisms by which the desired outcome
+can be achieved?&lt;&#x2F;p&gt;
+&lt;p&gt;Second, &lt;strong&gt;proportionality&lt;&#x2F;strong&gt;: what are the effects of exercising lawful access,
+and how are the harms to be balanced against the benefits? All the mechanisms
+listed above create risks when abused—but some create more risks than
+others. Creating an ability, however well protected, to read any and all
+messages between any communicating parties clearly creates enormous potential
+for privacy infringement and crime. Creating an ability simply to know which
+accounts communicated and when also creates risks but perhaps lesser ones in
+most cases.&lt;&#x2F;p&gt;
+&lt;p&gt;These perspectives need to be tested and debated before suitable mechanisms
+can be designed, implemented, and exercised. Oversight mechanisms—perhaps
+including by non-governmental organizations—need to be part of the design.
+The intended benefits need to be articulated. Usage and impact need to be
+tracked. Scope creep and the ability to silently expand the reach of such a
+capability to enable mass surveillance needs to be guarded against. Comparison
+needs to be made against alternative current approaches. For example, a
+warrant can be obtained to hack a target’s phone giving access to all content
+on that device, not just their messages; is that more or less intrusive than
+providing a mechanism that enables selected messages or communications’
+metadata to be obtained on presentation of a suitable warrant, but which
+simply cannot be used to reveal any other content?&lt;&#x2F;p&gt;
+&lt;p&gt;In a world where, as I understand it, policing resources are constantly being
+stretched, how will law enforcement ensure it has the capacity to use
+effectively information gained via such lawful access mechanisms? The risks
+created by these mechanisms, once deployed, are always present even when they
+are not being legally exercised: creating the mechanisms and then not
+effectively using them considerably reduces any proportionality argument. If
+the resource to sift existing data is already stretched, how will putting more
+hay on the haystack help in finding the needles?&lt;&#x2F;p&gt;
+&lt;p&gt;For example, the success of operations against systems such as
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;EncroChat&quot;&gt;Encrochat&lt;&#x2F;a&gt; and
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.bbc.co.uk&#x2F;news&#x2F;articles&#x2F;clyljpygxgjo&quot;&gt;Ghost&lt;&#x2F;a&gt; raises the question:
+is it enough to concentrate on those systems that target criminal use? How
+much extra will be gained by creating lawful access mechanisms in
+consumer-grade systems? I am not saying nothing will be gained—but the
+expected benefits need to be quantified for the case to be made.&lt;&#x2F;p&gt;
+&lt;p&gt;Is the call for lawful access mechanisms based on specific, recorded instances
+where they would have made a material difference to society? Or is it based
+primarily on fear of a future where once useful mechanisms cease to be
+available? “Once we could but now we cannot” is not a very strong argument for
+necessity and proportionality given the way that technology has constantly
+evolved over decades and centuries.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Communications_Assistance_for_Law_Enforcement_Act&quot;&gt;Communications Assistance for Law Enforcement Act (CALEA)
+1994&lt;&#x2F;a&gt;
+enforced US communications providers to implement wire-tapping capabilities.
+It also mandated that those providers secure their networks. Unfortunately, it
+seems that the implementation of &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.schneier.com&#x2F;blog&#x2F;archives&#x2F;2025&#x2F;04&#x2F;arguing-against-calea.html&quot;&gt;that capability created a risk that was
+exploited&lt;&#x2F;a&gt;
+by a group dubbed &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;techcrunch.com&#x2F;2024&#x2F;10&#x2F;07&#x2F;the-30-year-old-internet-backdoor-law-that-came-back-to-bite&#x2F;&quot;&gt;Salt
+Typhoon&lt;&#x2F;a&gt;
+to allow capture of sensitive call metadata in Washington D.C. Experts have
+been reported as saying that such an attack was “inevitable”. How can such
+risks, in terms of both likelihood and impact, be quantified and weighed in
+the balance?&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&quot;non-solutions&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#non-solutions&quot; aria-label=&quot;Anchor link for: non-solutions&quot;&gt;Non-solutions&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;It is worth at this point dismissing some ways that have in the past been
+proposed for lawful access but which have very significant problems.&lt;&#x2F;p&gt;
+&lt;p&gt;First, deliberately weakening encryption schemes. This simply does not work in
+practice: bad actors will use more secure schemes anyway, and will seek to
+exploit law-abiding services that use the weakened schemes, putting
+law-abiding users at risk.&lt;&#x2F;p&gt;
+&lt;p&gt;Second, forms of key escrow. This is where the secret key material is placed
+under the control of some trusted party, and can be accessed on presentation
+of a suitably authorized request. Unfortunately, this allows anyone who can
+produce, whether or not legitimately, such a request to access &lt;strong&gt;all&lt;&#x2F;strong&gt;
+communications.&lt;&#x2F;p&gt;
+&lt;p&gt;Third, ghost users. This is where providers add law enforcement operatives to
+chats without triggering notifications or otherwise informing chat
+participants that a new member has been added. While in some ways technically
+attractive, as described such a mechanism provides no means for accountability
+and oversight: what record is made, and how is it inspected, that such an
+action was carried out by the service provider, for what purpose, at what
+time.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&quot;a-possible-solution&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#a-possible-solution&quot; aria-label=&quot;Anchor link for: a-possible-solution&quot;&gt;A possible solution&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;I will close by sketching &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;martin.kleppmann.com&#x2F;2021&#x2F;07&#x2F;16&#x2F;cryptographic-backdoors-hotpets.html&quot;&gt;a proposal from a colleague, Dr Martin
+Kleppmann&lt;&#x2F;a&gt;,
+for a lawful access mechanism that seeks to balance benefits and harms,
+published at the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;petsymposium.org&#x2F;2021&#x2F;hotpets.php&quot;&gt;HotPETS (Privacy Enhancing Technologies Symposium) Workshop
+in 2021&lt;&#x2F;a&gt;. It seeks to ensure that
+undetectable mass surveillance cannot be carried out, and that oversight can
+be exercised in relevant jurisdictions.&lt;&#x2F;p&gt;
+&lt;p&gt;In short, it provides a public &lt;em&gt;transparency log&lt;&#x2F;em&gt; into which all accepted
+lawful access requests are written with a few publicly readable fields
+indicating the requesting body, the warrant jurisdiction, its basis and
+validity period, plus some cryptographic commitment as to the target for the
+warrant. Thus, anyone can see how many warrants are being issued, why, and
+when &lt;em&gt;without the targets being revealed&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The service’s client application then checks the log and if it finds a valid
+entry for the device it is running on, it uploads the requested data for the
+indicated period to the specified LEA. This is similar to the message backup
+procedure already provided for by many secure messaging applications.&lt;&#x2F;p&gt;
+&lt;p&gt;At the same time, a trusted oversight body in the jurisdiction can cross-check
+log entries against issued warrants, and require the service provider to
+reveal the targets of those warrants so that proportionality can be justified
+by reference to the seriousness of the crime of which they are accused.&lt;&#x2F;p&gt;
+&lt;p&gt;This provides targeted upload of data, reducing the ease with which bad actors
+can use it to acquire data themselves. It enables interested parties, perhaps
+including civil society organizations, to monitor general use of the mechanism
+so that moves towards mass surveillance can be detected. It enables trusted
+oversight bodies to exercise powers to inspect and ensure that necessity and
+proportionality requirements are being met.&lt;&#x2F;p&gt;
+&lt;p&gt;This is not a fully worked up proposal, and it does not thoroughly address
+every possible challenge. To produce such a proposal would require, as well as
+some of the discussion and debate referred to above, more technical details
+about how the communications services that would be subject to such mechanisms
+are architected and operated. But it hopefully serves as an example of an
+approach that sits on the spectrum somewhere between “We can’t” and “We must”.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&quot;conclusions&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#conclusions&quot; aria-label=&quot;Anchor link for: conclusions&quot;&gt;Conclusions&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;In summary then,&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;I believe that it is in principle possible to design, implement and deploy
+lawful access mechanisms, even in end-to-end encrypted systems.&lt;&#x2F;li&gt;
+&lt;li&gt;But doing so requires careful justification as to necessity and
+proportionality: just because such mechanisms could be built and would be
+useful does not automatically mean that they should be built.&lt;&#x2F;li&gt;
+&lt;li&gt;Such justification must include realistic consideration of the risks even
+just the existence of such mechanisms would introduce, as well as
+mechanisms to mitigate those risks.&lt;&#x2F;li&gt;
+&lt;li&gt;To maintain public trust in secure communications means that such strong
+powers must be designed and implemented so as to enable strong oversight
+by trusted bodies, likely including non-governmental bodies.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;hr &#x2F;&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&quot;references&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#references&quot; aria-label=&quot;Anchor link for: references&quot;&gt;References&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;“&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.lawfaremedia.org&#x2F;article&#x2F;principles-more-informed-exceptional-access-debate&quot;&gt;Principles for a More Informed Exceptional Access Debate&lt;&#x2F;a&gt;”,
+Ian Levy &amp;amp; Crispin Robinson. 29 November 2018.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;“&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;~ah793&#x2F;papers&#x2F;2019inside_out.pdf&quot;&gt;Inside out: Characterising cybercrimes committed inside and outside the
+workplace&lt;&#x2F;a&gt;”.
+Alice Hutchings and Ben Collier, Cambridge University. IEEE European
+Symposium on Security and Privacy Workshops (EuroS&amp;amp;PW) 2019, pp. 481– 490.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;“&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.gov.uk&#x2F;government&#x2F;publications&#x2F;open-letter-to-mark-zuckerberg&#x2F;written-testimony-of-chloe-squires-director-national-security-home-office&quot;&gt;Judiciary Committee United States Senate hearing: Encryption and Lawful
+Access: Evaluating Benefits and Risks to Public Safety and Privacy&lt;&#x2F;a&gt;”,
+Chloe Squires, Director National Security, Home Office. 23 December 2019.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;“&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;securephones.io&#x2F;main.html&quot;&gt;Data Security on Mobile Devices: Current State of the Art, Open
+Problems, and Proposed Solutions&lt;&#x2F;a&gt;”,
+Maximilian Zinkus, Tushar M. Jois, Matthew Green, Johns Hopkins
+University. 6 June 2021.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;“&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;martin.kleppmann.com&#x2F;papers&#x2F;backdoors-hotpets21.pdf&quot;&gt;Harm Reduction for Cryptographic
+Backdoors&lt;&#x2F;a&gt;”,
+Martin Kleppmann, Cambridge University. 14th Workshop on Hot Topics in
+Privacy Enhancing Technologies (HotPETs). 16 July 2021.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;“&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;home-affairs.ec.europa.eu&#x2F;networks&#x2F;high-level-group-hlg-access-data-effective-law-enforcement_en#recommendations&quot;&gt;Concluding report of the High-Level Group on access to data for
+effective law enforcement&lt;&#x2F;a&gt;”.
+15 November 2024.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;“&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;~ah793&#x2F;papers&#x2F;2025police.pdf&quot;&gt;Police behaving
+badly&lt;&#x2F;a&gt;”. Alice
+Hutchings, Cambridge University. IEEE Security and Privacy, 23(1),
+pp.80-82. 4 February 2025.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;hr &#x2F;&gt;
+&lt;hr &#x2F;&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-chatham&quot;&gt;
+&lt;p&gt;A la the Chatham House Rule, we were asked not to reveal identities
+of participants or the organizations they represented. I was there
+in a private capacity, giving my own views as an academic computer
+scientist. You might choose to guess who might be the sorts of
+organization not in COSI with a stake in this debate; I couldn’t
+possibly comment. &lt;a href=&quot;#fr-chatham-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</description>
+      </item>
+    </channel>
+</rss>

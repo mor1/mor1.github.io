@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>mort’s mythopœia - travel</title>
+      <link>https://mort.io</link>
+      <description>with apologies</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mort.io/tags/travel/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Wed, 18 Dec 2024 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Retreat from TUM</title>
+          <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/tum-retreat/</link>
+          <guid>https://mort.io/blog/tum-retreat/</guid>
+          <description xml:base="https://mort.io/blog/tum-retreat/">&lt;p&gt;Ok, ok, I exaggerate – it’s not really that far. But any time I have to set the
+alarm for 02.30, it feels like it’s a long long way away!&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.ce.cit.tum.de&#x2F;cm&#x2F;research-group&#x2F;&quot;&gt;TU Munchen&lt;&#x2F;a&gt; host an &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.ce.cit.tum.de&#x2F;cm&#x2F;events&#x2F;mir3&#x2F;&quot;&gt;annual
+retreat&lt;&#x2F;a&gt;, and thanks to &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.ce.cit.tum.de&#x2F;cm&#x2F;research-group&#x2F;joerg-ott&#x2F;&quot;&gt;Prof. Joerg
+Ott&lt;&#x2F;a&gt; I was invited this
+year for the first time. It’s held in TUM’s &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.raitenhaslach.tum.de&#x2F;en&#x2F;raitenhaslach&#x2F;home&#x2F;&quot;&gt;Retreat Centre at
+Raitenhaslach&lt;&#x2F;a&gt;,
+originally a Cistercian monastery which is a lovely location except that it’s a
+bus ride from the hotel used and a bus and three trains from the nearest airport
+– which is, mildly confusingly,
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.salzburg-airport.com&#x2F;en&#x2F;&quot;&gt;Salzburg&lt;&#x2F;a&gt; not
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.munich-airport.com&#x2F;&quot;&gt;Munich&lt;&#x2F;a&gt;. The latter point made me assume that
+there would be good directions via public transport from Salzburg, but that
+turned out not to be the case. And as Google Maps is, at best, patchy in terms
+of public transport coverage in this part of the world – it doesn’t know about
+all the buses at least – I thought it might be useful to record the process of
+getting there from Cambridge.&lt;&#x2F;p&gt;
+ &lt;a href=&quot;https:&#x2F;&#x2F;www.ce.cit.tum.de&#x2F;cm&#x2F;events&#x2F;mir3&#x2F;mir3-2024-10&#x2F;&quot;&gt;&lt;img src=&quot;photo.jpg&quot; class=&quot;fl pd1&quot; alt=&quot;A photograph of the presenter in next to a slide in an ornately
+    decorated room&quot; width=&quot;480&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;&#x2F;a&gt;
+&lt;p&gt;First, to fly to Salzburg or Munich? In the end I picked Salzburg as it was
+closer to the retreat centre itself and meant I didn’t need to fly via Heathrow
+or Gatwick. As I had to be in Cambridge the night before for family reasons,
+picking a closer airport for my very early flight seemed sensible. Unfortunately
+this means flying Wizzair UK from &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.london-luton.co.uk&#x2F;&quot;&gt;London Luton
+Airport&lt;&#x2F;a&gt;, which after just twice flying from
+there remains my least favourite UK airport. Given the flight departed at 05.55,
+a £77.50 taxi from Cambridge was the only option.&lt;&#x2F;p&gt;
+&lt;p&gt;Per Panther’s recommmendation I allowed 70 minutes for the journey, and on my
+own recommendation I aimed to arrive ~1.5h before the flight resulting in a taxi
+booking for 03.15. Happily when I get in the taxi the driver said it would be
+around 45-50 minutes, which was nice. Less happily when I checked in the day
+before – using a laptop as neither Safari nor Firefox on iOS was able to
+display the boarding pass – I got an automatic email from Wizzair telling me
+that I needed to arrive at the airport by 02.15 as the airport was upgrading
+their “central search facilities”. After trying to call the airport half a dozen
+times but getting trapped in the IVR menus at the inevitable “read the FAQ on
+the website” end state, I gave up trying to check if that really was necessary
+and decided to risk my original timings.&lt;&#x2F;p&gt;
+&lt;p&gt;I did however spot one useful thing: “prebooked security check”. This appears to
+be the ability to book, at 15 minute granularity, a security check during peak
+hours (03.00-04.30). Given my estimated arrival time of 04.15, that seemed
+perfect.
+ &lt;img src=&quot;road.jpg&quot; class=&quot;fr pd1&quot; alt=&quot;A photograph of a road being worked&quot; width=&quot;240&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+
+As it was also &lt;strong&gt;completely free&lt;&#x2F;strong&gt; requiring nothing more than my
+flight number and an email address (not even the one associated with my ticket),
+I booked it resulting in an email with a QR code to show to security. This
+worked perfectly when I arrived at the airport: show the person on security the
+QR code on the phone screen, and they simply jump you past the security queue to
+the front. Did I mention this was completely free? Seems a strange system to me
+but hey, I’ll take it!&lt;&#x2F;p&gt;
+&lt;p&gt;In the end, the public transport worked though there was a short walk at the end
+that was longer than I expected – rebuilding a road meant I could get through
+but the bus couldn’t! And then the retreat happened – but you can &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.ce.cit.tum.de&#x2F;cm&#x2F;events&#x2F;mir3&#x2F;mir3-2024-10&#x2F;&quot;&gt;read about
+that elsewhere&lt;&#x2F;a&gt; :)&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Rat Racing Jetlag</title>
+          <pubDate>Fri, 04 Nov 2016 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/jetlag-fasting/</link>
+          <guid>https://mort.io/blog/jetlag-fasting/</guid>
+          <description xml:base="https://mort.io/blog/jetlag-fasting/">&lt;p&gt;As I’ve found myself repeating the same information several times recently, and
+have to dig out the links in question every time, I figured it’d be useful to
+write this down once so I can point at it.&lt;&#x2F;p&gt;
+&lt;p&gt;Jetlag is a first-world problem but can be an annoying one– in recent years
+I’ve found I have a particular problem getting up in the morning when flying
+east. So, one day, bored in an airport in the US and with only the entire
+Internet to hand, I thought I’d look around for an explanation at least.&lt;&#x2F;p&gt;
+&lt;p&gt;I ended up coming across reports of some physiological research – in rats of
+course – that suggested a way to avoid jetlag. I’ve since tried it over a dozen
+times, and found it to work in all cases. At this point I no longer care if it’s
+placebo affect or a genuine explanation or something else :)&lt;&#x2F;p&gt;
+&lt;p&gt;The TL;DR is: fast for &amp;gt;16 hours before your time of arrival, then eat as
+appropriate. Definitely &amp;gt;16 hours though – the occasions I’ve not quite managed
+it (at least once I miscounted and managed only about 14 hours) it didn’t seem
+to work as effectively.&lt;&#x2F;p&gt;
+&lt;p&gt;As I interpret the information in the
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;dx.doi.org&#x2F;10.1126&#x2F;science.1153277&quot;&gt;article&lt;&#x2F;a&gt;, found via
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;news.bbc.co.uk&#x2F;2&#x2F;hi&#x2F;health&#x2F;7414437.stm&quot;&gt;BBC&lt;&#x2F;a&gt; and
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;news.harvard.edu&#x2F;gazette&#x2F;story&#x2F;2008&#x2F;05&#x2F;study-identifies-food-related-clock-in-the-brain&#x2F;&quot;&gt;Harvard&lt;&#x2F;a&gt;
+reports, through my “I can barely do computer science and certainly not biology”
+brain, mammals have two body clocks, one driven by daylight and one by
+metabolism. The daylight can’t be shifted quickly, but the metabolic one can be
+made to float by fasting. The metabolic also being a lower level clock means
+that, when you resync it by consuming calories, it syncs back to whatever light
+conditions are current.&lt;&#x2F;p&gt;
+&lt;p&gt;As I say, this isn’t my area of expertise – but it seems to work anyway.&lt;&#x2F;p&gt;
+&lt;p&gt;Also, because a surprisingly large (or perhaps not) number of people also ask–
+as far as I know and have experienced, fasting means &lt;strong&gt;no&lt;&#x2F;strong&gt; calories,
+&lt;strong&gt;including alcohol&lt;&#x2F;strong&gt;, even it it’s free… :)&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>
