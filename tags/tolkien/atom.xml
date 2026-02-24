@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>mort’s mythopœia - tolkien</title>
+    <subtitle>with apologies</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://mort.io/tags/tolkien/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://mort.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2026-01-04T00:00:00+00:00</updated>
+    <id>https://mort.io/tags/tolkien/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Sabbatical Diary: Week 13</title>
+        <published>2026-01-04T00:00:00+00:00</published>
+        <updated>2026-01-04T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/sabbatical-diary-w13/"/>
+        <id>https://mort.io/blog/sabbatical-diary-w13/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/sabbatical-diary-w13/">&lt;p&gt;Nothing of note done, work-wise, for the last week or so. Hey, it was the
+holidays. Which meant a lot of driving around, and I find it difficult to do
+much other than think and sing along to the tunes while I’m driving.&lt;&#x2F;p&gt;
+&lt;p&gt;I did get a chance to watch and listen to a link my mum sent me a while ago
+though to a film from the BBC series &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.bbc.co.uk&#x2F;programmes&#x2F;b00tgz5d&quot;&gt;In Their Own Words: British
+Novelists&lt;&#x2F;a&gt;, linked from
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.openculture.com&#x2F;2012&#x2F;01&#x2F;jrr_tolkien_in_his_own_words.html&quot;&gt;https:&#x2F;&#x2F;www.openculture.com&#x2F;2012&#x2F;01&#x2F;jrr_tolkien_in_his_own_words.html&lt;&#x2F;a&gt;. As it
+was Tolkien’s anniversary yesterday (he was born 3 January 1892), it seemed an
+appropriate moment to link it here.&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-title-1&quot;&gt;&lt;a href=&quot;#fn-title&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The following quote from the man particularly resonated:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Well it is meant to be escapist. Because I use escapism in its proper sense,
+as of a man getting out of prison.&lt;br&gt;
+&lt;em&gt;&lt;div align=&quot;right&quot;&gt;J.R.R. Tolkien&lt;&#x2F;div&gt;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;I also enjoyed the distinction drawn between &lt;em&gt;allegory&lt;&#x2F;em&gt; and &lt;em&gt;application&lt;&#x2F;em&gt;,
+noting that Shakespeare is mostly application rather than allegory. (This may be
+obvious to those who are students of literature, but that ain’t me!)&lt;&#x2F;p&gt;
+&lt;p&gt;Merry New Year!&lt;&#x2F;p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-title&quot;&gt;
+&lt;p&gt;Some may also note the nod to Tolkien in the title of this blog :) &lt;a href=&quot;#fr-title-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</content>
+        
+    </entry>
+</feed>

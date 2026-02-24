@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>mort’s mythopœia - phd</title>
+      <link>https://mort.io</link>
+      <description>with apologies</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mort.io/tags/phd/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Sat, 05 Apr 2025 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Rewarding influence</title>
+          <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/happy-day/</link>
+          <guid>https://mort.io/blog/happy-day/</guid>
+          <description xml:base="https://mort.io/blog/happy-day/">&lt;p&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;2025.eurosys.org&#x2F;index.html&quot;&gt;EuroSys 2025&lt;&#x2F;a&gt; was co-located with &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.asplos-conference.org&#x2F;asplos2025&#x2F;&quot;&gt;ASPLOS
+2025&lt;&#x2F;a&gt; this year. Other
+commitments meant I (again) couldn’t stay for the whole conference, attending
+primarily because &lt;a href=&quot;..&#x2F;tdis-accepted&#x2F;&quot;&gt;two students had papers in the TDIS
+workshop&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+ &lt;img src=&quot;stage.jpg&quot; class=&quot;fl pd1&quot; alt=&quot;A photograph of me in a yellow t-shirt receiving the award&quot; width=&quot;480&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;p&gt;But happily I &lt;em&gt;was&lt;&#x2F;em&gt; able to stay for the first day of the conference –
+“happily” not only because it gave me a chance to catch up with some old friends
+I hadn’t seen in a decade or more, but also because &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;2451116.2451167&quot;&gt;the Mirage unikernels
+paper&lt;&#x2F;a&gt; which appeared at &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;asplos13.rice.edu&#x2F;&quot;&gt;ASPLOS
+2013&lt;&#x2F;a&gt; won one of two &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.asplos-conference.org&#x2F;asplos2025&#x2F;awards&#x2F;&quot;&gt;ASPLOS 2025 Influential Papers
+awards&lt;&#x2F;a&gt; :)&lt;&#x2F;p&gt;
+&lt;p&gt;This is obviously very flattering – typically doing research is necessarily its
+own reward because the work can seem fruitless much of the time. Even when a
+paper gets written and submitted it will most likely be rejected – I think
+EuroSys this year reported something like a 12% acceptance rate, so rejection is
+&lt;em&gt;a priori&lt;&#x2F;em&gt; the most likely outcome. Finally, if the paper does finally get
+accepted, it will most likely sink without trace – perhaps a brief flurry of
+interest for a few months or so, the paper gets cited a few times, and then it
+fades away. This seems inevitable in a reasonably fast moving field that is also
+growing at pace – EuroSys had ~160 attendees in 2006, growing to ~330 in the 10
+years to 2016, but hitting ~1100 this year; while submissions grew from ~200 in
+2019 to 696 this year.&lt;&#x2F;p&gt;
+ &lt;img src=&quot;official.jpg&quot; class=&quot;fr pd1&quot; alt=&quot;A photograph of the certificate&quot; width=&quot;320&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;p&gt;So to win an award recognising that others feel a paper actually had some
+influence is rare, and makes me very happy :) At the same time, it reinforces a
+couple of lessons that I really should’ve internalised by now.&lt;&#x2F;p&gt;
+&lt;p&gt;The first is that papers inevitably get better for thoughtful considered
+feedback from experts a step or several away from the work – so drafts should
+be produced in plenty of time and distributed to anyone who’s willing to take
+the time for feedback. In the case of this paper the previous failed submission
+to &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.usenix.org&#x2F;conference&#x2F;osdi12&quot;&gt;OSDI 2012&lt;&#x2F;a&gt; had, let’s say, reviews
+of mixed quality. But one stood out, from Jon Howell (who signs his reviews so I
+know it was him), who gave us a firm “reject” which (in retrospect) was actually
+fairly well-deserved but in an incredibly constructive way. To paraphrase him
+slightly, the work was interesting but the paper was crap – &lt;em&gt;and here’s how to
+rewrite it so it makes sense&lt;&#x2F;em&gt;. We basically did what he said, ASPLOS accepted
+it, and the rest is now history. (Over a decade ago, good grief.)&lt;&#x2F;p&gt;
+&lt;p&gt;The second is that I simply cannot predict whether any research I’m doing is
+actually going to turn out to have any value. The only other equivalent award
+I’ve had was an &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;infocom2024.ieee-infocom.org&#x2F;awards&quot;&gt;INFOCOM 2024 Test of Time
+award&lt;&#x2F;a&gt; for &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;doi.org&#x2F;10.1109&#x2F;INFCOM.2012.6195845&quot;&gt;our 2012 paper on a
+system called &lt;em&gt;Thinkair&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;, about
+mobile-code offload from devices to the cloud. That paper had received
+considerably more than just one rejection prior to acceptance, and if I recall
+my final contribution correctly, I recommended not submitting it to INFOCOM as I
+didn’t think we’d done enough to address previous review comments.&lt;&#x2F;p&gt;
+&lt;p&gt;Shows what I know. But then, how boring would life be without a little
+ignorance… :)&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Not one but two accepted papers and a Ph.D.</title>
+          <pubDate>Sun, 30 Mar 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/tdis-accepted/</link>
+          <guid>https://mort.io/blog/tdis-accepted/</guid>
+          <description xml:base="https://mort.io/blog/tdis-accepted/">&lt;p&gt;As I find myself once more on a train to parts unknown (to me at least), a brief
+update :)&lt;&#x2F;p&gt;
+&lt;p&gt;The parts unknown in question is Rotterdam, NL (so really quite well-known to
+quite a lot of people, just not me) for &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;2025.eurosys.org&#x2F;&quot;&gt;EURO&#x2F;SYS
+2025&lt;&#x2F;a&gt; (being held jointly with &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.asplos-conference.org&#x2F;asplos2025&quot;&gt;ASPLOS
+2025&lt;&#x2F;a&gt;, although I can’t stay for
+the whole thing unfortunately) and specifically the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;tdis.gitlab.io&#x2F;tdis25&#x2F;&quot;&gt;3rd International Workshop
+of Testing Distributed Internet of Things Systems
+(TDIS)&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Why? Happily the programme committee decided to accept two papers from my
+(ex-)students – which is nice :) The two in question are&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3719159.3721222&quot;&gt;Reckon-ing Kubernetes at the Edge using Emulated
+Clusters&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; with Alessandro Sassi
+(University of Cambridge &#x2F; Politecnico di Milano) and Christopher Jensen
+(University of Cambridge &#x2F; Microsoft Research). This describes Alessandro’s
+M.Sc. research project undertaken as a visitor with my group. He built on
+Chris’ earlier work on &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3447851.3458739&quot;&gt;Reckon, an emulator setup for examining consensus
+system behaviour&lt;&#x2F;a&gt;. Alessandor
+extended this to use ContainerNet enabling it to emulate Kubernetes clusters
+on a single node, and used this to examine Kubernetes performance in some
+edge network scenarios. Source available on GitHub at
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;AleSassi&#x2F;reckon-k8s&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;AleSassi&#x2F;reckon-k8s&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3719159.3721221&quot;&gt;LoRaLive: Efficient LoRaWAN Traffic
+Generation&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; with Vadim Safronov
+(University of Oxford &#x2F; University of Cambridge). This reports a component of
+Vadim’s Ph.D. work where he built a system to enable dense deployment LoRaWAN
+trace-playback using a minimal number of nodes while respecting legal
+constraints on duty cycles. Source available on GitHub at
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;LoRaLive&#x2F;LoRaLive&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;LoRaLive&#x2F;LoRaLive&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Both nice tools that we hope might be of community interest!&lt;&#x2F;p&gt;
+&lt;p&gt;The Ph.D. in question is Chris Jensen’s – happily he passed his viva on
+Thursday just gone, titled “Separating conflict-recovery from failure-recovery
+in distributed consensus”, examined by &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;timharris.uk&#x2F;&quot;&gt;Tim Harris&lt;&#x2F;a&gt; and
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;charap.co&#x2F;&quot;&gt;Aleksey Charapko&lt;&#x2F;a&gt;. Other recent passes include Al-Amjad
+Tawfiq Isstaif, titled “Contention-resilient overcommitment for serverless
+deployments” and Andrew Jeffery, titled “Modelling orchestration”. The race&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;
+is now on for the first to &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;techreports&#x2F;&quot;&gt;tech
+report&lt;&#x2F;a&gt;…&lt;&#x2F;p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;It’s not really a race. That would be weird. &lt;a href=&quot;#fr-1-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</description>
+      </item>
+      <item>
+          <title>PhD viva, UK style</title>
+          <pubDate>Fri, 31 Jan 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/phd-viva/</link>
+          <guid>https://mort.io/blog/phd-viva/</guid>
+          <description xml:base="https://mort.io/blog/phd-viva/">&lt;p&gt;Having recently, happily, had several PhD students completing in short order,
+I’ve been approaching external PhD examiners. Occasionally I find myself asking
+someone who’s not done any &#x2F; many in the UK previously. As our system – as all
+such systems! – is a bit different to those in other parts of the world, I’ve
+written a few notes on a couple of occasions about what to expect. So I figured
+I might as well publish them.&lt;&#x2F;p&gt;
+&lt;p&gt;What follows is my impression &#x2F; understanding based on experience here in the
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cst.cam.ac.uk&#x2F;&quot;&gt;Department of Computer Science &amp;amp; Technology&lt;&#x2F;a&gt;,
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cam.ac.uk&#x2F;&quot;&gt;Cambridge University&lt;&#x2F;a&gt; ca. 2025. Your Mileage May Vary
+anywhen and anywhere else, including anywhere else in the UK – check local
+regulations to be sure.&lt;&#x2F;p&gt;
+&lt;p&gt;In terms of process, the system here is that candidates submit their complete
+dissertation and then undergo a “viva voce” (oral examination). It would be
+usual for the viva to take place within 2—3 months of submission. It’s better
+(IMO, much better) if it can happen in person but we may still be able to
+arrange to do it online in extremis.&lt;&#x2F;p&gt;
+&lt;p&gt;There are two examiners:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;The &lt;em&gt;internal examiner&lt;&#x2F;em&gt; (typically connected to the Department) who ensures
+the process is followed properly but may not be a deep expert in the specific
+topic, and&lt;&#x2F;li&gt;
+&lt;li&gt;The &lt;em&gt;external examiner&lt;&#x2F;em&gt; (from outside the University) who is there as the
+subject matter expert.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;The viva consists of the two examiners asking the candidate questions about
+their dissertation until they’re satisfied; typically this takes at least 2h and
+can go longer, though more than 3.5—4h is unusual in my experience.&lt;&#x2F;p&gt;
+&lt;p&gt;The examiners are each expected to read the dissertation in detail before the
+viva and each write a short (typically 1—2pp) independent report giving their
+opinion, outlining any concerns they will have and the resulting
+topics&#x2F;questions they will be exploring in the viva, and indicating what their a
+priori judgement is in terms of recommendation (roughly: pass&#x2F;pass with
+corrections&#x2F;revise &amp;amp; resubmit&#x2F;no Ph.D. but you can have a Masters&#x2F;fail).&lt;&#x2F;p&gt;
+&lt;p&gt;The examiners will then typically meet ~30min or so before the viva to discuss
+their independent reports and decide on the approach to take in the viva. After
+the viva they write a joint report (usually shorter than their independent
+reports; perhaps 0.5pp) outlining what happened in the viva, as well as making a
+final recommendation and providing (if appropriate) a list of corrections that
+must be satisfied for the candidate to pass.&lt;&#x2F;p&gt;
+&lt;p&gt;Finally, the University pays a (risibly small) honorarium to the external
+examiner for doing the viva plus reasonable expenses.&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>mort’s mythopœia - dotfiles</title>
+    <subtitle>with apologies</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://mort.io/tags/dotfiles/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://mort.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-07-26T00:00:00+00:00</updated>
+    <id>https://mort.io/tags/dotfiles/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Re-key-remapping</title>
+        <published>2025-07-26T00:00:00+00:00</published>
+        <updated>2025-07-26T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/keymapping-reprise/"/>
+        <id>https://mort.io/blog/keymapping-reprise/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/keymapping-reprise/">&lt;p&gt;As all right-minded people must, I remap the historic, redundant, absurd
+&lt;code&gt;CAPSLOCK&lt;&#x2F;code&gt; key&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; to be a more conveniently accessible current, useful, sleek
+&lt;code&gt;CTRL&lt;&#x2F;code&gt; (control) key on any given keyboard. I also do some other minor mods to
+assist retention of the little sanity I still have – as I get older and more
+decrepit, it gets harder for me to handle change. Deal with it.&lt;&#x2F;p&gt;
+&lt;p&gt;I &lt;a href=&quot;&#x2F;blog&#x2F;elcapitan-maps&#x2F;&quot;&gt;used&lt;&#x2F;a&gt; &lt;a href=&quot;&#x2F;blog&#x2F;mess-with-my-keyboard&#x2F;&quot;&gt;to do this&lt;&#x2F;a&gt; &lt;a href=&quot;&#x2F;blog&#x2F;setup-new-laptop&#x2F;&quot;&gt;on
+my Macbook&lt;&#x2F;a&gt; using a tool called &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;karabiner-elements.pqrs.org&#x2F;&quot;&gt;Karabiner
+Elements&lt;&#x2F;a&gt;. But now I’m on Linux, that’s
+not a thing. So I use the excellent &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;rvaiya&#x2F;keyd&quot;&gt;&lt;code&gt;keyd&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; instead. The UK Thinkpad keyboard
+being a lot less daft in design than the UK Macbook keyboard, the modifications
+are also much smaller, which is nice.&lt;&#x2F;p&gt;
+&lt;p&gt;However the canonical First Modification, &lt;code&gt;CAPSLOCK&lt;&#x2F;code&gt; to &lt;code&gt;CONTROL&lt;&#x2F;code&gt; remains the
+key one. For added convenience, given I rarely need to “tap” &lt;code&gt;CTRL&lt;&#x2F;code&gt; I also make a
+tap on the &lt;code&gt;CAPSLOCK&lt;&#x2F;code&gt; key into an &lt;code&gt;ESC&lt;&#x2F;code&gt; (escape). And there the fun starts.&lt;&#x2F;p&gt;
+&lt;p&gt;It turns out the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;rvaiya&#x2F;keyd&quot;&gt;&lt;code&gt;keyd&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; recommended way to achieve this is with the
+configuration stanza&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[main]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;capslock = overload(capslock, esc)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;…which is mostly fine and has worked well for me for some time. But I realised
+I was getting increasingly irritated that I seemed to get spurious &lt;code&gt;ESC&lt;&#x2F;code&gt; key
+presses when using &lt;code&gt;CAPSLOCK&lt;&#x2F;code&gt; as &lt;code&gt;CTRL&lt;&#x2F;code&gt;. &lt;code&gt;sudo keyd monitor&lt;&#x2F;code&gt; and it became clear
+that the semantics of the &lt;code&gt;overload()&lt;&#x2F;code&gt; function weren’t quite as I thought. From
+&lt;code&gt;man keyd&lt;&#x2F;code&gt;,&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;overload(&amp;lt;layer&amp;gt;, &amp;lt;action&amp;gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    Activates the given layer while held and executes &amp;lt;action&amp;gt; on tap.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;I had assumed this meant that &lt;code&gt;&amp;lt;action&amp;gt;&lt;&#x2F;code&gt; did not execute if the assigned key was
+held, but it doesn’t quite: it seems that a tap is deemed to have occurred if
+the key is not &lt;em&gt;chorded&lt;&#x2F;em&gt;. So sometimes, being a bit slow, when I hold &lt;code&gt;CAPSLOCK&lt;&#x2F;code&gt;
+thinking I want to chord and thus have it treated as &lt;code&gt;CTRL&lt;&#x2F;code&gt; but then realise I
+don’t and I just let go, I still get an &lt;code&gt;ESC&lt;&#x2F;code&gt; generated – even if it was a
+second or two that I was holding it down for.&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-2-1&quot;&gt;&lt;a href=&quot;#fn-2&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;So I read a bit more of the manpage can came across the &lt;code&gt;timeout&lt;&#x2F;code&gt; function&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;timeout(&amp;lt;action 1&amp;gt;, &amp;lt;timeout&amp;gt;, &amp;lt;action 2&amp;gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    If the key is held in isolation for more than &amp;lt;timeout&amp;gt; ms, activate the&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    second action, if the key is held for less than &amp;lt;timeout&amp;gt; ms or another key&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    is struck before &amp;lt;timeout&amp;gt; ms expires, execute the first action.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    E.g.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    timeout(a, 500, layer(control))&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    Will cause the assigned key to behave as control if it is held for more than&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    500 ms.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;…used as &lt;code&gt;capslock = timeout(esc, 250, layer(control))&lt;&#x2F;code&gt; but that turns out
+also not to be quite right. In the end, it looks like the right answer is
+&lt;code&gt;overloadt2&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;overloadt(&amp;lt;layer&amp;gt;, &amp;lt;action&amp;gt;, &amp;lt;timeout&amp;gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    Identical to overload, but only activates the layer if the bound key is held&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    for &amp;lt;timeout&amp;gt; milliseconds. This is mainly useful for overloading keys which&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    are commonly struck in sequence (e.g letter keys).&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    Note that this will add a visual delay when typing, since overlapping keys&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    will be queued until the timeout expires or the bound key is released.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;overloadt2(&amp;lt;layer&amp;gt;, &amp;lt;action&amp;gt;, &amp;lt;timeout&amp;gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    Identical to overloadt, but additionally resolves as a hold in the event of&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    an intervening key tap.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The end result is the following stanza in my &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;nixos.org&#x2F;&quot;&gt;NixOS&lt;&#x2F;a&gt;
+configuration:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;keyd&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span&gt; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #93A1A1;&quot;&gt;  enable&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span style=&quot;color: #B58900;&quot;&gt; true&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #93A1A1;&quot;&gt;  keyboards&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #93A1A1;&quot;&gt;default&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span&gt; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #93A1A1;&quot;&gt;    ids&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span&gt; [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;*&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt; ];&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #93A1A1;&quot;&gt;    settings&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span&gt; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #93A1A1;&quot;&gt;      main&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span&gt; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;        # capslock -&amp;gt; (held) ctrl, (tap) ESC&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #93A1A1;&quot;&gt;        capslock&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;overloadt2(control, esc, 150)&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #93A1A1;&quot;&gt;        rightalt&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;leftalt&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      };&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #93A1A1;&quot;&gt;      shift&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span&gt; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #93A1A1;&quot;&gt;        grave&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;G-4&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # S-` -&amp;gt; €&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      };&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    };&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  };&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The &lt;code&gt;timeout&lt;&#x2F;code&gt; of 150ms feels “about right” at this point – 100ms was borderline
+not enough, and 200ms was definitely annoyingly long.&lt;&#x2F;p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;Not to be confused with the elegant, historic, radical &lt;code&gt;RUN&#x2F;STOP&lt;&#x2F;code&gt; key of course. C64 FTW! &lt;a href=&quot;#fr-1-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-2&quot;&gt;
+&lt;p&gt;Honestly, sometimes I really am that slow. I’m old see? &lt;a href=&quot;#fr-2-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Stop, Start</title>
+        <published>2024-08-30T00:00:00+00:00</published>
+        <updated>2024-08-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/stop-start/"/>
+        <id>https://mort.io/blog/stop-start/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/stop-start/">&lt;p&gt;Well, here we go again, again. Having stalled out back in 2013 to restart in
+2015, I stalled out again in 2017, so am finally restarting seven years later.
+Again. I do have a dozen or more half-written posts from that period that may
+leak out slowly, in &lt;a href=&quot;&#x2F;tags&#x2F;old&quot;&gt;backdated form&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The stack for the blog has been updated again, naturally – the tools got better
+after all. So now this is using &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.getzola.org&quot;&gt;Zola&lt;&#x2F;a&gt; with, initially,
+the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;jieiku&#x2F;abridge&#x2F;&quot;&gt;abridge theme&lt;&#x2F;a&gt;. I think it’s shinier,
+and hopefully also involves (almost) no JavaScript, is finally accessible, and
+not too heavyweight. In removing the excessive JavaScript, I also updated my
+&lt;a href=&quot;https:&#x2F;&#x2F;mort.io&#x2F;blog&#x2F;stop-start&#x2F;.&#x2F;research#publications&quot;&gt;publication list&lt;&#x2F;a&gt; &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;bib2html&quot;&gt;generation
+process&lt;&#x2F;a&gt;: no more CoffeeScript and JavaScript,
+just some plain ol’ &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.python.org&#x2F;&quot;&gt;Python&lt;&#x2F;a&gt; using the slick new
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;astral-sh&#x2F;uv&quot;&gt;uv&lt;&#x2F;a&gt; tooling. The
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;casey&#x2F;just&quot;&gt;Justfile&lt;&#x2F;a&gt; incantation is something like:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;make&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;papers&lt;&#x2F;span&gt;&lt;span&gt; := &amp;quot;..&#x2F;templates&#x2F;shortcodes&#x2F;publications.html&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;bibinputs&lt;&#x2F;span&gt;&lt;span&gt; := &amp;quot;..&#x2F;papers&#x2F;bibinputs.json&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# build papers data for site&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;@papers&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  cd bib2html &amp;amp;&amp;amp; uv sync &amp;amp;&amp;amp; uv run -- .&#x2F;src&#x2F;bib2html {{bibinputs}} &amp;gt;| {{papers}}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;I’ve also added a &lt;a href=&quot;https:&#x2F;&#x2F;mort.io&#x2F;blog&#x2F;stop-start&#x2F;.&#x2F;register&#x2F;&quot;&gt;register of interests&lt;&#x2F;a&gt; so I stop having to
+scrabble around remembering what I’m officially doing when I’m occasionally
+asked.&lt;&#x2F;p&gt;
+&lt;p&gt;The stack underneath has also changed. I finally kicked the Mac OS habit after
+over 10 years – decided I’d had enough of Apple hiding things and generally
+getting in my way – at the same time I switched from Android to iPhone. Never
+do things the easy way, that’s my motto. So now I’m back on a PC … but it
+turns out that 2024 (well, 2023 in fact) is the year of Linux on the Laptop for
+me. Not something I thought would actually happen when we joked about it in the
+late 90s. Truly, times change. And not just any old wannabe-Windows distribution
+but the resolutely idiosyncratic and copiously yet poorly documented
+&lt;a href=&quot;httsp:&#x2F;&#x2F;nixos.org&#x2F;&quot;&gt;NixOS&lt;&#x2F;a&gt; using Flakes and Home-Manager of course, with
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;wayland.freedesktop.org&#x2F;&quot;&gt;Wayland&lt;&#x2F;a&gt; and &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;swaywm.org&#x2F;&quot;&gt;Sway&lt;&#x2F;a&gt;.
+I’ve even finally made the leap to &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;vscodium.com&#x2F;&quot;&gt;Codium&lt;&#x2F;a&gt;, the
+de-Microsofted version of VSCode, from
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.gnu.org&#x2F;software&#x2F;emacs&#x2F;&quot;&gt;Emacs&lt;&#x2F;a&gt; (mostly –
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;orgmode.org&#x2F;&quot;&gt;org-mode&lt;&#x2F;a&gt; has not yet been replaced). I blame
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.jeffas.net&#x2F;&quot;&gt;Andrew&lt;&#x2F;a&gt; and &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.jentek.dev&#x2F;&quot;&gt;Chris&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;For the terminally curious, this meant a fairly heavy reworking of my 30 years
+old &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-files&#x2F;&quot;&gt;dotfiles&lt;&#x2F;a&gt; – still work in progress but
+adequately organised for now I think. See the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-files&#x2F;tree&#x2F;main&#x2F;nixos&quot;&gt;NixOS specific
+bits&lt;&#x2F;a&gt; if curious.&lt;&#x2F;p&gt;
+&lt;p&gt;And, because I’m going to try to include at least one vaguely technical bit (or
+at least, one bit which isn’t just me bemoaning that I haven’t written anything
+in years), I confess to being particularly pleased with the following fragment
+to enable &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-files&#x2F;blob&#x2F;main&#x2F;nixos&#x2F;modules&#x2F;home-manager&#x2F;sway.nix#L64-L122&quot;&gt;my Sway startup
+script&lt;&#x2F;a&gt;
+to start several apps on particular workspaces, by switching to the workspace,
+starting the app, and then waiting for a suitable window to appear. The latter
+step entails&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;subscribing &lt;code&gt;swaymsg&lt;&#x2F;code&gt; to &lt;code&gt;window&lt;&#x2F;code&gt; messages with
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;jqlang.github.io&#x2F;jq&#x2F;&quot;&gt;jq&lt;&#x2F;a&gt; to extract the messages of interest
+indicating a new window in the background,&lt;&#x2F;li&gt;
+&lt;li&gt;executing the command to start the app,&lt;&#x2F;li&gt;
+&lt;li&gt;using &lt;code&gt;grep&lt;&#x2F;code&gt;&#x2F;&lt;code&gt;pkill&lt;&#x2F;code&gt; in tandem to kill the subscription when the new window is
+detected,  and finally&lt;&#x2F;li&gt;
+&lt;li&gt;waiting for the subscription to have been killed.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;It seems fairly (indeed, surprisingly) reliable.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;wait_for&lt;&#x2F;span&gt;&lt;span&gt; () {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  {&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; swaymsg&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -r -m -t&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; subscribe &amp;#39;[&amp;quot;window&amp;quot;]&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; |&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;    jq&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -c --unbuffered&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;#39;. | select(.change == &amp;quot;new&amp;quot;)&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; |&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    {&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; grep&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -m1&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; .&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&#x2F;dev&#x2F;null&lt;&#x2F;span&gt;&lt;span&gt; ;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; pkill&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; swaymsg&lt;&#x2F;span&gt;&lt;span&gt; ;} &amp;amp;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  }&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; 2&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&#x2F;dev&#x2F;null&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;  pid&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$!&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;  swaymsg&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; --&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;exec &lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$*&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; sleep&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 0.5&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;  wait $pid&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; 2&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&#x2F;dev&#x2F;null&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Use via something like:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;wayland&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;windowManager&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;sway&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;config&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;startup&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt; =&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;  let&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    msg&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span&gt; cmds:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;swaymsg &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span style=&quot;color: #B58900;&quot;&gt;builtins&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;concatStringsSep&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;, &amp;quot;&lt;&#x2F;span&gt;&lt;span&gt; cmds&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;#39;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    workspace&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span&gt; ws: msg [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;workspace --no-auto-back-and-forth &lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span&gt;ws&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt; ]&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    after&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span&gt; delay: cmds:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;sleep &lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;toString&lt;&#x2F;span&gt;&lt;span&gt; delay&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;amp;&amp;amp; &lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span&gt;msg cmds&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    startup&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span&gt; pkgs&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;writeShellScriptBin&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;startup.sh&amp;quot; &amp;#39;&amp;#39;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;      wait_for () {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;        { swaymsg -r -m -t subscribe &amp;#39;[&amp;quot;window&amp;quot;]&amp;#39; |&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;          jq -c --unbuffered &amp;#39;. | select(.change == &amp;quot;new&amp;quot;)&amp;#39; |&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;          { grep -m1 . &amp;gt;&#x2F;dev&#x2F;null ; pkill swaymsg ;} &amp;amp;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;        } 2&amp;gt;&#x2F;dev&#x2F;null&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;        pid=$!&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;        swaymsg -- &amp;quot;exec $*&amp;quot; &amp;amp;&amp;amp; sleep 0.5&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;        wait $pid 2&amp;gt;&#x2F;dev&#x2F;null&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;      }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;      ${&lt;&#x2F;span&gt;&lt;span&gt;workspace&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span&gt;mediaws&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;      wait_for &amp;quot;rhythmbox&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    &amp;#39;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;  in&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  [ {&lt;&#x2F;span&gt;&lt;span style=&quot;color: #93A1A1;&quot;&gt; command&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span&gt;startup&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&#x2F;bin&#x2F;startup.sh&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;; } ]&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Spring Loading Karabiner in the Autumn</title>
+        <published>2017-10-30T00:00:00+00:00</published>
+        <updated>2017-10-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/mess-with-my-keyboard/"/>
+        <id>https://mort.io/blog/mess-with-my-keyboard/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/mess-with-my-keyboard/">&lt;p&gt;I recently took the plunge and upgraded my OS X. Not to vN of &lt;em&gt;Sierra&lt;&#x2F;em&gt; as I’d
+hoped, but to v0 &lt;em&gt;High Sierra&lt;&#x2F;em&gt;– the perils of waiting too long…&lt;&#x2F;p&gt;
+&lt;p&gt;Unfortunately, this toasted&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; my carefully curated keyboard remappings as
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;pqrs.org&#x2F;osx&#x2F;karabiner&#x2F;&quot;&gt;Karabiner&lt;&#x2F;a&gt; used a kernel extension, for which everything changed. All was not
+lost however, as the rewrite to support Sierra&#x2F;High Sierra was well underway. Or
+so I thought until I realised that the configuration file had changed from XML
+to JSON. And so my configuration journey began. (But it all ends well, so that’s
+good.)&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;controlling-the-config&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#controlling-the-config&quot; aria-label=&quot;Anchor link for: controlling-the-config&quot;&gt;Controlling the config&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;The first thing was to get the new configuration matters under control. I did
+this per the documentation, symlinking the config subdirectory from my
+&lt;code&gt;rc-files&lt;&#x2F;code&gt; repo:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;cd&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; ~&#x2F;.config&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;mv&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; karabiner&#x2F; ~&#x2F;rc-files&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;ln&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -s&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; ~&#x2F;rc-files&#x2F;karabiner&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;internal-apple-keyboard&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#internal-apple-keyboard&quot; aria-label=&quot;Anchor link for: internal-apple-keyboard&quot;&gt;Internal Apple keyboard&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;In the interests of keeping all configuration in one place (but see below), I
+decided to do this via a set of &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-karabiner&#x2F;blob&#x2F;master&#x2F;assets&#x2F;complex_modifications&#x2F;mort-keymap.json&quot;&gt;complex modifications&lt;&#x2F;a&gt;. In summary this
+meant:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;swap &lt;code&gt;(caps_lock)&lt;&#x2F;code&gt; and &lt;code&gt;(control)&lt;&#x2F;code&gt;:&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;json&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;      &amp;quot;description&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;mort: caps_lock -&amp;gt; ctrl&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;      &amp;quot;manipulators&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;type&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;basic&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;from&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;caps_lock&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;quot;optional&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;any&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;to&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;left_control&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;swap &lt;code&gt;&quot;&lt;&#x2F;code&gt; (glyph &lt;code&gt;S-&#x27;&lt;&#x2F;code&gt;) with &lt;code&gt;@&lt;&#x2F;code&gt; (glyph &lt;code&gt;S-2&lt;&#x2F;code&gt;):&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;json&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;      &amp;quot;description&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;mort: S-&amp;#39; (&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt;\&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;) &amp;lt;-&amp;gt; S-2 (@)&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;      &amp;quot;manipulators&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;type&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;basic&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;from&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;quote&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;quot;mandatory&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;shift&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;to&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;2&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;shift&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;type&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;basic&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;from&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;2&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;quot;mandatory&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;shift&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;to&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;quote&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;shift&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;map &lt;code&gt;(backslash)&lt;&#x2F;code&gt; (glyph &lt;code&gt;\&lt;&#x2F;code&gt;) to &lt;code&gt;#&lt;&#x2F;code&gt;, and &lt;code&gt;S-\&lt;&#x2F;code&gt; (glyph &lt;code&gt;|&lt;&#x2F;code&gt;) to &lt;code&gt;~&lt;&#x2F;code&gt;:&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;json&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;      &amp;quot;description&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;mort: &lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt;\\&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; -&amp;gt; #; S-&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt;\\&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; (|) -&amp;gt; ~&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;      &amp;quot;manipulators&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;type&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;basic&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;from&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;backslash&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;to&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;3&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;option&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;type&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;basic&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;from&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;backslash&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;quot;mandatory&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;shift&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;to&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;grave_accent_and_tilde&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;shift&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;    }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;map &lt;code&gt;(non_us_backslash)&lt;&#x2F;code&gt; (glyph &lt;code&gt;§&lt;&#x2F;code&gt;) to &lt;code&gt;`&lt;&#x2F;code&gt; and &lt;code&gt;S-(non_us_backslash)&lt;&#x2F;code&gt;
+(glyph &lt;code&gt;±&lt;&#x2F;code&gt;) to &lt;code&gt;€&lt;&#x2F;code&gt;, and then patch things up so that the usual window
+switching works (using &lt;code&gt;(command)-`&lt;&#x2F;code&gt;):&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;json&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;      &amp;quot;description&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;mort: § -&amp;gt; `; ± (S-§) -&amp;gt; €&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;      &amp;quot;manipulators&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;type&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;basic&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;from&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;non_us_backslash&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;to&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;grave_accent_and_tilde&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;type&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;basic&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;from&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;non_us_backslash&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;quot;mandatory&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;shift&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;to&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;2&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;option&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;type&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;basic&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;from&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;non_us_backslash&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;quot;mandatory&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;command&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;to&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;grave_accent_and_tilde&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;command&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;type&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;basic&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;from&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;non_us_backslash&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;quot;mandatory&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;command&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;shift&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;to&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;grave_accent_and_tilde&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;command&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;shift&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;finally, map &lt;code&gt;`&lt;&#x2F;code&gt; to &lt;code&gt;\&lt;&#x2F;code&gt; and &lt;code&gt;S-`&lt;&#x2F;code&gt; to &lt;code&gt;|&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;json&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;      &amp;quot;description&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;mort: ` -&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt;\\&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;; S-` (~) -&amp;gt; |&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;      &amp;quot;manipulators&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;type&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;basic&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;from&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;grave_accent_and_tilde&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;to&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;backslash&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;type&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;basic&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;from&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;grave_accent_and_tilde&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;quot;mandatory&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;shift&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;to&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;backslash&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;shift&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;iterm2&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#iterm2&quot; aria-label=&quot;Anchor link for: iterm2&quot;&gt;iTerm2&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Unfortunately for me, iTerm2 then gets a bit confused as it wants to leave
+&lt;code&gt;(command)&lt;&#x2F;code&gt; alone, only allowing mapping of &lt;code&gt;(option)&lt;&#x2F;code&gt; to &lt;code&gt;(meta)&lt;&#x2F;code&gt; (or, in fact,
+&lt;code&gt;(esc+)&lt;&#x2F;code&gt;). In the past I swapped &lt;code&gt;(left_command)&lt;&#x2F;code&gt; and &lt;code&gt;(left_option)&lt;&#x2F;code&gt; to make
+the usual shell (&lt;code&gt;bash&lt;&#x2F;code&gt;) CLI editing combinations (roughly, &lt;code&gt;emacs&lt;&#x2F;code&gt;) work.  That
+wasn’t ideal though as I then had to fix up the window cycling commands
+(&lt;code&gt;(command)-` &lt;&#x2F;code&gt; and so on). Fortunately, the fix this time seems easier: just
+configure the two tricky mappings (involving generating a keypress modified with
+&lt;code&gt;(option)&lt;&#x2F;code&gt;) to be interpreted by iTerm2 to just send the appropriate text
+through. Again, I did this in the UI (Preferences &amp;gt; Profiles &amp;gt; Keys) but the
+resulting configuration change is also straightforward:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;			&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;key&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;Keyboard Map&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;key&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;			&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;dict&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;				&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;key&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;0x32-0x80000&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;key&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;				&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;dict&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;					&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;key&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;Action&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;key&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;					&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;integer&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;12&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;integer&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;					&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;key&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;Text&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;key&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;					&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;string&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;€&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;string&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;				&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;dict&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;				&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;key&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;0x33-0x80000&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;key&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;				&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;dict&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;					&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;key&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;Action&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;key&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;					&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;integer&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;12&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;integer&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;					&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;key&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;Text&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;key&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;					&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;string&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;#&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;string&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;				&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;dict&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;			&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;dict&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;microsoft-digital-media-keyboard&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#microsoft-digital-media-keyboard&quot; aria-label=&quot;Anchor link for: microsoft-digital-media-keyboard&quot;&gt;Microsoft Digital Media keyboard&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Examining the key codes using the Karabiner Event-Viewer, it seemed that the
+first thing to do was to swap &lt;code&gt;(grave_accent_and_tilde)&lt;&#x2F;code&gt; (glyph &lt;code&gt;`&lt;&#x2F;code&gt;) and
+&lt;code&gt;(non_us_backslash)&lt;&#x2F;code&gt; (slightly confusingly, glyph &lt;code&gt;\&lt;&#x2F;code&gt; on my keyboard). I started
+out trying to do this as a complex modification so that all the remappings were
+in &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-karabiner&#x2F;blob&#x2F;master&#x2F;assets&#x2F;complex_modifications&#x2F;mort-keymap.json&quot;&gt;one file&lt;&#x2F;a&gt;, but couldn’t: I couldn’t figure out how to control the
+application order of mappings in that file. However, simple modifications are
+applied before complex modifications, and this &lt;em&gt;is&lt;&#x2F;em&gt; a simple modification as
+it’s a direct swap, so I just used the UI and did it there. For the sake of
+completeness, the resulting modification to &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-karabiner&#x2F;blob&#x2F;master&#x2F;karabiner.json&quot;&gt;&lt;code&gt;karabiner.json&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; is:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;json&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;    &amp;quot;profiles&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;devices&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;                    &amp;quot;disable_built_in_keyboard_if_exists&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #B58900;&quot;&gt; false&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;                    &amp;quot;fn_function_keys&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [],&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;                    &amp;quot;identifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;                        &amp;quot;is_keyboard&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #B58900;&quot;&gt; true&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;                        &amp;quot;is_pointing_device&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #B58900;&quot;&gt; false&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;                        &amp;quot;product_id&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 180&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;                        &amp;quot;vendor_id&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 1118&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                    },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;                    &amp;quot;ignore&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #B58900;&quot;&gt; false&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;                    &amp;quot;simple_modifications&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                        {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;                            &amp;quot;from&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;                                &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;grave_accent_and_tilde&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                            },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;                            &amp;quot;to&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;                                &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;non_us_backslash&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                        },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                        {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;                            &amp;quot;from&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;                                &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;non_us_backslash&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                            },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;                            &amp;quot;to&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;                                &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;grave_accent_and_tilde&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                        }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                    ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            ],&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The next step was to patch up the complex modifications. Once I realised that
+the event viewer was claiming that the key with glyph &lt;code&gt;#&lt;&#x2F;code&gt; was emitting
+&lt;code&gt;(backslash)&lt;&#x2F;code&gt; while it was, in fact, emitting &lt;code&gt;(non_us_pound)&lt;&#x2F;code&gt;, this was fairly
+straightforward:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;swap &lt;code&gt;(command)&lt;&#x2F;code&gt; (glyph &lt;code&gt;Alt&lt;&#x2F;code&gt;) and &lt;code&gt;(option)&lt;&#x2F;code&gt; (glyph &lt;code&gt;Start&lt;&#x2F;code&gt;):&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;json&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;conditions&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;type&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;device_if&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;identifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [{&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;quot;vendor_id&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 1118&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;quot;product_id&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 180&lt;&#x2F;span&gt;&lt;span&gt;}]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ],&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;type&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;basic&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;from&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;left_option&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;quot;optional&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;any&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;to&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;left_command&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;conditions&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;type&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;device_if&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;identifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [{&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;quot;vendor_id&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 1118&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;quot;product_id&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 180&lt;&#x2F;span&gt;&lt;span&gt;}]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ],&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;type&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;basic&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;from&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;left_command&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;quot;optional&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;any&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;to&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;left_option&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;add coverage of &lt;code&gt;(non_us_pound)&lt;&#x2F;code&gt; to the rule that remaps &lt;code&gt;\&lt;&#x2F;code&gt; to &lt;code&gt;#&lt;&#x2F;code&gt;:&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;json&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;conditions&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;type&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;device_if&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;identifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [{&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;quot;vendor_id&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 1118&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;quot;product_id&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 180&lt;&#x2F;span&gt;&lt;span&gt;}]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ],&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;type&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;basic&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;from&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;non_us_pound&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;to&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;3&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;option&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;conditions&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;type&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;device_if&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;identifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [{&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;quot;vendor_id&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 1118&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;quot;product_id&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 180&lt;&#x2F;span&gt;&lt;span&gt;}]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ],&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;type&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;basic&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;from&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;non_us_pound&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: {&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;quot;mandatory&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;shift&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;          &amp;quot;to&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;grave_accent_and_tilde&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;shift&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;…and that’s it. My keyboard is, once again, my castle.&lt;&#x2F;p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;To be honest, I suspect even the &lt;em&gt;Sierra&lt;&#x2F;em&gt; upgrade would’ve done this. &lt;a href=&quot;#fr-1-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Of Mice and Keyboards</title>
+        <published>2015-11-21T00:00:00+00:00</published>
+        <updated>2015-11-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/elcapitan-maps/"/>
+        <id>https://mort.io/blog/elcapitan-maps/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/elcapitan-maps/">&lt;p&gt;A bit of a delay since the last post – lots going on! But anyway: I
+(relatively) recently upgraded my old skool Macbook Pro (look! built-in Ethernet
+port! DVD drive!) to El Capitan. This was generally rather less faff that the
+previous upgrade, though it did seem to take rather more reboots than might have
+been assumed to be &lt;em&gt;strictly&lt;&#x2F;em&gt; necessary before it settled down, and I’d
+remembered to fix up permissions for Homebrew with &lt;code&gt;sudo chown -R $(whoami):admin &#x2F;usr&#x2F;local&lt;&#x2F;code&gt;. So that was ok.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;mort.io&#x2F;blog&#x2F;elcapitan-maps&#x2F;keyboard-small.png&quot; alt=&quot;Macbook Pro UK Keyboard&quot; title=&quot;Macbook Pro
+UK Keyboard&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Except… I have a slightly odd keyboard and mouse setup. It’s a UK Macbook
+which means a slightly tweaked keyboard layout compared to the standard US
+Macbook keyboard. At my desk, I also use a &lt;em&gt;Microsoft Digital Media Keyboard&lt;&#x2F;em&gt; –
+nice action (for me!) plus some handy shortcut keys – and a &lt;em&gt;Microsoft 5-Button
+Mouse with IntelliEye&lt;&#x2F;em&gt;. Now, until El Capitan I’d happily been using the
+Microsoft provided software to make use of the extra mouse buttons and shortcut
+keys, coupled with a
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;scripts.sil.org&#x2F;cms&#x2F;scripts&#x2F;page.php?site_id=nrsi&amp;amp;id=ukelele&quot;&gt;Ukelele-generated&lt;&#x2F;a&gt;
+keymap to handle the oddities of the UK laptop keyboard (like, who in the world
+really needs &lt;code&gt;§&lt;&#x2F;code&gt; at the top-left key, below &lt;code&gt;escape&lt;&#x2F;code&gt; rather than &lt;code&gt;`&lt;&#x2F;code&gt;; and
+doesn’t need an easily accessible &lt;code&gt;#&lt;&#x2F;code&gt;?).&lt;&#x2F;p&gt;
+&lt;p&gt;This had never been entirely satisfactory – I had to have a standard keymap
+installed in addition to my modified one, and some apps (all of Microsoft
+Office, I’m looking at you) liked to intermittently flip the keymap away from my
+keymap to the standard issue on, including undoing my remapping of &lt;code&gt;caps lock&lt;&#x2F;code&gt;
+to &lt;code&gt;ctrl&lt;&#x2F;code&gt;. This was annoying, but having it completely break was intolerable.&lt;&#x2F;p&gt;
+&lt;p&gt;So I went hunting for alternatives and am now very happy with
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;pqrs.org&#x2F;osx&#x2F;karabiner&#x2F;&quot;&gt;Karabiner.app&lt;&#x2F;a&gt; for standard keyboard remappings, and fairly happy
+with &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.usboverdrive.com&quot;&gt;USB Overdrive&lt;&#x2F;a&gt; to handle the mouse and the
+special Microsoft Digital Media Keyboard shortcut keys.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;usb-overdrive&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#usb-overdrive&quot; aria-label=&quot;Anchor link for: usb-overdrive&quot;&gt;USB Overdrive&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;USB Overdrive seems to do the mouse mappings correctly, having detected the
+device as a “Microsoft 5-Button Mouse with IntelliEye(tm), Any Application” –
+&lt;code&gt;Button 4&lt;&#x2F;code&gt; and &lt;code&gt;Button 5&lt;&#x2F;code&gt; can be remapped to &lt;code&gt;forward&lt;&#x2F;code&gt; and &lt;code&gt;back&lt;&#x2F;code&gt;, just as I
+like it.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;mort.io&#x2F;blog&#x2F;elcapitan-maps&#x2F;usboverdrive.png&quot; alt=&quot;USB Overdrive&quot; title=&quot;USB Overdrive Configuration&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;It also allows me to repurpose some of the extra keys on my Microsoft keyboard
+that &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;pqrs.org&#x2F;osx&#x2F;karabiner&#x2F;&quot;&gt;Karabiner&lt;&#x2F;a&gt; doesn’t seem able to see– so I get one touch play&#x2F;pause of
+iTunes and other such delights.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;karabiner-app&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#karabiner-app&quot; aria-label=&quot;Anchor link for: karabiner-app&quot;&gt;Karabiner.app&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;pqrs.org&#x2F;osx&#x2F;karabiner&#x2F;&quot;&gt;Karabiner&lt;&#x2F;a&gt; took a bit more setting up but does a very nice job. I needed to
+remap certain keys differently on the two different keyboards to make both
+consistent and to fix some of the weirder (to my mind!) decisions both Microsoft
+and (particualrly) Apple have taken with their layouts. The result is an
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-files&#x2F;blob&#x2F;master&#x2F;karabiner.xml&quot;&gt;XML configuration file&lt;&#x2F;a&gt;, symlinked by &lt;code&gt;~&#x2F;Library&#x2F;Application Support&#x2F;Karabiner&#x2F;private.xml&lt;&#x2F;code&gt;. This applies two keymaps based on the detected
+device, using product ID codes determined by the &lt;code&gt;EventViewer&lt;&#x2F;code&gt; app that comes
+with &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;pqrs.org&#x2F;osx&#x2F;karabiner&#x2F;&quot;&gt;Karabiner&lt;&#x2F;a&gt;:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;deviceproductdef&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;productname&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;MACBOOK_PRO_UK_KEYBOARD&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;productname&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;productid&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;0x0253&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;productid&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;deviceproductdef&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;deviceproductdef&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;productname&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;DIGITAL_MEDIA_KEYBOARD&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;productname&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;productid&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;0x00b4&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;productid&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;deviceproductdef&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;deviceproductdef&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;productname&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;FIVE_BUTTON_MOUSE_WITH_INTELLIEYE&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;productname&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;productid&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;0x0039&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;productid&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;deviceproductdef&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;There are then two  &lt;code&gt;&amp;lt;item&amp;gt;&amp;lt;&#x2F;item&amp;gt;&lt;&#x2F;code&gt; stanzas that configure the two different
+keyboards, e.g.,&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;name&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;Keyboard mappings for Microsoft keyboard&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;name&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;identifier&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;private.io.mort.microsoft_keyboard&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;identifier&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;device_only&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    DeviceVendor::MICROSOFT,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    DeviceProduct::DIGITAL_MEDIA_KEYBOARD&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;  &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;device&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  ...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Each of these contains a number of &lt;code&gt;&amp;lt;autogen&amp;gt;&amp;lt;&#x2F;autogen&amp;gt;&lt;&#x2F;code&gt; stanza mapping specific
+keycodes for that keymap. For example, I want the top-left key on the main block
+to be &lt;code&gt;`&lt;&#x2F;code&gt; and, when shifted, to be &lt;code&gt;€&lt;&#x2F;code&gt;. This leads to the following on the
+Microsoft keyboard:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;&amp;lt;!-- shift-` to € --&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;autogen&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  __KeyToKey__&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  KeyCode::BACKQUOTE, ModifierFlag::SHIFT_L | ModifierFlag::NONE,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  KeyCode::KEY_2, ModifierFlag::OPTION_R | ModifierFlag::SHIFT_R&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;autogen&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;autogen&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  __KeyToKey__&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  KeyCode::BACKQUOTE, ModifierFlag::SHIFT_R | ModifierFlag::NONE,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  KeyCode::KEY_2, ModifierFlag::OPTION_R | ModifierFlag::SHIFT_R&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;autogen&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;…but to the following on the Macbook built-in UK keyboard, to take account
+first of the different keycode it generates but also to ensure that when used
+with command and command-shift, the standard behaviour of cycling between
+windows works:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;&amp;lt;!-- top-left § to ` --&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;autogen&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  __KeyToKey__&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  KeyCode::DANISH_DOLLAR, ModifierFlag::NONE,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  KeyCode::BACKQUOTE&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;autogen&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;&amp;lt;!-- ...with shift, to € --&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;autogen&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  __KeyToKey__&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  KeyCode::DANISH_DOLLAR, ModifierFlag::SHIFT_L | ModifierFlag::NONE,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  KeyCode::KEY_2, ModifierFlag::OPTION_R | ModifierFlag::SHIFT_R&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;autogen&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;autogen&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  __KeyToKey__&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  KeyCode::DANISH_DOLLAR, ModifierFlag::SHIFT_R | ModifierFlag::NONE,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  KeyCode::KEY_2, ModifierFlag::OPTION_R | ModifierFlag::SHIFT_R&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;autogen&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;&amp;lt;!-- ...with COMMAND&#x2F;SHIFT, so that cycle-window-{forward,back} work --&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;autogen&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  __KeyToKey__&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  KeyCode::DANISH_DOLLAR, ModifierFlag::COMMAND_L | ModifierFlag::NONE,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  KeyCode::BACKQUOTE, ModifierFlag::COMMAND_R&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;autogen&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;autogen&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  __KeyToKey__&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  KeyCode::DANISH_DOLLAR, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L | ModifierFlag::NONE,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  KeyCode::BACKQUOTE, ModifierFlag::COMMAND_R | ModifierFlag::SHIFT_R&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;autogen&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;There are a number of other mappings made in &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-files&#x2F;blob&#x2F;master&#x2F;karabiner.xml&quot;&gt;karabiner.xml&lt;&#x2F;a&gt;: &lt;code&gt;shift-&#x27;&lt;&#x2F;code&gt; is
+&lt;code&gt;@&lt;&#x2F;code&gt;, &lt;code&gt;shift-2&lt;&#x2F;code&gt; is &lt;code&gt;&quot;&lt;&#x2F;code&gt;, &lt;code&gt;shift-3&lt;&#x2F;code&gt; is &lt;code&gt;£&lt;&#x2F;code&gt;, and resolving general confusion among
+&lt;code&gt;#&lt;&#x2F;code&gt;, &lt;code&gt;\&lt;&#x2F;code&gt;, &lt;code&gt;~&lt;&#x2F;code&gt;, and &lt;code&gt;|&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;emacs&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#emacs&quot; aria-label=&quot;Anchor link for: emacs&quot;&gt;Emacs&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;That fixed things for the terminal and for most apps – the only remaining
+sticking point was Emacs. I don’t pretend to understand the entire chain of
+event processing but suffice it to say that Emacs was receiving &lt;code&gt;shift-@&lt;&#x2F;code&gt; and
+&lt;code&gt;shift-3&lt;&#x2F;code&gt; without knowing what to do with them. Fortunately, when coupled with
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-files&#x2F;blob&#x2F;master&#x2F;emacs.d&#x2F;init.el#L929-L1019&quot;&gt;my hacks to enforce a &lt;code&gt;my-keys-minor-mode&lt;&#x2F;code&gt; to override everything&lt;&#x2F;a&gt;,
+the fix was pretty straightforward:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;common-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(define-key my-keys-minor-mode-map (kbd &lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;s-@&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;€&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(define-key my-keys-minor-mode-map (kbd &lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;s-3&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;  &amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #93A1A1;font-weight: bold;&quot;&gt;lambda&lt;&#x2F;span&gt;&lt;span&gt; () (interactive) (insert-char &lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt;#x00A3&lt;&#x2F;span&gt;&lt;span&gt;))) &lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;; £&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;result&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#result&quot; aria-label=&quot;Anchor link for: result&quot;&gt;Result?&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;A &lt;strong&gt;significant&lt;&#x2F;strong&gt; decrease in the need I feel to curse because my keyboard has
+changed in the middle of typing! It seems that keyboards remain, like time and
+terminals, one of those &lt;em&gt;Really Hard&lt;&#x2F;em&gt; things for computers&#x2F;manufacturers to
+handle…&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Note: Thanks to &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.amp-what.com&#x2F;unicode&#x2F;search&#x2F;&quot;&gt;http:&#x2F;&#x2F;www.amp-what.com&#x2F;unicode&#x2F;search&#x2F;&lt;&#x2F;a&gt; for an easy way to
+hunt down some of the unicode symbols used above!&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

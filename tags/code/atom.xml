@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>mort’s mythopœia - code</title>
+    <subtitle>with apologies</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://mort.io/tags/code/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://mort.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-02-07T00:00:00+00:00</updated>
+    <id>https://mort.io/tags/code/atom.xml</id>
+    <entry xml:lang="en">
+        <title>`just` OCaml</title>
+        <published>2025-02-07T00:00:00+00:00</published>
+        <updated>2025-02-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/just-ocaml/"/>
+        <id>https://mort.io/blog/just-ocaml/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/just-ocaml/">&lt;p&gt;In similar vein to a &lt;a href=&quot;&#x2F;blog&#x2F;just-latex&quot;&gt;recent post&lt;&#x2F;a&gt;, I have also started using
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;just.systems&#x2F;&quot;&gt;&lt;code&gt;just&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; when I periodically need to rebuild my
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;ocaml.org&#x2F;&quot;&gt;OCaml&lt;&#x2F;a&gt; tool&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocal&quot;&gt;&lt;code&gt;ocal&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;. So
+I ended up replacing the old
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocal&#x2F;blob&#x2F;6bb129627f9d1f27ab31cee810013b362ab80067&#x2F;Makefile&quot;&gt;&lt;code&gt;Makefile&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;
+with a shiny new
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocal&#x2F;blob&#x2F;8ef8631ae5bbe0315e359d725d467e7d0403fd31&#x2F;Justfile&quot;&gt;&lt;code&gt;Justfile&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;As it also proved useful in another (more esoteric) tool I wrote &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;cst-tools&quot;&gt;for parsing
+out exam results for my students so I can paste into email
+easily&lt;&#x2F;a&gt;, I thought I’d put it here for the
+record. So here it is…&lt;&#x2F;p&gt;
+&lt;p&gt;Usual preamble of course:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;_&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;default&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;    @&lt;&#x2F;span&gt;&lt;span&gt;just --list&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then set some common variables:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;PWD&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; :=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; env&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;PWD&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;DOCDIR&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; :=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;_build&#x2F;default&#x2F;_doc&#x2F;_html&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;BUILDDIR&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; :=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;_build&#x2F;install&#x2F;default&#x2F;bin&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then set the target — the tool name, in this case &lt;code&gt;ocal&lt;&#x2F;code&gt; (so named as this is
+an OCaml re-implementation of a tool approximating the trad Unix
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Cal_(command)&quot;&gt;&lt;code&gt;cal&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; tool):&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;TARGET&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; :=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;ocal&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now for the actually useful stuff: some targets. Mostly these just call out to
+&lt;code&gt;dune&lt;&#x2F;code&gt; but in a way I find more intuitive.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# build targets&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;build&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune build @all&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# cleanup&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;clean&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune &lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;clean&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# uninstall targets&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;uninstall&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune uninstall&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# run any tests&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;test&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune runtest&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# format sources&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;format&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune fmt&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Some compound calls next.&lt;&#x2F;p&gt;
+&lt;p&gt;First, before building we might need to install dependencies, so do so in the
+time-honoured fashion:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# install dependencies&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;depends&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    opam install --yes dune-release odoc&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    opam install --yes . --deps-only&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Next, to install I first build ready to install, then symlink the resulting
+binary into the right place in my home directory:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# install targets&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;install&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; build&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune build @install&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    ln -sf &lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;{{PWD}}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;{{BUILDDIR}}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;{{TARGET}}&lt;&#x2F;span&gt;&lt;span&gt; ~&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;.local&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;bin&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;To lint all the things, invoke &lt;code&gt;dune&lt;&#x2F;code&gt; twice:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# lint everything&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;lint&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune build @lint&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune-release lint&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Similarly, to build the docs, build &lt;em&gt;all&lt;&#x2F;em&gt; the docs:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# build docs&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;doc&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune build @doc&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune build @doc-private&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Try to open the docs on Linux and if that fails, on MacOS:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# open the docs for reading&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;read&lt;&#x2F;span&gt;&lt;span&gt;: doc&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    handlr open &lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;{{DOCDIR}}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;index.html &lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;||&lt;&#x2F;span&gt;&lt;span&gt; open &lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;{{DOCDIR}}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Finally, tag and create a release; not actually done this in ages so no idea if
+&lt;code&gt;dune-release&lt;&#x2F;code&gt; invocations are still a thing, let alone correct!&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# tag and create a release&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;release&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune-release tag&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune-release -vv&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;Largely due to &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;nixos.org&#x2F;&quot;&gt;NixOS&lt;&#x2F;a&gt; upgrades moving tools into
+different locations. &lt;a href=&quot;#fr-1-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Reverse `find`</title>
+        <published>2025-02-05T00:00:00+00:00</published>
+        <updated>2025-02-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/reverse-find/"/>
+        <id>https://mort.io/blog/reverse-find/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/reverse-find/">&lt;p&gt;In the last few days I discovered I needed to search back up the filesystem from
+&lt;code&gt;$CWD&lt;&#x2F;code&gt; to find the first occurence of a file (specifically, a &lt;code&gt;Justfile&lt;&#x2F;code&gt; but
+that’s by-the-by). Got bored of doing it by hand so wrote a
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.gnu.org&#x2F;software&#x2F;bash&#x2F;&quot;&gt;&lt;code&gt;bash&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; shell function; here ’tis:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;rf&lt;&#x2F;span&gt;&lt;span&gt; () {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #93A1A1;font-weight: bold;&quot;&gt;  local&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; D&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;  while !&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; eza&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -l&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;D&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;1&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; do&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;               # first, check `$CWD`&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;$(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;realpath&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$D&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;1&amp;quot;)&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; ==&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;1&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt; ] &amp;amp;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; break&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # stop if we hit `&#x2F;` already&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;    D&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$D&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&#x2F;..&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;                                     # else, iterate one layer up&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;  done&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Invoke as (e.g.,) &lt;code&gt;rf Justfile&lt;&#x2F;code&gt;. Alternatively, as a one-liner:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;F&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;Justfile&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; while !&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; eza&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -l&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; ${&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;D&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:=&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$F&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; do&lt;&#x2F;span&gt;&lt;span&gt; [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;$(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;realpath $D&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$F&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;)&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; ==&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$F&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt; ] &amp;amp;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; break&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; D&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$D&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&#x2F;..&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; done&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; unset&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; D&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</content>
+        
+    </entry>
+</feed>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>mort’s mythopœia - dev</title>
+      <link>https://mort.io</link>
+      <description>with apologies</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mort.io/tags/dev/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Wed, 07 May 2025 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Rusty Nu POSIX</title>
+          <pubDate>Wed, 07 May 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/nu-posix/</link>
+          <guid>https://mort.io/blog/nu-posix/</guid>
+          <description xml:base="https://mort.io/blog/nu-posix/">&lt;p&gt;A slight delay to this post, but happily I now have no more lecturing to do
+until 2027&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; :)&lt;&#x2F;p&gt;
+&lt;p&gt;I switched a year or two ago to using NixOS as my daily driver following about
+15 years as an increasingly irritated MacOS user. Shortly before I had become
+interested in Rust as a systems programming language that seemed to marry
+several things I like about OCaml with several other desirable things from C and
+Python.&lt;&#x2F;p&gt;
+&lt;p&gt;I then more recently observed something that I thought was interesting: there
+seem to be a &lt;strong&gt;lot&lt;&#x2F;strong&gt; of recent replacements of what were once completely
+standard and changeless POSIX utilities. I’m thinking things like &lt;code&gt;grep&lt;&#x2F;code&gt;,
+&lt;code&gt;find&lt;&#x2F;code&gt;, &lt;code&gt;ls&lt;&#x2F;code&gt; and the like that I’ve been using uninterrupted, other than the
+occasional quibble over whether it was the original version or the GNU version,
+for about 30 years. Indeed, I have already raved (slightly) about
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;just.systems&#x2F;&quot;&gt;&lt;code&gt;just&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; as a
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.gnu.org&#x2F;software&#x2F;make&#x2F;manual&#x2F;make.html&quot;&gt;&lt;code&gt;make&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; replacement and its
+use with &lt;a href=&quot;&#x2F;blog&#x2F;just-ocaml&#x2F;&quot;&gt;OCaml&lt;&#x2F;a&gt; and &lt;a href=&quot;&#x2F;blog&#x2F;just-latex&#x2F;&quot;&gt;LaTeX&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;NixOS’ declarative configuration meant that I could actually see the list
+growing, all in one place – I suspect on other systems I wouldn’t have noticed
+in quite the same way because it would’ve been a much more incremental and
+diffuse process of change without a clear record of the choices made.&lt;&#x2F;p&gt;
+&lt;p&gt;I thus find in my
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-files&#x2F;blob&#x2F;main&#x2F;nixos&#x2F;modules&#x2F;home-manager&#x2F;cli.nix#L44-L65&quot;&gt;&lt;code&gt;cli.nix&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;
+config that describes the CLI tools I expect, to have the following collection:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      nu_posix&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span&gt; [&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        bat&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # better cat&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        bottom&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # btm ~ better top, htop, etc&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        broot&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # interactive directory navigation&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        chafa&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # terminal graphics viewer&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        ctpv&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # terminal file previewer&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        cyme&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # better `lsusb`&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        delta&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # better syntax highlighting diff&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        dua&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # disk usage, interactively&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        eza&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # improved `ls`&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        fd&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # `find` replacement&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        fend&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # better CLI calculator&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        hexyl&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # hex pretty printer&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        htop&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # graphical top&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        iotop&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # io top&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        jujutsu&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # better git&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        just&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # updated gnumake replacement&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        procs&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # better ps&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        ripgrep&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # rg ~ `grep` replacement&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        sudo-rs&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # memory-safe `sudo`&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        uutils-coreutils-noprefix&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # replaces GNU `coreutils`&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        viddy&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # better watch&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      ]&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;I think that most, if not all, of these are written in Rust: that particular
+language community seems to have a real enthusiasm for re-implementing
+long-standing tools but better, and I have to say I really appreciate it! When I
+say “better” I’m not particularly thinking of esoteric language features or
+development ideologies either. I mean better in two very particular senses:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Usability&lt;&#x2F;strong&gt;. Many of the older tools simply did not have great user
+interfaces and, when they were ok, they were not built using modern tooling.
+As a result getting documentation was somewhere between good and great if
+there was a decent &lt;code&gt;man&lt;&#x2F;code&gt;-page, with a range of potential switches for more
+short form help or for cases where the &lt;code&gt;man&lt;&#x2F;code&gt;-page was not installed –
+whether &lt;code&gt;-h&lt;&#x2F;code&gt;, &lt;code&gt;--help&lt;&#x2F;code&gt;, &lt;code&gt;-help&lt;&#x2F;code&gt;, &lt;code&gt;-?&lt;&#x2F;code&gt;, &lt;code&gt;help&lt;&#x2F;code&gt;, or something else. The
+short-form help would, of course, be formatted in arbitrary ways.&lt;&#x2F;p&gt;
+&lt;p&gt;The modern Rust-y replacements tend to use
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;docs.rs&#x2F;clap&#x2F;latest&#x2F;clap&#x2F;&quot;&gt;&lt;code&gt;clap&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; as a reasonably standard
+command-line parser. As a result, they are remarkably consistent in usage and
+format, typically producing something that looks a lot like &lt;code&gt;man&lt;&#x2F;code&gt;-page output
+in response to their &lt;code&gt;-h|--help&lt;&#x2F;code&gt; switch. In a world where &lt;code&gt;man&lt;&#x2F;code&gt;-pages are
+often an afterthought or, even worse, replaced by &lt;code&gt;info&lt;&#x2F;code&gt; documentation, I
+find this invaluable. They are also generally inclined to make greater use of
+modern terminal environments – &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;eza-community&#x2F;eza&quot;&gt;&lt;code&gt;eza&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;
+as a replacement for
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.gnu.org&#x2F;software&#x2F;coreutils&#x2F;manual&#x2F;html_node&#x2F;ls-invocation.html&quot;&gt;&lt;code&gt;ls&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;
+is a good example of this.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Performance&lt;&#x2F;strong&gt;. Old tools were originally built for old computers in old
+languages (largely C) and, whether this is language ideology or just the
+practicalities of engineering long-standing widely-used codebases, tended not
+to be radically updated.&lt;&#x2F;p&gt;
+&lt;p&gt;Rust re-implementations, on the other hand, are from scratch – and Rust’s
+memory model appears to make it relatively easy for them to be made
+multi-threaded. On modern hardware this seems to make them startlingly higher
+performance than the alternatives. Tools I particularly appreciate for this
+include &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;sharkdp&#x2F;fd&quot;&gt;&lt;code&gt;fd&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; replacing
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.gnu.org&#x2F;software&#x2F;findutils&#x2F;&quot;&gt;&lt;code&gt;find&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; and &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;BurntSushi&#x2F;ripgrep&quot;&gt;ripgrep,
+&lt;code&gt;rg&lt;&#x2F;code&gt;,&lt;&#x2F;a&gt; replacing
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.gnu.org&#x2F;software&#x2F;grep&#x2F;&quot;&gt;&lt;code&gt;grep&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Perhaps the most immediate example of the benefits of this that I’ve experienced
+is &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Byron&#x2F;dua-cli&quot;&gt;&lt;code&gt;dua&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; via &lt;code&gt;dua i&lt;&#x2F;code&gt;. Traditionally, when
+trying to clean up an uncomfortably full hard disk I would’ve ended up using
+some manual iterative application of either &lt;code&gt;du -hS *&lt;&#x2F;code&gt; or possibly something
+like &lt;code&gt;find ... | xargs du&lt;&#x2F;code&gt;. Or possibly written a Python script to do it for me.
+And it would’ve taken &lt;em&gt;O&lt;&#x2F;em&gt;(hours) for me to find where the space was being used
+and to do something about it. And I would’ve found it tedious and deeply
+irritating.&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-2-1&quot;&gt;&lt;a href=&quot;#fn-2&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;In contrast, &lt;code&gt;dua i&lt;&#x2F;code&gt; gives me a TUI interface to navigate the filesystem from
+wherever I run it, the ability to cumulatively mark files and directories for
+trashing or immediate deletion, with subdirectory space summaries – and does so
+across ~850GB &#x2F; 3 million files in about 10-15 seconds without using any form of
+caching, database, or other such thing. As far as I can tell, simply by being
+efficient and multi-threaded.&lt;&#x2F;p&gt;
+&lt;p&gt;If this is the future, sign me up. (At least for the bits like this that are
+good.)&lt;&#x2F;p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;…assuming I get back the same courses after my sabbatical that is. &lt;a href=&quot;#fr-1-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-2&quot;&gt;
+&lt;p&gt;I’m easily irritated. What can I say. &lt;a href=&quot;#fr-2-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</description>
+      </item>
+      <item>
+          <title>OCaml operators</title>
+          <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/ocaml-operators/</link>
+          <guid>https://mort.io/blog/ocaml-operators/</guid>
+          <description xml:base="https://mort.io/blog/ocaml-operators/">&lt;p&gt;An &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.brendanlong.com&#x2F;ocaml-operator-cheatsheet.html&quot;&gt;OCaml operator
+cheatsheet&lt;&#x2F;a&gt; for
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;ocaml.org&#x2F;&quot;&gt;OCaml&lt;&#x2F;a&gt; operators that I have found useful.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Software folklore</title>
+          <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/software-folklore/</link>
+          <guid>https://mort.io/blog/software-folklore/</guid>
+          <description xml:base="https://mort.io/blog/software-folklore/">&lt;p&gt;Truly cursed bugs that have become &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;beza1e1.tuxen.de&#x2F;lore&#x2F;&quot;&gt;software
+folklore&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Data visualisation links</title>
+          <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/dataviz/</link>
+          <guid>https://mort.io/blog/dataviz/</guid>
+          <description xml:base="https://mort.io/blog/dataviz/">&lt;p&gt;Some possibly useful data visualisation links:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;medium.economist.com&#x2F;why-you-sometimes-need-to-break-the-rules-in-data-viz-4d8ece284919&quot;&gt;https:&#x2F;&#x2F;medium.economist.com&#x2F;why-you-sometimes-need-to-break-the-rules-in-data-viz-4d8ece284919&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;colororacle.org&#x2F;&quot;&gt;https:&#x2F;&#x2F;colororacle.org&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</description>
+      </item>
+      <item>
+          <title>Falsehoods</title>
+          <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/falsehoods/</link>
+          <guid>https://mort.io/blog/falsehoods/</guid>
+          <description xml:base="https://mort.io/blog/falsehoods/">&lt;p&gt;Being a list of some cool “Falsehoods programmers believe about …” sites, now
+redundant thanks to &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kdeldycke&#x2F;awesome-falsehood&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;kdeldycke&#x2F;awesome-falsehood&lt;&#x2F;a&gt;:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;infiniteundo.com&#x2F;post&#x2F;25326999628&#x2F;falsehoods-programmers-believe-about-time&quot;&gt;…time&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;infiniteundo.com&#x2F;post&#x2F;25509354022&#x2F;more-falsehoods-programmers-believe-about-time&quot;&gt;…time, more&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.kalzumeus.com&#x2F;2010&#x2F;06&#x2F;17&#x2F;falsehoods-programmers-believe-about-names&#x2F;&quot;&gt;…names&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.mjt.me.uk&#x2F;posts&#x2F;falsehoods-programmers-believe-about-addresses&#x2F;&quot;&gt;…addresses&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;wiesmann.codiferes.net&#x2F;wordpress&#x2F;?p=15187&amp;amp;lang=en&quot;&gt;…geography&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</description>
+      </item>
+    </channel>
+</rss>

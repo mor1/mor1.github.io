@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>mort’s mythopœia - grub</title>
+    <subtitle>with apologies</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://mort.io/tags/grub/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://mort.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2016-09-13T00:00:00+00:00</updated>
+    <id>https://mort.io/tags/grub/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Grubbing Around</title>
+        <published>2016-09-13T00:00:00+00:00</published>
+        <updated>2016-09-13T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/grubbing-around/"/>
+        <id>https://mort.io/blog/grubbing-around/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/grubbing-around/">&lt;p&gt;Nothing earth-shattering here: I recently had the “pleasure” of setting up an
+ARM64 server. After considerable support, several firmware upgrades, corruption
+of the main HDD, reinstallation of CentOS7 (recommended, somewhat to my
+surprise), all that remained was to get an up-to-date Linux built and installed
+with 32 bit binary support. This took a bit of &lt;code&gt;make config&lt;&#x2F;code&gt; fiddling, but got
+there after a few tries.&lt;&#x2F;p&gt;
+&lt;p&gt;And then I had to relearn how &lt;code&gt;grub&lt;&#x2F;code&gt;&#x2F;&lt;code&gt;grub2&lt;&#x2F;code&gt; works in this brave new (to me)
+UEFI CentOS7 world. Herewith some brief commands I found useful while doing
+so…&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; grep &amp;quot;^menu entry&amp;quot; &#x2F;boot&#x2F;efi&#x2F;EFI&#x2F;centos&#x2F;grub.cfg&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;     |&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; tr&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -s&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot; &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; |&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; cut&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -f&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 2&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -d&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;&amp;#39;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; |&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; cat&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -n&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Edit &lt;code&gt;&#x2F;etc&#x2F;default&#x2F;grub&lt;&#x2F;code&gt; to set &lt;code&gt;GRUB_DEFAULT=N&lt;&#x2F;code&gt; for desired value of &lt;code&gt;N&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Temporarily set the default for the next reboot:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; grub2-reboot&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 1&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # based on output of above&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Regenerate the grub2 configuration:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; grub2-mkconfig&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -o&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;boot&#x2F;efi&#x2F;EFI&#x2F;centos&#x2F;grub.cfg&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</content>
+        
+    </entry>
+</feed>

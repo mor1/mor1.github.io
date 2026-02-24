@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>mort’s mythopœia - teaching</title>
+    <subtitle>with apologies</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://mort.io/tags/teaching/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://mort.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-09-20T00:00:00+00:00</updated>
+    <id>https://mort.io/tags/teaching/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Part II Projects</title>
+        <published>2024-09-20T00:00:00+00:00</published>
+        <updated>2024-09-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/part-ii-projects/"/>
+        <id>https://mort.io/blog/part-ii-projects/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/part-ii-projects/">&lt;p&gt;Undergraduate final-year (“Part II”) project supervision goes in fits and
+starts. After a couple of years of having almost no interest, this year I’ve had
+several enquiries and it seems I might end supervising 3–4 projects. So
+herewith a record of the things I’ve found myself repeating!&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;project-structure&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#project-structure&quot; aria-label=&quot;Anchor link for: project-structure&quot;&gt;Project structure&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;The key thing for the structure of the project is to make sure that there is a
+core piece that is (essentially) guaranteed to be deliverable. This is the piece
+that you know you can do, and once done and written up, you know you can get an
+adequate (if not great) mark. Ensuring this takes the risk out of the project.&lt;&#x2F;p&gt;
+&lt;p&gt;On top of this core piece, it’s then usually sensible to build “a few” (2? 3?
+4?) extensions which will make the project spicy if done well. You may wish to
+phrase these extensions as “for example, extensions might include…” or words
+to that effect, to give some wiggle room in the final dissertation. Getting
+these done successfully is what should put you in line for a very good mark
+rather than a simply adequate mark.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;project-framing&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#project-framing&quot; aria-label=&quot;Anchor link for: project-framing&quot;&gt;Project framing&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;It is also very helpful, particularly if you are aiming for a high mark, to try
+to frame the project in terms of &lt;strong&gt;a research question you will answer&lt;&#x2F;strong&gt; rather
+than &lt;strong&gt;an artefact you will build&lt;&#x2F;strong&gt;. Often in systems the appropriate way to
+answer the research questions we pose will be to build an artefact – but by
+framing it in terms of the question you seek to answer, it makes it easier to
+write the dissertation as a piece of research rather than a &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Small_matter_of_programming&quot;&gt;small matter of
+programming&lt;&#x2F;a&gt;.
+Empirically, this seems to have an outsize effect on the chances of the
+examiners thinking the project difficult and marking accordingly.&lt;&#x2F;p&gt;
+&lt;p&gt;It can also be useful to try to be explicit about where your project requires
+you to go beyond the CST taught material, particularly from Part IA&#x2F;IB.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;project-proposal&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#project-proposal&quot; aria-label=&quot;Anchor link for: project-proposal&quot;&gt;Project proposal&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;To my mind there are two critical pieces of the proposal around which everything
+else sits.&lt;&#x2F;p&gt;
+&lt;p&gt;First, the &lt;strong&gt;evaluation plan&lt;&#x2F;strong&gt;: if you can write this well, then you understand
+what you’re going to build, and what it means to have done it well (or badly).
+Writing the evaluation plan therefore usually means you have, for the most part,
+got the rest of the project figured out.&lt;&#x2F;p&gt;
+&lt;p&gt;Second, the &lt;strong&gt;workplan&lt;&#x2F;strong&gt;: this divides time until submission into two week
+(never larger, sometimes smaller) chunks, each of which has attached a &lt;em&gt;calendar
+date&lt;&#x2F;em&gt; (so there’s no confusion over weeks in term or suchlike) and a
+&lt;em&gt;milestone&lt;&#x2F;em&gt;&#x2F;&lt;em&gt;deliverable&lt;&#x2F;em&gt; (so that we can immediately tell whether you’ve
+completed, or at least are making progress against, that chunk of work in our
+weekly meeting). Don’t forget to take account of any relevant module assessment
+deadlines in your plan!&lt;&#x2F;p&gt;
+&lt;p&gt;Note that it’s a plan not a contract! You don’t lose marks because you deviate
+from the plan– but if you can’t tell whether you’re ahead or behind, you might
+well find yourself in a sticky position at the end of Lent term or start of
+Easter term when you find you’ve got module assessments to complete, revision to
+start, two weeks to go until dissertation submission and still four weeks of
+work to do on your project…&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;supervision-process&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#supervision-process&quot; aria-label=&quot;Anchor link for: supervision-process&quot;&gt;Supervision process&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;I normally supervise projects by scheduling weekly half-hour meetings with each
+student. Longer meetings can be arranged on an ad hoc basis as required. The key
+purpose of the meeting is to check progress against the workplan, and to make
+sure that any difficulties and roadblocks are aired and dealt with (whether in
+the meeting or by scheduling a longer discussion).&lt;&#x2F;p&gt;
+&lt;p&gt;For an example of a reasonable target timeline, consider trying to get
+implementation completed by the end of Christmas vacation, evaluation completed
+by the division of Lent Term, and the dissertation completed by the end of Lent
+Term. That then gives you flexibility as to whether you do more project work,
+extensions etc., or focus on exam revision, or whatever.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;Hopefully that’s helpful. At the very least, I can now point potential project
+students at it, so it’s helpful for me :) Some of the above may also be relevant
+writing research proposals (Part III &#x2F; MPhil projects, even Ph.D.s) but that’s a
+topic for another day.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

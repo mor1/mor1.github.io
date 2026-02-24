@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>mort’s mythopœia - rescue</title>
+      <link>https://mort.io</link>
+      <description>with apologies</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mort.io/tags/rescue/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Fri, 28 Aug 2020 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Renovating an old media PC</title>
+          <pubDate>Fri, 28 Aug 2020 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/mediapc/</link>
+          <guid>https://mort.io/blog/mediapc/</guid>
+          <description xml:base="https://mort.io/blog/mediapc/">&lt;p&gt;Some notes from my first attempt to renovate an old media PC that had a SYSLINUX
+install without any package management, and a crufty BIOS. Probably outdated
+now, but I may go back to it one day…&lt;&#x2F;p&gt;
+&lt;p&gt;First, some background links:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Cylinder-head-sector&quot;&gt;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Cylinder-head-sector&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;FAT_boot_sector&quot;&gt;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;FAT_boot_sector&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Logical_Block_Addressing#CHS_conversion&quot;&gt;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Logical_Block_Addressing#CHS_conversion&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Master_Boot_Record&quot;&gt;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Master_Boot_Record&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Volume_boot_record&quot;&gt;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Volume_boot_record&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;wiki.archlinux.org&#x2F;index.php&#x2F;Syslinux&quot;&gt;https:&#x2F;&#x2F;wiki.archlinux.org&#x2F;index.php&#x2F;Syslinux&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;wiki.syslinux.org&#x2F;wiki&#x2F;index.php?title=Common_Problems#Failed_to_load_ldlinux&quot;&gt;https:&#x2F;&#x2F;wiki.syslinux.org&#x2F;wiki&#x2F;index.php?title=Common_Problems#Failed_to_load_ldlinux&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;wiki.syslinux.org&#x2F;wiki&#x2F;index.php?title=Hardware_Compatibility#USB_related_problems&quot;&gt;https:&#x2F;&#x2F;wiki.syslinux.org&#x2F;wiki&#x2F;index.php?title=Hardware_Compatibility#USB_related_problems&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;wiki.syslinux.org&#x2F;wiki&#x2F;index.php?title=Hdt_(Hardware_Detection_Tool)&quot;&gt;https:&#x2F;&#x2F;wiki.syslinux.org&#x2F;wiki&#x2F;index.php?title=Hdt_(Hardware_Detection_Tool)&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I explored two ways forward: &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.syslinux.org&#x2F;&quot;&gt;SYSLINUX&lt;&#x2F;a&gt; and
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.gnu.org&#x2F;software&#x2F;grub&#x2F;index.html&quot;&gt;GRUB&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;syslinux&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#syslinux&quot; aria-label=&quot;Anchor link for: syslinux&quot;&gt;SYSLINUX&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;I found that getting SYSLINUX working required moving the partition to 0&#x2F;1&#x2F;1 –
+using sectors per track of 63 or 32, and heads per cylinder or 16 or 64 with
+appropriate cylinder values simply didn’t help.&lt;&#x2F;p&gt;
+&lt;p&gt;Diagnosed by observing that console displayed only CRLF but no banner –
+SYSLINUX code ends up with the banner to be  displayed just falling into  the
+second sector on the disk, so it can’t be read unless the geometry is correct.
+Don’t ask why old fashioned whirling metal disk geometry needs to be set for a
+USB stick, you’ll be sad.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;formatting-the-usb-stick&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#formatting-the-usb-stick&quot; aria-label=&quot;Anchor link for: formatting-the-usb-stick&quot;&gt;Formatting the USB stick&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Some runes, use at your own risk.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; dd if=&#x2F;dev&#x2F;zero of=&#x2F;dev&#x2F;sdd status=progress bs=1M count=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt;256&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; fdisk &#x2F;dev&#x2F;sdd&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;lt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;o&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;x&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;h&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;64&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;s&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;32&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;r&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;n&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;p&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;1&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;t&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;6&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;a&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;1&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;w&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; mkfs.fat &#x2F;dev&#x2F;sdd1&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;One exciting gotcha: the &lt;code&gt;fdisk&lt;&#x2F;code&gt; utility in the  &lt;code&gt;util-linux&lt;&#x2F;code&gt; package &lt;strong&gt;didn’t
+work&lt;&#x2F;strong&gt; – but the one in &lt;code&gt;busybox&lt;&#x2F;code&gt; did!&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;putting-mbr-in-place&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#putting-mbr-in-place&quot; aria-label=&quot;Anchor link for: putting-mbr-in-place&quot;&gt;Putting MBR in place&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; dd bs=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt;440&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; count=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; conv=notrunc if=&#x2F;usr&#x2F;share&#x2F;syslinux&#x2F;mbr.bin of=&#x2F;dev&#x2F;sdd&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;obtaining-and-installing-memtest86&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#obtaining-and-installing-memtest86&quot; aria-label=&quot;Anchor link for: obtaining-and-installing-memtest86&quot;&gt;Obtaining and installing &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.memtest86.com&#x2F;&quot;&gt;&lt;code&gt;memtest86&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;cd&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;wget&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; http:&#x2F;&#x2F;memtest.org&#x2F;download&#x2F;4.10&#x2F;memtest86+-4.10.zip&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;unzip&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; memtest86+-4.10.zip&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; cp ~&#x2F;memtest86+-4.10.bin &#x2F;mnt&#x2F;boot&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;putting-locally-built-syslinux-in-place&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#putting-locally-built-syslinux-in-place&quot; aria-label=&quot;Anchor link for: putting-locally-built-syslinux-in-place&quot;&gt;Putting locally built SYSLINUX in place&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; mount &#x2F;dev&#x2F;sdd1 &#x2F;mnt&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; mkdir&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -p&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;mnt&#x2F;boot&#x2F;syslinux&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; syslinux&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; --directory&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; boot&#x2F;syslinux&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; --install&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;dev&#x2F;sdd1&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; cp &#x2F;usr&#x2F;share&#x2F;syslinux&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;.c32 &#x2F;mnt&#x2F;boot&#x2F;syslinux&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;cd&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; ~&#x2F;syslinux&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;make&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; bios&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; cp ~&#x2F;syslinux&#x2F;bios&#x2F;com32&#x2F;hdt&#x2F;hdt.c32 &#x2F;mnt&#x2F;boot&#x2F;syslinux&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; cp &#x2F;usr&#x2F;share&#x2F;hwdata&#x2F;pci.ids &#x2F;mnt&#x2F;boot&#x2F;syslinux&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; sh&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -c&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;cat &amp;gt; &#x2F;mnt&#x2F;boot&#x2F;syslinux&#x2F;syslinux.cfg&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;lt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;# UI menu.c32&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;PROMPT 1&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;DEFAULT hdt&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;LABEL some_label&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  LINUX memdisk&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  INITRD ..&#x2F;alpine-standard-3.12.0-x86_64.iso&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  APPEND iso-scan&#x2F;filename=..&#x2F;alpine-standard-3.12.0-x86_64.iso&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;LABEL memtest&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  LINUX ..&#x2F;memtest86+-4.10.bin&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;LABEL hdt&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  COM32 hdt.c32&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;LABEL reboot&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  COM32 reboot.c32&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;LABEL poweroff&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  COM32 poweroff.c32&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Unfortunately, getting &lt;code&gt;hdt&lt;&#x2F;code&gt; working required rebuilding as the Alpine package
+version doesn’t appear to statically link against libupload.a  from SYSLINUX
+tree so doesn’t work. Fixing required &lt;code&gt;make bios&lt;&#x2F;code&gt; in  the SYSLINUX tree after
+installing dependencies including:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apk&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -U&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; add nasm xzlinux-headers util-linux-dev&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;grub&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#grub&quot; aria-label=&quot;Anchor link for: grub&quot;&gt;GRUB&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Similar behaviour: GRUB2 displayed the &lt;code&gt;GRUB &lt;&#x2F;code&gt; message and nothing else, The
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;help.ubuntu.com&#x2F;community&#x2F;Grub2&#x2F;Troubleshooting#GRUB&quot;&gt;Ubuntu wiki&lt;&#x2F;a&gt; says
+this is the “can’t find MBR or euqivalent” information. In fact, it’s the same
+issue: subsequent progress requires reading the second sector, but I had a
+CHS&#x2F;LBA mismatch meant it wasn’t reading from the right sector and so hanging.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;to-wipe-the-stick&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#to-wipe-the-stick&quot; aria-label=&quot;Anchor link for: to-wipe-the-stick&quot;&gt;To wipe the stick&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; dd if=&#x2F;dev&#x2F;zero of=&#x2F;dev&#x2F;sdd status=progress bs=4M&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;to-partition-the-stick&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#to-partition-the-stick&quot; aria-label=&quot;Anchor link for: to-partition-the-stick&quot;&gt;To partition the stick&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;In this case, to be bootable with a single &lt;code&gt;ext4&lt;&#x2F;code&gt; partition&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; parted &#x2F;dev&#x2F;sdd&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;mklabel&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; msdos&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;unit&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; s&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;mkpart&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; primary ext2 2048s 100%&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;set&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 1&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; boot on&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;set&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 1&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; lba off&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;…or alternatively, possibly&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; fdisk &#x2F;dev&#x2F;sdd&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;lt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;o&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;n&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;p&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;1&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;a&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;1&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;to-format-the-partition-and-install-grub-and-the-master-boot-record&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#to-format-the-partition-and-install-grub-and-the-master-boot-record&quot; aria-label=&quot;Anchor link for: to-format-the-partition-and-install-grub-and-the-master-boot-record&quot;&gt;To format the partition, and install &lt;code&gt;grub&lt;&#x2F;code&gt; and the master boot record&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; mkfs.ext4 &#x2F;dev&#x2F;sdd1&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; mount &#x2F;dev&#x2F;sdd1 &#x2F;mnt&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; grub-install&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; --recheck --boot-directory=&#x2F;mnt&#x2F;boot&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;dev&#x2F;sdd&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;At this point, booting off the stick will bring htpc to &lt;code&gt;GRUB &lt;&#x2F;code&gt; error stage,
+indicating GRUB has loaded but doesn’t know anything about how to continue.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;install-memtest&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#install-memtest&quot; aria-label=&quot;Anchor link for: install-memtest&quot;&gt;Install memtest&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; cp memtest86+.bin &#x2F;mnt&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; cat&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&#x2F;mnt&#x2F;boot&#x2F;grub&#x2F;grub.cfg&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;lt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;set timeout=10&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;set default=0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;menuentry &amp;quot;Memtest 86+&amp;quot; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; linux16 &#x2F;memtest86+.bin&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;install-alpine-iso-for-booting&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#install-alpine-iso-for-booting&quot; aria-label=&quot;Anchor link for: install-alpine-iso-for-booting&quot;&gt;Install Alpine ISO for booting&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Add the following stanza to GRUB config, above:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;insmod&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; loopback&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;menuentry&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;alpine&amp;quot; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;  set&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; isofile=&#x2F;boot&#x2F;alpine-standard-3.12.0-x86_64.iso&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;  loopback&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; loop&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; $isofile&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;  linux&lt;&#x2F;span&gt;&lt;span&gt; (loop)&#x2F;boot&#x2F;vmlinuz-lts iso-scan&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;filename&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$isofile modules&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;loop,squashfs,sd-mod,usb-storage&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; modloop&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;loop&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&#x2F;boot&#x2F;modloop-lts&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;  initrd&lt;&#x2F;span&gt;&lt;span&gt; (loop)&#x2F;boot&#x2F;initramfs-lts&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;miscellaneous-cribs&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#miscellaneous-cribs&quot; aria-label=&quot;Anchor link for: miscellaneous-cribs&quot;&gt;Miscellaneous cribs&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;I did of course forget that the&lt;&#x2F;p&gt;
+&lt;p&gt;Bluetooth keyboard requires a dongle to be plugged in which is stored inside the
+battery compartment. Doh. Making a note so I don’t forget again.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;adding-internal-hard-disk&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#adding-internal-hard-disk&quot; aria-label=&quot;Anchor link for: adding-internal-hard-disk&quot;&gt;Adding internal hard-disk&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Required partitioning and formatting:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;find where disk is mounted: &lt;code&gt;sudo lshw -C disk -short&lt;&#x2F;code&gt;
+assume new disk is &lt;code&gt;&#x2F;dev&#x2F;sdX&lt;&#x2F;code&gt;, flash disk is &lt;code&gt;&#x2F;dev&#x2F;sdF&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;partition disk: &lt;code&gt;sudo parted &#x2F;dev&#x2F;sdX mkpart primary ext4 1 -1&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;format disk: &lt;code&gt;sudo mkfs.ext4 -m0 &#x2F;dev&#x2F;sdX1&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;label disk: &lt;code&gt;sudo e2label &#x2F;dev&#x2F;sdX1 Harddisk&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;remount flash disk rw: &lt;code&gt;mount -o remount,rw &#x2F;dev&#x2F;sdF&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;edit &lt;code&gt;&#x2F;boot&#x2F;extlinux.conf&lt;&#x2F;code&gt; so APPEND line reads:
+&lt;code&gt;APPEND boot=LABEL=System disk=LABEL=Harddisk quiet&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I screwed up the first time by not correctly labelling the disk so had to make
+an Ubuntu rescue USB stick. Couldn’t get this to work using MacOS, though didn’t
+try putting GRUB on via MacOS.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;download ISO: &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;ubuntu-rescue-remix.org&#x2F;&quot;&gt;http:&#x2F;&#x2F;ubuntu-rescue-remix.org&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;boot &lt;code&gt;ubuntu-rescue-remix-12-04.iso&lt;&#x2F;code&gt; via virtualbox&lt;&#x2F;li&gt;
+&lt;li&gt;mount USB stick on &lt;code&gt;&#x2F;dev&#x2F;sdX&lt;&#x2F;code&gt; at &lt;code&gt;&#x2F;mnt&lt;&#x2F;code&gt;: &lt;code&gt;mount &#x2F;dev&#x2F;sdX &#x2F;mnt&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;format the stick: &lt;code&gt;mkfs.vfat -n multiboot &#x2F;dev&#x2F;sdX1&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;cd &#x2F;mnt &amp;amp;&amp;amp; mkdir boot iso&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;grub-install --force --no-floppy --boot-directory=&#x2F;mnt&#x2F;boot &#x2F;dev&#x2F;sdX&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;create ISO from mounted cd:
+&lt;code&gt;dd if=&#x2F;dev&#x2F;cdrom of=&#x2F;mnt&#x2F;iso&#x2F;ubuntu-rescue-remix-12-04.iso&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;create &lt;code&gt;&#x2F;boot&#x2F;grub&#x2F;grub.cfg&lt;&#x2F;code&gt; with&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;menuentry&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;#39;Ubuntu Rescue Remix ISO &amp;#39; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;  set&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; isofile=&amp;quot;&#x2F;iso&#x2F;ubuntu-rescue-remix-12-04.iso&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;  loopback&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; loop&lt;&#x2F;span&gt;&lt;span&gt; (hd0,N)&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$isofile&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;  linux&lt;&#x2F;span&gt;&lt;span&gt; (loop)&#x2F;casper&#x2F;vmlinuz&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; boot&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;casper&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; iso-scan&#x2F;filename&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$isofile&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; noprompt noeject&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;  initrd&lt;&#x2F;span&gt;&lt;span&gt; (loop)&#x2F;casper&#x2F;initrd.gz&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;where &lt;code&gt;N&lt;&#x2F;code&gt; is partition number, typically 1.&lt;&#x2F;p&gt;
+&lt;p&gt;Finally, for backup purposes, addons are stored in
+&lt;code&gt;&#x2F;storage&#x2F;.xbmc&#x2F;addons&#x2F;packages&lt;&#x2F;code&gt;, and the following Alpine packages were useful
+to install for some of the above, diagnostics, etc:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apk add busybox-static apk-tools-static&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; vi &#x2F;etc&#x2F;apk&#x2F;repositories&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apk.static update&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apk.static upgrade&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; --no-self-upgrade --available&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apk add lshw lshw-doc&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; lshw&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -C&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; storage&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -short -numeric&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apk add lsblk&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; lsblk&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</description>
+      </item>
+      <item>
+          <title>Rescuing a Shattered Nexus 4</title>
+          <pubDate>Thu, 21 May 2015 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/nexus-4-rescue/</link>
+          <guid>https://mort.io/blog/nexus-4-rescue/</guid>
+          <description xml:base="https://mort.io/blog/nexus-4-rescue/">&lt;p&gt;A little while ago, before I’d done the smart thing and got myself a case for my
+Nexus 4, I dropped it a couple of inches onto a hard surface at the wrong angle.
+The screen promptly shattered – and this was bad because without the touch
+screen, I couldn’t interact with it, I had some photos on it from son#1 birthday
+party that hadn’t been copied off, and I hadn’t got round to enabling USB access
+to the filesystem or any of the debug&#x2F;developer options.&lt;&#x2F;p&gt;
+&lt;p&gt;So what to do? I &lt;em&gt;really&lt;&#x2F;em&gt; didn’t want to lose those photos. A couple of hours
+searching the Interwebs and a little bit of experimentation later, and I managed
+it. Basically, download and apply the clockwork mod bootloader, and this turns
+on the developer options that allow access to the filesystem via the Android SDK
+tools. To find out the details, read on…&lt;&#x2F;p&gt;
+&lt;p&gt;First, download the recovery image:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; wget http:&#x2F;&#x2F;download2.clockworkmod.com&#x2F;recoveries&#x2F;recovery-clockwork-touch-6.0.3.1-mako.img&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Next, install the Android SDK – I’m on OSX using [Homebrew][] so I do:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; brew install android-sdk&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now, power off and disconnect the phone! Then boot it into fastboot mode by
+holding down &lt;code&gt;power&lt;&#x2F;code&gt; and &lt;code&gt;volume-down&lt;&#x2F;code&gt;. Once it boots you should be in the
+fastboot list – the volume keys will cycle you through the list. You should now
+also be able to see the device once connected to USB, and you can then OEM
+unlock it:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; sudo fastboot devices&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -l&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;04f02d4bdcd3b6e2&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;       fastboot usb:FD123000&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; sudo fastboot oem unlock&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;OKAY&lt;&#x2F;span&gt;&lt;span&gt; [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; 17.937s]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;finished.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; total time: 17.937s&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Having unlocked it, you can now install the clockwork recovery bootloader you
+downloaded (assuming it’s in the local directory):&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; sudo fastboot flash recovery recovery-clockwork-touch-6.0.3.1-mako.img&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sending&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;#39;recovery&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt; (7560&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; KB&lt;&#x2F;span&gt;&lt;span&gt;)...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;OKAY&lt;&#x2F;span&gt;&lt;span&gt; [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  0.526s]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;writing&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;#39;recovery&amp;#39;...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;OKAY&lt;&#x2F;span&gt;&lt;span&gt; [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  0.448s]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;finished.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; total time: 0.975s&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;When you now use the volume keys to cycle through the list, you should now see
+&lt;strong&gt;recovery mode&lt;&#x2F;strong&gt; as an option – select it, and you should be able to see the
+device listed in the usual way via &lt;code&gt;adb&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; mort@greyjay:phone&lt;&#x2F;span&gt;&lt;span&gt;$;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; adb devices&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -l&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;List&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; of devices attached&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;04f02d4bdcd3b6e2&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;       recovery usb:FD123000 product:occam model:Nexus_4 device:mako&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Finally, pull all the contents off the sdcard:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; adb pull &#x2F;sdcard&#x2F;0 .&#x2F;sdcard&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; adb pull &#x2F;data&#x2F; .&#x2F;data&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; adb pull &#x2F;system&#x2F; .&#x2F;system&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;…and that’s it – you should now have a local copy of everything off the
+phone, and you can send it away for repair (or whatever you feel like
+otherwise), possibly while sobbing quietly.&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>
