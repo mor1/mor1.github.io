@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>mort’s mythopœia - management</title>
+    <subtitle>with apologies</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://mort.io/tags/management/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://mort.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2016-11-11T00:00:00+00:00</updated>
+    <id>https://mort.io/tags/management/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Zen and the Art of Research Management</title>
+        <published>2016-11-11T00:00:00+00:00</published>
+        <updated>2016-11-11T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/zen-and-the-art-of-research-management/"/>
+        <id>https://mort.io/blog/zen-and-the-art-of-research-management/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/zen-and-the-art-of-research-management/">&lt;p&gt;I think this is a bit of a classic, the first written form of which I came
+across in &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;misc&#x2F;obituaries&#x2F;needham&#x2F;&quot;&gt;Prof. Roger Needham&lt;&#x2F;a&gt;’s &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;events&#x2F;50+5&#x2F;&quot;&gt;50+5 Festschrift&lt;&#x2F;a&gt; celebrating his
+time at the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;&quot;&gt;Cambridge University Computer Lab&lt;&#x2F;a&gt; and
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.microsoft.com&#x2F;en-us&#x2F;research&#x2F;lab&#x2F;microsoft-research-cambridge&#x2F;&quot;&gt;Microsoft Research Cambridge&lt;&#x2F;a&gt;. I don’t know who originated it, but the
+copy there is certainly due to &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;memex.naughtons.org&#x2F;&quot;&gt;John Naughton&lt;&#x2F;a&gt; and &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Robert_Taylor_(computer_scientist)&quot;&gt;Bob Taylor&lt;&#x2F;a&gt;. I
+suppose one might quibble point 12, in that I seem to recall Roger did a lot of
+pacing about, but a good chair is certainly a worthwhile thing to provide.&lt;&#x2F;p&gt;
+&lt;p&gt;Anyway, I find myself wanting to point at it from time-to-time, so here it is!&lt;&#x2F;p&gt;
+&lt;p&gt;By &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;memex.naughtons.org&#x2F;&quot;&gt;John Naughton&lt;&#x2F;a&gt; (&lt;em&gt;Open University, Milton Keynes, England&lt;&#x2F;em&gt;), and &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Robert_Taylor_(computer_scientist)&quot;&gt;Robert
+W. Taylor&lt;&#x2F;a&gt; (&lt;em&gt;Woodside, California, USA&lt;&#x2F;em&gt;).&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;HIRE ONLY THE VERY BEST PEOPLE, EVEN IF THEY ARE CUSSED. Perhaps especially
+if they are cussed. Your guiding principle should be to employ people who
+are smarter than you. One superb researcher is worth dozens of merely good
+ones.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;ONCE YOU’VE GOT THEM, TRUST THEM. Do not attempt to micro-manage talented
+people. (Remember rule #1.) Set broad goals and leave them to it.
+Concentrate your own efforts on strategy and nurturing the environment.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;PROTECT YOUR RESEARCHERS FROM EXTERNAL INTERFERENCE, whether from company
+personnel officers, senior executives or security personnel. Remember that
+your job is to create a supportive and protective space within which they
+can work.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;MUCH OF WHAT YOU DO WILL FALL INTO THE CATEGORY OF ABSORBING THE UNCERTAINTY
+OF YOUR RESEARCHERS.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;REMEMBER THAT YOU ARE A CONDUCTOR, NOT A SOLOIST. (Rule #1 again.) The Lab
+is your performance.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;DO NOT PAY TOO MUCH ATTENTION TO ‘RELEVANCE,’ ‘DELIVERABLES’ and other
+concepts beloved of Senior Management.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;REMEMBER THAT CREATIVE PEOPLE ARE LIKE HEARTS – they go where they are
+appreciated. They can be inspired or led, but not managed.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;KEEP THE ORGANISATION CHART SHALLOW. Never let the Lab grow beyond the point
+where you cannot fit everyone comfortably in the same room.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;MAKE YOUR RESEARCHERS DEBATE WITH ONE ANOTHER REGULARLY. Let them tear one
+another’s ideas to pieces. Ensure frank communication among them. Observe
+the strengths and weaknesses which emerge in the process.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;BE NICE TO GRADUATE STUDENTS. One day they may keep you, even if only as a
+mascot. (Moreover, they are a lot of fun!)&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;INSTALL A WORLD-CLASS COFFEE MACHINE and provide plenty of free soft drinks.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;BUY AERON CHAIRS. Remember that most computer science research is done
+sitting down.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;INSTITUTE A ‘TOY BUDGET’, enabling anyone in the Lab to buy anything costing
+less than a specified amount on their own authority. And provide a darkened
+recovery room for accountants shocked by the discovery of this budget.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;PAY ATTENTION TO WHAT GOES ON IN UNIVERSITIES. Every significant
+breakthrough in computing in the last four decades has involved both the
+university and corporate sectors at some point in its evolution.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;REMEMBER TO INITIATE AND SPONSOR CELEBRATIONS when merited.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;WHEN IN DOUBT, ASK YOURSELF: “WHAT WOULD ROGER NEEDHAM DO IN SIMILAR
+CIRCUMSTANCES?”&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+</content>
+        
+    </entry>
+</feed>

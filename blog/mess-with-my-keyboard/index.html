@@ -1,0 +1,290 @@
+<!doctype html><html lang=en><head><link href="https://mort.io/abridge.css?h=5f1494977bbccc1fddc1" rel=stylesheet><meta charset=utf-8><meta content="ie=edge" http-equiv=x-ua-compatible><meta content="width=device-width,initial-scale=1" name=viewport><meta content=https://mort.io name=base><meta content=True name=HandheldFriendly><meta content=yes name=mobile-web-app-capable><meta content=yes name=apple-mobile-web-app-capable><meta content=default name=apple-mobile-web-app-status-bar-style><link title="mort’s mythopœia Atom Feed" href=https://mort.io/atom.xml rel=alternate type=application/atom+xml><link title="mort’s mythopœia RSS Feed" href=https://mort.io/rss.xml rel=alternate type=application/rss+xml><meta content="index, follow" name=robots><meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name=googlebot><meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name=bingbot><title>Spring Loading Karabiner in the Autumn | mort’s mythopœia</title><meta content="mort’s mythopœia" name=copyright><meta content="Don't You Mess With My Keyboard" name=description><link href=https://mort.io/blog/mess-with-my-keyboard/ rel=canonical><meta content=https://mort.io/blog/mess-with-my-keyboard/ property=og:url><meta content=https://mort.io/blog/mess-with-my-keyboard/ name=twitter:url><meta content="Don't You Mess With My Keyboard" property=og:description><meta content="Don't You Mess With My Keyboard" name=twitter:description><meta content="Spring Loading Karabiner in the Autumn | mort’s mythopœia" property=og:title><meta content="Spring Loading Karabiner in the Autumn | mort’s mythopœia" name=twitter:title><meta content=summary name=twitter:card><meta content="mort’s mythopœia" property=og:site_name><meta content=en_US property=og:locale><meta content=website property=og:type><meta content=2017-10-30 property=og:updated_time><noscript><link href=https://mort.io/nojs.css rel=stylesheet></noscript><body><header><nav><div><big><a title="mort’s mythopœia" href=https://mort.io>mort’s mythopœia</a></big></div><div><div><ul><li><a class=s110 href=https://mort.io/research/> research </a><li><a class=s110 href=https://mort.io/students/> students </a><li><a class=s110 href=https://mort.io/teaching/> teaching </a><li><a class=s110 href=https://mort.io/codes/> codes </a><li><a class=s110 href=https://mort.io/me/> me </a></ul></div><div></div></div></nav><div class=desc>with apologies</div><hr></header><main><article><h1><a href=https://mort.io/blog/mess-with-my-keyboard/>Spring Loading Karabiner in the Autumn</a></h1><span class=s95><span class=hpad> ·</span> 3 min read<span class=hpad> ·</span> October 30, 2017<span class=hpad> ·</span> #<a href=https://mort.io/tags/tech/>tech</a> #<a href=https://mort.io/tags/config/>config</a> #<a href=https://mort.io/tags/dotfiles/>dotfiles</a> #<a href=https://mort.io/tags/macos/>macos</a> </span><nav><div><a href=https://mort.io/blog/quelle-dommage/>‹ Quelle dommage</a></div><div><a href=https://mort.io/blog/topkg-addendum/> Platforms, Packaging, Progress— Addendum ›</a></div></nav><p>I recently took the plunge and upgraded my OS X. Not to vN of <em>Sierra</em> as I’d hoped, but to v0 <em>High Sierra</em>– the perils of waiting too long…<p>Unfortunately, this toasted<sup class=footnote-reference id=fr-1-1><a href=#fn-1>1</a></sup> my carefully curated keyboard remappings as <a href=https://pqrs.org/osx/karabiner/ rel=external>Karabiner</a> used a kernel extension, for which everything changed. All was not lost however, as the rewrite to support Sierra/High Sierra was well underway. Or so I thought until I realised that the configuration file had changed from XML to JSON. And so my configuration journey began. (But it all ends well, so that’s good.)<h2 id=controlling-the-config><a aria-label="Anchor link for: controlling-the-config" class=zola-anchor href=#controlling-the-config>Controlling the config</a></h2><p>The first thing was to get the new configuration matters under control. I did this per the documentation, symlinking the config subdirectory from my <code>rc-files</code> repo:<pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=shellscript><span class=giallo-l><span style=color:#268bd2>cd</span><span style=color:#2aa198> ~/.config/</span></span>
+<span class=giallo-l><span style=color:#268bd2>mv</span><span style=color:#2aa198> karabiner/ ~/rc-files/</span></span>
+<span class=giallo-l><span style=color:#268bd2>ln</span><span style=color:#cb4b16> -s</span><span style=color:#2aa198> ~/rc-files/karabiner</span></span></code></pre><h2 id=internal-apple-keyboard><a aria-label="Anchor link for: internal-apple-keyboard" class=zola-anchor href=#internal-apple-keyboard>Internal Apple keyboard</a></h2><p>In the interests of keeping all configuration in one place (but see below), I decided to do this via a set of <a href=https://github.com/mor1/rc-karabiner/blob/master/assets/complex_modifications/mort-keymap.json rel=external>complex modifications</a>. In summary this meant:<ul><li>swap <code>(caps_lock)</code> and <code>(control)</code>:</ul><pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=json><span class=giallo-l><span>    {</span></span>
+<span class=giallo-l><span style=color:#859900>      "description"</span><span>:</span><span style=color:#2aa198> "mort: caps_lock -> ctrl"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>      "manipulators"</span><span>: [</span></span>
+<span class=giallo-l><span>        {</span></span>
+<span class=giallo-l><span style=color:#859900>          "type"</span><span>:</span><span style=color:#2aa198> "basic"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>          "from"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>            "key_code"</span><span>:</span><span style=color:#2aa198> "caps_lock"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>            "modifiers"</span><span>: {</span><span style=color:#859900>"optional"</span><span>: [</span><span style=color:#2aa198>"any"</span><span>]}</span></span>
+<span class=giallo-l><span>          },</span></span>
+<span class=giallo-l><span style=color:#859900>          "to"</span><span>: [</span></span>
+<span class=giallo-l><span>            {</span></span>
+<span class=giallo-l><span style=color:#859900>              "key_code"</span><span>:</span><span style=color:#2aa198> "left_control"</span></span>
+<span class=giallo-l><span>            }</span></span>
+<span class=giallo-l><span>          ]</span></span>
+<span class=giallo-l><span>        }</span></span>
+<span class=giallo-l><span>      ]</span></span>
+<span class=giallo-l><span>    },</span></span></code></pre><ul><li>swap <code>"</code> (glyph <code>S-'</code>) with <code>@</code> (glyph <code>S-2</code>):</ul><pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=json><span class=giallo-l><span>    {</span></span>
+<span class=giallo-l><span style=color:#859900>      "description"</span><span>:</span><span style=color:#2aa198> "mort: S-' (</span><span style=color:#cb4b16>\"</span><span style=color:#2aa198>) &lt;-> S-2 (@)"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>      "manipulators"</span><span>: [</span></span>
+<span class=giallo-l><span>        {</span></span>
+<span class=giallo-l><span style=color:#859900>          "type"</span><span>:</span><span style=color:#2aa198> "basic"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>          "from"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>            "key_code"</span><span>:</span><span style=color:#2aa198> "quote"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>            "modifiers"</span><span>: {</span><span style=color:#859900>"mandatory"</span><span>: [</span><span style=color:#2aa198>"shift"</span><span>]}</span></span>
+<span class=giallo-l><span>          },</span></span>
+<span class=giallo-l><span style=color:#859900>          "to"</span><span>: [</span></span>
+<span class=giallo-l><span>            {</span></span>
+<span class=giallo-l><span style=color:#859900>              "key_code"</span><span>:</span><span style=color:#2aa198> "2"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>              "modifiers"</span><span>: [</span><span style=color:#2aa198>"shift"</span><span>]}</span></span>
+<span class=giallo-l><span>          ]</span></span>
+<span class=giallo-l><span>        },</span></span>
+<span class=giallo-l><span>        {</span></span>
+<span class=giallo-l><span style=color:#859900>          "type"</span><span>:</span><span style=color:#2aa198> "basic"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>          "from"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>            "key_code"</span><span>:</span><span style=color:#2aa198> "2"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>            "modifiers"</span><span>: {</span><span style=color:#859900>"mandatory"</span><span>: [</span><span style=color:#2aa198>"shift"</span><span>]}</span></span>
+<span class=giallo-l><span>          },</span></span>
+<span class=giallo-l><span style=color:#859900>          "to"</span><span>: [</span></span>
+<span class=giallo-l><span>            {</span></span>
+<span class=giallo-l><span style=color:#859900>              "key_code"</span><span>:</span><span style=color:#2aa198> "quote"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>              "modifiers"</span><span>: [</span><span style=color:#2aa198>"shift"</span><span>]</span></span>
+<span class=giallo-l><span>            }</span></span>
+<span class=giallo-l><span>          ]</span></span>
+<span class=giallo-l><span>        }</span></span>
+<span class=giallo-l><span>      ]</span></span>
+<span class=giallo-l><span>    },</span></span></code></pre><ul><li>map <code>(backslash)</code> (glyph <code>\</code>) to <code>#</code>, and <code>S-\</code> (glyph <code>|</code>) to <code>~</code>:</ul><pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=json><span class=giallo-l><span>    {</span></span>
+<span class=giallo-l><span style=color:#859900>      "description"</span><span>:</span><span style=color:#2aa198> "mort: </span><span style=color:#cb4b16>\\</span><span style=color:#2aa198> -> #; S-</span><span style=color:#cb4b16>\\</span><span style=color:#2aa198> (|) -> ~"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>      "manipulators"</span><span>: [</span></span>
+<span class=giallo-l><span>        {</span></span>
+<span class=giallo-l><span style=color:#859900>          "type"</span><span>:</span><span style=color:#2aa198> "basic"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>          "from"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>            "key_code"</span><span>:</span><span style=color:#2aa198> "backslash"</span></span>
+<span class=giallo-l><span>          },</span></span>
+<span class=giallo-l><span style=color:#859900>          "to"</span><span>: [</span></span>
+<span class=giallo-l><span>            {</span></span>
+<span class=giallo-l><span style=color:#859900>              "key_code"</span><span>:</span><span style=color:#2aa198> "3"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>              "modifiers"</span><span>: [</span><span style=color:#2aa198>"option"</span><span>]</span></span>
+<span class=giallo-l><span>            }</span></span>
+<span class=giallo-l><span>          ]</span></span>
+<span class=giallo-l><span>        },</span></span>
+<span class=giallo-l><span>        {</span></span>
+<span class=giallo-l><span style=color:#859900>          "type"</span><span>:</span><span style=color:#2aa198> "basic"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>          "from"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>            "key_code"</span><span>:</span><span style=color:#2aa198> "backslash"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>            "modifiers"</span><span>: {</span><span style=color:#859900>"mandatory"</span><span>: [</span><span style=color:#2aa198>"shift"</span><span>]}</span></span>
+<span class=giallo-l><span>          },</span></span>
+<span class=giallo-l><span style=color:#859900>          "to"</span><span>: [</span></span>
+<span class=giallo-l><span>            {</span></span>
+<span class=giallo-l><span style=color:#859900>              "key_code"</span><span>:</span><span style=color:#2aa198> "grave_accent_and_tilde"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>              "modifiers"</span><span>: [</span><span style=color:#2aa198>"shift"</span><span>]</span></span>
+<span class=giallo-l><span>            }</span></span>
+<span class=giallo-l><span>          ]</span></span>
+<span class=giallo-l><span>        },</span></span>
+<span class=giallo-l><span style=color:#dc322f>...</span></span>
+<span class=giallo-l><span style=color:#dc322f>    }</span></span></code></pre><ul><li>map <code>(non_us_backslash)</code> (glyph <code>§</code>) to <code>`</code> and <code>S-(non_us_backslash)</code> (glyph <code>±</code>) to <code>€</code>, and then patch things up so that the usual window switching works (using <code>(command)-`</code>):</ul><pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=json><span class=giallo-l><span>    {</span></span>
+<span class=giallo-l><span style=color:#859900>      "description"</span><span>:</span><span style=color:#2aa198> "mort: § -> `; ± (S-§) -> €"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>      "manipulators"</span><span>: [</span></span>
+<span class=giallo-l><span>        {</span></span>
+<span class=giallo-l><span style=color:#859900>          "type"</span><span>:</span><span style=color:#2aa198> "basic"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>          "from"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>            "key_code"</span><span>:</span><span style=color:#2aa198> "non_us_backslash"</span></span>
+<span class=giallo-l><span>          },</span></span>
+<span class=giallo-l><span style=color:#859900>          "to"</span><span>: [</span></span>
+<span class=giallo-l><span>            {</span></span>
+<span class=giallo-l><span style=color:#859900>              "key_code"</span><span>:</span><span style=color:#2aa198> "grave_accent_and_tilde"</span></span>
+<span class=giallo-l><span>            }</span></span>
+<span class=giallo-l><span>          ]</span></span>
+<span class=giallo-l><span>        },</span></span>
+<span class=giallo-l><span>        {</span></span>
+<span class=giallo-l><span style=color:#859900>          "type"</span><span>:</span><span style=color:#2aa198> "basic"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>          "from"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>            "key_code"</span><span>:</span><span style=color:#2aa198> "non_us_backslash"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>            "modifiers"</span><span>: {</span><span style=color:#859900>"mandatory"</span><span>: [</span><span style=color:#2aa198>"shift"</span><span>]}</span></span>
+<span class=giallo-l><span>          },</span></span>
+<span class=giallo-l><span style=color:#859900>          "to"</span><span>: [</span></span>
+<span class=giallo-l><span>            {</span></span>
+<span class=giallo-l><span style=color:#859900>              "key_code"</span><span>:</span><span style=color:#2aa198> "2"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>              "modifiers"</span><span>: [</span><span style=color:#2aa198>"option"</span><span>]</span></span>
+<span class=giallo-l><span>            }</span></span>
+<span class=giallo-l><span>          ]</span></span>
+<span class=giallo-l><span>        },</span></span>
+<span class=giallo-l><span>        {</span></span>
+<span class=giallo-l><span style=color:#859900>          "type"</span><span>:</span><span style=color:#2aa198> "basic"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>          "from"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>            "key_code"</span><span>:</span><span style=color:#2aa198> "non_us_backslash"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>            "modifiers"</span><span>: {</span><span style=color:#859900>"mandatory"</span><span>: [</span><span style=color:#2aa198>"command"</span><span>]}</span></span>
+<span class=giallo-l><span>          },</span></span>
+<span class=giallo-l><span style=color:#859900>          "to"</span><span>: [</span></span>
+<span class=giallo-l><span>            {</span></span>
+<span class=giallo-l><span style=color:#859900>              "key_code"</span><span>:</span><span style=color:#2aa198> "grave_accent_and_tilde"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>              "modifiers"</span><span>: [</span><span style=color:#2aa198>"command"</span><span>]</span></span>
+<span class=giallo-l><span>            }</span></span>
+<span class=giallo-l><span>          ]</span></span>
+<span class=giallo-l><span>        },</span></span>
+<span class=giallo-l><span>        {</span></span>
+<span class=giallo-l><span style=color:#859900>          "type"</span><span>:</span><span style=color:#2aa198> "basic"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>          "from"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>            "key_code"</span><span>:</span><span style=color:#2aa198> "non_us_backslash"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>            "modifiers"</span><span>: {</span><span style=color:#859900>"mandatory"</span><span>: [</span><span style=color:#2aa198>"command"</span><span>,</span><span style=color:#2aa198> "shift"</span><span>]}</span></span>
+<span class=giallo-l><span>          },</span></span>
+<span class=giallo-l><span style=color:#859900>          "to"</span><span>: [</span></span>
+<span class=giallo-l><span>            {</span></span>
+<span class=giallo-l><span style=color:#859900>              "key_code"</span><span>:</span><span style=color:#2aa198> "grave_accent_and_tilde"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>              "modifiers"</span><span>: [</span><span style=color:#2aa198>"command"</span><span>,</span><span style=color:#2aa198> "shift"</span><span>]</span></span>
+<span class=giallo-l><span>            }</span></span>
+<span class=giallo-l><span>          ]</span></span>
+<span class=giallo-l><span>        }</span></span>
+<span class=giallo-l><span>      ]</span></span>
+<span class=giallo-l><span>    },</span></span></code></pre><ul><li>finally, map <code>`</code> to <code>\</code> and <code>S-`</code> to <code>|</code></ul><pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=json><span class=giallo-l><span>    {</span></span>
+<span class=giallo-l><span style=color:#859900>      "description"</span><span>:</span><span style=color:#2aa198> "mort: ` -> </span><span style=color:#cb4b16>\\</span><span style=color:#2aa198>; S-` (~) -> |"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>      "manipulators"</span><span>: [</span></span>
+<span class=giallo-l><span>        {</span></span>
+<span class=giallo-l><span style=color:#859900>          "type"</span><span>:</span><span style=color:#2aa198> "basic"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>          "from"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>            "key_code"</span><span>:</span><span style=color:#2aa198> "grave_accent_and_tilde"</span></span>
+<span class=giallo-l><span>          },</span></span>
+<span class=giallo-l><span style=color:#859900>          "to"</span><span>: [</span></span>
+<span class=giallo-l><span>            {</span></span>
+<span class=giallo-l><span style=color:#859900>              "key_code"</span><span>:</span><span style=color:#2aa198> "backslash"</span></span>
+<span class=giallo-l><span>            }</span></span>
+<span class=giallo-l><span>          ]</span></span>
+<span class=giallo-l><span>        },</span></span>
+<span class=giallo-l><span>        {</span></span>
+<span class=giallo-l><span style=color:#859900>          "type"</span><span>:</span><span style=color:#2aa198> "basic"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>          "from"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>            "key_code"</span><span>:</span><span style=color:#2aa198> "grave_accent_and_tilde"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>            "modifiers"</span><span>: {</span><span style=color:#859900>"mandatory"</span><span>: [</span><span style=color:#2aa198>"shift"</span><span>]}</span></span>
+<span class=giallo-l><span>          },</span></span>
+<span class=giallo-l><span style=color:#859900>          "to"</span><span>: [</span></span>
+<span class=giallo-l><span>            {</span></span>
+<span class=giallo-l><span style=color:#859900>              "key_code"</span><span>:</span><span style=color:#2aa198> "backslash"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>              "modifiers"</span><span>: [</span><span style=color:#2aa198>"shift"</span><span>]</span></span>
+<span class=giallo-l><span>            }</span></span>
+<span class=giallo-l><span>          ]</span></span>
+<span class=giallo-l><span>        }</span></span>
+<span class=giallo-l><span>      ]</span></span>
+<span class=giallo-l><span>    },</span></span></code></pre><h2 id=iterm2><a aria-label="Anchor link for: iterm2" class=zola-anchor href=#iterm2>iTerm2</a></h2><p>Unfortunately for me, iTerm2 then gets a bit confused as it wants to leave <code>(command)</code> alone, only allowing mapping of <code>(option)</code> to <code>(meta)</code> (or, in fact, <code>(esc+)</code>). In the past I swapped <code>(left_command)</code> and <code>(left_option)</code> to make the usual shell (<code>bash</code>) CLI editing combinations (roughly, <code>emacs</code>) work. That wasn’t ideal though as I then had to fix up the window cycling commands (<code>(command)-` </code> and so on). Fortunately, the fix this time seems easier: just configure the two tricky mappings (involving generating a keypress modified with <code>(option)</code>) to be interpreted by iTerm2 to just send the appropriate text through. Again, I did this in the UI (Preferences > Profiles > Keys) but the resulting configuration change is also straightforward:<pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=xml><span class=giallo-l><span style=color:#586e75>			&lt;</span><span style=color:#268bd2>key</span><span style=color:#586e75>></span><span>Keyboard Map</span><span style=color:#586e75>&lt;/</span><span style=color:#268bd2>key</span><span style=color:#586e75>></span></span>
+<span class=giallo-l><span style=color:#586e75>			&lt;</span><span style=color:#268bd2>dict</span><span style=color:#586e75>></span></span>
+<span class=giallo-l><span>...</span></span>
+<span class=giallo-l><span style=color:#586e75>				&lt;</span><span style=color:#268bd2>key</span><span style=color:#586e75>></span><span>0x32-0x80000</span><span style=color:#586e75>&lt;/</span><span style=color:#268bd2>key</span><span style=color:#586e75>></span></span>
+<span class=giallo-l><span style=color:#586e75>				&lt;</span><span style=color:#268bd2>dict</span><span style=color:#586e75>></span></span>
+<span class=giallo-l><span style=color:#586e75>					&lt;</span><span style=color:#268bd2>key</span><span style=color:#586e75>></span><span>Action</span><span style=color:#586e75>&lt;/</span><span style=color:#268bd2>key</span><span style=color:#586e75>></span></span>
+<span class=giallo-l><span style=color:#586e75>					&lt;</span><span style=color:#268bd2>integer</span><span style=color:#586e75>></span><span>12</span><span style=color:#586e75>&lt;/</span><span style=color:#268bd2>integer</span><span style=color:#586e75>></span></span>
+<span class=giallo-l><span style=color:#586e75>					&lt;</span><span style=color:#268bd2>key</span><span style=color:#586e75>></span><span>Text</span><span style=color:#586e75>&lt;/</span><span style=color:#268bd2>key</span><span style=color:#586e75>></span></span>
+<span class=giallo-l><span style=color:#586e75>					&lt;</span><span style=color:#268bd2>string</span><span style=color:#586e75>></span><span>€</span><span style=color:#586e75>&lt;/</span><span style=color:#268bd2>string</span><span style=color:#586e75>></span></span>
+<span class=giallo-l><span style=color:#586e75>				&lt;/</span><span style=color:#268bd2>dict</span><span style=color:#586e75>></span></span>
+<span class=giallo-l><span>...</span></span>
+<span class=giallo-l><span style=color:#586e75>				&lt;</span><span style=color:#268bd2>key</span><span style=color:#586e75>></span><span>0x33-0x80000</span><span style=color:#586e75>&lt;/</span><span style=color:#268bd2>key</span><span style=color:#586e75>></span></span>
+<span class=giallo-l><span style=color:#586e75>				&lt;</span><span style=color:#268bd2>dict</span><span style=color:#586e75>></span></span>
+<span class=giallo-l><span style=color:#586e75>					&lt;</span><span style=color:#268bd2>key</span><span style=color:#586e75>></span><span>Action</span><span style=color:#586e75>&lt;/</span><span style=color:#268bd2>key</span><span style=color:#586e75>></span></span>
+<span class=giallo-l><span style=color:#586e75>					&lt;</span><span style=color:#268bd2>integer</span><span style=color:#586e75>></span><span>12</span><span style=color:#586e75>&lt;/</span><span style=color:#268bd2>integer</span><span style=color:#586e75>></span></span>
+<span class=giallo-l><span style=color:#586e75>					&lt;</span><span style=color:#268bd2>key</span><span style=color:#586e75>></span><span>Text</span><span style=color:#586e75>&lt;/</span><span style=color:#268bd2>key</span><span style=color:#586e75>></span></span>
+<span class=giallo-l><span style=color:#586e75>					&lt;</span><span style=color:#268bd2>string</span><span style=color:#586e75>></span><span>#</span><span style=color:#586e75>&lt;/</span><span style=color:#268bd2>string</span><span style=color:#586e75>></span></span>
+<span class=giallo-l><span style=color:#586e75>				&lt;/</span><span style=color:#268bd2>dict</span><span style=color:#586e75>></span></span>
+<span class=giallo-l><span>...</span></span>
+<span class=giallo-l><span style=color:#586e75>			&lt;/</span><span style=color:#268bd2>dict</span><span style=color:#586e75>></span></span></code></pre><h2 id=microsoft-digital-media-keyboard><a aria-label="Anchor link for: microsoft-digital-media-keyboard" class=zola-anchor href=#microsoft-digital-media-keyboard>Microsoft Digital Media keyboard</a></h2><p>Examining the key codes using the Karabiner Event-Viewer, it seemed that the first thing to do was to swap <code>(grave_accent_and_tilde)</code> (glyph <code>`</code>) and <code>(non_us_backslash)</code> (slightly confusingly, glyph <code>\</code> on my keyboard). I started out trying to do this as a complex modification so that all the remappings were in <a href=https://github.com/mor1/rc-karabiner/blob/master/assets/complex_modifications/mort-keymap.json rel=external>one file</a>, but couldn’t: I couldn’t figure out how to control the application order of mappings in that file. However, simple modifications are applied before complex modifications, and this <em>is</em> a simple modification as it’s a direct swap, so I just used the UI and did it there. For the sake of completeness, the resulting modification to <a href=https://github.com/mor1/rc-karabiner/blob/master/karabiner.json rel=external><code>karabiner.json</code></a> is:<pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=json><span class=giallo-l><span>{</span></span>
+<span class=giallo-l><span style=color:#dc322f>...</span></span>
+<span class=giallo-l><span style=color:#859900>    "profiles"</span><span>: [</span></span>
+<span class=giallo-l><span>        {</span></span>
+<span class=giallo-l><span style=color:#dc322f>...</span></span>
+<span class=giallo-l><span style=color:#859900>            "devices"</span><span>: [</span></span>
+<span class=giallo-l><span>                {</span></span>
+<span class=giallo-l><span style=color:#859900>                    "disable_built_in_keyboard_if_exists"</span><span>:</span><span style=color:#b58900> false</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>                    "fn_function_keys"</span><span>: [],</span></span>
+<span class=giallo-l><span style=color:#859900>                    "identifiers"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>                        "is_keyboard"</span><span>:</span><span style=color:#b58900> true</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>                        "is_pointing_device"</span><span>:</span><span style=color:#b58900> false</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>                        "product_id"</span><span>:</span><span style=color:#d33682> 180</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>                        "vendor_id"</span><span>:</span><span style=color:#d33682> 1118</span></span>
+<span class=giallo-l><span>                    },</span></span>
+<span class=giallo-l><span style=color:#859900>                    "ignore"</span><span>:</span><span style=color:#b58900> false</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>                    "simple_modifications"</span><span>: [</span></span>
+<span class=giallo-l><span>                        {</span></span>
+<span class=giallo-l><span style=color:#859900>                            "from"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>                                "key_code"</span><span>:</span><span style=color:#2aa198> "grave_accent_and_tilde"</span></span>
+<span class=giallo-l><span>                            },</span></span>
+<span class=giallo-l><span style=color:#859900>                            "to"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>                                "key_code"</span><span>:</span><span style=color:#2aa198> "non_us_backslash"</span></span>
+<span class=giallo-l><span>                            }</span></span>
+<span class=giallo-l><span>                        },</span></span>
+<span class=giallo-l><span>                        {</span></span>
+<span class=giallo-l><span style=color:#859900>                            "from"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>                                "key_code"</span><span>:</span><span style=color:#2aa198> "non_us_backslash"</span></span>
+<span class=giallo-l><span>                            },</span></span>
+<span class=giallo-l><span style=color:#859900>                            "to"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>                                "key_code"</span><span>:</span><span style=color:#2aa198> "grave_accent_and_tilde"</span></span>
+<span class=giallo-l><span>                            }</span></span>
+<span class=giallo-l><span>                        }</span></span>
+<span class=giallo-l><span>                    ]</span></span>
+<span class=giallo-l><span>                }</span></span>
+<span class=giallo-l><span>            ],</span></span>
+<span class=giallo-l><span style=color:#dc322f>...</span></span>
+<span class=giallo-l><span>        }</span></span>
+<span class=giallo-l><span>    ]</span></span>
+<span class=giallo-l><span>}</span></span></code></pre><p>The next step was to patch up the complex modifications. Once I realised that the event viewer was claiming that the key with glyph <code>#</code> was emitting <code>(backslash)</code> while it was, in fact, emitting <code>(non_us_pound)</code>, this was fairly straightforward:<ul><li>swap <code>(command)</code> (glyph <code>Alt</code>) and <code>(option)</code> (glyph <code>Start</code>):</ul><pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=json><span class=giallo-l><span>        {</span></span>
+<span class=giallo-l><span style=color:#859900>          "conditions"</span><span>: [</span></span>
+<span class=giallo-l><span>            {</span></span>
+<span class=giallo-l><span style=color:#859900>              "type"</span><span>:</span><span style=color:#2aa198> "device_if"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>              "identifiers"</span><span>: [{</span><span style=color:#859900>"vendor_id"</span><span>:</span><span style=color:#d33682> 1118</span><span>,</span><span style=color:#859900> "product_id"</span><span>:</span><span style=color:#d33682> 180</span><span>}]</span></span>
+<span class=giallo-l><span>            }</span></span>
+<span class=giallo-l><span>          ],</span></span>
+<span class=giallo-l><span style=color:#859900>          "type"</span><span>:</span><span style=color:#2aa198> "basic"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>          "from"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>            "key_code"</span><span>:</span><span style=color:#2aa198> "left_option"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>            "modifiers"</span><span>: {</span><span style=color:#859900>"optional"</span><span>: [</span><span style=color:#2aa198>"any"</span><span>]}</span></span>
+<span class=giallo-l><span>          },</span></span>
+<span class=giallo-l><span style=color:#859900>          "to"</span><span>: [</span></span>
+<span class=giallo-l><span>            {</span></span>
+<span class=giallo-l><span style=color:#859900>              "key_code"</span><span>:</span><span style=color:#2aa198> "left_command"</span></span>
+<span class=giallo-l><span>            }</span></span>
+<span class=giallo-l><span>          ]</span></span>
+<span class=giallo-l><span>        },</span></span>
+<span class=giallo-l><span>        {</span></span>
+<span class=giallo-l><span style=color:#859900>          "conditions"</span><span>: [</span></span>
+<span class=giallo-l><span>            {</span></span>
+<span class=giallo-l><span style=color:#859900>              "type"</span><span>:</span><span style=color:#2aa198> "device_if"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>              "identifiers"</span><span>: [{</span><span style=color:#859900>"vendor_id"</span><span>:</span><span style=color:#d33682> 1118</span><span>,</span><span style=color:#859900> "product_id"</span><span>:</span><span style=color:#d33682> 180</span><span>}]</span></span>
+<span class=giallo-l><span>            }</span></span>
+<span class=giallo-l><span>          ],</span></span>
+<span class=giallo-l><span style=color:#859900>          "type"</span><span>:</span><span style=color:#2aa198> "basic"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>          "from"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>            "key_code"</span><span>:</span><span style=color:#2aa198> "left_command"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>            "modifiers"</span><span>: {</span><span style=color:#859900>"optional"</span><span>: [</span><span style=color:#2aa198>"any"</span><span>]}</span></span>
+<span class=giallo-l><span>          },</span></span>
+<span class=giallo-l><span style=color:#859900>          "to"</span><span>: [</span></span>
+<span class=giallo-l><span>            {</span></span>
+<span class=giallo-l><span style=color:#859900>              "key_code"</span><span>:</span><span style=color:#2aa198> "left_option"</span></span>
+<span class=giallo-l><span>            }</span></span>
+<span class=giallo-l><span>          ]</span></span>
+<span class=giallo-l><span>        }</span></span>
+<span class=giallo-l><span>      ]</span></span>
+<span class=giallo-l><span>    },</span></span></code></pre><ul><li>add coverage of <code>(non_us_pound)</code> to the rule that remaps <code>\</code> to <code>#</code>:</ul><pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=json><span class=giallo-l><span>        {</span></span>
+<span class=giallo-l><span style=color:#859900>          "conditions"</span><span>: [</span></span>
+<span class=giallo-l><span>            {</span></span>
+<span class=giallo-l><span style=color:#859900>              "type"</span><span>:</span><span style=color:#2aa198> "device_if"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>              "identifiers"</span><span>: [{</span><span style=color:#859900>"vendor_id"</span><span>:</span><span style=color:#d33682> 1118</span><span>,</span><span style=color:#859900> "product_id"</span><span>:</span><span style=color:#d33682> 180</span><span>}]</span></span>
+<span class=giallo-l><span>            }</span></span>
+<span class=giallo-l><span>          ],</span></span>
+<span class=giallo-l><span style=color:#859900>          "type"</span><span>:</span><span style=color:#2aa198> "basic"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>          "from"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>            "key_code"</span><span>:</span><span style=color:#2aa198> "non_us_pound"</span></span>
+<span class=giallo-l><span>          },</span></span>
+<span class=giallo-l><span style=color:#859900>          "to"</span><span>: [</span></span>
+<span class=giallo-l><span>            {</span></span>
+<span class=giallo-l><span style=color:#859900>              "key_code"</span><span>:</span><span style=color:#2aa198> "3"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>              "modifiers"</span><span>: [</span><span style=color:#2aa198>"option"</span><span>]</span></span>
+<span class=giallo-l><span>            }</span></span>
+<span class=giallo-l><span>          ]</span></span>
+<span class=giallo-l><span>        },</span></span>
+<span class=giallo-l><span>        {</span></span>
+<span class=giallo-l><span style=color:#859900>          "conditions"</span><span>: [</span></span>
+<span class=giallo-l><span>            {</span></span>
+<span class=giallo-l><span style=color:#859900>              "type"</span><span>:</span><span style=color:#2aa198> "device_if"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>              "identifiers"</span><span>: [{</span><span style=color:#859900>"vendor_id"</span><span>:</span><span style=color:#d33682> 1118</span><span>,</span><span style=color:#859900> "product_id"</span><span>:</span><span style=color:#d33682> 180</span><span>}]</span></span>
+<span class=giallo-l><span>            }</span></span>
+<span class=giallo-l><span>          ],</span></span>
+<span class=giallo-l><span style=color:#859900>          "type"</span><span>:</span><span style=color:#2aa198> "basic"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>          "from"</span><span>: {</span></span>
+<span class=giallo-l><span style=color:#859900>            "key_code"</span><span>:</span><span style=color:#2aa198> "non_us_pound"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>            "modifiers"</span><span>: {</span><span style=color:#859900>"mandatory"</span><span>: [</span><span style=color:#2aa198>"shift"</span><span>]}</span></span>
+<span class=giallo-l><span>          },</span></span>
+<span class=giallo-l><span style=color:#859900>          "to"</span><span>: [</span></span>
+<span class=giallo-l><span>            {</span></span>
+<span class=giallo-l><span style=color:#859900>              "key_code"</span><span>:</span><span style=color:#2aa198> "grave_accent_and_tilde"</span><span>,</span></span>
+<span class=giallo-l><span style=color:#859900>              "modifiers"</span><span>: [</span><span style=color:#2aa198>"shift"</span><span>]</span></span>
+<span class=giallo-l><span>            }</span></span>
+<span class=giallo-l><span>          ]</span></span>
+<span class=giallo-l><span>        }</span></span></code></pre><p>…and that’s it. My keyboard is, once again, my castle.<section class=footnotes><ol class=footnotes-list><li id=fn-1><p>To be honest, I suspect even the <em>Sierra</em> upgrade would’ve done this. <a href=#fr-1-1>↩</a></p></ol></section><nav><div><a href=https://mort.io/blog/quelle-dommage/>‹ Quelle dommage</a></div><div><a href=https://mort.io/blog/topkg-addendum/> Platforms, Packaging, Progress— Addendum ›</a></div></nav></article></main><footer><hr><div class=c><nav class=tpad><div><a title="mort’s mythopœia Atom Feed" href=https://mort.io/atom.xml target=_blank type=application/atom+xml><i class="svg rss" title="mort’s mythopœia Atom Feed" type=Button></i></a><a title="mort’s mythopœia RSS Feed" href=https://mort.io/rss.xml target=_blank type=application/rss+xml><i class="svg rss" title="mort’s mythopœia RSS Feed" type=Button></i></a><a href=mailto:richard.mortier@cl.cam.ac.uk target=_blank title=Mail><i class="svg mail" title=Mail type=Button></i></a><a href=https://mastodon.me.uk/@mort rel=me target=_blank title=Mastodon><i class="svg mastodon" title=Mastodon type=Button></i></a><a href=https://www.linkedin.com/in/richard-mortier/ target=_blank title=LinkedIn><i class="svg linkedin" title=LinkedIn type=Button></i></a><a href=https://github.com/mor1/ target=_blank title=Github><i class="svg github" title=Github type=Button></i></a><a href=https://hub.docker.com/u/mor1/ target=_blank title=Docker><i class="svg docker" title=Docker type=Button></i></a><a href="https://www.youtube.com/playlist?list=PLkRF0fgqvvMx5Owh1QgilmExGQe58go_u" target=_blank title=YouTube><i class="svg youtube" title=YouTube type=Button></i></a></div></nav><nav class=vpad><a class=rpad href=https://mort.io/sitemap.xml target=_blank> sitemap </a><a class=rpad href=https://mort.io/tags/> tags </a></nav><p class=s90>mort’s mythopœia © 2013—<span id=year>2026</span> Richard Mortier</div></footer><span class=topout> <span class=topleft> </span><a title="Back to Top" class=top href=#><i class="svgs svgh angu"></i></a> </span>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>mort’s mythopœia - sway</title>
+    <subtitle>with apologies</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://mort.io/tags/sway/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://mort.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-08-30T00:00:00+00:00</updated>
+    <id>https://mort.io/tags/sway/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Stop, Start</title>
+        <published>2024-08-30T00:00:00+00:00</published>
+        <updated>2024-08-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/stop-start/"/>
+        <id>https://mort.io/blog/stop-start/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/stop-start/">&lt;p&gt;Well, here we go again, again. Having stalled out back in 2013 to restart in
+2015, I stalled out again in 2017, so am finally restarting seven years later.
+Again. I do have a dozen or more half-written posts from that period that may
+leak out slowly, in &lt;a href=&quot;&#x2F;tags&#x2F;old&quot;&gt;backdated form&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The stack for the blog has been updated again, naturally – the tools got better
+after all. So now this is using &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.getzola.org&quot;&gt;Zola&lt;&#x2F;a&gt; with, initially,
+the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;jieiku&#x2F;abridge&#x2F;&quot;&gt;abridge theme&lt;&#x2F;a&gt;. I think it’s shinier,
+and hopefully also involves (almost) no JavaScript, is finally accessible, and
+not too heavyweight. In removing the excessive JavaScript, I also updated my
+&lt;a href=&quot;https:&#x2F;&#x2F;mort.io&#x2F;blog&#x2F;stop-start&#x2F;.&#x2F;research#publications&quot;&gt;publication list&lt;&#x2F;a&gt; &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;bib2html&quot;&gt;generation
+process&lt;&#x2F;a&gt;: no more CoffeeScript and JavaScript,
+just some plain ol’ &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.python.org&#x2F;&quot;&gt;Python&lt;&#x2F;a&gt; using the slick new
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;astral-sh&#x2F;uv&quot;&gt;uv&lt;&#x2F;a&gt; tooling. The
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;casey&#x2F;just&quot;&gt;Justfile&lt;&#x2F;a&gt; incantation is something like:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;make&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;papers&lt;&#x2F;span&gt;&lt;span&gt; := &amp;quot;..&#x2F;templates&#x2F;shortcodes&#x2F;publications.html&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;bibinputs&lt;&#x2F;span&gt;&lt;span&gt; := &amp;quot;..&#x2F;papers&#x2F;bibinputs.json&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# build papers data for site&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;@papers&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  cd bib2html &amp;amp;&amp;amp; uv sync &amp;amp;&amp;amp; uv run -- .&#x2F;src&#x2F;bib2html {{bibinputs}} &amp;gt;| {{papers}}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;I’ve also added a &lt;a href=&quot;https:&#x2F;&#x2F;mort.io&#x2F;blog&#x2F;stop-start&#x2F;.&#x2F;register&#x2F;&quot;&gt;register of interests&lt;&#x2F;a&gt; so I stop having to
+scrabble around remembering what I’m officially doing when I’m occasionally
+asked.&lt;&#x2F;p&gt;
+&lt;p&gt;The stack underneath has also changed. I finally kicked the Mac OS habit after
+over 10 years – decided I’d had enough of Apple hiding things and generally
+getting in my way – at the same time I switched from Android to iPhone. Never
+do things the easy way, that’s my motto. So now I’m back on a PC … but it
+turns out that 2024 (well, 2023 in fact) is the year of Linux on the Laptop for
+me. Not something I thought would actually happen when we joked about it in the
+late 90s. Truly, times change. And not just any old wannabe-Windows distribution
+but the resolutely idiosyncratic and copiously yet poorly documented
+&lt;a href=&quot;httsp:&#x2F;&#x2F;nixos.org&#x2F;&quot;&gt;NixOS&lt;&#x2F;a&gt; using Flakes and Home-Manager of course, with
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;wayland.freedesktop.org&#x2F;&quot;&gt;Wayland&lt;&#x2F;a&gt; and &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;swaywm.org&#x2F;&quot;&gt;Sway&lt;&#x2F;a&gt;.
+I’ve even finally made the leap to &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;vscodium.com&#x2F;&quot;&gt;Codium&lt;&#x2F;a&gt;, the
+de-Microsofted version of VSCode, from
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.gnu.org&#x2F;software&#x2F;emacs&#x2F;&quot;&gt;Emacs&lt;&#x2F;a&gt; (mostly –
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;orgmode.org&#x2F;&quot;&gt;org-mode&lt;&#x2F;a&gt; has not yet been replaced). I blame
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.jeffas.net&#x2F;&quot;&gt;Andrew&lt;&#x2F;a&gt; and &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.jentek.dev&#x2F;&quot;&gt;Chris&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;For the terminally curious, this meant a fairly heavy reworking of my 30 years
+old &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-files&#x2F;&quot;&gt;dotfiles&lt;&#x2F;a&gt; – still work in progress but
+adequately organised for now I think. See the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-files&#x2F;tree&#x2F;main&#x2F;nixos&quot;&gt;NixOS specific
+bits&lt;&#x2F;a&gt; if curious.&lt;&#x2F;p&gt;
+&lt;p&gt;And, because I’m going to try to include at least one vaguely technical bit (or
+at least, one bit which isn’t just me bemoaning that I haven’t written anything
+in years), I confess to being particularly pleased with the following fragment
+to enable &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-files&#x2F;blob&#x2F;main&#x2F;nixos&#x2F;modules&#x2F;home-manager&#x2F;sway.nix#L64-L122&quot;&gt;my Sway startup
+script&lt;&#x2F;a&gt;
+to start several apps on particular workspaces, by switching to the workspace,
+starting the app, and then waiting for a suitable window to appear. The latter
+step entails&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;subscribing &lt;code&gt;swaymsg&lt;&#x2F;code&gt; to &lt;code&gt;window&lt;&#x2F;code&gt; messages with
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;jqlang.github.io&#x2F;jq&#x2F;&quot;&gt;jq&lt;&#x2F;a&gt; to extract the messages of interest
+indicating a new window in the background,&lt;&#x2F;li&gt;
+&lt;li&gt;executing the command to start the app,&lt;&#x2F;li&gt;
+&lt;li&gt;using &lt;code&gt;grep&lt;&#x2F;code&gt;&#x2F;&lt;code&gt;pkill&lt;&#x2F;code&gt; in tandem to kill the subscription when the new window is
+detected,  and finally&lt;&#x2F;li&gt;
+&lt;li&gt;waiting for the subscription to have been killed.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;It seems fairly (indeed, surprisingly) reliable.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;wait_for&lt;&#x2F;span&gt;&lt;span&gt; () {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  {&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; swaymsg&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -r -m -t&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; subscribe &amp;#39;[&amp;quot;window&amp;quot;]&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; |&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;    jq&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -c --unbuffered&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;#39;. | select(.change == &amp;quot;new&amp;quot;)&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; |&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    {&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; grep&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -m1&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; .&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&#x2F;dev&#x2F;null&lt;&#x2F;span&gt;&lt;span&gt; ;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; pkill&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; swaymsg&lt;&#x2F;span&gt;&lt;span&gt; ;} &amp;amp;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  }&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; 2&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&#x2F;dev&#x2F;null&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;  pid&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$!&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;  swaymsg&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; --&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;exec &lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$*&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; sleep&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 0.5&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;  wait $pid&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; 2&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&#x2F;dev&#x2F;null&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Use via something like:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;wayland&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;windowManager&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;sway&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;config&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;startup&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt; =&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;  let&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    msg&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span&gt; cmds:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;swaymsg &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span style=&quot;color: #B58900;&quot;&gt;builtins&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;concatStringsSep&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;, &amp;quot;&lt;&#x2F;span&gt;&lt;span&gt; cmds&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;#39;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    workspace&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span&gt; ws: msg [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;workspace --no-auto-back-and-forth &lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span&gt;ws&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt; ]&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    after&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span&gt; delay: cmds:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;sleep &lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;toString&lt;&#x2F;span&gt;&lt;span&gt; delay&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;amp;&amp;amp; &lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span&gt;msg cmds&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    startup&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span&gt; pkgs&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;writeShellScriptBin&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;startup.sh&amp;quot; &amp;#39;&amp;#39;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;      wait_for () {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;        { swaymsg -r -m -t subscribe &amp;#39;[&amp;quot;window&amp;quot;]&amp;#39; |&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;          jq -c --unbuffered &amp;#39;. | select(.change == &amp;quot;new&amp;quot;)&amp;#39; |&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;          { grep -m1 . &amp;gt;&#x2F;dev&#x2F;null ; pkill swaymsg ;} &amp;amp;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;        } 2&amp;gt;&#x2F;dev&#x2F;null&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;        pid=$!&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;        swaymsg -- &amp;quot;exec $*&amp;quot; &amp;amp;&amp;amp; sleep 0.5&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;        wait $pid 2&amp;gt;&#x2F;dev&#x2F;null&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;      }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;      ${&lt;&#x2F;span&gt;&lt;span&gt;workspace&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span&gt;mediaws&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;      wait_for &amp;quot;rhythmbox&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    &amp;#39;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;  in&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  [ {&lt;&#x2F;span&gt;&lt;span style=&quot;color: #93A1A1;&quot;&gt; command&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span&gt;startup&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&#x2F;bin&#x2F;startup.sh&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;; } ]&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Debugging Electron apps</title>
+        <published>2024-08-14T00:00:00+00:00</published>
+        <updated>2024-08-14T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/electron-cli/"/>
+        <id>https://mort.io/blog/electron-cli/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/electron-cli/">&lt;p&gt;Another short one, this time the magic flags to get debug output and access to
+webdev tools under Electron apps such as Slack and whatnot on Wayland:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;APPLICATION&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; --enable-logging --devtools \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt;  --platform=wayland --enable-features=UseOzonePlatform --password-store=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;gnome_libsecret&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</content>
+        
+    </entry>
+</feed>

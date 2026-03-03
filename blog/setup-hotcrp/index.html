@@ -1,0 +1,182 @@
+<!doctype html><html lang=en><head><link href="https://mort.io/abridge.css?h=5f1494977bbccc1fddc1" rel=stylesheet><meta charset=utf-8><meta content="ie=edge" http-equiv=x-ua-compatible><meta content="width=device-width,initial-scale=1" name=viewport><meta content=https://mort.io name=base><meta content=True name=HandheldFriendly><meta content=yes name=mobile-web-app-capable><meta content=yes name=apple-mobile-web-app-capable><meta content=default name=apple-mobile-web-app-status-bar-style><link title="mort’s mythopœia Atom Feed" href=https://mort.io/atom.xml rel=alternate type=application/atom+xml><link title="mort’s mythopœia RSS Feed" href=https://mort.io/rss.xml rel=alternate type=application/rss+xml><meta content="index, follow" name=robots><meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name=googlebot><meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name=bingbot><title>Hosting HotCRP | mort’s mythopœia</title><meta content="mort’s mythopœia" name=copyright><meta content="Setting up HotCRP for local hosting" name=description><link href=https://mort.io/blog/setup-hotcrp/ rel=canonical><meta content=https://mort.io/blog/setup-hotcrp/ property=og:url><meta content=https://mort.io/blog/setup-hotcrp/ name=twitter:url><meta content="Setting up HotCRP for local hosting" property=og:description><meta content="Setting up HotCRP for local hosting" name=twitter:description><meta content="Hosting HotCRP | mort’s mythopœia" property=og:title><meta content="Hosting HotCRP | mort’s mythopœia" name=twitter:title><meta content=summary name=twitter:card><meta content="mort’s mythopœia" property=og:site_name><meta content=en_US property=og:locale><meta content=website property=og:type><meta content=2021-10-17 property=og:updated_time><noscript><link href=https://mort.io/nojs.css rel=stylesheet></noscript><body><header><nav><div><big><a title="mort’s mythopœia" href=https://mort.io>mort’s mythopœia</a></big></div><div><div><ul><li><a class=s110 href=https://mort.io/research/> research </a><li><a class=s110 href=https://mort.io/students/> students </a><li><a class=s110 href=https://mort.io/teaching/> teaching </a><li><a class=s110 href=https://mort.io/codes/> codes </a><li><a class=s110 href=https://mort.io/me/> me </a></ul></div><div></div></div></nav><div class=desc>with apologies</div><hr></header><main><article><h1><a href=https://mort.io/blog/setup-hotcrp/>Hosting HotCRP</a></h1><span class=s95><span class=hpad> ·</span> 2 min read<span class=hpad> ·</span> October 17, 2021<span class=hpad> ·</span> #<a href=https://mort.io/tags/old/>old</a> #<a href=https://mort.io/tags/linux/>linux</a> #<a href=https://mort.io/tags/academic/>academic</a> #<a href=https://mort.io/tags/publishing/>publishing</a> </span><nav><div><a href=https://mort.io/blog/software-folklore/>‹ Software folklore</a></div><div><a href=https://mort.io/blog/tar-includes/> Tarballing some files ›</a></div></nav><p>I once had cause to setup <a href=https://read.seas.harvard.edu/~kohler/hotcrp/ rel=external>HotCRP</a> for local hosting. Specifically on a local Lab-hosted VM image. Some of what follows is specific to the CUCL VM hosting service, but I think most of it is HotCRP generic and so may be of use. Anyway, here’s the crib sheet, starting from <a href=https://mbtech.github.io/Setting-up-hotcrp/ rel=external>https://mbtech.github.io/Setting-up-hotcrp/</a>…<pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=shellscript><span class=giallo-l><span style=color:#586e75;font-style:italic># setup some variables</span></span>
+<span class=giallo-l><span style=color:#268bd2>YOUR-DOMAIN</span><span style=color:#859900>=</span><span style=color:#2aa198>"hotcrp-test.cl.cam.ac.uk"</span></span>
+<span class=giallo-l><span style=color:#268bd2>YOUR-WORKSHOP</span><span style=color:#859900>=</span><span style=color:#2aa198>"sysws18"</span></span>
+<span class=giallo-l><span style=color:#268bd2>YOUR-PASSWORD</span><span style=color:#859900>=</span><span style=color:#2aa198>"mybestpassword"</span></span>
+<span class=giallo-l><span style=color:#268bd2>YOUR-EMAIL</span><span style=color:#859900>=</span><span style=color:#2aa198>"postmaster@example.com"</span></span></code></pre><h2 id=lab-specifics><a aria-label="Anchor link for: lab-specifics" class=zola-anchor href=#lab-specifics>Lab specifics</a></h2><p>Assume we start from a default Ubuntu template VM, and then…<ol><li>Configure the VM</ol><pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=shellscript><span class=giallo-l><span style=color:#268bd2>cl-asuser</span><span style=color:#2aa198> passwd</span><span style=color:#586e75;font-style:italic> # set UNIX password for sudo</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#586e75;font-style:italic># create some space</span></span>
+<span class=giallo-l><span style=color:#859900>for</span><span style=color:#268bd2> d</span><span style=color:#859900> in</span><span style=color:#2aa198> /usr/src/*</span><span> ;</span><span style=color:#859900> do</span></span>
+<span class=giallo-l><span style=color:#93a1a1;font-weight:700>    export</span><span style=color:#268bd2> K</span><span style=color:#859900>=</span><span>$(</span><span style=color:#268bd2>uname</span><span style=color:#cb4b16> -r</span><span style=color:#859900> |</span><span style=color:#268bd2> sed</span><span style=color:#2aa198> 's/-generic$//'</span><span>)</span></span>
+<span class=giallo-l><span style=color:#268bd2>    echo</span><span style=color:#cb4b16> -n</span><span style=color:#268bd2> $K $d</span><span style=color:#2aa198> ...</span></span>
+<span class=giallo-l><span style=color:#859900>    case</span><span style=color:#268bd2> $d</span><span style=color:#859900> in</span></span>
+<span class=giallo-l><span style=color:#2aa198>        "/usr/src/linux-headers-</span><span style=color:#268bd2>$K</span><span style=color:#2aa198>"</span><span style=color:#859900> |</span><span style=color:#2aa198> "/usr/src/linux-headers-</span><span style=color:#859900>${</span><span style=color:#268bd2>K</span><span style=color:#859900>}</span><span style=color:#2aa198>-generic"</span><span style=color:#859900> )</span></span>
+<span class=giallo-l><span style=color:#268bd2>            echo</span><span style=color:#2aa198> keep</span></span>
+<span class=giallo-l><span>            ;;</span></span>
+<span class=giallo-l><span style=color:#859900>        * )</span></span>
+<span class=giallo-l><span style=color:#268bd2>            echo</span><span style=color:#2aa198> remove</span></span>
+<span class=giallo-l><span style=color:#268bd2>            sudo</span><span style=color:#2aa198> rm</span><span style=color:#cb4b16> -rf</span><span style=color:#268bd2> $d</span></span>
+<span class=giallo-l><span>            ;;</span></span>
+<span class=giallo-l><span style=color:#859900>    esac</span></span>
+<span class=giallo-l><span style=color:#859900>done</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#586e75;font-style:italic># THIS IS UNSAFE! BE CAREFUL! IT CALLS `sudo rm -rf`!</span></span>
+<span class=giallo-l><span style=color:#859900>for</span><span style=color:#268bd2> d</span><span style=color:#859900> in</span><span style=color:#2aa198> /lib/modules/*</span><span> ;</span><span style=color:#859900> do</span></span>
+<span class=giallo-l><span style=color:#268bd2>    echo $d</span><span style=color:#2aa198> ...</span></span>
+<span class=giallo-l><span style=color:#859900>    case</span><span style=color:#268bd2> $d</span><span style=color:#859900> in</span></span>
+<span class=giallo-l><span style=color:#2aa198>        "/lib/modules/$(</span><span style=color:#268bd2>uname</span><span style=color:#cb4b16> -r</span><span style=color:#2aa198>)"</span><span style=color:#859900> )</span></span>
+<span class=giallo-l><span style=color:#268bd2>            echo</span><span style=color:#2aa198> keep</span></span>
+<span class=giallo-l><span>            ;;</span></span>
+<span class=giallo-l><span style=color:#859900>        * )</span></span>
+<span class=giallo-l><span style=color:#268bd2>            echo</span><span style=color:#2aa198> remove</span></span>
+<span class=giallo-l><span style=color:#268bd2>            sudo</span><span style=color:#2aa198> rm</span><span style=color:#cb4b16> -rf</span><span style=color:#268bd2> $d</span></span>
+<span class=giallo-l><span>            ;;</span></span>
+<span class=giallo-l><span style=color:#859900>    esac</span></span>
+<span class=giallo-l><span style=color:#859900>done</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#586e75;font-style:italic># if necessary, resize the partition. this shouldn't be necessary with the new</span></span>
+<span class=giallo-l><span style=color:#586e75;font-style:italic># VM image! if you need more than ~1GB space for papers, setup xvdb1</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> fdisk /dev/xvda</span><span style=color:#859900> &lt;&lt;</span><span>EOF</span></span>
+<span class=giallo-l><span style=color:#2aa198>p</span></span>
+<span class=giallo-l><span style=color:#2aa198>d</span></span>
+<span class=giallo-l><span style=color:#2aa198>n</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l></span>
+<span class=giallo-l></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#2aa198>w</span></span>
+<span class=giallo-l><span>EOF</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> partprobe</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#586e75;font-style:italic># resize the default filesystem to use the entire partition</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> resize2fs /dev/xvda1</span><span style=color:#586e75;font-style:italic> # blank SIZE means use whole partition</span></span></code></pre><ol start=2><li>Install packages</ol><pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=shellscript><span class=giallo-l><span style=color:#586e75;font-style:italic># sort out packages</span></span>
+<span class=giallo-l><span style=color:#93a1a1;font-weight:700>export</span><span style=color:#268bd2> TZ</span><span style=color:#859900>=</span><span style=color:#268bd2>Europe</span><span>/</span><span style=color:#268bd2>London</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> apt update</span><span> &&</span><span style=color:#268bd2> sudo</span><span style=color:#2aa198> apt install</span><span style=color:#cb4b16> --no-install-recommends -qq -yy \</span></span>
+<span class=giallo-l><span style=color:#2aa198>    apache2</span><span style=color:#cb4b16> \</span></span>
+<span class=giallo-l><span style=color:#2aa198>    ca-certificates</span><span style=color:#cb4b16> \</span></span>
+<span class=giallo-l><span style=color:#2aa198>    git</span><span style=color:#cb4b16> \</span></span>
+<span class=giallo-l><span style=color:#2aa198>    libapache2-mod-php</span><span style=color:#cb4b16> \</span></span>
+<span class=giallo-l><span style=color:#2aa198>    mailutils</span><span style=color:#cb4b16> \</span></span>
+<span class=giallo-l><span style=color:#2aa198>    mysql-server</span></span>
+<span class=giallo-l><span style=color:#268bd2>    php-curl</span><span style=color:#cb4b16> \</span></span>
+<span class=giallo-l><span style=color:#2aa198>    php-json</span><span style=color:#cb4b16> \</span></span>
+<span class=giallo-l><span style=color:#2aa198>    php-mysql</span><span style=color:#cb4b16> \</span></span>
+<span class=giallo-l><span style=color:#2aa198>    poppler-utils</span><span style=color:#cb4b16> \</span></span>
+<span class=giallo-l><span style=color:#2aa198>    postfix</span><span style=color:#cb4b16> \</span></span>
+<span class=giallo-l><span style=color:#2aa198>    zip</span></span></code></pre><ol start=3><li>Configure <code>postfix</code></ol><pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=shellscript><span class=giallo-l><span style=color:#586e75;font-style:italic># configure postfix: accept defaults if offered, setup postfix to use ppsw</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> sed</span><span style=color:#cb4b16> -i</span><span style=color:#2aa198> 's/relayhost =/relayhost = ppsw.cam.ac.uk/' /etc/postfix/main.cf</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> /etc/init.d/postfix reload</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> systemctl restart postfix.service</span></span>
+<span class=giallo-l><span style=color:#586e75;font-style:italic># test mail sending</span></span>
+<span class=giallo-l><span style=color:#268bd2>echo</span><span style=color:#2aa198> "Test mail from postfix"</span><span style=color:#859900> |</span><span style=color:#268bd2> mail</span><span style=color:#cb4b16> -s</span><span style=color:#2aa198> "Test Postfix"</span><span style=color:#859900> ${</span><span style=color:#268bd2>YOUR-EMAIL</span><span style=color:#859900>}</span></span></code></pre><p>For more email help, see <a href=https://help.uis.cam.ac.uk/email-telephony-and-collaboration/email/specialist-email-advice/sending-email rel=external>https://help.uis.cam.ac.uk/email-telephony-and-collaboration/email/specialist-email-advice/sending-email</a> using <code>YOUR-DOMAIN</code> as mail domain, and <code>ppsw.cam.ac.uk</code> as relay host.<ol start=4><li>Install HotCRP</ol><p>Get latest release:<pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=shellscript><span class=giallo-l><span style=color:#268bd2>git</span><span style=color:#2aa198> clone https://github.com/kohler/hotcrp.git</span></span>
+<span class=giallo-l><span style=color:#268bd2>cd</span><span style=color:#2aa198> hotcrp</span></span>
+<span class=giallo-l><span style=color:#268bd2>git</span><span style=color:#2aa198> checkout tags/v2.101</span><span style=color:#cb4b16> -b</span><span style=color:#2aa198> v2.101</span></span></code></pre><ol start=5><li>Setup <code>root</code> account for MySQL</ol><pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=shellscript><span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> /etc/init.d/mysql stop</span><span style=color:#586e75;font-style:italic> # stop the running service</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#586e75;font-style:italic># configure and run mysql in the console</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> mkdir</span><span style=color:#cb4b16> -p</span><span style=color:#2aa198> /var/run/mysqld</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> chown mysql:mysql /var/run/mysqld</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> mysqld_safe</span><span style=color:#cb4b16> --skip-grant-tables</span><span> &</span><span style=color:#268bd2> sleep</span><span style=color:#d33682> 5</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#586e75;font-style:italic># smash a new `root` password in place </span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> mysql</span></span>
+<span class=giallo-l><span style=color:#268bd2>ALTER</span><span style=color:#2aa198> USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '${YOUR-PASSWORD}'</span><span>;  </span></span>
+<span class=giallo-l><span style=color:#268bd2>FLUSH</span><span style=color:#2aa198> PRIVILEGES</span><span>;</span></span>
+<span class=giallo-l><span style=color:#268bd2>exit</span><span>;</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#586e75;font-style:italic># restart mysql properly as a service</span></span>
+<span class=giallo-l><span style=color:#268bd2>mysqladmin</span><span style=color:#cb4b16> -uroot -p</span><span style=color:#859900>${</span><span style=color:#268bd2>YOUR-PASSWORD</span><span style=color:#859900>}</span><span style=color:#cb4b16> -h127.0.0.1 --protocol=tcp</span><span style=color:#2aa198> shutdown</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> /etc/init.d/mysql start</span></span></code></pre><p>…alternatively<pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=shellscript><span class=giallo-l><span style=color:#268bd2>mysql</span><span style=color:#cb4b16> -uroot</span><span style=color:#859900>&lt;&lt;</span><span style=color:#cb4b16>_EOF</span></span>
+<span class=giallo-l><span style=color:#2aa198>USE mysql;</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#2aa198>UPDATE mysql.user SET authentication_string = PASSWORD('</span><span style=color:#859900>${</span><span style=color:#268bd2>YOUR-PASSWORD</span><span style=color:#859900>}</span><span style=color:#2aa198>')</span></span>
+<span class=giallo-l><span style=color:#2aa198>WHERE User = 'root' AND Host = 'localhost';</span></span>
+<span class=giallo-l><span style=color:#2aa198>FLUSH PRIVILEGES;</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#2aa198>QUIT</span></span>
+<span class=giallo-l><span style=color:#cb4b16>_EOF</span></span></code></pre><ol start=6><li>Secure your MySQL installation</ol><pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=shellscript><span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> systemctl stop mysql</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> mkdir</span><span style=color:#cb4b16> -p</span><span style=color:#2aa198> /var/run/mysqld</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> chown mysql:mysql /var/run/mysqld</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> mysqld_safe</span><span style=color:#cb4b16> --skip-grant-tables --skip-networking</span><span> &</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> mysql_secure_installation</span><span style=color:#cb4b16> -p</span><span style=color:#859900>${</span><span style=color:#268bd2>YOUR-PASSWORD</span><span style=color:#859900>}&lt;&lt;</span><span style=color:#cb4b16>EOF</span></span>
+<span class=giallo-l><span style=color:#2aa198>n</span></span>
+<span class=giallo-l><span style=color:#2aa198>n</span></span>
+<span class=giallo-l><span style=color:#2aa198>y</span></span>
+<span class=giallo-l><span style=color:#2aa198>y</span></span>
+<span class=giallo-l><span style=color:#2aa198>y</span></span>
+<span class=giallo-l><span style=color:#2aa198>y</span></span>
+<span class=giallo-l><span style=color:#cb4b16>EOF</span></span></code></pre><ol start=7><li>Setup the HotCRP MySQL tables and config</ol><pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=shellscript><span class=giallo-l><span style=color:#268bd2>lib/createdb.sh</span><span style=color:#cb4b16> --user=root --password=</span><span style=color:#859900>${</span><span style=color:#268bd2>YOUR-PASSWORD</span><span style=color:#859900>} &lt;&lt;</span><span>EOF</span></span>
+<span class=giallo-l><span style=color:#2aa198>ok</span></span>
+<span class=giallo-l><span style=color:#2aa198>YOUR-WORKSHOP</span></span>
+<span class=giallo-l><span>EOF</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#586e75;font-style:italic># edit conf/options.php</span></span>
+<span class=giallo-l><span style=color:#586e75;font-style:italic># - contactName</span></span>
+<span class=giallo-l><span style=color:#586e75;font-style:italic># - contactEmail</span></span>
+<span class=giallo-l><span style=color:#586e75;font-style:italic># - sendEmail</span></span>
+<span class=giallo-l><span style=color:#586e75;font-style:italic># - emailFrom</span></span>
+<span class=giallo-l><span style=color:#586e75;font-style:italic># - emailSender</span></span>
+<span class=giallo-l><span style=color:#586e75;font-style:italic># - timezone</span></span>
+<span class=giallo-l><span style=color:#586e75;font-style:italic># - upload_max_filesize [ if you care ]</span></span></code></pre><ol start=8><li>Turn on the HotCRP site in your Apache configuration</ol><pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=shellscript><span class=giallo-l><span style=color:#586e75;font-style:italic># apache2: turn on hotcrp site</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> sh</span><span style=color:#cb4b16> -c</span><span style=color:#2aa198> 'cat >>/etc/apache2/conf-available/hotcrp.conf &lt;&lt;_EOF</span></span>
+<span class=giallo-l><span style=color:#2aa198>&lt;Directory "$(pwd -P)"></span></span>
+<span class=giallo-l><span style=color:#2aa198>    Options Indexes Includes FollowSymLinks</span></span>
+<span class=giallo-l><span style=color:#2aa198>    AllowOverride all</span></span>
+<span class=giallo-l><span style=color:#2aa198>    Require all granted</span></span>
+<span class=giallo-l><span style=color:#2aa198>&lt;/Directory></span></span>
+<span class=giallo-l><span style=color:#2aa198>Alias /YOUR-WORKSHOP $(pwd -P)</span></span>
+<span class=giallo-l><span style=color:#2aa198>_EOF</span></span>
+<span class=giallo-l><span style=color:#2aa198>'</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> a2enconf</span><span style=color:#859900> &lt;&lt;</span><span>EOF</span></span>
+<span class=giallo-l><span style=color:#2aa198>hotcrp</span></span>
+<span class=giallo-l><span>EOF</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> chgrp www-data conf/options.php</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> service apache2 reload</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> apache2ctl graceful</span></span></code></pre><p>…and you should now be able to access your hotcrp site at <a href=http://$%7BYOUR-DOMAIN%7D/$%7BYOUR-WORKSHOP%7D rel=external>http://${YOUR-DOMAIN}/${YOUR-WORKSHOP}</a><ol start=9><li>Use <a href=https://letsencrypt.org/ rel=external>Let’s Encrypt</a> to create and configure certificates for HTTPS support</ol><pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=shellscript><span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> apt install</span><span style=color:#cb4b16> -yy</span><span style=color:#2aa198> software-properties-common</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> add-apt-repository ppa:certbot/certbot</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> apt update</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> apt install</span><span style=color:#cb4b16> -yy</span><span style=color:#2aa198> certbot-auto</span></span>
+<span class=giallo-l><span style=color:#268bd2>wget</span><span style=color:#2aa198> https://dl.eff.org/certbot-auto</span></span>
+<span class=giallo-l><span style=color:#268bd2>chmod</span><span style=color:#2aa198> a+x ./certbot-auto</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> ./certbot-auto</span><span style=color:#cb4b16> -n --os-packages-only</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> ./certbot-auto</span><span style=color:#cb4b16> -a</span><span style=color:#2aa198> webroot</span><span style=color:#cb4b16> -i</span><span style=color:#2aa198> apache</span><span style=color:#cb4b16> -w</span><span> $(</span><span style=color:#268bd2>pwd</span><span style=color:#cb4b16> -P</span><span>)</span><span style=color:#cb4b16> \</span></span>
+<span class=giallo-l><span style=color:#cb4b16>     --agree-tos --redirect --uir --hsts --staple-ocsp \</span></span>
+<span class=giallo-l><span style=color:#cb4b16>     -d</span><span style=color:#2aa198> YOUR-DOMAIN</span><span style=color:#cb4b16> --email</span><span style=color:#2aa198> YOUR-EMAIL</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> ./certbot-auto</span><span style=color:#cb4b16> --install-only</span></span></code></pre><ol start=10><li>Set permissions on the certificate directories</ol><pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=shellscript><span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> chgrp www-data /etc/letsencrypt/live</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> chmod g+rx /etc/letsencrypt/live</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> chgrp www-data /etc/letsencrypt/archive/</span></span>
+<span class=giallo-l><span style=color:#268bd2>sudo</span><span style=color:#2aa198> chmod g+rx /etc/letsencrypt/archive/</span></span></code></pre><p>End state is the Apache config looks something like the following, with unindented lines being those I added:<pre class=giallo style=color:#839496;background-color:#002b36><code data-lang=shellscript><span class=giallo-l><span style=color:#268bd2>$</span><span style=color:#2aa198> cat /etc/apache2/sites-available/hotcrp.conf</span></span>
+<span class=giallo-l><span style=color:#859900>&lt;</span><span>IfModule mod_ssl.c</span><span style=color:#859900>></span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#268bd2>SSLStaplingCache</span><span style=color:#2aa198> shmcb:/var/run/apache2/stapling_cache</span><span>(</span><span style=color:#268bd2>128000</span><span>)</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#859900>	&lt;</span><span style=color:#268bd2>VirtualHost</span><span style=color:#2aa198> _default_:44</span><span style=color:#859900>3></span></span>
+<span class=giallo-l><span style=color:#268bd2>		ServerAdmin</span><span style=color:#2aa198> webmaster@localhost</span></span>
+<span class=giallo-l><span style=color:#268bd2>		DocumentRoot</span><span style=color:#2aa198> /home/hotcrp/hotcrp</span></span>
+<span class=giallo-l><span style=color:#268bd2>		ErrorLog</span><span style=color:#859900> ${</span><span style=color:#268bd2>APACHE_LOG_DIR</span><span style=color:#859900>}</span><span style=color:#2aa198>/error.log</span></span>
+<span class=giallo-l><span style=color:#268bd2>		CustomLog</span><span style=color:#859900> ${</span><span style=color:#268bd2>APACHE_LOG_DIR</span><span style=color:#859900>}</span><span style=color:#2aa198>/access.log combined</span></span>
+<span class=giallo-l><span style=color:#268bd2>		SSLEngine</span><span style=color:#2aa198> on</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#268bd2>SSLCACertificateFile</span><span style=color:#2aa198> /etc/letsencrypt/live/hotcrp.sysws.org.uk/fullchain.pem</span></span>
+<span class=giallo-l><span style=color:#268bd2>SSLUseStapling</span><span style=color:#2aa198> on</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#859900>		&lt;</span><span style=color:#268bd2>FilesMatch</span><span style=color:#2aa198> "\.(cgi|shtml|phtml|php)$"</span><span style=color:#859900>></span></span>
+<span class=giallo-l><span style=color:#268bd2>				SSLOptions</span><span style=color:#2aa198> +StdEnvVars</span></span>
+<span class=giallo-l><span style=color:#859900>		&lt;</span><span style=color:#268bd2>/FilesMatch</span><span>></span></span>
+<span class=giallo-l><span style=color:#859900>		&lt;</span><span style=color:#268bd2>Directory</span><span style=color:#2aa198> /usr/lib/cgi-bi</span><span>n</span><span style=color:#859900>></span></span>
+<span class=giallo-l><span style=color:#268bd2>				SSLOptions</span><span style=color:#2aa198> +StdEnvVars</span></span>
+<span class=giallo-l><span style=color:#859900>		&lt;</span><span style=color:#268bd2>/Directory</span><span>></span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#268bd2>ServerName</span><span style=color:#2aa198> hotcrp.sysws.org.uk</span></span>
+<span class=giallo-l><span style=color:#268bd2>SSLCertificateFile</span><span style=color:#2aa198> /etc/letsencrypt/live/hotcrp.sysws.org.uk-0001/fullchain.pem</span></span>
+<span class=giallo-l><span style=color:#268bd2>SSLCertificateKeyFile</span><span style=color:#2aa198> /etc/letsencrypt/live/hotcrp.sysws.org.uk-0001/privkey.pem</span></span>
+<span class=giallo-l><span style=color:#268bd2>Include</span><span style=color:#2aa198> /etc/letsencrypt/options-ssl-apache.conf</span></span>
+<span class=giallo-l><span style=color:#268bd2>Header</span><span style=color:#2aa198> always set Strict-Transport-Security "max-age=31536000"</span></span>
+<span class=giallo-l><span style=color:#268bd2>Header</span><span style=color:#2aa198> always set Content-Security-Policy upgrade-insecure-requests</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#859900>	&lt;</span><span style=color:#268bd2>/VirtualHost</span><span>></span></span>
+<span class=giallo-l><span style=color:#859900>&lt;</span><span>/IfModule</span><span style=color:#859900>></span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span style=color:#268bd2>11.</span><span style=color:#2aa198> Add DNS entry for the name assigned</span><span> (in</span><span style=color:#2aa198> my case, `</span><span style=color:#268bd2>hotcrp.DOMAIN</span><span style=color:#2aa198>`</span><span>).</span></span></code></pre><nav><div><a href=https://mort.io/blog/software-folklore/>‹ Software folklore</a></div><div><a href=https://mort.io/blog/tar-includes/> Tarballing some files ›</a></div></nav></article></main><footer><hr><div class=c><nav class=tpad><div><a title="mort’s mythopœia Atom Feed" href=https://mort.io/atom.xml target=_blank type=application/atom+xml><i class="svg rss" title="mort’s mythopœia Atom Feed" type=Button></i></a><a title="mort’s mythopœia RSS Feed" href=https://mort.io/rss.xml target=_blank type=application/rss+xml><i class="svg rss" title="mort’s mythopœia RSS Feed" type=Button></i></a><a href=mailto:richard.mortier@cl.cam.ac.uk target=_blank title=Mail><i class="svg mail" title=Mail type=Button></i></a><a href=https://mastodon.me.uk/@mort rel=me target=_blank title=Mastodon><i class="svg mastodon" title=Mastodon type=Button></i></a><a href=https://www.linkedin.com/in/richard-mortier/ target=_blank title=LinkedIn><i class="svg linkedin" title=LinkedIn type=Button></i></a><a href=https://github.com/mor1/ target=_blank title=Github><i class="svg github" title=Github type=Button></i></a><a href=https://hub.docker.com/u/mor1/ target=_blank title=Docker><i class="svg docker" title=Docker type=Button></i></a><a href="https://www.youtube.com/playlist?list=PLkRF0fgqvvMx5Owh1QgilmExGQe58go_u" target=_blank title=YouTube><i class="svg youtube" title=YouTube type=Button></i></a></div></nav><nav class=vpad><a class=rpad href=https://mort.io/sitemap.xml target=_blank> sitemap </a><a class=rpad href=https://mort.io/tags/> tags </a></nav><p class=s90>mort’s mythopœia © 2013—<span id=year>2026</span> Richard Mortier</div></footer>
