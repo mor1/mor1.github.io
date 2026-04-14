@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>mort’s mythopœia - android</title>
+      <link>https://mort.io</link>
+      <description>with apologies</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mort.io/tags/android/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Thu, 21 May 2015 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Rescuing a Shattered Nexus 4</title>
+          <pubDate>Thu, 21 May 2015 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/nexus-4-rescue/</link>
+          <guid>https://mort.io/blog/nexus-4-rescue/</guid>
+          <description xml:base="https://mort.io/blog/nexus-4-rescue/">&lt;p&gt;A little while ago, before I’d done the smart thing and got myself a case for my
+Nexus 4, I dropped it a couple of inches onto a hard surface at the wrong angle.
+The screen promptly shattered – and this was bad because without the touch
+screen, I couldn’t interact with it, I had some photos on it from son#1 birthday
+party that hadn’t been copied off, and I hadn’t got round to enabling USB access
+to the filesystem or any of the debug&#x2F;developer options.&lt;&#x2F;p&gt;
+&lt;p&gt;So what to do? I &lt;em&gt;really&lt;&#x2F;em&gt; didn’t want to lose those photos. A couple of hours
+searching the Interwebs and a little bit of experimentation later, and I managed
+it. Basically, download and apply the clockwork mod bootloader, and this turns
+on the developer options that allow access to the filesystem via the Android SDK
+tools. To find out the details, read on…&lt;&#x2F;p&gt;
+&lt;p&gt;First, download the recovery image:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; wget http:&#x2F;&#x2F;download2.clockworkmod.com&#x2F;recoveries&#x2F;recovery-clockwork-touch-6.0.3.1-mako.img&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Next, install the Android SDK – I’m on OSX using [Homebrew][] so I do:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; brew install android-sdk&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now, power off and disconnect the phone! Then boot it into fastboot mode by
+holding down &lt;code&gt;power&lt;&#x2F;code&gt; and &lt;code&gt;volume-down&lt;&#x2F;code&gt;. Once it boots you should be in the
+fastboot list – the volume keys will cycle you through the list. You should now
+also be able to see the device once connected to USB, and you can then OEM
+unlock it:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; sudo fastboot devices&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -l&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;04f02d4bdcd3b6e2&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;       fastboot usb:FD123000&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; sudo fastboot oem unlock&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;OKAY&lt;&#x2F;span&gt;&lt;span&gt; [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; 17.937s]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;finished.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; total time: 17.937s&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Having unlocked it, you can now install the clockwork recovery bootloader you
+downloaded (assuming it’s in the local directory):&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; sudo fastboot flash recovery recovery-clockwork-touch-6.0.3.1-mako.img&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sending&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;#39;recovery&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt; (7560&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; KB&lt;&#x2F;span&gt;&lt;span&gt;)...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;OKAY&lt;&#x2F;span&gt;&lt;span&gt; [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  0.526s]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;writing&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;#39;recovery&amp;#39;...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;OKAY&lt;&#x2F;span&gt;&lt;span&gt; [&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  0.448s]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;finished.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; total time: 0.975s&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;When you now use the volume keys to cycle through the list, you should now see
+&lt;strong&gt;recovery mode&lt;&#x2F;strong&gt; as an option – select it, and you should be able to see the
+device listed in the usual way via &lt;code&gt;adb&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; mort@greyjay:phone&lt;&#x2F;span&gt;&lt;span&gt;$;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; adb devices&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -l&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;List&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; of devices attached&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;04f02d4bdcd3b6e2&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;       recovery usb:FD123000 product:occam model:Nexus_4 device:mako&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Finally, pull all the contents off the sdcard:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; adb pull &#x2F;sdcard&#x2F;0 .&#x2F;sdcard&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; adb pull &#x2F;data&#x2F; .&#x2F;data&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; adb pull &#x2F;system&#x2F; .&#x2F;system&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;…and that’s it – you should now have a local copy of everything off the
+phone, and you can send it away for repair (or whatever you feel like
+otherwise), possibly while sobbing quietly.&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

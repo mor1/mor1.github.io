@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>mort’s mythopœia - ocaml</title>
+    <subtitle>with apologies</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://mort.io/tags/ocaml/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://mort.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-02-07T00:00:00+00:00</updated>
+    <id>https://mort.io/tags/ocaml/atom.xml</id>
+    <entry xml:lang="en">
+        <title>`just` OCaml</title>
+        <published>2025-02-07T00:00:00+00:00</published>
+        <updated>2025-02-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/just-ocaml/"/>
+        <id>https://mort.io/blog/just-ocaml/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/just-ocaml/">&lt;p&gt;In similar vein to a &lt;a href=&quot;&#x2F;blog&#x2F;just-latex&quot;&gt;recent post&lt;&#x2F;a&gt;, I have also started using
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;just.systems&#x2F;&quot;&gt;&lt;code&gt;just&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; when I periodically need to rebuild my
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;ocaml.org&#x2F;&quot;&gt;OCaml&lt;&#x2F;a&gt; tool&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocal&quot;&gt;&lt;code&gt;ocal&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;. So
+I ended up replacing the old
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocal&#x2F;blob&#x2F;6bb129627f9d1f27ab31cee810013b362ab80067&#x2F;Makefile&quot;&gt;&lt;code&gt;Makefile&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;
+with a shiny new
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocal&#x2F;blob&#x2F;8ef8631ae5bbe0315e359d725d467e7d0403fd31&#x2F;Justfile&quot;&gt;&lt;code&gt;Justfile&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;As it also proved useful in another (more esoteric) tool I wrote &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;cst-tools&quot;&gt;for parsing
+out exam results for my students so I can paste into email
+easily&lt;&#x2F;a&gt;, I thought I’d put it here for the
+record. So here it is…&lt;&#x2F;p&gt;
+&lt;p&gt;Usual preamble of course:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;_&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;default&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;    @&lt;&#x2F;span&gt;&lt;span&gt;just --list&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then set some common variables:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;PWD&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; :=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; env&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;PWD&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;DOCDIR&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; :=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;_build&#x2F;default&#x2F;_doc&#x2F;_html&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;BUILDDIR&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; :=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;_build&#x2F;install&#x2F;default&#x2F;bin&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then set the target — the tool name, in this case &lt;code&gt;ocal&lt;&#x2F;code&gt; (so named as this is
+an OCaml re-implementation of a tool approximating the trad Unix
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Cal_(command)&quot;&gt;&lt;code&gt;cal&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; tool):&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;TARGET&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; :=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;ocal&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now for the actually useful stuff: some targets. Mostly these just call out to
+&lt;code&gt;dune&lt;&#x2F;code&gt; but in a way I find more intuitive.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# build targets&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;build&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune build @all&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# cleanup&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;clean&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune &lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;clean&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# uninstall targets&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;uninstall&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune uninstall&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# run any tests&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;test&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune runtest&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# format sources&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;format&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune fmt&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Some compound calls next.&lt;&#x2F;p&gt;
+&lt;p&gt;First, before building we might need to install dependencies, so do so in the
+time-honoured fashion:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# install dependencies&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;depends&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    opam install --yes dune-release odoc&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    opam install --yes . --deps-only&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Next, to install I first build ready to install, then symlink the resulting
+binary into the right place in my home directory:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# install targets&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;install&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; build&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune build @install&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    ln -sf &lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;{{PWD}}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;{{BUILDDIR}}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;{{TARGET}}&lt;&#x2F;span&gt;&lt;span&gt; ~&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;.local&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;bin&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;To lint all the things, invoke &lt;code&gt;dune&lt;&#x2F;code&gt; twice:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# lint everything&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;lint&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune build @lint&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune-release lint&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Similarly, to build the docs, build &lt;em&gt;all&lt;&#x2F;em&gt; the docs:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# build docs&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;doc&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune build @doc&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune build @doc-private&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Try to open the docs on Linux and if that fails, on MacOS:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# open the docs for reading&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;read&lt;&#x2F;span&gt;&lt;span&gt;: doc&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    handlr open &lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;{{DOCDIR}}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;index.html &lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;||&lt;&#x2F;span&gt;&lt;span&gt; open &lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;{{DOCDIR}}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Finally, tag and create a release; not actually done this in ages so no idea if
+&lt;code&gt;dune-release&lt;&#x2F;code&gt; invocations are still a thing, let alone correct!&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;Just&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# tag and create a release&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;release&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune-release tag&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    dune-release -vv&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;Largely due to &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;nixos.org&#x2F;&quot;&gt;NixOS&lt;&#x2F;a&gt; upgrades moving tools into
+different locations. &lt;a href=&quot;#fr-1-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Platforms, Packaging, Progress— Addendum</title>
+        <published>2017-09-01T00:00:00+00:00</published>
+        <updated>2017-09-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/topkg-addendum/"/>
+        <id>https://mort.io/blog/topkg-addendum/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/topkg-addendum/">&lt;p&gt;This is a short addendum to my &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;mort.io&#x2F;blog&#x2F;2017&#x2F;08&#x2F;28&#x2F;past-present-future&#x2F;&quot;&gt;post of a couple of days
+ago&lt;&#x2F;a&gt; caused by my
+carelessness in writing the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocal&#x2F;blob&#x2F;13a9a7f5b8f2e0be4c2b55941a00a885df202cf8&#x2F;ocal.opam#L16-L22&quot;&gt;OPAM
+file&lt;&#x2F;a&gt;.
+Careful readers will observe the lack of any dependency on &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;pqwy&#x2F;notty&#x2F;&quot;&gt;notty&lt;&#x2F;a&gt;. Read on for
+what happened next…&lt;&#x2F;p&gt;
+&lt;p&gt;The result of this carelessness was that everything worked just fine locally,
+but &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ocaml&#x2F;opam-repository&#x2F;pull&#x2F;10176&quot;&gt;my PR to the OPAM package
+repository&lt;&#x2F;a&gt; failed. Cue
+much wailing and gnashing of teeth.&lt;&#x2F;p&gt;
+&lt;p&gt;However, thanks to a moment’s assistance
+from &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;erratique.ch&#x2F;contact.en&quot;&gt;Daniel Bünzli&lt;&#x2F;a&gt;, this was easy to fix:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; git checkout&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 0.2.0&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;       # checkout the relevant release version tag&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; topkg opam pkg&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;           # create the release metadata&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; e _build&#x2F;ocal.0.2.0&#x2F;opam&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # invoke editor so I can add the missing dep&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; topkg opam submit&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;        # submit the updated OPAM metadata, updating the PR&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;Submitting&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; _build&#x2F;ocal.0.2.0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[ocal-0.2.0.tbz] http:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocal&#x2F;releases&#x2F;download&#x2F;0.2.0&#x2F;ocal-0.2.0.tbz downloaded&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;Updating&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; existing pull-request&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; #10176&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;Pull-requested:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; https:&#x2F;&#x2F;github.com&#x2F;ocaml&#x2F;opam-repository&#x2F;pull&#x2F;10176&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;For me, the main thing to note here is that the OPAM metadata in the repo at the
+commit ref tagged for release doesn’t match that which OPAM uses to install the
+release. But as &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;seb.mondet.org&#x2F;&quot;&gt;Sebastien Mondet&lt;&#x2F;a&gt; pointed out to me,
+this is neither relevant nor (in the long term) likely, as (e.g.) version
+constraints on dependencies may need to be added to old versions of dependent
+packages to keep them working. (Though I did add and commit the dependency to
+&lt;code&gt;master&lt;&#x2F;code&gt;, naturally.)&lt;&#x2F;p&gt;
+&lt;p&gt;So, all-in-all, an easy fix to a common problem. Which is the way it should
+be…&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Platforms, Packaging, Progress</title>
+        <published>2017-08-28T00:00:00+00:00</published>
+        <updated>2017-08-28T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/past-present-future/"/>
+        <id>https://mort.io/blog/past-present-future/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/past-present-future/">&lt;p&gt;I recently decided to refresh and update my &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocal&#x2F;&quot;&gt;ocal&lt;&#x2F;a&gt; package,&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; primarily to
+port it to use the excellent &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;pqwy&#x2F;notty&#x2F;&quot;&gt;notty&lt;&#x2F;a&gt; before adding support for indicating
+week-of-year. At the same time, I took the opportunity to update the build
+infrastructure now that the OCaml world has some shiny new packaging and build
+tools to go with &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ocaml&#x2F;opam&#x2F;&quot;&gt;OPAM&lt;&#x2F;a&gt;, namely &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;dbuenzli&#x2F;topkg&#x2F;&quot;&gt;&lt;code&gt;topkg&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; and &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;janestreet&#x2F;jbuilder&#x2F;&quot;&gt;&lt;code&gt;jbuilder&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;. So, starting
+from &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;github.com&#x2F;djs55&#x2F;&quot;&gt;Dave Scott’s&lt;&#x2F;a&gt; &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;mirage.io&#x2F;wiki&#x2F;packaging&quot;&gt;wiki entry&lt;&#x2F;a&gt; about how to package &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;mirage.io&#x2F;&quot;&gt;Mirage&lt;&#x2F;a&gt; libraries,
+here’s what I had to do…&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;remove-oasis-remnants&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#remove-oasis-remnants&quot; aria-label=&quot;Anchor link for: remove-oasis-remnants&quot;&gt;Remove Oasis remnants&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; rm _oasis setup.ml Makefile&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; _tags myocamlbuild.ml .merlin&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;mv&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; ocal.opam&#x2F;opam o&lt;&#x2F;span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; git&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; rm&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -rf&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; ocal.opam&lt;&#x2F;span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; mv&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; o ocal.opam&lt;&#x2F;span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; git&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; add ocal.opam&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;cat&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; .gitignore&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;lt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;_EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;_build&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;*.merlin&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;*.install&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;_EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Although we’re removing the &lt;code&gt;ocal.opam&#x2F;descr&lt;&#x2F;code&gt; file, we’re not going to lose the
+content: we’re going to let &lt;code&gt;topkg opam pkg&lt;&#x2F;code&gt; use its default &lt;code&gt;--readme&lt;&#x2F;code&gt; option
+to extract the relevant info from the first marked up section of the
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocal&#x2F;blob&#x2F;0.2.0&#x2F;README.md&quot;&gt;&lt;code&gt;README.md&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;font-weight: bold;&quot;&gt;# ocal — An improved Unix &lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;`cal`&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;font-weight: bold;&quot;&gt; utility&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;%%VERSION%%&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;A replacement for the standard Unix &lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;`cal`&lt;&#x2F;span&gt;&lt;span&gt; utility. Partly because I could,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;partly because I&amp;#39;d become too irritated with its command line interface.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We also remove but don’t lose the functionality of the &lt;code&gt;.merlin&lt;&#x2F;code&gt; and OPAM
+&lt;code&gt;ocal.install&lt;&#x2F;code&gt; files, as &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;janestreet&#x2F;jbuilder&#x2F;&quot;&gt;jbuilder&lt;&#x2F;a&gt; will generate them for us.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;create-src-jbuild-file&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#create-src-jbuild-file&quot; aria-label=&quot;Anchor link for: create-src-jbuild-file&quot;&gt;Create &lt;code&gt;src&#x2F;jbuild&lt;&#x2F;code&gt; file&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;cat&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; src&#x2F;jbuild&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;lt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;_EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;(jbuild_version 1)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;(executable&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; ((public_name ocal)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  (package     ocal)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  (name        main)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  (libraries&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;   (&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    astring&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    calendar&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    cmdliner&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    notty&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    notty.unix&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    ))&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  (flags (:standard -w &amp;quot;A-44-48-52&amp;quot; -safe-string))&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  ))&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;_EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This corresponds to the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocal&#x2F;releases&#x2F;tag&#x2F;0.2.0&quot;&gt;0.2.0&lt;&#x2F;a&gt;
+release of &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocal&#x2F;&quot;&gt;ocal&lt;&#x2F;a&gt;. Note that the &lt;code&gt;name&lt;&#x2F;code&gt; parameter refers to the module that
+contains the entrypoint for the executable, and that we turn on all warnings
+(&lt;code&gt;A&lt;&#x2F;code&gt;) except for three that we wish to ignore:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;44&lt;&#x2F;code&gt;: Open statement shadows an already defined identifier.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;48&lt;&#x2F;code&gt;: Implicit elimination of optional arguments.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;52&lt;&#x2F;code&gt;: (see 8.5.1) Fragile constant pattern.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;After I did some tidying up of the code to deal with the newly imposed warnings,
+&lt;code&gt;make&lt;&#x2F;code&gt; and &lt;code&gt;make install&lt;&#x2F;code&gt; satisfactorily (and quickly!) used &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;janestreet&#x2F;jbuilder&#x2F;&quot;&gt;jbuilder&lt;&#x2F;a&gt; to
+build and install the executable as &lt;code&gt;~&#x2F;.opam&#x2F;system&#x2F;bin&#x2F;ocal&lt;&#x2F;code&gt; (thanks to the
+&lt;code&gt;public_name&lt;&#x2F;code&gt; stanza in the &lt;code&gt;src&#x2F;jbuild&lt;&#x2F;code&gt; file, above). &lt;code&gt;make uninstall&lt;&#x2F;code&gt; then
+caused &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;janestreet&#x2F;jbuilder&#x2F;&quot;&gt;jbuilder&lt;&#x2F;a&gt; to remove it, before I &lt;code&gt;opam&lt;&#x2F;code&gt; pinned it and then reinstall
+through &lt;code&gt;opam&lt;&#x2F;code&gt; to check that workflow worked as well:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;opam&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; remove ocal&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;opam&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; pin add&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -yn --dev-repo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; ocal .&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;opam&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; install ocal&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;create-the-topkg-skeletons&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#create-the-topkg-skeletons&quot; aria-label=&quot;Anchor link for: create-the-topkg-skeletons&quot;&gt;Create the &lt;code&gt;topkg&lt;&#x2F;code&gt; skeletons&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Having refreshed the basic build infrastructure, next it’s time to update the
+packaging workflow. For a simple library we could use the automatic
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;janestreet&#x2F;jbuilder&#x2F;&quot;&gt;jbuilder&lt;&#x2F;a&gt;&#x2F;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;dbuenzli&#x2F;topkg&#x2F;&quot;&gt;topkg&lt;&#x2F;a&gt; plugin per the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;mirage.io&#x2F;wiki&#x2F;packaging&quot;&gt;wiki entry&lt;&#x2F;a&gt;:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;mkdir&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; pkg&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;cat&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; pkg&#x2F;pkg.ml&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;lt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;_EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;#!&#x2F;usr&#x2F;bin&#x2F;env ocaml&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;#use &amp;quot;topfind&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;#require &amp;quot;topkg-jbuilder.auto&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;_EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;However, this isn’t a library so we don’t have documentation to build so we
+don’t bother with the &lt;code&gt;odoc&lt;&#x2F;code&gt; skeleton. As a result we also need to customise
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocal&#x2F;blob&#x2F;0.2.0&#x2F;pkg&#x2F;pkg.ml&quot;&gt;&lt;code&gt;pkg&#x2F;pkg.ml&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; so as to stop &lt;code&gt;topkg publish&lt;&#x2F;code&gt; failing when it can’t build docs:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;ocaml&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;#!&#x2F;usr&#x2F;bin&#x2F;env ocaml&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;&quot;&gt;#&lt;&#x2F;span&gt;&lt;span&gt;use &lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;topfind&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;#require &lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;topkg-jbuilder&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt;open&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; Topkg&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; publish&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; =&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #D33682;&quot;&gt;  Pkg&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;publish&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt; ~&lt;&#x2F;span&gt;&lt;span style=&quot;color: #B58900;&quot;&gt;artefacts&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #93A1A1;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span&gt;`&lt;&#x2F;span&gt;&lt;span style=&quot;color: #93A1A1;&quot;&gt;Distrib] ()&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span style=&quot;color: #93A1A1;&quot;&gt; ()&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; =&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #D33682;&quot;&gt;  Topkg_jbuilder&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;describe&lt;&#x2F;span&gt;&lt;span style=&quot;color: #DC322F;&quot;&gt; ~&lt;&#x2F;span&gt;&lt;span style=&quot;color: #B58900;&quot;&gt;publish&lt;&#x2F;span&gt;&lt;span style=&quot;color: #93A1A1;&quot;&gt; ()&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;prepare-a-release&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#prepare-a-release&quot; aria-label=&quot;Anchor link for: prepare-a-release&quot;&gt;Prepare a release&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Finally, we follow the standard &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;dbuenzli&#x2F;topkg&#x2F;&quot;&gt;topkg&lt;&#x2F;a&gt; workflow to prepare a release. First,
+add an entry to &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocal&#x2F;blob&#x2F;0.2.0&#x2F;CHANGES.md&quot;&gt;&lt;code&gt;CHANGES.md&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; with the correct formatting and commit the
+result, and then:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;make&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;distrib&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;	[ -x &lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$$&lt;&#x2F;span&gt;&lt;span&gt;(opam config var root)&#x2F;plugins&#x2F;opam-publish&#x2F;repos&#x2F;ocal ] || &lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt;\&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;	  opam-publish repo add ocal mor1&#x2F;ocal&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;	topkg tag&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;	topkg distrib&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;…which creates tokens for accessing the GitHub repo for this project (if they
+don’t already exist), creates a release tag based on entries in &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocal&#x2F;blob&#x2F;0.2.0&#x2F;CHANGES.md&quot;&gt;&lt;code&gt;CHANGES.md&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;,
+and then creates the release tarballs (without the edits to &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocal&#x2F;blob&#x2F;0.2.0&#x2F;pkg&#x2F;pkg.ml&quot;&gt;&lt;code&gt;pkg&#x2F;pkg.ml&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; this
+would also build the docs, but we have none).&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;publish-a-release&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#publish-a-release&quot; aria-label=&quot;Anchor link for: publish-a-release&quot;&gt;Publish a release&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Finally, we publish the release to GitHub and issue a pull request to
+the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ocaml&#x2F;opam&#x2F;&quot;&gt;OPAM repository&lt;&#x2F;a&gt; to add the new release into OPAM after linting and
+tests have passed.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;make&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;publish&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;	topkg publish&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;	topkg opam pkg&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;	topkg opam submit&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Given that this repo has only a single package, we could in fact simply issue&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;topkg tag &amp;amp;&amp;amp; topkg bistro&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Also, as an alternative to customising the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocal&#x2F;blob&#x2F;0.2.0&#x2F;pkg&#x2F;pkg.ml&quot;&gt;&lt;code&gt;pkg&#x2F;pkg.ml&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; as indicated above, we
+could simply remember to indicate the appropriate customisation on the command
+line:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;topkg publish distrib&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;…but &lt;code&gt;topkg bistro&lt;&#x2F;code&gt; wouldn’t then work.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#conclusion&quot; aria-label=&quot;Anchor link for: conclusion&quot;&gt;Conclusion&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;So that’s it: a simple executable distribution taken from old-school &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;oasis.forge.ocamlcore.org&#x2F;&quot;&gt;Oasis&lt;&#x2F;a&gt; and
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;ocaml.org&#x2F;learn&#x2F;tutorials&#x2F;ocamlbuild&#x2F;&quot;&gt;OCamlBuild&lt;&#x2F;a&gt; infrastructure to shiny new modern &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;janestreet&#x2F;jbuilder&#x2F;&quot;&gt;jbuilder&lt;&#x2F;a&gt; and &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;dbuenzli&#x2F;topkg&#x2F;&quot;&gt;topkg&lt;&#x2F;a&gt;. The new
+scheme seems to me to be an improvement: faster build times, simpler (to my
+eyes) metadata, autogeneration of more of the repeated metadata (&lt;code&gt;.merlin&lt;&#x2F;code&gt; etc),
+and a reasonably simple &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;ocal&#x2F;blob&#x2F;0.2.0&#x2F;Makefile&quot;&gt;&lt;code&gt;Makefile&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; that I actually think I understand.
+Definitely progress :)&lt;&#x2F;p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;A somewhat over-featured replacement for the standard UNIX &lt;code&gt;cal&lt;&#x2F;code&gt; utility,
+because I got irritated by its American-centricity and my
+initial &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;python-scripts&#x2F;blob&#x2F;master&#x2F;cal.py&quot;&gt;Python replacement&lt;&#x2F;a&gt; was just too slow… &lt;a href=&quot;#fr-1-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Begin, Again!</title>
+        <published>2015-01-15T00:00:00+00:00</published>
+        <updated>2015-01-15T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/begin-again/"/>
+        <id>https://mort.io/blog/begin-again/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/begin-again/">&lt;p&gt;Specifically, I’ve left &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.horizon.ac.uk&quot;&gt;Horizon&lt;&#x2F;a&gt; and the
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.cs.nott.ac.uk&quot;&gt;School of Computer Science&lt;&#x2F;a&gt; at the
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.nottingham.ac.uk&quot;&gt;University of Nottingham&lt;&#x2F;a&gt; to (re-)join the
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.cam.ac.uk&quot;&gt;Cambridge University&lt;&#x2F;a&gt;
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.cl.cam.ac.uk&quot;&gt;Computer Laboratory&lt;&#x2F;a&gt;. In celebration, and frankly
+because it was long overdue anyway, I’ve reworked my website. What do you think?&lt;&#x2F;p&gt;
+&lt;p&gt;For the curious, or the technically inclined, the site now uses
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;foundation.zurb.com&#x2F;&quot;&gt;ZURB Foundation&lt;&#x2F;a&gt; 5.5.0 (the current downloadable release as of
+yesterday), with some slightly customised CSS. The site itself is largely
+written in &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;daringfireball.net&#x2F;projects&#x2F;markdown&#x2F;&quot;&gt;Markdown&lt;&#x2F;a&gt; and currently generated using
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;jekyllrb.com&#x2F;&quot;&gt;Jekyll&lt;&#x2F;a&gt; to be hosted on &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;github.com&quot;&gt;Github&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;It’s actually gone through an interim phase where it was parsed by the OCaml
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;pw347&#x2F;omd&quot;&gt;OMD&lt;&#x2F;a&gt; parser before being crunched into a &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mirage&#x2F;mirage-types&quot;&gt;Mirage KV_RO&lt;&#x2F;a&gt;
+filesystem which is then compiled into a type-safe, self-contained web appliance
+that serves these pages and no other using the OCaml &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mirage&#x2F;cowabloga&quot;&gt;Cowabloga&lt;&#x2F;a&gt;, &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mirage&#x2F;ocaml-cow&quot;&gt;COW&lt;&#x2F;a&gt; and
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mirage&#x2F;ocaml-cohttp&quot;&gt;CoHTTP&lt;&#x2F;a&gt; libraries. This could either be run as a &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mirage&#x2F;mirage-platform&#x2F;tree&#x2F;master&#x2F;unix&quot;&gt;POSIX binary&lt;&#x2F;a&gt;
+or a self-contained &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mirage&#x2F;mirage-platform&#x2F;tree&#x2F;master&#x2F;xen&quot;&gt;Xen VM&lt;&#x2F;a&gt; depending on what I felt like. Neat eh?
+(And for the sceptical among you, yes, a thing &lt;em&gt;can&lt;&#x2F;em&gt; be neat and yet appear
+curiously over-engineered at the same time… :)&lt;&#x2F;p&gt;
+&lt;p&gt;For the time being however, I’m using it as an excuse to think about what I
+might do to better support site generation like this in &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mirage&#x2F;cowabloga&quot;&gt;Cowabloga&lt;&#x2F;a&gt; so that I
+can more seamlessly switch between &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;jekyllrb.com&#x2F;&quot;&gt;Jekyll&lt;&#x2F;a&gt; and &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;openmirage.org&#x2F;&quot;&gt;Mirage&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>A 21st Century IDE</title>
+        <published>2013-10-13T00:00:00+00:00</published>
+        <updated>2013-10-13T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/21st-century-ide/"/>
+        <id>https://mort.io/blog/21st-century-ide/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/21st-century-ide/">&lt;p&gt;I finally decided to sit down and get the shiny new &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;kiwi.iuwt.fr&#x2F;~asmanur&#x2F;blog&#x2F;merlin&#x2F;&quot;&gt;merlin&lt;&#x2F;a&gt; mode for OCaml
+working with my emacs configuration. Basically, really rather simple in the end
+although (in the usual fashion!) I did end up spending considerable time
+tweaking various other customisations…&lt;&#x2F;p&gt;
+&lt;p&gt;Most of the information below is based on the following sources:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;github.com&#x2F;def-lkb&#x2F;merlin#emacs-interface&quot;&gt;http:&#x2F;&#x2F;github.com&#x2F;def-lkb&#x2F;merlin#emacs-interface&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;zheng.li&#x2F;buzzlogs-ocaml&#x2F;2013&#x2F;08&#x2F;23&#x2F;irc.html&quot;&gt;http:&#x2F;&#x2F;zheng.li&#x2F;buzzlogs-ocaml&#x2F;2013&#x2F;08&#x2F;23&#x2F;irc.html&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.ocamlpro.com&#x2F;blog&#x2F;2013&#x2F;03&#x2F;18&#x2F;monthly-03.html&quot;&gt;http:&#x2F;&#x2F;www.ocamlpro.com&#x2F;blog&#x2F;2013&#x2F;03&#x2F;18&#x2F;monthly-03.html&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Before we begin, install &lt;code&gt;merlin&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ opam install merlin&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The complete &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;rc-files&#x2F;commit&#x2F;4a2b0be59081d6df0640af39b48c75c20443c8dc&quot;&gt;commit&lt;&#x2F;a&gt; change is in my &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;github.com&#x2F;mor1&quot;&gt;github&lt;&#x2F;a&gt; account (combined with a
+large cleanup of various other aborted OCaml configurations). Breaking it down a
+bit, first setup some paths: where to find &lt;code&gt;ocp-indent&lt;&#x2F;code&gt;, &lt;code&gt;merlin.el&lt;&#x2F;code&gt; for
+&lt;code&gt;merlin-mode&lt;&#x2F;code&gt;, and the &lt;code&gt;ocamlmerlin&lt;&#x2F;code&gt; command itself. Note that this relies on
+the current state of &lt;code&gt;opam&lt;&#x2F;code&gt;, so when you start &lt;code&gt;emacs&lt;&#x2F;code&gt; be sure to have selected
+the &lt;code&gt;opam&lt;&#x2F;code&gt; compiler-switch that you installed the &lt;code&gt;merlin&lt;&#x2F;code&gt; package into, above.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;common-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;;; ocp-indent&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(load-file (concat&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            (substring (shell-command-to-string &lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;opam config var prefix&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt;0 -1&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;            &amp;quot;&#x2F;share&#x2F;typerex&#x2F;ocp-indent&#x2F;ocp-indent.el&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            ))&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;;; merlin-mode&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #93A1A1;font-weight: bold;&quot;&gt;push&lt;&#x2F;span&gt;&lt;span&gt; (concat&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;       (substring (shell-command-to-string &lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;opam config var share&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt;0 -1&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;       &amp;quot;&#x2F;emacs&#x2F;site-lisp&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;       )&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      load-path)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #93A1A1;font-weight: bold;&quot;&gt;setq&lt;&#x2F;span&gt;&lt;span&gt; merlin-command&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      (concat&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;       (substring (shell-command-to-string &lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;opam config var bin&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt;0 -1&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;       &amp;quot;&#x2F;ocamlmerlin&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;       ))&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(autoload &lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;merlin-mode &lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;merlin&amp;quot; &amp;quot;Merlin mode&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #B58900;&quot;&gt; t&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now the meat: when we select &lt;code&gt;tuareg-mode&lt;&#x2F;code&gt;, use &lt;code&gt;ocp-indent&lt;&#x2F;code&gt; to indent lines,
+turn on &lt;code&gt;merlin&lt;&#x2F;code&gt; auto-complete, and finally set a couple of local key bindings
+so that I can fix up &lt;code&gt;merlin&lt;&#x2F;code&gt; to not conflict with my
+now-neurologically-hardwired navigation keys.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;common-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(add-hook &lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;tuareg-mode-hook&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;          &amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #93A1A1;font-weight: bold;&quot;&gt;lambda&lt;&#x2F;span&gt;&lt;span&gt; ()&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;             (merlin-mode)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;             (&lt;&#x2F;span&gt;&lt;span style=&quot;color: #93A1A1;font-weight: bold;&quot;&gt;setq&lt;&#x2F;span&gt;&lt;span&gt; indent-line-function &lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;ocp-indent-line)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;             (&lt;&#x2F;span&gt;&lt;span style=&quot;color: #93A1A1;font-weight: bold;&quot;&gt;setq&lt;&#x2F;span&gt;&lt;span&gt; merlin-use-auto-complete-mode &lt;&#x2F;span&gt;&lt;span style=&quot;color: #B58900;&quot;&gt;t&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;             (local-set-key (kbd &lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;C-S-&amp;lt;up&amp;gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;merlin-type-enclosing-go-up)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;             (local-set-key (kbd &lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;C-S-&amp;lt;down&amp;gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;merlin-type-enclosing-go-down)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;             ))&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Finally, do the usual to use &lt;code&gt;tuareg-mode&lt;&#x2F;code&gt; for OCaml&#x2F;F# editing.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;common-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(push&amp;#39;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt;\\&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;.ml[iylp]?&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; .&lt;&#x2F;span&gt;&lt;span&gt; tuareg-mode) auto-mode-alist)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #93A1A1;font-weight: bold;&quot;&gt;push&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; &amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt;\\&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;.fs[ix]?&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; .&lt;&#x2F;span&gt;&lt;span&gt; tuareg-mode) auto-mode-alist)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And that’s it!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
