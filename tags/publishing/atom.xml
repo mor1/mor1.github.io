@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>mort’s mythopœia - publishing</title>
+    <subtitle>with apologies</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://mort.io/tags/publishing/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://mort.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-04-05T00:00:00+00:00</updated>
+    <id>https://mort.io/tags/publishing/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Rewarding influence</title>
+        <published>2025-04-05T00:00:00+00:00</published>
+        <updated>2025-04-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/happy-day/"/>
+        <id>https://mort.io/blog/happy-day/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/happy-day/">&lt;p&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;2025.eurosys.org&#x2F;index.html&quot;&gt;EuroSys 2025&lt;&#x2F;a&gt; was co-located with &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.asplos-conference.org&#x2F;asplos2025&#x2F;&quot;&gt;ASPLOS
+2025&lt;&#x2F;a&gt; this year. Other
+commitments meant I (again) couldn’t stay for the whole conference, attending
+primarily because &lt;a href=&quot;..&#x2F;tdis-accepted&#x2F;&quot;&gt;two students had papers in the TDIS
+workshop&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+ &lt;img src=&quot;stage.jpg&quot; class=&quot;fl pd1&quot; alt=&quot;A photograph of me in a yellow t-shirt receiving the award&quot; width=&quot;480&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;p&gt;But happily I &lt;em&gt;was&lt;&#x2F;em&gt; able to stay for the first day of the conference –
+“happily” not only because it gave me a chance to catch up with some old friends
+I hadn’t seen in a decade or more, but also because &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;2451116.2451167&quot;&gt;the Mirage unikernels
+paper&lt;&#x2F;a&gt; which appeared at &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;asplos13.rice.edu&#x2F;&quot;&gt;ASPLOS
+2013&lt;&#x2F;a&gt; won one of two &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.asplos-conference.org&#x2F;asplos2025&#x2F;awards&#x2F;&quot;&gt;ASPLOS 2025 Influential Papers
+awards&lt;&#x2F;a&gt; :)&lt;&#x2F;p&gt;
+&lt;p&gt;This is obviously very flattering – typically doing research is necessarily its
+own reward because the work can seem fruitless much of the time. Even when a
+paper gets written and submitted it will most likely be rejected – I think
+EuroSys this year reported something like a 12% acceptance rate, so rejection is
+&lt;em&gt;a priori&lt;&#x2F;em&gt; the most likely outcome. Finally, if the paper does finally get
+accepted, it will most likely sink without trace – perhaps a brief flurry of
+interest for a few months or so, the paper gets cited a few times, and then it
+fades away. This seems inevitable in a reasonably fast moving field that is also
+growing at pace – EuroSys had ~160 attendees in 2006, growing to ~330 in the 10
+years to 2016, but hitting ~1100 this year; while submissions grew from ~200 in
+2019 to 696 this year.&lt;&#x2F;p&gt;
+ &lt;img src=&quot;official.jpg&quot; class=&quot;fr pd1&quot; alt=&quot;A photograph of the certificate&quot; width=&quot;320&quot; height=&quot;1&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;p&gt;So to win an award recognising that others feel a paper actually had some
+influence is rare, and makes me very happy :) At the same time, it reinforces a
+couple of lessons that I really should’ve internalised by now.&lt;&#x2F;p&gt;
+&lt;p&gt;The first is that papers inevitably get better for thoughtful considered
+feedback from experts a step or several away from the work – so drafts should
+be produced in plenty of time and distributed to anyone who’s willing to take
+the time for feedback. In the case of this paper the previous failed submission
+to &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.usenix.org&#x2F;conference&#x2F;osdi12&quot;&gt;OSDI 2012&lt;&#x2F;a&gt; had, let’s say, reviews
+of mixed quality. But one stood out, from Jon Howell (who signs his reviews so I
+know it was him), who gave us a firm “reject” which (in retrospect) was actually
+fairly well-deserved but in an incredibly constructive way. To paraphrase him
+slightly, the work was interesting but the paper was crap – &lt;em&gt;and here’s how to
+rewrite it so it makes sense&lt;&#x2F;em&gt;. We basically did what he said, ASPLOS accepted
+it, and the rest is now history. (Over a decade ago, good grief.)&lt;&#x2F;p&gt;
+&lt;p&gt;The second is that I simply cannot predict whether any research I’m doing is
+actually going to turn out to have any value. The only other equivalent award
+I’ve had was an &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;infocom2024.ieee-infocom.org&#x2F;awards&quot;&gt;INFOCOM 2024 Test of Time
+award&lt;&#x2F;a&gt; for &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;doi.org&#x2F;10.1109&#x2F;INFCOM.2012.6195845&quot;&gt;our 2012 paper on a
+system called &lt;em&gt;Thinkair&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;, about
+mobile-code offload from devices to the cloud. That paper had received
+considerably more than just one rejection prior to acceptance, and if I recall
+my final contribution correctly, I recommended not submitting it to INFOCOM as I
+didn’t think we’d done enough to address previous review comments.&lt;&#x2F;p&gt;
+&lt;p&gt;Shows what I know. But then, how boring would life be without a little
+ignorance… :)&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Not one but two accepted papers and a Ph.D.</title>
+        <published>2025-03-30T00:00:00+00:00</published>
+        <updated>2025-03-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/tdis-accepted/"/>
+        <id>https://mort.io/blog/tdis-accepted/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/tdis-accepted/">&lt;p&gt;As I find myself once more on a train to parts unknown (to me at least), a brief
+update :)&lt;&#x2F;p&gt;
+&lt;p&gt;The parts unknown in question is Rotterdam, NL (so really quite well-known to
+quite a lot of people, just not me) for &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;2025.eurosys.org&#x2F;&quot;&gt;EURO&#x2F;SYS
+2025&lt;&#x2F;a&gt; (being held jointly with &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.asplos-conference.org&#x2F;asplos2025&quot;&gt;ASPLOS
+2025&lt;&#x2F;a&gt;, although I can’t stay for
+the whole thing unfortunately) and specifically the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;tdis.gitlab.io&#x2F;tdis25&#x2F;&quot;&gt;3rd International Workshop
+of Testing Distributed Internet of Things Systems
+(TDIS)&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Why? Happily the programme committee decided to accept two papers from my
+(ex-)students – which is nice :) The two in question are&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3719159.3721222&quot;&gt;Reckon-ing Kubernetes at the Edge using Emulated
+Clusters&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; with Alessandro Sassi
+(University of Cambridge &#x2F; Politecnico di Milano) and Christopher Jensen
+(University of Cambridge &#x2F; Microsoft Research). This describes Alessandro’s
+M.Sc. research project undertaken as a visitor with my group. He built on
+Chris’ earlier work on &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3447851.3458739&quot;&gt;Reckon, an emulator setup for examining consensus
+system behaviour&lt;&#x2F;a&gt;. Alessandor
+extended this to use ContainerNet enabling it to emulate Kubernetes clusters
+on a single node, and used this to examine Kubernetes performance in some
+edge network scenarios. Source available on GitHub at
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;AleSassi&#x2F;reckon-k8s&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;AleSassi&#x2F;reckon-k8s&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3719159.3721221&quot;&gt;LoRaLive: Efficient LoRaWAN Traffic
+Generation&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; with Vadim Safronov
+(University of Oxford &#x2F; University of Cambridge). This reports a component of
+Vadim’s Ph.D. work where he built a system to enable dense deployment LoRaWAN
+trace-playback using a minimal number of nodes while respecting legal
+constraints on duty cycles. Source available on GitHub at
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;LoRaLive&#x2F;LoRaLive&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;LoRaLive&#x2F;LoRaLive&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Both nice tools that we hope might be of community interest!&lt;&#x2F;p&gt;
+&lt;p&gt;The Ph.D. in question is Chris Jensen’s – happily he passed his viva on
+Thursday just gone, titled “Separating conflict-recovery from failure-recovery
+in distributed consensus”, examined by &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;timharris.uk&#x2F;&quot;&gt;Tim Harris&lt;&#x2F;a&gt; and
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;charap.co&#x2F;&quot;&gt;Aleksey Charapko&lt;&#x2F;a&gt;. Other recent passes include Al-Amjad
+Tawfiq Isstaif, titled “Contention-resilient overcommitment for serverless
+deployments” and Andrew Jeffery, titled “Modelling orchestration”. The race&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;
+is now on for the first to &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cl.cam.ac.uk&#x2F;techreports&#x2F;&quot;&gt;tech
+report&lt;&#x2F;a&gt;…&lt;&#x2F;p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;It’s not really a race. That would be weird. &lt;a href=&quot;#fr-1-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Post-COVID19 TPC experience</title>
+        <published>2024-09-09T00:00:00+00:00</published>
+        <updated>2024-09-09T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/post-covid-tpc/"/>
+        <id>https://mort.io/blog/post-covid-tpc/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/post-covid-tpc/">&lt;p&gt;I do not participate in a huge number of TPCs (Technical Programme Committees)
+as a general rule– partly time constraints but mostly no-one knows who I am so
+I don’t often get asked… (!)&lt;&#x2F;p&gt;
+&lt;p&gt;I have done a few though, some big (e.g., &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.usenix.org&#x2F;conference&#x2F;nsdi15&quot;&gt;USENIX NSDI&lt;&#x2F;a&gt;, &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;conferences.sigcomm.org&#x2F;imc&#x2F;2018&#x2F;&quot;&gt;ACM IMC&lt;&#x2F;a&gt;),
+some small (&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;uksystems.org&#x2F;&quot;&gt;UK Systems&lt;&#x2F;a&gt;,
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;link.springer.com&#x2F;conference&#x2F;pam&quot;&gt;PAM&lt;&#x2F;a&gt;), and perhaps because I only do
+a couple every few years, while doing &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;conferences2.sigcomm.org&#x2F;co-next&#x2F;&quot;&gt;ACM
+CoNEXT&lt;&#x2F;a&gt; and &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;acm-ieee-sec.org&#x2F;list&#x2F;&quot;&gt;ACM&#x2F;IEEE
+SEC&lt;&#x2F;a&gt; this week, I found myself particularly
+noticing some changes in practice since that last TPCs I recall (notably
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.usenix.org&#x2F;conference&#x2F;nsdi15&quot;&gt;NSDI&lt;&#x2F;a&gt; and &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;conferences.sigcomm.org&#x2F;imc&#x2F;2018&#x2F;&quot;&gt;IMC&lt;&#x2F;a&gt;). So here are three observations.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;1-online-first-and-only&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#1-online-first-and-only&quot; aria-label=&quot;Anchor link for: 1-online-first-and-only&quot;&gt;1. Online, first and only&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;The biggest obvious change is that TPC meetings are now online rather than
+in-person. This has one big disadvantage for me: I really enjoyed travelling to
+the meeting to meet colleagues and (usually) participate in some TPC-oriented
+workshop with presentations of recent an in-progress work. In many ways, I found
+this sort of activity more interesting than the conference itself (sorry!). It
+also has the unfortunate effect that, at least for international TPCs, timezones
+make scheduling tricky – one benefit of travelling was that at least the
+meeting took place in localtime for (almost) everyone.&lt;&#x2F;p&gt;
+&lt;p&gt;However, it also has clear benefits: the CO2 footprint of the event is
+dramatically reduced which can only be a good thing. The financial cost
+reduction probably also opens up the experience to attendees who would never
+previously have been able to make it. I’ve rarely seen really poor meeting
+behaviour on the TPCs I’ve been involved in, but I also find that in an online
+meeting, chairing tends to be more easily more rigorous and the sometimes
+dominating effect of a single confident (perhaps I might say over-confident, or
+even just loud) individual is significantly reduced. Which is good.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2-offline-dominance&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#2-offline-dominance&quot; aria-label=&quot;Anchor link for: 2-offline-dominance&quot;&gt;2. Offline dominance&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;I now see &lt;strong&gt;dramatically&lt;&#x2F;strong&gt; more use being made of commenting and discussions in
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;read.seas.harvard.edu&#x2F;~kohler&#x2F;hotcrp&#x2F;&quot;&gt;HotCRP&lt;&#x2F;a&gt;, which remains the only
+conference management and paper reviewing platform I will willingly use (thanks
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Eddie_Kohler&quot;&gt;Eddie&lt;&#x2F;a&gt;!). I don’t know whether this
+is a post-pandemic effect, or just the fact that the old old guard has largely
+shuffled out of active TPC duties and we now have a new old guard (ie., people
+of my era) and younger who are perhaps happier to communicate and express views
+without needing to be in the same room.&lt;&#x2F;p&gt;
+&lt;p&gt;I think this is another dramatic improvement in process, and puts us in a
+similar place to how, for example, we handled marking final year undergraduate
+projects at &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.nottingham.ac.uk&#x2F;&quot;&gt;Nottingham University&lt;&#x2F;a&gt;. It means
+that discussion is recorded, and usually more coherently and explicitly argued
+due to the need to write it down.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;3-reduction-in-extremism&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#3-reduction-in-extremism&quot; aria-label=&quot;Anchor link for: 3-reduction-in-extremism&quot;&gt;3. Reduction in extremism&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;The one arguably slightly negative comment I would have is – and this is only
+my anecdotal impression, and not something I can pretend to have data on – that
+I think I see a tendency for reviewers to perhaps be a little less clear in
+their scoring. Once the across the board strong rejects (a fair number) and
+strong accepts (a much smaller number) were taken out, I saw an awful lot of
+weak reject (but happy to consider weak accept after discussion) and weak accept
+(but happy to consider weak reject after discussion). This made it quite hard
+for me, as another reviewer, sometimes to get a clear signal as to what the
+other reviews were recommending.&lt;&#x2F;p&gt;
+&lt;p&gt;This is a challenge I sometimes see in admissions interviewing: less experienced
+interviewers are sometimes  reluctant to give a clear signal, exhibiting instead
+a tendency to score near or perhaps just above the middle of the scale. (I
+remember doing this myself.) This feels more comfortable – putting one’s head
+above the parapet by taking a clear stance often feels more socially awkward
+than giving a “fine, ok, pretty good, sure” response, not least because it needs
+stronger supporting argument – but in the end I think it misses the point of
+being an interviewer &#x2F; a TPC member which is exactly to accept or reject papers
+based on having been recognised for your expertise.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;So in the end, two good points, two potential (but minor) negatives, and one
+completely unjustifiable and purely selfish negative. Which on the whole is a
+good thing. Though having come back to this after a break for a couple of years,
+I find I am even more sceptical of the whole process than I was. More later
+perhaps, once I get my thoughts in order.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Hosting HotCRP</title>
+        <published>2021-10-17T00:00:00+00:00</published>
+        <updated>2021-10-17T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/setup-hotcrp/"/>
+        <id>https://mort.io/blog/setup-hotcrp/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/setup-hotcrp/">&lt;p&gt;I once had cause to setup
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;read.seas.harvard.edu&#x2F;~kohler&#x2F;hotcrp&#x2F;&quot;&gt;HotCRP&lt;&#x2F;a&gt; for local hosting.
+Specifically on a local Lab-hosted VM image.  Some of what follows is specific
+to the CUCL VM hosting service, but I think most of it is HotCRP generic and so
+may be of use. Anyway, here’s the crib sheet, starting from
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;mbtech.github.io&#x2F;Setting-up-hotcrp&#x2F;&quot;&gt;https:&#x2F;&#x2F;mbtech.github.io&#x2F;Setting-up-hotcrp&#x2F;&lt;&#x2F;a&gt;…&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# setup some variables&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;YOUR-DOMAIN&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;hotcrp-test.cl.cam.ac.uk&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;YOUR-WORKSHOP&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;sysws18&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;YOUR-PASSWORD&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;mybestpassword&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;YOUR-EMAIL&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;postmaster@example.com&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;lab-specifics&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#lab-specifics&quot; aria-label=&quot;Anchor link for: lab-specifics&quot;&gt;Lab specifics&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Assume we start from a default Ubuntu template VM, and then…&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Configure the VM&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;cl-asuser&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; passwd&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # set UNIX password for sudo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# create some space&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; d&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; in&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;usr&#x2F;src&#x2F;*&lt;&#x2F;span&gt;&lt;span&gt; ;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; do&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #93A1A1;font-weight: bold;&quot;&gt;    export&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; K&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;$(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;uname&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -r&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; |&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; sed&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;#39;s&#x2F;-generic$&#x2F;&#x2F;&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;    echo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -n&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; $K $d&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; ...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;    case&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; $d&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; in&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;        &amp;quot;&#x2F;usr&#x2F;src&#x2F;linux-headers-&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$K&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; |&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;&#x2F;usr&#x2F;src&#x2F;linux-headers-&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;K&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;-generic&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; )&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;            echo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; keep&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            ;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;        * )&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;            echo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; remove&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;            sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; rm&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -rf&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; $d&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            ;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;    esac&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;done&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# THIS IS UNSAFE! BE CAREFUL! IT CALLS `sudo rm -rf`!&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; d&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; in&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;lib&#x2F;modules&#x2F;*&lt;&#x2F;span&gt;&lt;span&gt; ;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; do&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;    echo $d&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; ...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;    case&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; $d&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; in&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;        &amp;quot;&#x2F;lib&#x2F;modules&#x2F;$(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;uname&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -r&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;)&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; )&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;            echo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; keep&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            ;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;        * )&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;            echo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; remove&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;            sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; rm&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -rf&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; $d&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            ;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;    esac&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;done&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# if necessary, resize the partition. this shouldn&amp;#39;t be necessary with the new&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# VM image! if you need more than ~1GB space for papers, setup xvdb1&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; fdisk &#x2F;dev&#x2F;xvda&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;lt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;p&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;d&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;n&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;w&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; partprobe&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# resize the default filesystem to use the entire partition&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; resize2fs &#x2F;dev&#x2F;xvda1&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # blank SIZE means use whole partition&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Install packages&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# sort out packages&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #93A1A1;font-weight: bold;&quot;&gt;export&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; TZ&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;Europe&lt;&#x2F;span&gt;&lt;span&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;London&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apt update&lt;&#x2F;span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apt install&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; --no-install-recommends -qq -yy \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    apache2&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    ca-certificates&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    git&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    libapache2-mod-php&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    mailutils&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    mysql-server&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;    php-curl&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    php-json&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    php-mysql&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    poppler-utils&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    postfix&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    zip&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;Configure &lt;code&gt;postfix&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# configure postfix: accept defaults if offered, setup postfix to use ppsw&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; sed&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -i&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;#39;s&#x2F;relayhost =&#x2F;relayhost = ppsw.cam.ac.uk&#x2F;&amp;#39; &#x2F;etc&#x2F;postfix&#x2F;main.cf&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;etc&#x2F;init.d&#x2F;postfix reload&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; systemctl restart postfix.service&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# test mail sending&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;echo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;Test mail from postfix&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; |&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; mail&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -s&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;Test Postfix&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; ${&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;YOUR-EMAIL&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;For more email help, see
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;help.uis.cam.ac.uk&#x2F;email-telephony-and-collaboration&#x2F;email&#x2F;specialist-email-advice&#x2F;sending-email&quot;&gt;https:&#x2F;&#x2F;help.uis.cam.ac.uk&#x2F;email-telephony-and-collaboration&#x2F;email&#x2F;specialist-email-advice&#x2F;sending-email&lt;&#x2F;a&gt;
+using &lt;code&gt;YOUR-DOMAIN&lt;&#x2F;code&gt; as mail domain, and &lt;code&gt;ppsw.cam.ac.uk&lt;&#x2F;code&gt; as relay host.&lt;&#x2F;p&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;Install HotCRP&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Get latest release:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; clone https:&#x2F;&#x2F;github.com&#x2F;kohler&#x2F;hotcrp.git&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;cd&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; hotcrp&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; checkout tags&#x2F;v2.101&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -b&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; v2.101&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;Setup &lt;code&gt;root&lt;&#x2F;code&gt; account for MySQL&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;etc&#x2F;init.d&#x2F;mysql stop&lt;&#x2F;span&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt; # stop the running service&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# configure and run mysql in the console&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; mkdir&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -p&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;var&#x2F;run&#x2F;mysqld&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; chown mysql:mysql &#x2F;var&#x2F;run&#x2F;mysqld&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; mysqld_safe&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; --skip-grant-tables&lt;&#x2F;span&gt;&lt;span&gt; &amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; sleep&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 5&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# smash a new `root` password in place &lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; mysql&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;ALTER&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; USER &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED WITH mysql_native_password BY &amp;#39;${YOUR-PASSWORD}&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;;  &lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;FLUSH&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; PRIVILEGES&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;exit&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# restart mysql properly as a service&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;mysqladmin&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -uroot -p&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;YOUR-PASSWORD&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -h127.0.0.1 --protocol=tcp&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; shutdown&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;etc&#x2F;init.d&#x2F;mysql start&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;…alternatively&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;mysql&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -uroot&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;lt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt;_EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;USE mysql;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;UPDATE mysql.user SET authentication_string = PASSWORD(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;YOUR-PASSWORD&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;#39;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;WHERE User = &amp;#39;root&amp;#39; AND Host = &amp;#39;localhost&amp;#39;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;FLUSH PRIVILEGES;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;QUIT&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt;_EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;6&quot;&gt;
+&lt;li&gt;Secure your MySQL installation&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; systemctl stop mysql&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; mkdir&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -p&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;var&#x2F;run&#x2F;mysqld&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; chown mysql:mysql &#x2F;var&#x2F;run&#x2F;mysqld&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; mysqld_safe&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; --skip-grant-tables --skip-networking&lt;&#x2F;span&gt;&lt;span&gt; &amp;amp;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; mysql_secure_installation&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -p&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;YOUR-PASSWORD&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;}&amp;lt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;n&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;n&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;y&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;y&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;y&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;y&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;7&quot;&gt;
+&lt;li&gt;Setup the HotCRP MySQL tables and config&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;lib&#x2F;createdb.sh&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; --user=root --password=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;YOUR-PASSWORD&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;} &amp;lt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;ok&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;YOUR-WORKSHOP&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# edit conf&#x2F;options.php&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# - contactName&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# - contactEmail&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# - sendEmail&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# - emailFrom&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# - emailSender&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# - timezone&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# - upload_max_filesize [ if you care ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;8&quot;&gt;
+&lt;li&gt;Turn on the HotCRP site in your Apache configuration&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# apache2: turn on hotcrp site&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; sh&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -c&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;#39;cat &amp;gt;&amp;gt;&#x2F;etc&#x2F;apache2&#x2F;conf-available&#x2F;hotcrp.conf &amp;lt;&amp;lt;_EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;lt;Directory &amp;quot;$(pwd -P)&amp;quot;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    Options Indexes Includes FollowSymLinks&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    AllowOverride all&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;    Require all granted&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;lt;&#x2F;Directory&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;Alias &#x2F;YOUR-WORKSHOP $(pwd -P)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;_EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; a2enconf&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;lt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;hotcrp&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; chgrp www-data conf&#x2F;options.php&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; service apache2 reload&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apache2ctl graceful&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;…and you should now be able to access your hotcrp site at &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;$%7BYOUR-DOMAIN%7D&#x2F;$%7BYOUR-WORKSHOP%7D&quot;&gt;http:&#x2F;&#x2F;${YOUR-DOMAIN}&#x2F;${YOUR-WORKSHOP}&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;ol start=&quot;9&quot;&gt;
+&lt;li&gt;Use &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;letsencrypt.org&#x2F;&quot;&gt;Let’s Encrypt&lt;&#x2F;a&gt; to create and configure
+certificates for HTTPS support&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apt install&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -yy&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; software-properties-common&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; add-apt-repository ppa:certbot&#x2F;certbot&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apt update&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apt install&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -yy&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; certbot-auto&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;wget&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; https:&#x2F;&#x2F;dl.eff.org&#x2F;certbot-auto&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;chmod&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; a+x .&#x2F;certbot-auto&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; .&#x2F;certbot-auto&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -n --os-packages-only&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; .&#x2F;certbot-auto&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -a&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; webroot&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -i&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apache&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -w&lt;&#x2F;span&gt;&lt;span&gt; $(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;pwd&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -P&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt;     --agree-tos --redirect --uir --hsts --staple-ocsp \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt;     -d&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; YOUR-DOMAIN&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; --email&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; YOUR-EMAIL&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; .&#x2F;certbot-auto&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; --install-only&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;!--
+sudo apt install snapd
+sudo snap install core; sudo snap refresh core
+sudo snap install --classic certbot
+sudo ln -s &#x2F;snap&#x2F;bin&#x2F;certbot &#x2F;usr&#x2F;bin&#x2F;certbot
+
+sudo certbot --apache
+## follow prompts
+--&gt;
+&lt;ol start=&quot;10&quot;&gt;
+&lt;li&gt;Set permissions on the certificate directories&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; chgrp www-data &#x2F;etc&#x2F;letsencrypt&#x2F;live&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; chmod g+rx &#x2F;etc&#x2F;letsencrypt&#x2F;live&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; chgrp www-data &#x2F;etc&#x2F;letsencrypt&#x2F;archive&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; chmod g+rx &#x2F;etc&#x2F;letsencrypt&#x2F;archive&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;End state is the Apache config looks something like the following, with
+unindented lines being those I added:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; cat &#x2F;etc&#x2F;apache2&#x2F;sites-available&#x2F;hotcrp.conf&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;IfModule mod_ssl.c&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;SSLStaplingCache&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; shmcb:&#x2F;var&#x2F;run&#x2F;apache2&#x2F;stapling_cache&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;128000&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;	&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;VirtualHost&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; _default_:44&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;3&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;		ServerAdmin&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; webmaster@localhost&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;		DocumentRoot&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;home&#x2F;hotcrp&#x2F;hotcrp&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;		ErrorLog&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; ${&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;APACHE_LOG_DIR&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&#x2F;error.log&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;		CustomLog&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; ${&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;APACHE_LOG_DIR&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&#x2F;access.log combined&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;		SSLEngine&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; on&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;SSLCACertificateFile&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;etc&#x2F;letsencrypt&#x2F;live&#x2F;hotcrp.sysws.org.uk&#x2F;fullchain.pem&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;SSLUseStapling&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; on&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;		&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;FilesMatch&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;\.(cgi|shtml|phtml|php)$&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;				SSLOptions&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; +StdEnvVars&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;		&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;&#x2F;FilesMatch&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;		&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;Directory&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;usr&#x2F;lib&#x2F;cgi-bi&lt;&#x2F;span&gt;&lt;span&gt;n&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;				SSLOptions&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; +StdEnvVars&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;		&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;&#x2F;Directory&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;ServerName&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; hotcrp.sysws.org.uk&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;SSLCertificateFile&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;etc&#x2F;letsencrypt&#x2F;live&#x2F;hotcrp.sysws.org.uk-0001&#x2F;fullchain.pem&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;SSLCertificateKeyFile&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;etc&#x2F;letsencrypt&#x2F;live&#x2F;hotcrp.sysws.org.uk-0001&#x2F;privkey.pem&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;Include&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;etc&#x2F;letsencrypt&#x2F;options-ssl-apache.conf&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;Header&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; always set Strict-Transport-Security &amp;quot;max-age=31536000&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;Header&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; always set Content-Security-Policy upgrade-insecure-requests&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;	&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;&#x2F;VirtualHost&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;&#x2F;IfModule&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;11.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; Add DNS entry for the name assigned&lt;&#x2F;span&gt;&lt;span&gt; (in&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; my case, `&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;hotcrp.DOMAIN&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;`&lt;&#x2F;span&gt;&lt;span&gt;).&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</content>
+        
+    </entry>
+</feed>

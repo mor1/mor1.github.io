@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>mort’s mythopœia - job</title>
+    <subtitle>with apologies</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://mort.io/tags/job/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://mort.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2017-01-29T00:00:00+00:00</updated>
+    <id>https://mort.io/tags/job/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Google screening</title>
+        <published>2017-01-29T00:00:00+00:00</published>
+        <updated>2017-01-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/google-screening/"/>
+        <id>https://mort.io/blog/google-screening/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/google-screening/">&lt;p&gt;Some time ago, for reasons best known to themselves, a Google recruiter decided
+to “reach out” on the basis of &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mor1&#x2F;&quot;&gt;my GitHub profile&lt;&#x2F;a&gt; to
+see if I were interested in a role as a Site-Reliability Engineer or possibly a
+Software Engineer. This entailed a short (~30min) telephone interview to answer
+some questions. I made a note of those I recalled, in case anyone’s interested.&lt;&#x2F;p&gt;
+&lt;p&gt;The hawk-eyed and keen-minded among you may discern a certain amount of
+ambiguity in answers to some of the questions – e.g., is the opposite of
+&lt;code&gt;malloc()&lt;&#x2F;code&gt;, &lt;code&gt;free()&lt;&#x2F;code&gt; or a garbage collector? are we assuming an Ethernet MAC
+address? – which the recruiter did not seem to be happy to deal with. But so
+long as my answer included a reasonable approximation to (presumably) the string
+they had written down, all was well.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;What is the Big-O complexity of quicksort?&lt;&#x2F;li&gt;
+&lt;li&gt;What is the search complexity for a red-black tree, a binary tree, a linked
+list, a hashtable, and a B-tree?&lt;&#x2F;li&gt;
+&lt;li&gt;What’s the opposite of &lt;code&gt;malloc()&lt;&#x2F;code&gt;?&lt;&#x2F;li&gt;
+&lt;li&gt;What are the semantics of an ACL?&lt;&#x2F;li&gt;
+&lt;li&gt;Which of the following fields are &lt;em&gt;not&lt;&#x2F;em&gt; part of the &lt;code&gt;passwd&lt;&#x2F;code&gt; file?
+&lt;ul&gt;
+&lt;li&gt;shell, comment, initial umask, login name, ui, home directory, gid,
+preferred language&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;What does the &lt;code&gt;fstat&lt;&#x2F;code&gt; syscall do?&lt;&#x2F;li&gt;
+&lt;li&gt;What’s the default signal for &lt;code&gt;kill&lt;&#x2F;code&gt;?&lt;&#x2F;li&gt;
+&lt;li&gt;What’s in an inode?&lt;&#x2F;li&gt;
+&lt;li&gt;How do you make a socket accept inbound connections?&lt;&#x2F;li&gt;
+&lt;li&gt;How many bytes in a MAC address?&lt;&#x2F;li&gt;
+&lt;li&gt;What are the packets involved in a TCP connection setup?&lt;&#x2F;li&gt;
+&lt;li&gt;How many hosts are in a &#x2F;23 subnet?&lt;&#x2F;li&gt;
+&lt;li&gt;What’s the DNS resource record type for an IPv6 address?&lt;&#x2F;li&gt;
+&lt;li&gt;Estimate the value of 2&lt;sup&gt;24&lt;&#x2F;sup&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;In the end, I passed even though I could only remember the name, not the number,
+of the default signal for &lt;code&gt;kill&lt;&#x2F;code&gt;. It then got mildly amusing: the next stage is
+apparently to “jump on a call” (sigh) with a recruiter and an engineer to work
+through some coding problems. I explained that I generally refuse to engage in
+whiteboard coding during interviews (it’s not a useful measure of anything
+useful, and I don’t see why I should). They said oh but of course I could do it
+on a call so it wouldn’t actually be a whiteboard. I said, yes I could but no I
+wouldn’t and I thought they were rather missing my point. They said really,
+it was very unusual for someone to refuse. I said, to be honest it makes little
+sense anyway given they contacted me because of &lt;em&gt;all the code I’d written under
+my GitHub account&lt;&#x2F;em&gt;. They said oh well.&lt;&#x2F;p&gt;
+&lt;p&gt;And then some time later – 6 months I think – a different recruiter “reached
+out” to ask why the process had stalled and did I want to jump on a call.&lt;&#x2F;p&gt;
+&lt;p&gt;I said No. They haven’t called back since. Oh well…&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

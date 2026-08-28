@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>mort’s mythopœia - wsl2</title>
+      <link>https://mort.io</link>
+      <description>with apologies</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mort.io/tags/wsl2/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Mon, 13 Mar 2023 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>WSL2 &#x2F; Windows 11</title>
+          <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/windows-wsl2/</link>
+          <guid>https://mort.io/blog/windows-wsl2/</guid>
+          <description xml:base="https://mort.io/blog/windows-wsl2/">&lt;p&gt;I naively thought I could just use WSL2 on Windows on my new laptop. But it
+turned out this was the year of Linux on the Laptop for me. For posterity
+here’s the crib sheet though.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;wsl&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; --set-default-version&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 2&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apt update&lt;&#x2F;span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apt upgrade&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -yy&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apt install locales&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; locale-gen en_GB.UTF-8&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apt install&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -yy&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; emacs-gtk direnv gedit&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; clone .&#x2F;..rc-files&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;.&#x2F;scripts&#x2F;install.sh&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Some Windows native packages using &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;chocolatey.org&#x2F;&quot;&gt;Chocolatey&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;choco&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; install signal skype wire slack zoom&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;choco&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; install git&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;choco&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; install rustup.install rust-analyzer python&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;choco&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; install docker&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;choco&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; install powertyos dropbox googledrive wiztree&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;However, &lt;code&gt;choco install texlive&lt;&#x2F;code&gt; didn’t work so well, so I fell back to WSL2:
+&lt;code&gt;sudo apt install latexmk texlive-latex-base texlive-xetex ttf-mscorefonts-installer&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Use MS Powertoys to remap keyboard for &lt;code&gt;CAPSLOCK&lt;&#x2F;code&gt;, &lt;code&gt;€&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Timesync is a bit broken, cf &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;stackoverflow.com&#x2F;a&#x2F;72318510&quot;&gt;https:&#x2F;&#x2F;stackoverflow.com&#x2F;a&#x2F;72318510&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Unfortunately it all went pear-shaped when I tried to &lt;code&gt;rsync&lt;&#x2F;code&gt; files across from
+MacOS into Windows&#x2F;WSL2.&lt;&#x2F;p&gt;
+&lt;p&gt;I mapped the network drive via Network and Sharing Center &amp;gt; Settings &amp;gt; Network &amp;amp;
+internet &amp;gt; Advanced network settings &amp;gt; Advanced sharing settings &amp;gt; Public
+networks &amp;gt; Network discovery = ON&lt;&#x2F;p&gt;
+&lt;p&gt;…and then&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; d&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; in&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; admin christs docs rc-files research src teaching me&lt;&#x2F;span&gt;&lt;span&gt; ;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; do&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;  echo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &amp;quot;=== &lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$d&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;  rsync&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -uavzsP --log-file=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$d&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt;.$(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -Iseconds) -e&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; ssh mort@IPADDRESS:&#x2F;Users&#x2F;mort&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$d&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;&#x2F; .&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;$d&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #859900;&quot;&gt;done&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;…but found that moving files to the host mashed things a bit (&lt;code&gt;rw&lt;&#x2F;code&gt; bits
+carried, but &lt;code&gt;x&lt;&#x2F;code&gt; not; hidden files not; no content translation; owner carried)
+while moving host files to wsl was sort-of ok (owner carried, rw bits carried)
+except that &lt;code&gt;group&lt;&#x2F;code&gt; and &lt;code&gt;other&lt;&#x2F;code&gt; access bits are all set to whatever the &lt;code&gt;user&lt;&#x2F;code&gt;
+access bits were.&lt;&#x2F;p&gt;
+&lt;p&gt;See
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;41513597&#x2F;how-do-i-access-the-wsl-linux-file-system-from-windows&quot;&gt;https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;41513597&#x2F;how-do-i-access-the-wsl-linux-file-system-from-windows&lt;&#x2F;a&gt;
+for more, perhaps.&lt;&#x2F;p&gt;
+&lt;p&gt;Getting Docker installed was also rather painful:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #839496; background-color: #002B36;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# remove old distribution dockers&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apt remove docker.io containerd runc&lt;&#x2F;span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apt autoremove&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# install dependencies to use an alternative package repo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apt-get update&lt;&#x2F;span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apt-get install ca-certificates curl gnupg lsb-release&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# install the new package repo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; mkdir&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -m&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D33682;&quot;&gt; 0755&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -p&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;etc&#x2F;apt&#x2F;keyrings&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;curl&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -fsSL&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;ubuntu&#x2F;gpg&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; |&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; gpg&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; --dearmor -o&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;etc&#x2F;apt&#x2F;keyrings&#x2F;docker.gpg&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;echo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;   &amp;quot;deb [arch=$(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;dpkg&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; --print-architecture&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;) signed-by=&#x2F;etc&#x2F;apt&#x2F;keyrings&#x2F;docker.gpg] https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;ubuntu $(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;lsb_release&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; -cs&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;) stable&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; |&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; tee &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;docker.list&lt;&#x2F;span&gt;&lt;span style=&quot;color: #859900;&quot;&gt; &amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; &#x2F;dev&#x2F;null&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #586E75;font-style: italic;&quot;&gt;# install up-to-date Docker&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apt-get update&lt;&#x2F;span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #268BD2;&quot;&gt; sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt; apt-get install&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  docker-ce&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  docker-ce-cli&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  containerd.io&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  docker-buildx-plugin&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CB4B16;&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #2AA198;&quot;&gt;  docker-compose-plugin&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Finally, some further references that may or may not be useful:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;stephenreescarter.net&#x2F;how-to-shrink-a-wsl2-virtual-disk&#x2F;&quot;&gt;https:&#x2F;&#x2F;stephenreescarter.net&#x2F;how-to-shrink-a-wsl2-virtual-disk&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.linkedin.com&#x2F;pulse&#x2F;acceso-wsl2-desde-windows-con-samba-manuel-nicol%C3%A1s-ortu%C3%B1o&#x2F;&quot;&gt;https:&#x2F;&#x2F;www.linkedin.com&#x2F;pulse&#x2F;acceso-wsl2-desde-windows-con-samba-manuel-nicol%C3%A1s-ortu%C3%B1o&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.howtogeek.com&#x2F;193013&#x2F;how-to-create-an-encrypted-container-file-with-bitlocker-on-windows&#x2F;&quot;&gt;https:&#x2F;&#x2F;www.howtogeek.com&#x2F;193013&#x2F;how-to-create-an-encrypted-container-file-with-bitlocker-on-windows&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</description>
+      </item>
+    </channel>
+</rss>

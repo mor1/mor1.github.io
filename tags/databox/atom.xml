@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>mort’s mythopœia - databox</title>
+    <subtitle>with apologies</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://mort.io/tags/databox/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://mort.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2015-06-17T00:00:00+00:00</updated>
+    <id>https://mort.io/tags/databox/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Actual HCI Papers!</title>
+        <published>2015-06-17T00:00:00+00:00</published>
+        <updated>2015-06-17T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/ecscw-and-aarhus/"/>
+        <id>https://mort.io/blog/ecscw-and-aarhus/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/ecscw-and-aarhus/">&lt;p&gt;I have to confess to being quite pleased to having a couple of
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;hdiresearch.org&#x2F;&quot;&gt;HDI&lt;&#x2F;a&gt;-related papers accepted recently (even if we
+can’t even get proper reviews on the
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;ssrn.com&#x2F;abstract=2508051&quot;&gt;original HDI paper&lt;&#x2F;a&gt; – recently judged
+out-of-scope for the third time, even though the Special Issue in question
+seemed bang on target!).&lt;&#x2F;p&gt;
+&lt;p&gt;The first is a full paper to &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.ecscw2015.no&#x2F;&quot;&gt;ECSCW’15&lt;&#x2F;a&gt; titled
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;ecscw15-hdi.pdf&quot;&gt;&lt;em&gt;Human Data Interaction: Historical Lessons from Social Studies and CSCW&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;.
+A collaboration with &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.andy-crabtree.com&#x2F;&quot;&gt;Dr Andy Crabtree&lt;&#x2F;a&gt;, it
+examines particularly the role of &lt;em&gt;interaction&lt;&#x2F;em&gt; in HDI and explores how past
+technical approaches, such as
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;comsnets11-dataware.pdf&quot;&gt;Dataware&lt;&#x2F;a&gt;, to
+the challenges posed by HDI haven’t fully considered the inherently social
+nature of data.&lt;&#x2F;p&gt;
+&lt;p&gt;The second is a short paper to the decennial – seriously: every ten years! –
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;aarhus2015.org&quot;&gt;Aarhus 2015&lt;&#x2F;a&gt; conference titled
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;mor1.github.io&#x2F;publications&#x2F;pdf&#x2F;aarhus15-databox.pdf&quot;&gt;&lt;em&gt;Personal Data: Thinking Inside the Box&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;.
+This sets out a vision for an embodiment of a &lt;em&gt;Databox&lt;&#x2F;em&gt;: a physical device
+supported by online services that empowers us to take back control of our online
+lives. Building a Databox, using &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;mirage.io&#x2F;&quot;&gt;MirageOS&lt;&#x2F;a&gt;, is hopefully
+going to be a key activity for me in the coming months…&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>I Think Someone&#x27;s Following Me...</title>
+        <published>2015-03-02T00:00:00+00:00</published>
+        <updated>2015-03-02T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Richard Mortier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/someones-following-me/"/>
+        <id>https://mort.io/blog/someones-following-me/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/someones-following-me/">&lt;p&gt;It’s always&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; nice when someone notices what you’re doing, and I was
+pleasantly surprised recently to find that someone had indeed been watching.&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-2-1&quot;&gt;&lt;a href=&quot;#fn-2&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Specifically, it appears that someone at MIT Technology Review has noticed the
+work of me and some of my pals: our work on &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.technologyreview.com&#x2F;2015&#x2F;01&#x2F;05&#x2F;169715&#x2F;the-emerging-science-of-human-data-interaction&#x2F;&quot;&gt;HDI&lt;&#x2F;a&gt; and a recent sketch of some
+follow-on work we’re pursuing around building a personal &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.technologyreview.com&#x2F;2015&#x2F;01&#x2F;26&#x2F;169495&#x2F;how-a-box-could-solve-the-personal-data-conundrum&#x2F;&quot;&gt;Databox&lt;&#x2F;a&gt;.
+Independently of that, the latter also happened to get picked up by
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.theguardian.com&#x2F;profile&#x2F;johnnaughton&quot;&gt;John Naughton&lt;&#x2F;a&gt; in the &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.theguardian.com&#x2F;technology&#x2F;2015&#x2F;feb&#x2F;01&#x2F;control-personal-data-databox-end-user-agreement&quot;&gt;Guardian&lt;&#x2F;a&gt;, which ended up with a pretty
+active comments thread, including one from Richard Stallman himself…&lt;&#x2F;p&gt;
+&lt;p&gt;Guess we’d better get on and deliver it now then :)&lt;&#x2F;p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;Well, usually. Unless you’re doing something embarrassing like, e.g.,
+dancing. &lt;a href=&quot;#fr-1-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-2&quot;&gt;
+&lt;p&gt;Though in fact, given the pattern involved, I suspect it may be my
+colleague, &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;www.eecs.qmul.ac.uk&#x2F;~hamed&#x2F;&quot;&gt;Dr Hamed Haddadi&lt;&#x2F;a&gt; who’s
+actually being followed. To whit, the fact that they also picked up on &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.technologyreview.com&#x2F;2014&#x2F;09&#x2F;12&#x2F;171400&#x2F;the-murky-world-of-third-party-web-tracking&#x2F;&quot;&gt;a
+study&lt;&#x2F;a&gt;
+of third-party web-tracking from last year. &lt;a href=&quot;#fr-2-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;section&gt;
+</content>
+        
+    </entry>
+</feed>
