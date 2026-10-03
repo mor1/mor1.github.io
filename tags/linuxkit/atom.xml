@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>mort’s mythopœia - linuxkit</title>
+    <subtitle>with apologies</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://mort.io/tags/linuxkit/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://mort.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2017-06-02T00:00:00+00:00</updated>
+    <id>https://mort.io/tags/linuxkit/atom.xml</id>
+    <entry xml:lang="en">
+        <title>ARMing LinuxKit</title>
+        <published>2017-06-02T00:00:00+00:00</published>
+        <updated>2017-06-02T00:00:00+00:00</updated>
+        
+        <author>
+          <name>Richard Mortier</name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/arming-linuxkit/"/>
+        <id>https://mort.io/blog/arming-linuxkit/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/arming-linuxkit/">&lt;p&gt;As some may know, following the &lt;a rel=&quot;external&quot; href=&quot;https://unikernels.com&quot;&gt;Unikernel Systems&lt;/a&gt; acquisition, I
+currently do contract work for &lt;a rel=&quot;external&quot; href=&quot;https://docker.com&quot;&gt;Docker Inc.&lt;/a&gt; in addition to my day job
+here at the &lt;a rel=&quot;external&quot; href=&quot;https://www.cl.cam.ac.uk&quot;&gt;Cambridge University Computer Laboratory&lt;/a&gt;. Recently this has
+centred on &lt;a rel=&quot;external&quot; href=&quot;https://github.com/linuxkit/linuxkit&quot;&gt;LinuxKit&lt;/a&gt;, “&lt;em&gt;A toolkit for building secure, portable and lean
+operating systems for containers&lt;/em&gt;” and, specifically, enabling ARM64 support.
+I’m pleased to say that a basic proof-of-concept is now complete, and we’re
+working towards getting support merged upstream.&lt;/p&gt;
+&lt;p&gt;The proof-of-concept was developed using the great ARM64 support provided
+by &lt;a rel=&quot;external&quot; href=&quot;https://packet.net&quot;&gt;&lt;code&gt;packet.net&lt;/code&gt;&lt;/a&gt;, on one of their &lt;code&gt;type 2A&lt;/code&gt; boxes.&lt;/p&gt;
+&lt;p&gt;If you fancy trying it out, then hopefully the following instructions will be of
+use – or just bug me on the &lt;a rel=&quot;external&quot; href=&quot;https://slack.packet.net/&quot;&gt;&lt;code&gt;packet.net&lt;/code&gt; Slack&lt;/a&gt;!&lt;/p&gt;
+&lt;h2 id=&quot;building&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#building&quot; aria-label=&quot;Anchor link for: building&quot;&gt;Building&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Start by getting an ARM64 box setup. If you have one to hand, great! If not, you
+could head over to &lt;a rel=&quot;external&quot; href=&quot;https://packet.net&quot;&gt;packet.net&lt;/a&gt; and create type 2A Ubuntu box to use as a build
+environment.&lt;/p&gt;
+&lt;p&gt;Then clone the source, either &lt;code&gt;git clone&lt;/code&gt; &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/linuxkit/tree/project-arm64&quot;&gt;my dev branch&lt;/a&gt;, or
+see &lt;a rel=&quot;external&quot; href=&quot;https://github.com/linuxkit/linuxkit/pull/1654&quot;&gt;https://github.com/linuxkit/linuxkit/pull/1654&lt;/a&gt; for the open PR which may
+be a bit more stable.&lt;/p&gt;
+&lt;p&gt;The essence of it then is to build the containers based off &lt;code&gt;aarch64/alpine&lt;/code&gt;,
+along with an ARM64 version of the &lt;a rel=&quot;external&quot; href=&quot;https://github.com/moby/moby&quot;&gt;&lt;code&gt;moby&lt;/code&gt; CLI&lt;/a&gt; if needed. Specifying the
+container images you just built in your &lt;code&gt;moby.yml&lt;/code&gt; file will then cause &lt;code&gt;moby&lt;/code&gt;
+to assemble things that should boot on ARM64.&lt;/p&gt;
+&lt;p&gt;The output should be a gzipped kernel, currently slightly misleadingly named
+&lt;code&gt;bzImage&lt;/code&gt; as well as a suitable &lt;code&gt;initrd&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;booting&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#booting&quot; aria-label=&quot;Anchor link for: booting&quot;&gt;Booting&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Setup another ARM64 box on which to boot the results. You could setup a
+type 2A &lt;a rel=&quot;external&quot; href=&quot;https://packet.net&quot;&gt;packet.net&lt;/a&gt; box once more, but this  time set it to &lt;em&gt;custom OS&lt;/em&gt; and
+&lt;em&gt;iPXE boot&lt;/em&gt;. For the iPXE boot URL, give a URL pointing to a suitable boot
+file. I use:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;#!ipxe&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; base-url URL-TO-DIRECTORY-HOLDING-IMAGES&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; kernel-params ip=dhcp nomodeset ro serial console=ttyAMA0,115200 earlycon earlyprintk=serial,keep initrd=arm64-initrd.img&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;initrd&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; ${&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;base-url&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;/arm64-initrd.img&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;imgstat&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;boot&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; ${&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;base-url&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;/arm64-bzImage&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; ${&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;kernel-params&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that, currently at least, the &lt;a rel=&quot;external&quot; href=&quot;https://packet.net&quot;&gt;packet.net&lt;/a&gt; iPXE boot only occurs on the
+first boot as it is assumed that the iPXE boot will install a working image to
+the local disk. Thus, if it doesn’t work first time, get an SOS console and
+break in by hitting &lt;code&gt;^B&lt;/code&gt; at the appropriate moment, before issuing &lt;code&gt;chain URL&lt;/code&gt;
+where &lt;code&gt;URL&lt;/code&gt; points to your iPXE boot file.&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#conclusion&quot; aria-label=&quot;Anchor link for: conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This just does the barest minimum for now – I did say it was a
+proof-of-concept… :) Work is currently ongoing to upstream this rather than
+developing this PoC further, but if anyone has a particular interest or would
+like to provide patches to, e.g., support network devices on &lt;a rel=&quot;external&quot; href=&quot;https://packet.net&quot;&gt;packet.net&lt;/a&gt;,
+please &lt;a href=&quot;mailto:mort@cantab.net&quot;&gt;get in touch&lt;/a&gt;, file an issue or send a pull
+request!&lt;/p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Building Up Your ARMs</title>
+        <published>2016-11-16T00:00:00+00:00</published>
+        <updated>2016-11-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>Richard Mortier</name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/building-up-your-arms/"/>
+        <id>https://mort.io/blog/building-up-your-arms/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/building-up-your-arms/">&lt;p&gt;Due to the impending finish of the EU FP7 funded &lt;a rel=&quot;external&quot; href=&quot;https://usercentricnetworking.eu&quot;&gt;User Centric
+Networking&lt;/a&gt;&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;https://mort.io/blog/building-up-your-arms/#fn-1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt; I recently had cause to revisit the excellent work that
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/talex5&quot;&gt;Thomas Leonard&lt;/a&gt; did for the project in getting Xen/ARM running on the
+&lt;a rel=&quot;external&quot; href=&quot;http://cubieboard.org/model/cb2/&quot;&gt;Cubieboard2&lt;/a&gt; and &lt;a rel=&quot;external&quot; href=&quot;http://cubieboard.org/model/cb3/&quot;&gt;Cubietruck&lt;/a&gt; (aka &lt;a rel=&quot;external&quot; href=&quot;http://cubieboard.org/model/cb3/&quot;&gt;Cubieboard3&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;The resulting repo, &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mirage/xen-arm-builder&quot;&gt;mirage/xen-arm-builder&lt;/a&gt;, had languished for several
+months and the past SD card images had some problems and had been allowed to
+drop off the ’Net as a result. However, sterling work by &lt;a rel=&quot;external&quot; href=&quot;https://github.com/ijc25&quot;&gt;Ian Campbell&lt;/a&gt; at
+a recent Mirage &lt;a rel=&quot;external&quot; href=&quot;https://mirage.io/blog/2016-summer-hackathon-roundup&quot;&gt;hackathon&lt;/a&gt; had started to resurrect this work based on
+the &lt;a rel=&quot;external&quot; href=&quot;https://alpinelinux.org/&quot;&gt;Alpine Linux&lt;/a&gt; distribution. This seemed a promising place to start,
+so I did :)&lt;/p&gt;
+&lt;h2 id=&quot;building-an-image&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#building-an-image&quot; aria-label=&quot;Anchor link for: building-an-image&quot;&gt;Building an Image&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The end result was an enormous &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mirage/xen-arm-builder/pull/71&quot;&gt;pull request&lt;/a&gt; that splatted a Brave New
+World on top of &lt;a rel=&quot;external&quot; href=&quot;https://github.com/talex5&quot;&gt;Thomas’&lt;/a&gt; work.
+The &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mirage/xen-arm-builder/blob/master/README.md&quot;&gt;&lt;code&gt;README&lt;/code&gt;&lt;/a&gt;
+is hopefully reasonably self-explanatory but in summary,&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Clone the repo:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; clone https://github.com/mor1/arm-image-builder.git&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; arm-image-builder&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use the &lt;code&gt;make&lt;/code&gt; targets:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; all&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;       # runs `make prepare build image`&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;# make prepare # clones repos, pulls tarballs&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;# make build   # use Docker to build the `linux/` and `u-boot/` trees&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;# make image   # finally, create the on-disk `sdcard.img`&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This clones the necessary repos (Linux, u-boot), builds them, and then puts
+together the image file &lt;code&gt;sdcard.img&lt;/code&gt; in the current directory. If on OSX, &lt;code&gt;make sdcard&lt;/code&gt; will then attempt to write that to a blank, mounted SD card. This does a
+rather hacky auto-discovery of where the SD card might be mounted; if in doubt,
+and in any case, always safer to simply&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;MNT&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;the-correct-mount-point&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; make&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; sdcard&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;…or simply use your favourite tools to write the &lt;code&gt;sdcard.img&lt;/code&gt; file to your SD
+card.&lt;/p&gt;
+&lt;h2 id=&quot;using-the-image&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#using-the-image&quot; aria-label=&quot;Anchor link for: using-the-image&quot;&gt;Using the Image&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The end result should be an SD card that you can use to boot your device into
+&lt;a rel=&quot;external&quot; href=&quot;https://alpinelinux.org/&quot;&gt;Alpine Linux v3.4&lt;/a&gt;. At present, completing installation requires then:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https://github.com/mirage/xen-arm-builder#first-boot--re-initialisation&quot;&gt;resetting the environment&lt;/a&gt;,&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https://github.com/mirage/xen-arm-builder#base-install&quot;&gt;completing Alpine setup&lt;/a&gt; via
+the &lt;code&gt;setup-alpine&lt;/code&gt; script,&lt;/li&gt;
+&lt;li&gt;(if desired) installing Xen via the
+&lt;code&gt;/media/mmcblk0p1/alpine-dom0-install.sh&lt;/code&gt; script created as part of building
+the SD card image,&lt;/li&gt;
+&lt;li&gt;(if desired) finally,
+building &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mirage/xen-arm-builder#alpine&quot;&gt;Alpine&lt;/a&gt;
+and/or &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mirage/xen-arm-builder#debian&quot;&gt;Debian&lt;/a&gt; &lt;code&gt;domU&lt;/code&gt;s
+via the &lt;code&gt;/media/mmcblk0p1/alpine-domU-install.sh&lt;/code&gt; and
+&lt;code&gt;/media/mmcblk0p1/debian-domU-install.sh&lt;/code&gt; scripts, also created as part of
+building the image.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hopefully the net result is you end up with a Cubieboard2/3 running Xen with an
+Alpine Linux &lt;code&gt;dom0&lt;/code&gt; and some &lt;code&gt;domU&lt;/code&gt; images available.&lt;/p&gt;
+&lt;p&gt;As ever, &lt;a rel=&quot;external&quot; href=&quot;https://twitter.com/mort___&quot;&gt;comments, patches, pull requests welcome&lt;/a&gt;!&lt;/p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;Grant No. 611001 for those who care. &lt;a href=&quot;https://mort.io/blog/building-up-your-arms/#fr-1-1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</content>
+        
+    </entry>
+</feed>

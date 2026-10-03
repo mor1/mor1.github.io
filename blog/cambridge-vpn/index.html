@@ -1,0 +1,76 @@
+<!doctype html><html lang=en><head><link href="https://mort.io/abridge.css?h=7b62e41952f658827d73" rel=stylesheet><meta charset=utf-8><meta content="ie=edge" http-equiv=x-ua-compatible><meta content="width=device-width,initial-scale=1" name=viewport><meta content=https://mort.io name=base><meta content=True name=HandheldFriendly><meta content=yes name=mobile-web-app-capable><meta content=yes name=apple-mobile-web-app-capable><meta content=default name=apple-mobile-web-app-status-bar-style><link title="mort’s mythopœia Atom Feed" href=https://mort.io/atom.xml rel=alternate type=application/atom+xml><link title="mort’s mythopœia RSS Feed" href=https://mort.io/rss.xml rel=alternate type=application/rss+xml><meta content=@mort@mastodon.me.uk name=fediverse:creator><meta content="index, follow" name=robots><meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name=googlebot><meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name=bingbot><title>Updating Cambridge VPN configuration  |  mort’s mythopœia</title><meta content="mort’s mythopœia" name=copyright><meta content="Handling a change in certificates" name=description><link href=https://mort.io/blog/cambridge-vpn/ rel=canonical><meta content=https://mort.io/blog/cambridge-vpn/ property=og:url><meta content=https://mort.io/blog/cambridge-vpn/ name=twitter:url><meta content="Handling a change in certificates" property=og:description><meta content="Handling a change in certificates" name=twitter:description><meta content="Updating Cambridge VPN configuration  |  mort’s mythopœia" property=og:title><meta content="Updating Cambridge VPN configuration  |  mort’s mythopœia" name=twitter:title><meta content=summary name=twitter:card><meta content="mort’s mythopœia" property=og:site_name><meta content=en_US property=og:locale><meta content=article property=og:type><meta content=2026-03-03 property=article:published_time><meta content=2026-03-03 property=article:modified_time><meta content=2026-03-03 property=og:updated_time><noscript><link href=https://mort.io/nojs.css rel=stylesheet></noscript><body id=top><a class=skip-link href=#main>Skip to content</a><header><nav><div><a title="mort’s mythopœia" class=site-title href=https://mort.io>mort’s mythopœia</a></div><div><div><ul><li><a class=s110 href=https://mort.io/research/> research </a><li><a class=s110 href=https://mort.io/students/> students </a><li><a class=s110 href=https://mort.io/teaching/> teaching </a><li><a class=s110 href=https://mort.io/codes/> codes </a><li><a class=s110 href=https://mort.io/me/> me </a></ul></div><div></div></div></nav><div class=desc>with apologies</div><hr></header><main id=main tabindex=-1><article><h1><a href=https://mort.io/blog/cambridge-vpn/>Updating Cambridge VPN configuration</a></h1><span class=s95><span class=hpad> ·</span> 1 min read<span class=hpad> ·</span> March 03, 2026<span class=hpad> ·</span> #<a href=https://mort.io/tags/nixos/>nixos</a> #<a href=https://mort.io/tags/linux/>linux</a> #<a href=https://mort.io/tags/tech/>tech</a> #<a href=https://mort.io/tags/cambridge/>cambridge</a> </span><p>UIS recently rolled over the certificate for the University’s VPN service, and the same update was applied to the Computer Lab’s service at the same time. This was a bit of a pain as the (as close as we get to) supported Linux distribution is Ubuntu, but I use NixOS.<p>It took me too long to figure this out and was, as is often the case, much simpler in retrospect than I was trying to make it. So here’s the answer :)<p>I should note that the original version of this module was produced by <a href=https://github.com/jeffa5/nix-home/blob/main/nixos/modules/vpn.nix rel=external>Andrew Jeffery</a> and has really only been lightly edited by me.<p>Set <code>CRSID</code> and <code>HOSTNAME</code> appropriately.<pre class="giallo z-code"><code data-lang=nix><span class=giallo-l><span>{ pkgs</span><span class=z-5>,</span><span> config</span><span class=z-5>, ...</span><span> }:</span></span>
+<span class=giallo-l><span class=z-5>let</span></span>
+<span class=giallo-l><span class=z-6>  crsid</span><span class=z-5> =</span><span class=z-2> "CRSID"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>  hostname</span><span class=z-5> =</span><span class=z-2> "HOSTNAME"</span><span>;</span></span>
+<span class=giallo-l><span class=z-5>in</span></span>
+<span class=giallo-l><span>{</span></span>
+<span class=giallo-l><span class=z-6>  environment</span><span>.</span><span class=z-6>systemPackages</span><span class=z-5> = with</span><span> pkgs; [ strongswan ];</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span class=z-6>  services</span><span class=z-5> =</span><span> {</span></span>
+<span class=giallo-l><span class=z-6>    strongswan</span><span class=z-5> =</span><span> {</span></span>
+<span class=giallo-l><span class=z-6>      enable</span><span class=z-5> =</span><span class=z-7> true</span><span>;</span></span>
+<span class=giallo-l><span class="z-3 z-i">      # Passwords per</span></span>
+<span class=giallo-l><span class="z-3 z-i">      # https://help.uis.cam.ac.uk/service/network-services/remote-access/uis-vpn/ubuntu1604#password-file</span></span>
+<span class=giallo-l><span class=z-6>      secrets</span><span class=z-5> =</span><span> [</span><span class=z-2> "/etc/secrets/ipsec.secrets"</span><span> ];</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span class=z-6>      connections</span><span>.</span><span class=z-2>"%default"</span><span class=z-5> =</span><span> {</span></span>
+<span class=giallo-l><span class=z-6>        keyexchange</span><span class=z-5> =</span><span class=z-2> "ikev2"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        ikelifetime</span><span class=z-5> =</span><span class=z-2> "60m"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        keylife</span><span class=z-5> =</span><span class=z-2> "20m"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        rekeymargin</span><span class=z-5> =</span><span class=z-2> "3m"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        keyingtries</span><span class=z-5> =</span><span class=z-2> "1"</span><span>;</span></span>
+<span class=giallo-l><span>      };</span></span>
+<span class=giallo-l><span class=z-6>      connections</span><span>.</span><span class=z-6>UCAM</span><span class=z-5> =</span><span> {</span></span>
+<span class=giallo-l><span class="z-3 z-i">        # Setup instructions:</span></span>
+<span class=giallo-l><span class="z-3 z-i">        # https://help.uis.cam.ac.uk/service/network-services/remote-access/uis-vpn/ubuntu2004</span></span>
+<span class=giallo-l><span class="z-3 z-i">        # Password from https://tokens.uis.cam.ac.uk/</span></span>
+<span class=giallo-l><span class=z-6>        left</span><span class=z-5> =</span><span class=z-2> "%any"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        leftid</span><span class=z-5> =</span><span class=z-2> "</span><span class=z-10>${</span><span>crsid</span><span class=z-10>}</span><span class=z-2>+</span><span class=z-10>${</span><span>hostname</span><span class=z-10>}</span><span class=z-2>_ucamvpn@cam.ac.uk"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        leftauth</span><span class=z-5> =</span><span class=z-2> "eap"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        leftsourceip</span><span class=z-5> =</span><span class=z-2> "%config"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        leftfirewall</span><span class=z-5> =</span><span class=z-2> "yes"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        right</span><span class=z-5> =</span><span class=z-2> "vpn.uis.cam.ac.uk"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        rightid</span><span class=z-5> =</span><span class=z-2> ''"CN=vpn.uis.cam.ac.uk"''</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        rightca</span><span class=z-5> =</span><span class=z-2> ''"C=US, O=Internet Security Research Group, CN=ISRG Root X1"''</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        rightsubnet</span><span class=z-5> =</span><span class=z-2> "0.0.0.0/0"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        auto</span><span class=z-5> =</span><span class=z-2> "add"</span><span>;</span></span>
+<span class=giallo-l><span>      };</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span class="z-3 z-i">      # Setup instructions: https://www.cst.cam.ac.uk/local/sys/vpn2/linux</span></span>
+<span class=giallo-l><span class="z-3 z-i">      # Password from https://vpnpassword.cl.cam.ac.uk/</span></span>
+<span class=giallo-l><span class=z-6>      connections</span><span>.</span><span class=z-6>CUCL</span><span class=z-5> =</span><span> {</span></span>
+<span class=giallo-l><span class=z-6>        reauth</span><span class=z-5> =</span><span class=z-2> "no"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        left</span><span class=z-5> =</span><span class=z-2> "%any"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        leftid</span><span class=z-5> =</span><span class=z-2> "</span><span class=z-10>${</span><span>crsid</span><span class=z-10>}</span><span class=z-2>-</span><span class=z-10>${</span><span>hostname</span><span class=z-10>}</span><span class=z-2>"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        leftauth</span><span class=z-5> =</span><span class=z-2> "eap"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        leftsourceip</span><span class=z-5> =</span><span class=z-2> "%config4,%config6"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        leftfirewall</span><span class=z-5> =</span><span class=z-2> "yes"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        right</span><span class=z-5> =</span><span class=z-2> "vpn2.cl.cam.ac.uk"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        rightid</span><span class=z-5> =</span><span class=z-2> "%any"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        rightsendcert</span><span class=z-5> =</span><span class=z-2> "never"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        rightsubnet</span><span class=z-5> =</span><span class=z-7> builtins</span><span class=z-5>.</span><span>concatStringsSep</span><span class=z-2> ","</span><span> [</span></span>
+<span class=giallo-l><span class=z-2>          "10.128.0.0/9"</span></span>
+<span class=giallo-l><span class=z-2>          "10.64.0.0/10"</span></span>
+<span class=giallo-l><span class=z-2>          "128.232.0.0/16"</span></span>
+<span class=giallo-l><span class=z-2>          "129.169.0.0/16"</span></span>
+<span class=giallo-l><span class=z-2>          "131.111.0.0/16"</span></span>
+<span class=giallo-l><span class=z-2>          "172.16.0.0/13"</span></span>
+<span class=giallo-l><span class=z-2>          "172.24.0.0/14"</span></span>
+<span class=giallo-l><span class=z-2>          "172.28.0.0/15"</span></span>
+<span class=giallo-l><span class=z-2>          "172.30.0.0/16"</span></span>
+<span class=giallo-l><span class=z-2>          "192.18.195.0/24"</span></span>
+<span class=giallo-l><span class=z-2>          "193.60.80.0/20"</span></span>
+<span class=giallo-l><span class=z-2>          "193.63.252.0/23"</span></span>
+<span class=giallo-l><span class=z-2>          "2001:630:210::/44"</span></span>
+<span class=giallo-l><span class=z-2>          "2a05:b400::/32"</span></span>
+<span class=giallo-l><span>        ];</span></span>
+<span class=giallo-l><span class=z-6>        auto</span><span class=z-5> =</span><span class=z-2> "add"</span><span>;</span></span>
+<span class=giallo-l><span>      };</span></span>
+<span class=giallo-l></span>
+<span class=giallo-l><span class=z-6>      ca</span><span>.</span><span class=z-6>CUCL</span><span class=z-5> =</span><span> {</span></span>
+<span class=giallo-l><span class=z-6>        auto</span><span class=z-5> =</span><span class=z-2> "add"</span><span>;</span></span>
+<span class=giallo-l><span class=z-6>        cacert</span><span class=z-5> =</span><span class=z-2> "</span><span class=z-10>${</span><span class=z-2>./isrgrootx1.pem</span><span class=z-10>}</span><span class=z-2>"</span><span>;</span></span>
+<span class=giallo-l><span>      };</span></span>
+<span class=giallo-l><span>    };</span></span>
+<span class=giallo-l><span>  };</span></span>
+<span class=giallo-l><span>}</span></span></code></pre><nav><div><a href=https://mort.io/blog/sabbatical-diary-w22/>‹ Sabbatical Diary: Week 22</a></div><div><a href=https://mort.io/blog/sabbatical-diary-w19-21/> Sabbatical Diary: Weeks 19—21 / Month 5 ›</a></div></nav></article></main><footer><hr><div class=c><nav class=tpad><div><a title="mort’s mythopœia Atom Feed" href=https://mort.io/atom.xml rel=noopener target=_blank type=application/atom+xml><i class="svg rss" title="mort’s mythopœia Atom Feed" type=Button></i></a><a title="mort’s mythopœia RSS Feed" href=https://mort.io/rss.xml rel=noopener target=_blank type=application/rss+xml><i class="svg rss" title="mort’s mythopœia RSS Feed" type=Button></i></a><a href=mailto:richard.mortier@cl.cam.ac.uk rel=noopener target=_blank title=Mail><i class="svg mail" title=Mail type=Button></i></a><a rel="me noopener" href=https://mastodon.me.uk/@mort target=_blank title=Mastodon><i class="svg mastodon" title=Mastodon type=Button></i></a><a href=https://www.linkedin.com/in/richard-mortier/ rel=noopener target=_blank title=LinkedIn><i class="svg linkedin" title=LinkedIn type=Button></i></a><a href=https://github.com/mor1/ rel=noopener target=_blank title=Github><i class="svg github" title=Github type=Button></i></a><a href=https://hub.docker.com/u/mor1/ rel=noopener target=_blank title=Docker><i class="svg docker" title=Docker type=Button></i></a><a href="https://www.youtube.com/playlist?list=PLkRF0fgqvvMx5Owh1QgilmExGQe58go_u" rel=noopener target=_blank title=YouTube><i class="svg youtube" title=YouTube type=Button></i></a></div></nav><nav class=vpad><a class=rpad href=https://mort.io/sitemap.xml rel=noopener target=_blank> sitemap </a><a class=rpad href=https://mort.io/tags/> tags </a></nav><p class=s90>mort’s mythopœia © 2013—<span id=year>2026</span> Richard Mortier</div></footer>

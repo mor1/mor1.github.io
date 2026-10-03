@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>mort’s mythopœia - dev</title>
+      <link>https://mort.io</link>
+      <description>with apologies</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mort.io/tags/dev/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Mon, 23 Mar 2026 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Ignoring changes</title>
+          <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/ignoring-changes/</link>
+          <guid>https://mort.io/blog/ignoring-changes/</guid>
+          <description xml:base="https://mort.io/blog/ignoring-changes/">&lt;p&gt;OK, this one was mildly irritating but happily the solution is dead easy. In
+short, in this repo I have a file that I need to be committed as an empty file
+but then locally I want to have it be non-empty.&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-tracks-1&quot;&gt;&lt;a href=&quot;https://mort.io/blog/ignoring-changes/#fn-tracks&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt; And yet I also don’t
+want to continually be reminded of this by &lt;code&gt;git&lt;/code&gt; as that might lead to me
+checking in the non-empty version by mistake.&lt;/p&gt;
+&lt;p&gt;Adding it to &lt;code&gt;.gitignore&lt;/code&gt; would be the usual thing to do—but unfortunately,
+having ignored it I then had to forcibly add and commit the empty version:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;touch&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; FILENAME&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # create the file, empty&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; FILENAME&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; &amp;gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; .gitignore&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # ignore the file&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; add&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -f&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; FILENAME&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # add the ignored file&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; commit&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -m&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;adding the empty ignored file&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # yeah, exactly that&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And that mean that &lt;code&gt;git status&lt;/code&gt; and friends kept showing it as modified when I
+put back the non-empty content I want to keep locally:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;# [edit and save the ignored FILENAME]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; status&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # now shows me FILENAME as modified even though it&amp;#39;s ignored :(&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;What to do? Well, it turns out there’s a command for that:&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-git-1&quot;&gt;&lt;a href=&quot;https://mort.io/blog/ignoring-changes/#fn-git&quot;&gt;[2]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; update-index&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; --assume-unchanged&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; FILENAME&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; status&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # no longer whines at me that FILENAME is modified :)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;…and now the committed (empty) version remains unchanged, the local
+(non-empty) version is different, and &lt;code&gt;git&lt;/code&gt; doesn’t keep trying to trick me into
+committing the changes to the ignored file. Happy days.&lt;/p&gt;
+&lt;p&gt;Addendum: …however, &lt;code&gt;git&lt;/code&gt; will still allow you to commit changes to that
+file—the &lt;code&gt;--assume-unchanged&lt;/code&gt; flag just excludes it from &lt;code&gt;git status&lt;/code&gt;. So be
+warned.&lt;/p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-tracks&quot;&gt;
+&lt;p&gt;It provides an index of all my tracks that I use locally but don’t
+want to publish. &lt;a href=&quot;https://mort.io/blog/ignoring-changes/#fr-tracks-1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&quot;fn-git&quot;&gt;
+&lt;p&gt;I suspect that, with &lt;code&gt;git&lt;/code&gt;, there’s always a command for that. Even if
+it’s hard to find and harder yet to remember. &lt;a href=&quot;https://mort.io/blog/ignoring-changes/#fr-git-1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+      </item>
+      <item>
+          <title>Rusty Nu POSIX</title>
+          <pubDate>Wed, 07 May 2025 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/nu-posix/</link>
+          <guid>https://mort.io/blog/nu-posix/</guid>
+          <description xml:base="https://mort.io/blog/nu-posix/">&lt;p&gt;A slight delay to this post, but happily I now have no more lecturing to do
+until 2027&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;https://mort.io/blog/nu-posix/#fn-1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt; :)&lt;/p&gt;
+&lt;p&gt;I switched a year or two ago to using NixOS as my daily driver following about
+15 years as an increasingly irritated MacOS user. Shortly before I had become
+interested in Rust as a systems programming language that seemed to marry
+several things I like about OCaml with several other desirable things from C and
+Python.&lt;/p&gt;
+&lt;p&gt;I then more recently observed something that I thought was interesting: there
+seem to be a &lt;strong&gt;lot&lt;/strong&gt; of recent replacements of what were once completely
+standard and changeless POSIX utilities. I’m thinking things like &lt;code&gt;grep&lt;/code&gt;,
+&lt;code&gt;find&lt;/code&gt;, &lt;code&gt;ls&lt;/code&gt; and the like that I’ve been using uninterrupted, other than the
+occasional quibble over whether it was the original version or the GNU version,
+for about 30 years. Indeed, I have already raved (slightly) about
+&lt;a rel=&quot;external&quot; href=&quot;https://just.systems/&quot;&gt;&lt;code&gt;just&lt;/code&gt;&lt;/a&gt; as a
+&lt;a rel=&quot;external&quot; href=&quot;https://www.gnu.org/software/make/manual/make.html&quot;&gt;&lt;code&gt;make&lt;/code&gt;&lt;/a&gt; replacement and its
+use with &lt;a href=&quot;/blog/just-ocaml/&quot;&gt;OCaml&lt;/a&gt; and &lt;a href=&quot;/blog/just-latex/&quot;&gt;LaTeX&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;NixOS’ declarative configuration meant that I could actually see the list
+growing, all in one place – I suspect on other systems I wouldn’t have noticed
+in quite the same way because it would’ve been a much more incremental and
+diffuse process of change without a clear record of the choices made.&lt;/p&gt;
+&lt;p&gt;I thus find in my
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/rc-files/blob/main/nixos/modules/home-manager/cli.nix#L44-L65&quot;&gt;&lt;code&gt;cli.nix&lt;/code&gt;&lt;/a&gt;
+config that describes the CLI tools I expect, to have the following collection:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      nu_posix&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt; =&lt;/span&gt;&lt;span&gt; [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        bat&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # better cat&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        bottom&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # btm ~ better top, htop, etc&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        broot&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # interactive directory navigation&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        chafa&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # terminal graphics viewer&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        ctpv&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # terminal file previewer&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        cyme&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # better `lsusb`&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        delta&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # better syntax highlighting diff&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        dua&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # disk usage, interactively&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        eza&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # improved `ls`&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        fd&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # `find` replacement&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        fend&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # better CLI calculator&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        hexyl&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # hex pretty printer&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        htop&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # graphical top&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        iotop&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # io top&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        jujutsu&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # better git&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        just&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # updated gnumake replacement&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        procs&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # better ps&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        ripgrep&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # rg ~ `grep` replacement&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        sudo-rs&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # memory-safe `sudo`&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        uutils-coreutils-noprefix&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # replaces GNU `coreutils`&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        viddy&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # better watch&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      ]&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I think that most, if not all, of these are written in Rust: that particular
+language community seems to have a real enthusiasm for re-implementing
+long-standing tools but better, and I have to say I really appreciate it! When I
+say “better” I’m not particularly thinking of esoteric language features or
+development ideologies either. I mean better in two very particular senses:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Usability&lt;/strong&gt;. Many of the older tools simply did not have great user
+interfaces and, when they were ok, they were not built using modern tooling.
+As a result getting documentation was somewhere between good and great if
+there was a decent &lt;code&gt;man&lt;/code&gt;-page, with a range of potential switches for more
+short form help or for cases where the &lt;code&gt;man&lt;/code&gt;-page was not installed –
+whether &lt;code&gt;-h&lt;/code&gt;, &lt;code&gt;--help&lt;/code&gt;, &lt;code&gt;-help&lt;/code&gt;, &lt;code&gt;-?&lt;/code&gt;, &lt;code&gt;help&lt;/code&gt;, or something else. The
+short-form help would, of course, be formatted in arbitrary ways.&lt;/p&gt;
+&lt;p&gt;The modern Rust-y replacements tend to use
+&lt;a rel=&quot;external&quot; href=&quot;https://docs.rs/clap/latest/clap/&quot;&gt;&lt;code&gt;clap&lt;/code&gt;&lt;/a&gt; as a reasonably standard
+command-line parser. As a result, they are remarkably consistent in usage and
+format, typically producing something that looks a lot like &lt;code&gt;man&lt;/code&gt;-page output
+in response to their &lt;code&gt;-h|--help&lt;/code&gt; switch. In a world where &lt;code&gt;man&lt;/code&gt;-pages are
+often an afterthought or, even worse, replaced by &lt;code&gt;info&lt;/code&gt; documentation, I
+find this invaluable. They are also generally inclined to make greater use of
+modern terminal environments – &lt;a rel=&quot;external&quot; href=&quot;https://github.com/eza-community/eza&quot;&gt;&lt;code&gt;eza&lt;/code&gt;&lt;/a&gt;
+as a replacement for
+&lt;a rel=&quot;external&quot; href=&quot;https://www.gnu.org/software/coreutils/manual/html_node/ls-invocation.html&quot;&gt;&lt;code&gt;ls&lt;/code&gt;&lt;/a&gt;
+is a good example of this.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Performance&lt;/strong&gt;. Old tools were originally built for old computers in old
+languages (largely C) and, whether this is language ideology or just the
+practicalities of engineering long-standing widely-used codebases, tended not
+to be radically updated.&lt;/p&gt;
+&lt;p&gt;Rust re-implementations, on the other hand, are from scratch – and Rust’s
+memory model appears to make it relatively easy for them to be made
+multi-threaded. On modern hardware this seems to make them startlingly higher
+performance than the alternatives. Tools I particularly appreciate for this
+include &lt;a rel=&quot;external&quot; href=&quot;https://github.com/sharkdp/fd&quot;&gt;&lt;code&gt;fd&lt;/code&gt;&lt;/a&gt; replacing
+&lt;a rel=&quot;external&quot; href=&quot;https://www.gnu.org/software/findutils/&quot;&gt;&lt;code&gt;find&lt;/code&gt;&lt;/a&gt; and &lt;a rel=&quot;external&quot; href=&quot;https://github.com/BurntSushi/ripgrep&quot;&gt;ripgrep,
+&lt;code&gt;rg&lt;/code&gt;,&lt;/a&gt; replacing
+&lt;a rel=&quot;external&quot; href=&quot;https://www.gnu.org/software/grep/&quot;&gt;&lt;code&gt;grep&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Perhaps the most immediate example of the benefits of this that I’ve experienced
+is &lt;a rel=&quot;external&quot; href=&quot;https://github.com/Byron/dua-cli&quot;&gt;&lt;code&gt;dua&lt;/code&gt;&lt;/a&gt; via &lt;code&gt;dua i&lt;/code&gt;. Traditionally, when
+trying to clean up an uncomfortably full hard disk I would’ve ended up using
+some manual iterative application of either &lt;code&gt;du -hS *&lt;/code&gt; or possibly something
+like &lt;code&gt;find ... | xargs du&lt;/code&gt;. Or possibly written a Python script to do it for me.
+And it would’ve taken &lt;em&gt;O&lt;/em&gt;(hours) for me to find where the space was being used
+and to do something about it. And I would’ve found it tedious and deeply
+irritating.&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-2-1&quot;&gt;&lt;a href=&quot;https://mort.io/blog/nu-posix/#fn-2&quot;&gt;[2]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;In contrast, &lt;code&gt;dua i&lt;/code&gt; gives me a TUI interface to navigate the filesystem from
+wherever I run it, the ability to cumulatively mark files and directories for
+trashing or immediate deletion, with subdirectory space summaries – and does so
+across ~850GB / 3 million files in about 10-15 seconds without using any form of
+caching, database, or other such thing. As far as I can tell, simply by being
+efficient and multi-threaded.&lt;/p&gt;
+&lt;p&gt;If this is the future, sign me up. (At least for the bits like this that are
+good.)&lt;/p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;…assuming I get back the same courses after my sabbatical that is. &lt;a href=&quot;https://mort.io/blog/nu-posix/#fr-1-1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&quot;fn-2&quot;&gt;
+&lt;p&gt;I’m easily irritated. What can I say. &lt;a href=&quot;https://mort.io/blog/nu-posix/#fr-2-1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+      </item>
+      <item>
+          <title>OCaml operators</title>
+          <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/ocaml-operators/</link>
+          <guid>https://mort.io/blog/ocaml-operators/</guid>
+          <description xml:base="https://mort.io/blog/ocaml-operators/">&lt;p&gt;An &lt;a rel=&quot;external&quot; href=&quot;https://www.brendanlong.com/ocaml-operator-cheatsheet.html&quot;&gt;OCaml operator
+cheatsheet&lt;/a&gt; for
+&lt;a rel=&quot;external&quot; href=&quot;https://ocaml.org/&quot;&gt;OCaml&lt;/a&gt; operators that I have found useful.&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Software folklore</title>
+          <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/software-folklore/</link>
+          <guid>https://mort.io/blog/software-folklore/</guid>
+          <description xml:base="https://mort.io/blog/software-folklore/">&lt;p&gt;Truly cursed bugs that have become &lt;a rel=&quot;external&quot; href=&quot;http://beza1e1.tuxen.de/lore/&quot;&gt;software
+folklore&lt;/a&gt;.&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Data visualisation links</title>
+          <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/dataviz/</link>
+          <guid>https://mort.io/blog/dataviz/</guid>
+          <description xml:base="https://mort.io/blog/dataviz/">&lt;p&gt;Some possibly useful data visualisation links:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https://medium.economist.com/why-you-sometimes-need-to-break-the-rules-in-data-viz-4d8ece284919&quot;&gt;https://medium.economist.com/why-you-sometimes-need-to-break-the-rules-in-data-viz-4d8ece284919&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https://colororacle.org/&quot;&gt;https://colororacle.org/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      </item>
+      <item>
+          <title>Falsehoods</title>
+          <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/falsehoods/</link>
+          <guid>https://mort.io/blog/falsehoods/</guid>
+          <description xml:base="https://mort.io/blog/falsehoods/">&lt;p&gt;Being a list of some cool “Falsehoods programmers believe about …” sites, now
+redundant thanks to &lt;a rel=&quot;external&quot; href=&quot;https://github.com/kdeldycke/awesome-falsehood&quot;&gt;https://github.com/kdeldycke/awesome-falsehood&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time&quot;&gt;…time&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http://infiniteundo.com/post/25509354022/more-falsehoods-programmers-believe-about-time&quot;&gt;…time, more&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/&quot;&gt;…names&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/&quot;&gt;…addresses&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http://wiesmann.codiferes.net/wordpress/?p=15187&amp;amp;lang=en&quot;&gt;…geography&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      </item>
+    </channel>
+</rss>

@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>mort’s mythopœia - arm64</title>
+      <link>https://mort.io</link>
+      <description>with apologies</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mort.io/tags/arm64/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Fri, 02 Jun 2017 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>ARMing LinuxKit</title>
+          <pubDate>Fri, 02 Jun 2017 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/arming-linuxkit/</link>
+          <guid>https://mort.io/blog/arming-linuxkit/</guid>
+          <description xml:base="https://mort.io/blog/arming-linuxkit/">&lt;p&gt;As some may know, following the &lt;a rel=&quot;external&quot; href=&quot;https://unikernels.com&quot;&gt;Unikernel Systems&lt;/a&gt; acquisition, I
+currently do contract work for &lt;a rel=&quot;external&quot; href=&quot;https://docker.com&quot;&gt;Docker Inc.&lt;/a&gt; in addition to my day job
+here at the &lt;a rel=&quot;external&quot; href=&quot;https://www.cl.cam.ac.uk&quot;&gt;Cambridge University Computer Laboratory&lt;/a&gt;. Recently this has
+centred on &lt;a rel=&quot;external&quot; href=&quot;https://github.com/linuxkit/linuxkit&quot;&gt;LinuxKit&lt;/a&gt;, “&lt;em&gt;A toolkit for building secure, portable and lean
+operating systems for containers&lt;/em&gt;” and, specifically, enabling ARM64 support.
+I’m pleased to say that a basic proof-of-concept is now complete, and we’re
+working towards getting support merged upstream.&lt;/p&gt;
+&lt;p&gt;The proof-of-concept was developed using the great ARM64 support provided
+by &lt;a rel=&quot;external&quot; href=&quot;https://packet.net&quot;&gt;&lt;code&gt;packet.net&lt;/code&gt;&lt;/a&gt;, on one of their &lt;code&gt;type 2A&lt;/code&gt; boxes.&lt;/p&gt;
+&lt;p&gt;If you fancy trying it out, then hopefully the following instructions will be of
+use – or just bug me on the &lt;a rel=&quot;external&quot; href=&quot;https://slack.packet.net/&quot;&gt;&lt;code&gt;packet.net&lt;/code&gt; Slack&lt;/a&gt;!&lt;/p&gt;
+&lt;h2 id=&quot;building&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#building&quot; aria-label=&quot;Anchor link for: building&quot;&gt;Building&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Start by getting an ARM64 box setup. If you have one to hand, great! If not, you
+could head over to &lt;a rel=&quot;external&quot; href=&quot;https://packet.net&quot;&gt;packet.net&lt;/a&gt; and create type 2A Ubuntu box to use as a build
+environment.&lt;/p&gt;
+&lt;p&gt;Then clone the source, either &lt;code&gt;git clone&lt;/code&gt; &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/linuxkit/tree/project-arm64&quot;&gt;my dev branch&lt;/a&gt;, or
+see &lt;a rel=&quot;external&quot; href=&quot;https://github.com/linuxkit/linuxkit/pull/1654&quot;&gt;https://github.com/linuxkit/linuxkit/pull/1654&lt;/a&gt; for the open PR which may
+be a bit more stable.&lt;/p&gt;
+&lt;p&gt;The essence of it then is to build the containers based off &lt;code&gt;aarch64/alpine&lt;/code&gt;,
+along with an ARM64 version of the &lt;a rel=&quot;external&quot; href=&quot;https://github.com/moby/moby&quot;&gt;&lt;code&gt;moby&lt;/code&gt; CLI&lt;/a&gt; if needed. Specifying the
+container images you just built in your &lt;code&gt;moby.yml&lt;/code&gt; file will then cause &lt;code&gt;moby&lt;/code&gt;
+to assemble things that should boot on ARM64.&lt;/p&gt;
+&lt;p&gt;The output should be a gzipped kernel, currently slightly misleadingly named
+&lt;code&gt;bzImage&lt;/code&gt; as well as a suitable &lt;code&gt;initrd&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;booting&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#booting&quot; aria-label=&quot;Anchor link for: booting&quot;&gt;Booting&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Setup another ARM64 box on which to boot the results. You could setup a
+type 2A &lt;a rel=&quot;external&quot; href=&quot;https://packet.net&quot;&gt;packet.net&lt;/a&gt; box once more, but this  time set it to &lt;em&gt;custom OS&lt;/em&gt; and
+&lt;em&gt;iPXE boot&lt;/em&gt;. For the iPXE boot URL, give a URL pointing to a suitable boot
+file. I use:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;#!ipxe&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; base-url URL-TO-DIRECTORY-HOLDING-IMAGES&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; kernel-params ip=dhcp nomodeset ro serial console=ttyAMA0,115200 earlycon earlyprintk=serial,keep initrd=arm64-initrd.img&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;initrd&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; ${&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;base-url&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;/arm64-initrd.img&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;imgstat&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;boot&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; ${&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;base-url&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;/arm64-bzImage&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; ${&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;kernel-params&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that, currently at least, the &lt;a rel=&quot;external&quot; href=&quot;https://packet.net&quot;&gt;packet.net&lt;/a&gt; iPXE boot only occurs on the
+first boot as it is assumed that the iPXE boot will install a working image to
+the local disk. Thus, if it doesn’t work first time, get an SOS console and
+break in by hitting &lt;code&gt;^B&lt;/code&gt; at the appropriate moment, before issuing &lt;code&gt;chain URL&lt;/code&gt;
+where &lt;code&gt;URL&lt;/code&gt; points to your iPXE boot file.&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#conclusion&quot; aria-label=&quot;Anchor link for: conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This just does the barest minimum for now – I did say it was a
+proof-of-concept… :) Work is currently ongoing to upstream this rather than
+developing this PoC further, but if anyone has a particular interest or would
+like to provide patches to, e.g., support network devices on &lt;a rel=&quot;external&quot; href=&quot;https://packet.net&quot;&gt;packet.net&lt;/a&gt;,
+please &lt;a href=&quot;mailto:mort@cantab.net&quot;&gt;get in touch&lt;/a&gt;, file an issue or send a pull
+request!&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Docker Docker</title>
+          <pubDate>Sat, 06 May 2017 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/docker-docker/</link>
+          <guid>https://mort.io/blog/docker-docker/</guid>
+          <description xml:base="https://mort.io/blog/docker-docker/">&lt;h1 id=&quot;bootstrapping-docker-for-arm64-aka-aarch64&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#bootstrapping-docker-for-arm64-aka-aarch64&quot; aria-label=&quot;Anchor link for: bootstrapping-docker-for-arm64-aka-aarch64&quot;&gt;Bootstrapping Docker for ARM64 (aka AARCH64)&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Basic process is:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;bootstrap ARM64 &lt;code&gt;go&lt;/code&gt; toolchain on x86, and install&lt;/li&gt;
+&lt;li&gt;build ARM64 &lt;code&gt;go1.7.5&lt;/code&gt; toolchain needed for &lt;code&gt;docker&lt;/code&gt; build&lt;/li&gt;
+&lt;li&gt;bootstrap ARM64 &lt;code&gt;docker&lt;/code&gt; v1.10.3&lt;/li&gt;
+&lt;li&gt;use bootstrapped &lt;code&gt;docker&lt;/code&gt; to provide containerised build environment for
+building later versions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Instructions below are for CentOS 7 for Reasons(tm). Package details and so on
+will vary on other distros.&lt;/p&gt;
+&lt;h2 id=&quot;build-go-bootstrap-toolchain&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#build-go-bootstrap-toolchain&quot; aria-label=&quot;Anchor link for: build-go-bootstrap-toolchain&quot;&gt;Build &lt;code&gt;go&lt;/code&gt; bootstrap toolchain&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;On x86 host:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;build basic go1.4 sufficient to bootstrap&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cd&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;curl&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -O&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; https://storage.googleapis.com/golang/go1.4-bootstrap-20161024.tar.gz&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;tar&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; xzvf go1.4-bootstrap-20161024.tar.gz&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;mv&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; go go1.4&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; go1.4/src&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;./make.bash&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;cross-compile go1.7 (latest)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;mkdir&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -p&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; ~/go/src&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; ~/go/src&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; clone https://go.googlesource.com/go&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; go&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; checkout go1.7.5&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; src&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;GOOS&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;linux&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; GOARCH&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;arm64&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; ./bootstrap.bash&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;transfer cross-compiled toolchain to ARM64 host&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;scp&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; ~/go/src/go-linux-arm64-bootstrap.tbz HOST:~&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;build-arm64-go1-7-5&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#build-arm64-go1-7-5&quot; aria-label=&quot;Anchor link for: build-arm64-go1-7-5&quot;&gt;Build ARM64 &lt;code&gt;go1.7.5&lt;/code&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;produce bootstrap toolchains&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cd&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;tar&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; xvf go-linux-arm64-bootstrap.tbz&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;use the bootstrap toolchain to build a modern &lt;code&gt;go&lt;/code&gt; install&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;mkdir&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -p&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; ~/go/src&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; ~/go/src&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; clone https://go.googlesource.com/go&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; go&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; checkout go1.7.5&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; src&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;GOROOT_BOOTSTRAP&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;~/go-linux-arm64-bootstrap&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; ./make.bash&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;mv&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; ~/go/src/go/bin ~/go/bin&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;bootstrap-arm64-docker&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#bootstrap-arm64-docker&quot; aria-label=&quot;Anchor link for: bootstrap-arm64-docker&quot;&gt;Bootstrap ARM64 Docker&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;get a recent &lt;code&gt;git&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; yum remove git&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;wget&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; https://github.com/git/git/archive/v2.12.2.tar.gz&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;tar&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; xvf v2.12.2.tar.gz&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; git-&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;*&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;which&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; git&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; yum install perl-devel hg curl-devel&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; configure&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;./configure&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; --prefix=/usr/local&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -j8&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; make install&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;install dev dependencies&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; yum install btrfs-progs-devel device-mapper-devel&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;clone source&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; ~/go&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;mkdir&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -p&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; src/github.com/docker&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; src/github.com/docker&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; clone git@github.com:docker/docker&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; docker&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;build components&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; co v1.10.3&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; cd&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; vendor&lt;/span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; for&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; n&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; in&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; src/*&lt;/span&gt;&lt;span&gt; ;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; do&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; ln&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -s&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; $n&lt;/span&gt;&lt;span&gt; ;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; done&lt;/span&gt;&lt;span&gt; )&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;./hack/make.sh&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; dynbinary&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;rm&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -rf&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; vendor&lt;/span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; checkout .&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # tidy up symlinking&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that a current bug in Ubuntu packaging metadata means a small edit needs to
+be made to &lt;code&gt;./Dockerfile.aarch64&lt;/code&gt;: change the &lt;code&gt;apt-get update &amp;amp;&amp;amp;&lt;/code&gt; to &lt;code&gt;apt-get update ;&lt;/code&gt; so that the build doesn’t stop at the first hurdle, updating packages.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;run daemon&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;# sudo rm -rf /var/lib/docker /etc/docker/config.json # DANGEROUS!&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; ./bundles/1.10.3/dynbinary/docker daemon&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -D --group=wheel&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;run client to check&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; PATH=&lt;/span&gt;&lt;span&gt;$(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -P&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;/bundles/1.10.3/dynbinary/:&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;$PATH&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; docker version&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;Client:&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt; Version:&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt;      1.10.3&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt; API&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; version:&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt;  1.22&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt; Go&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; version:   go1.7.5&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt; Git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; commit:   20f81dde9&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt; Built:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;        Tue Apr&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt;  4&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; 00:27:13&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 2017&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt; OS/Arch:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;      linux/arm64&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;Server:&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt; Version:&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt;      1.10.3&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt; API&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; version:&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt;  1.22&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt; Go&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; version:   go1.7.5&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt; Git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; commit:   20f81dde9&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt; Built:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;        Tue Apr&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt;  4&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; 00:27:13&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 2017&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt; OS/Arch:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;      linux/arm64&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;build-docker&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#build-docker&quot; aria-label=&quot;Anchor link for: build-docker&quot;&gt;Build Docker&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;reissue &lt;code&gt;make&lt;/code&gt; using containerised build&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-6 z-b&quot;&gt;export&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; DOCKER_BUILDTAGS&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;#39;apparmor selinux seccomp&amp;#39;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; co v17.05.0-ce&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # or v1.12.3 or master or whatever&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;          # transient failure of first build; restart succeeded&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; deb&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;mkdir&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; contrib/builder/rpm/aarch64&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; rpm&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;notes&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#notes&quot; aria-label=&quot;Anchor link for: notes&quot;&gt;Notes&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Resulting &lt;code&gt;17.05-dev&lt;/code&gt; binaries fail due to missing &lt;code&gt;libapparmor.so&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Static binary build no longer supported?&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DOCKER_BUILDTAGS&lt;/code&gt; environment variable no longer supported?&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;1.12.3&lt;/code&gt; and &lt;code&gt;1.13.1&lt;/code&gt; also built&lt;/li&gt;
+&lt;li&gt;Build of RPM or DEB packages fails due, I think, to DIND not working&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      </item>
+      <item>
+          <title>Building Up Your ARMs</title>
+          <pubDate>Wed, 16 Nov 2016 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/building-up-your-arms/</link>
+          <guid>https://mort.io/blog/building-up-your-arms/</guid>
+          <description xml:base="https://mort.io/blog/building-up-your-arms/">&lt;p&gt;Due to the impending finish of the EU FP7 funded &lt;a rel=&quot;external&quot; href=&quot;https://usercentricnetworking.eu&quot;&gt;User Centric
+Networking&lt;/a&gt;&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;https://mort.io/blog/building-up-your-arms/#fn-1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt; I recently had cause to revisit the excellent work that
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/talex5&quot;&gt;Thomas Leonard&lt;/a&gt; did for the project in getting Xen/ARM running on the
+&lt;a rel=&quot;external&quot; href=&quot;http://cubieboard.org/model/cb2/&quot;&gt;Cubieboard2&lt;/a&gt; and &lt;a rel=&quot;external&quot; href=&quot;http://cubieboard.org/model/cb3/&quot;&gt;Cubietruck&lt;/a&gt; (aka &lt;a rel=&quot;external&quot; href=&quot;http://cubieboard.org/model/cb3/&quot;&gt;Cubieboard3&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;The resulting repo, &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mirage/xen-arm-builder&quot;&gt;mirage/xen-arm-builder&lt;/a&gt;, had languished for several
+months and the past SD card images had some problems and had been allowed to
+drop off the ’Net as a result. However, sterling work by &lt;a rel=&quot;external&quot; href=&quot;https://github.com/ijc25&quot;&gt;Ian Campbell&lt;/a&gt; at
+a recent Mirage &lt;a rel=&quot;external&quot; href=&quot;https://mirage.io/blog/2016-summer-hackathon-roundup&quot;&gt;hackathon&lt;/a&gt; had started to resurrect this work based on
+the &lt;a rel=&quot;external&quot; href=&quot;https://alpinelinux.org/&quot;&gt;Alpine Linux&lt;/a&gt; distribution. This seemed a promising place to start,
+so I did :)&lt;/p&gt;
+&lt;h2 id=&quot;building-an-image&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#building-an-image&quot; aria-label=&quot;Anchor link for: building-an-image&quot;&gt;Building an Image&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The end result was an enormous &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mirage/xen-arm-builder/pull/71&quot;&gt;pull request&lt;/a&gt; that splatted a Brave New
+World on top of &lt;a rel=&quot;external&quot; href=&quot;https://github.com/talex5&quot;&gt;Thomas’&lt;/a&gt; work.
+The &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mirage/xen-arm-builder/blob/master/README.md&quot;&gt;&lt;code&gt;README&lt;/code&gt;&lt;/a&gt;
+is hopefully reasonably self-explanatory but in summary,&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Clone the repo:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; clone https://github.com/mor1/arm-image-builder.git&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; arm-image-builder&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use the &lt;code&gt;make&lt;/code&gt; targets:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; all&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;       # runs `make prepare build image`&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;# make prepare # clones repos, pulls tarballs&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;# make build   # use Docker to build the `linux/` and `u-boot/` trees&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;# make image   # finally, create the on-disk `sdcard.img`&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This clones the necessary repos (Linux, u-boot), builds them, and then puts
+together the image file &lt;code&gt;sdcard.img&lt;/code&gt; in the current directory. If on OSX, &lt;code&gt;make sdcard&lt;/code&gt; will then attempt to write that to a blank, mounted SD card. This does a
+rather hacky auto-discovery of where the SD card might be mounted; if in doubt,
+and in any case, always safer to simply&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;MNT&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;the-correct-mount-point&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; make&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; sdcard&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;…or simply use your favourite tools to write the &lt;code&gt;sdcard.img&lt;/code&gt; file to your SD
+card.&lt;/p&gt;
+&lt;h2 id=&quot;using-the-image&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#using-the-image&quot; aria-label=&quot;Anchor link for: using-the-image&quot;&gt;Using the Image&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The end result should be an SD card that you can use to boot your device into
+&lt;a rel=&quot;external&quot; href=&quot;https://alpinelinux.org/&quot;&gt;Alpine Linux v3.4&lt;/a&gt;. At present, completing installation requires then:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https://github.com/mirage/xen-arm-builder#first-boot--re-initialisation&quot;&gt;resetting the environment&lt;/a&gt;,&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https://github.com/mirage/xen-arm-builder#base-install&quot;&gt;completing Alpine setup&lt;/a&gt; via
+the &lt;code&gt;setup-alpine&lt;/code&gt; script,&lt;/li&gt;
+&lt;li&gt;(if desired) installing Xen via the
+&lt;code&gt;/media/mmcblk0p1/alpine-dom0-install.sh&lt;/code&gt; script created as part of building
+the SD card image,&lt;/li&gt;
+&lt;li&gt;(if desired) finally,
+building &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mirage/xen-arm-builder#alpine&quot;&gt;Alpine&lt;/a&gt;
+and/or &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mirage/xen-arm-builder#debian&quot;&gt;Debian&lt;/a&gt; &lt;code&gt;domU&lt;/code&gt;s
+via the &lt;code&gt;/media/mmcblk0p1/alpine-domU-install.sh&lt;/code&gt; and
+&lt;code&gt;/media/mmcblk0p1/debian-domU-install.sh&lt;/code&gt; scripts, also created as part of
+building the image.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hopefully the net result is you end up with a Cubieboard2/3 running Xen with an
+Alpine Linux &lt;code&gt;dom0&lt;/code&gt; and some &lt;code&gt;domU&lt;/code&gt; images available.&lt;/p&gt;
+&lt;p&gt;As ever, &lt;a rel=&quot;external&quot; href=&quot;https://twitter.com/mort___&quot;&gt;comments, patches, pull requests welcome&lt;/a&gt;!&lt;/p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;Grant No. 611001 for those who care. &lt;a href=&quot;https://mort.io/blog/building-up-your-arms/#fr-1-1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+      </item>
+      <item>
+          <title>Grubbing Around</title>
+          <pubDate>Tue, 13 Sep 2016 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/grubbing-around/</link>
+          <guid>https://mort.io/blog/grubbing-around/</guid>
+          <description xml:base="https://mort.io/blog/grubbing-around/">&lt;p&gt;Nothing earth-shattering here: I recently had the “pleasure” of setting up an
+ARM64 server. After considerable support, several firmware upgrades, corruption
+of the main HDD, reinstallation of CentOS7 (recommended, somewhat to my
+surprise), all that remained was to get an up-to-date Linux built and installed
+with 32 bit binary support. This took a bit of &lt;code&gt;make config&lt;/code&gt; fiddling, but got
+there after a few tries.&lt;/p&gt;
+&lt;p&gt;And then I had to relearn how &lt;code&gt;grub&lt;/code&gt;/&lt;code&gt;grub2&lt;/code&gt; works in this brave new (to me)
+UEFI CentOS7 world. Herewith some brief commands I found useful while doing
+so…&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; grep &amp;quot;^menu entry&amp;quot; /boot/efi/EFI/centos/grub.cfg&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;     |&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; tr&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -s&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot; &amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; |&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; cut&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -f&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 2&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -d&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; |&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; cat&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -n&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Edit &lt;code&gt;/etc/default/grub&lt;/code&gt; to set &lt;code&gt;GRUB_DEFAULT=N&lt;/code&gt; for desired value of &lt;code&gt;N&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Temporarily set the default for the next reboot:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; grub2-reboot&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 1&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # based on output of above&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Regenerate the grub2 configuration:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; grub2-mkconfig&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -o&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; /boot/efi/EFI/centos/grub.cfg&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
+      </item>
+    </channel>
+</rss>

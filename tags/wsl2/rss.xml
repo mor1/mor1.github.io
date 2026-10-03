@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>mort’s mythopœia - wsl2</title>
+      <link>https://mort.io</link>
+      <description>with apologies</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mort.io/tags/wsl2/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Mon, 13 Mar 2023 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>WSL2 / Windows 11</title>
+          <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/windows-wsl2/</link>
+          <guid>https://mort.io/blog/windows-wsl2/</guid>
+          <description xml:base="https://mort.io/blog/windows-wsl2/">&lt;p&gt;I naively thought I could just use WSL2 on Windows on my new laptop. But it
+turned out this was the year of Linux on the Laptop for me. For posterity
+here’s the crib sheet though.&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;wsl&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; --set-default-version&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 2&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; apt update&lt;/span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; apt upgrade&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -yy&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; apt install locales&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; locale-gen en_GB.UTF-8&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; apt install&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -yy&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; emacs-gtk direnv gedit&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; clone ./..rc-files&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;./scripts/install.sh&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Some Windows native packages using &lt;a rel=&quot;external&quot; href=&quot;https://chocolatey.org/&quot;&gt;Chocolatey&lt;/a&gt;&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;choco&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; install signal skype wire slack zoom&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;choco&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; install git&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;choco&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; install rustup.install rust-analyzer python&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;choco&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; install docker&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;choco&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; install powertyos dropbox googledrive wiztree&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;However, &lt;code&gt;choco install texlive&lt;/code&gt; didn’t work so well, so I fell back to WSL2:
+&lt;code&gt;sudo apt install latexmk texlive-latex-base texlive-xetex ttf-mscorefonts-installer&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Use MS Powertoys to remap keyboard for &lt;code&gt;CAPSLOCK&lt;/code&gt;, &lt;code&gt;€&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Timesync is a bit broken, cf &lt;a rel=&quot;external&quot; href=&quot;https://stackoverflow.com/a/72318510&quot;&gt;https://stackoverflow.com/a/72318510&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Unfortunately it all went pear-shaped when I tried to &lt;code&gt;rsync&lt;/code&gt; files across from
+MacOS into Windows/WSL2.&lt;/p&gt;
+&lt;p&gt;I mapped the network drive via Network and Sharing Center &amp;gt; Settings &amp;gt; Network &amp;amp;
+internet &amp;gt; Advanced network settings &amp;gt; Advanced sharing settings &amp;gt; Public
+networks &amp;gt; Network discovery = ON&lt;/p&gt;
+&lt;p&gt;…and then&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; d&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; in&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; admin christs docs rc-files research src teaching me&lt;/span&gt;&lt;span&gt; ;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; do&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;  echo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;=== &lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;$d&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;  rsync&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -uavzsP --log-file=&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;$d&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;.$(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -Iseconds) -e&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; ssh mort@IPADDRESS:/Users/mort/&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;$d&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;/ ./&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;$d&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;done&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;…but found that moving files to the host mashed things a bit (&lt;code&gt;rw&lt;/code&gt; bits
+carried, but &lt;code&gt;x&lt;/code&gt; not; hidden files not; no content translation; owner carried)
+while moving host files to wsl was sort-of ok (owner carried, rw bits carried)
+except that &lt;code&gt;group&lt;/code&gt; and &lt;code&gt;other&lt;/code&gt; access bits are all set to whatever the &lt;code&gt;user&lt;/code&gt;
+access bits were.&lt;/p&gt;
+&lt;p&gt;See
+&lt;a rel=&quot;external&quot; href=&quot;https://stackoverflow.com/questions/41513597/how-do-i-access-the-wsl-linux-file-system-from-windows&quot;&gt;https://stackoverflow.com/questions/41513597/how-do-i-access-the-wsl-linux-file-system-from-windows&lt;/a&gt;
+for more, perhaps.&lt;/p&gt;
+&lt;p&gt;Getting Docker installed was also rather painful:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;# remove old distribution dockers&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; apt remove docker.io containerd runc&lt;/span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; apt autoremove&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;# install dependencies to use an alternative package repo&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; apt-get update&lt;/span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; apt-get install ca-certificates curl gnupg lsb-release&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;# install the new package repo&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; mkdir&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -m&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 0755&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -p&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; /etc/apt/keyrings&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;curl&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -fsSL&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; https://download.docker.com/linux/ubuntu/gpg&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; |&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; gpg&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; --dearmor -o&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; /etc/apt/keyrings/docker.gpg&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;   &amp;quot;deb [arch=$(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;dpkg&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; --print-architecture&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;lsb_release&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -cs&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;) stable&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; |&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; tee /etc/apt/sources.list.d/docker.list&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; &amp;gt;&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; /dev/null&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;# install up-to-date Docker&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; apt-get update&lt;/span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; apt-get install&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  docker-ce&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  docker-ce-cli&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  containerd.io&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  docker-buildx-plugin&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  docker-compose-plugin&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally, some further references that may or may not be useful:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https://stephenreescarter.net/how-to-shrink-a-wsl2-virtual-disk/&quot;&gt;https://stephenreescarter.net/how-to-shrink-a-wsl2-virtual-disk/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https://www.linkedin.com/pulse/acceso-wsl2-desde-windows-con-samba-manuel-nicol%C3%A1s-ortu%C3%B1o/&quot;&gt;https://www.linkedin.com/pulse/acceso-wsl2-desde-windows-con-samba-manuel-nicol%C3%A1s-ortu%C3%B1o/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https://www.howtogeek.com/193013/how-to-create-an-encrypted-container-file-with-bitlocker-on-windows/&quot;&gt;https://www.howtogeek.com/193013/how-to-create-an-encrypted-container-file-with-bitlocker-on-windows/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      </item>
+    </channel>
+</rss>

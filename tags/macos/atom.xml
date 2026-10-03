@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>mort’s mythopœia - macos</title>
+    <subtitle>with apologies</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://mort.io/tags/macos/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://mort.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2020-01-01T00:00:00+00:00</updated>
+    <id>https://mort.io/tags/macos/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Setting up a Macbook</title>
+        <published>2020-01-01T00:00:00+00:00</published>
+        <updated>2020-01-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>Richard Mortier</name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/setup-new-laptop/"/>
+        <id>https://mort.io/blog/setup-new-laptop/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/setup-new-laptop/">&lt;p&gt;This is the set of things that I roughly did to set up my old new Macbook:
+configurations, packages, etc. Not guaranteed complete, but hopefully captures
+much of it.&lt;/p&gt;
+&lt;h2 id=&quot;keyboard&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#keyboard&quot; aria-label=&quot;Anchor link for: keyboard&quot;&gt;Keyboard&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Set the touchbar to expanded&lt;/li&gt;
+&lt;li&gt;Turn off various emacs conflicts (e.g., &lt;code&gt;S-M-6&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Use &lt;a rel=&quot;external&quot; href=&quot;https://karabiner-elements.pqrs.org/&quot;&gt;Karabiner Elements&lt;/a&gt; to make
+&lt;code&gt;CAPSLOCK&lt;/code&gt; become &lt;code&gt;ESC&lt;/code&gt; on a single press&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;homebrew-packages&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#homebrew-packages&quot; aria-label=&quot;Anchor link for: homebrew-packages&quot;&gt;Homebrew packages&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Install &lt;a rel=&quot;external&quot; href=&quot;https://brew.sh/&quot;&gt;Homebrew&lt;/a&gt; and then&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;# install packages&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;brew&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; install&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                    \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  aspcud&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                        \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  aspell&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                        \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  bash-completion&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                               \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  coreutils&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                     \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  direnv&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                        \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  emacs&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                         \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  evernote&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                      \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  ffmpeg&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                        \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  font-hack-nerd-font&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                           \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  gawk&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                          \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  gcc&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                           \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  get_iplayer&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                   \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  ghostscript&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                   \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  git&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                           \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  git-lfs&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                       \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  gnupg2&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                        \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  gnuplot&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                       \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  gpg-agent&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                     \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  graphviz&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                      \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  imagemagick&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                   \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  jq&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                            \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  lua&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                           \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  mu&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                            \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  ncftp&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                         \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  nmap&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                          \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  ocaml&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                         \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  offlineimap&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                   \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  omnigraffle&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                   \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  opam&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                          \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  python&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                        \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  python@2&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                      \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  qemu&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                          \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  rcs&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                           \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  readline&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                      \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  rsync&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                         \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  socat&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                         \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  sshfs&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                         \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  telnet&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                        \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  tmux&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                          \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  unrar&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                         \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  wget&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;# install casks&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;brew&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; tap homebrew/cask-versions&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;brew&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; cask install&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                               \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  adium&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                         \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  disk-inventory-x&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                              \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  docker&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                        \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  dropbox&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                       \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  emacs&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                         \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  evernote&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                      \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  font-hack-nerd-font&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                           \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  get-iplayer-automator&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                         \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  google-backup-and-sync&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                        \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  google-drive-file-stream&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                      \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  gpodder&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                       \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  inkscape&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                      \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  iterm2&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                        \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  karabiner-elements&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                            \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  keepingyouawake&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                               \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  keybase&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                       \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  mactex&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                        \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  mp3tag&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                        \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  musicbrainz-picard&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                            \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  omnigraffle6&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                  \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  onedrive&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                      \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  osxfuse&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                       \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  sharepod&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                      \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  signal&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                        \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  slack&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;                                         \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  vlc&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; lfs install&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; --system&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # enable `git-lfs` system-wide&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;mu&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; index&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; --rebuild&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # rebuild `mu` index&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;opam&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; init&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # initialise `opam`&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;podcasts&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#podcasts&quot; aria-label=&quot;Anchor link for: podcasts&quot;&gt;Podcasts&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Extract  RSS feeds from iTunes:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;grep&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; Location Library.xml&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; |&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; sed&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;#39;s/[[:space:]]//g&amp;#39;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; |&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; sort&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; |&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;  grep&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -iv&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;\.\(mp[34]\|m4[av]\)&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; |&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; grep&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; http&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; |&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; cut&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -b&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; 28-&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; |&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;  cut&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -f&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 1&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -d&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;&amp;lt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; &amp;gt;&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; PODCAST.URLS&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;ocal&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#ocal&quot; aria-label=&quot;Anchor link for: ocal&quot;&gt;&lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/ocal&quot;&gt;OCal&lt;/a&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;opam&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; install&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -y&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; ocal&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Back to the Future</title>
+        <published>2017-12-14T00:00:00+00:00</published>
+        <updated>2017-12-14T00:00:00+00:00</updated>
+        
+        <author>
+          <name>Richard Mortier</name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/back-to-the-future/"/>
+        <id>https://mort.io/blog/back-to-the-future/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/back-to-the-future/">&lt;blockquote&gt;
+&lt;p&gt;Ed: the first in a likely series, this is one of the posts I drafted but never
+published during my seven years in the blogging wilderness&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I have been having persistent issues on MacOS with Time Machine backups
+interacting badly with several configuration elements and other services. This
+is exacerbated by my use of maildirs to backup emails, with my Gmail account
+leading to a directory with some millions of files. (Yeah, ok, maybe not wise
+but hey, we are where we are.)&lt;/p&gt;
+&lt;p&gt;So in the course of trying to get backups to work reliably, I found the
+following commands useful to at least some degree:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mdutil -sav&lt;/code&gt; to get info about spotlight indexing status&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sudo mdutil -Ea -i [off|on]&lt;/code&gt; to turn off|on spotlight indexing where possible&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sudo fs_usage -w mdworker mds_stores backupd&lt;/code&gt; obtain the current filesystem
+usage for those services&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sudo fs_usage -w -e iTerm2&lt;/code&gt; to obtain current filesystem usage for services
+&lt;em&gt;excluding&lt;/em&gt; those listed&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sudo sysctl debug.lowpri_throttle_enabled=[0|1]&lt;/code&gt; stop|start throttling to go
+faster|be nice!&lt;/li&gt;
+&lt;li&gt;to obtain the various different hostnames that MacOS seems to want to give;
+note that renaming &lt;code&gt;ComputerName&lt;/code&gt; (also possible via
+&lt;code&gt;SysPrefs&amp;gt;Sharing&amp;gt;&amp;gt;name&lt;/code&gt;) caused the Time Machine directory to be renamed
+when the backup started&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; n&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; in&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;  ComputerName LocalHostName HostName&lt;/span&gt;&lt;span&gt; ;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; do&lt;/span&gt;&lt;span&gt; &lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;  scutil&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; --get&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; $n&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;done&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;tmutil listbackups&lt;/code&gt; to list backups&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tmutil listlocalsnapshotdates /&lt;/code&gt; to list local snapshots&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tmutil destinationinfo&lt;/code&gt; to list the Time Machine destination volumes&lt;/li&gt;
+&lt;li&gt;to stream Time Machine log entries live&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; stream&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; --style&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; syslog&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; --debug --info \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-8&quot;&gt;  --predicate&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;#39;senderImagePath contains[cd] &amp;quot;TimeMachine&amp;quot;&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;to show Time Machine log entries from YYYY-MM-DD&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; show&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; --style&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; syslog&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; --debug --info --start&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; YYYY-MM-DD&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-8&quot;&gt;  --predicate&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;#39;senderImagePath contains[cd] &amp;quot;TimeMachine&amp;quot;&amp;#39;&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;\&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Spring Loading Karabiner in the Autumn</title>
+        <published>2017-10-30T00:00:00+00:00</published>
+        <updated>2017-10-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>Richard Mortier</name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/mess-with-my-keyboard/"/>
+        <id>https://mort.io/blog/mess-with-my-keyboard/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/mess-with-my-keyboard/">&lt;p&gt;I recently took the plunge and upgraded my OS X. Not to vN of &lt;em&gt;Sierra&lt;/em&gt; as I’d
+hoped, but to v0 &lt;em&gt;High Sierra&lt;/em&gt;– the perils of waiting too long…&lt;/p&gt;
+&lt;p&gt;Unfortunately, this toasted&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;https://mort.io/blog/mess-with-my-keyboard/#fn-1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt; my carefully curated keyboard remappings as
+&lt;a rel=&quot;external&quot; href=&quot;https://pqrs.org/osx/karabiner/&quot;&gt;Karabiner&lt;/a&gt; used a kernel extension, for which everything changed. All was not
+lost however, as the rewrite to support Sierra/High Sierra was well underway. Or
+so I thought until I realised that the configuration file had changed from XML
+to JSON. And so my configuration journey began. (But it all ends well, so that’s
+good.)&lt;/p&gt;
+&lt;h2 id=&quot;controlling-the-config&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#controlling-the-config&quot; aria-label=&quot;Anchor link for: controlling-the-config&quot;&gt;Controlling the config&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The first thing was to get the new configuration matters under control. I did
+this per the documentation, symlinking the config subdirectory from my
+&lt;code&gt;rc-files&lt;/code&gt; repo:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; ~/.config/&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;mv&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; karabiner/ ~/rc-files/&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;ln&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -s&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; ~/rc-files/karabiner&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;internal-apple-keyboard&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#internal-apple-keyboard&quot; aria-label=&quot;Anchor link for: internal-apple-keyboard&quot;&gt;Internal Apple keyboard&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;In the interests of keeping all configuration in one place (but see below), I
+decided to do this via a set of &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/rc-karabiner/blob/master/assets/complex_modifications/mort-keymap.json&quot;&gt;complex modifications&lt;/a&gt;. In summary this
+meant:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;swap &lt;code&gt;(caps_lock)&lt;/code&gt; and &lt;code&gt;(control)&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;json&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;      &amp;quot;description&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;mort: caps_lock -&amp;gt; ctrl&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;      &amp;quot;manipulators&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;type&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;basic&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;from&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;caps_lock&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;&amp;quot;optional&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;any&amp;quot;&lt;/span&gt;&lt;span&gt;]}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;to&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;left_control&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    },&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;swap &lt;code&gt;&quot;&lt;/code&gt; (glyph &lt;code&gt;S-&#39;&lt;/code&gt;) with &lt;code&gt;@&lt;/code&gt; (glyph &lt;code&gt;S-2&lt;/code&gt;):&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;json&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;      &amp;quot;description&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;mort: S-&amp;#39; (&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;\&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;) &amp;lt;-&amp;gt; S-2 (@)&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;      &amp;quot;manipulators&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;type&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;basic&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;from&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;quote&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;&amp;quot;mandatory&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;shift&amp;quot;&lt;/span&gt;&lt;span&gt;]}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;to&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;2&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;shift&amp;quot;&lt;/span&gt;&lt;span&gt;]}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;type&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;basic&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;from&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;2&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;&amp;quot;mandatory&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;shift&amp;quot;&lt;/span&gt;&lt;span&gt;]}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;to&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;quote&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;shift&amp;quot;&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    },&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;map &lt;code&gt;(backslash)&lt;/code&gt; (glyph &lt;code&gt;\&lt;/code&gt;) to &lt;code&gt;#&lt;/code&gt;, and &lt;code&gt;S-\&lt;/code&gt; (glyph &lt;code&gt;|&lt;/code&gt;) to &lt;code&gt;~&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;json&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;      &amp;quot;description&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;mort: &lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; -&amp;gt; #; S-&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; (|) -&amp;gt; ~&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;      &amp;quot;manipulators&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;type&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;basic&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;from&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;backslash&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;to&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;3&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;option&amp;quot;&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;type&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;basic&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;from&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;backslash&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;&amp;quot;mandatory&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;shift&amp;quot;&lt;/span&gt;&lt;span&gt;]}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;to&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;grave_accent_and_tilde&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;shift&amp;quot;&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;    }&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;map &lt;code&gt;(non_us_backslash)&lt;/code&gt; (glyph &lt;code&gt;§&lt;/code&gt;) to &lt;code&gt;`&lt;/code&gt; and &lt;code&gt;S-(non_us_backslash)&lt;/code&gt;
+(glyph &lt;code&gt;±&lt;/code&gt;) to &lt;code&gt;€&lt;/code&gt;, and then patch things up so that the usual window
+switching works (using &lt;code&gt;(command)-`&lt;/code&gt;):&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;json&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;      &amp;quot;description&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;mort: § -&amp;gt; `; ± (S-§) -&amp;gt; €&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;      &amp;quot;manipulators&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;type&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;basic&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;from&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;non_us_backslash&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;to&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;grave_accent_and_tilde&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;type&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;basic&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;from&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;non_us_backslash&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;&amp;quot;mandatory&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;shift&amp;quot;&lt;/span&gt;&lt;span&gt;]}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;to&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;2&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;option&amp;quot;&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;type&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;basic&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;from&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;non_us_backslash&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;&amp;quot;mandatory&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;command&amp;quot;&lt;/span&gt;&lt;span&gt;]}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;to&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;grave_accent_and_tilde&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;command&amp;quot;&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;type&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;basic&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;from&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;non_us_backslash&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;&amp;quot;mandatory&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;command&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;shift&amp;quot;&lt;/span&gt;&lt;span&gt;]}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;to&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;grave_accent_and_tilde&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;command&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;shift&amp;quot;&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    },&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;finally, map &lt;code&gt;`&lt;/code&gt; to &lt;code&gt;\&lt;/code&gt; and &lt;code&gt;S-`&lt;/code&gt; to &lt;code&gt;|&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;json&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;      &amp;quot;description&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;mort: ` -&amp;gt; &lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;; S-` (~) -&amp;gt; |&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;      &amp;quot;manipulators&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;type&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;basic&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;from&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;grave_accent_and_tilde&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;to&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;backslash&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;type&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;basic&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;from&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;grave_accent_and_tilde&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;&amp;quot;mandatory&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;shift&amp;quot;&lt;/span&gt;&lt;span&gt;]}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;to&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;backslash&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;shift&amp;quot;&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    },&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;iterm2&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#iterm2&quot; aria-label=&quot;Anchor link for: iterm2&quot;&gt;iTerm2&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Unfortunately for me, iTerm2 then gets a bit confused as it wants to leave
+&lt;code&gt;(command)&lt;/code&gt; alone, only allowing mapping of &lt;code&gt;(option)&lt;/code&gt; to &lt;code&gt;(meta)&lt;/code&gt; (or, in fact,
+&lt;code&gt;(esc+)&lt;/code&gt;). In the past I swapped &lt;code&gt;(left_command)&lt;/code&gt; and &lt;code&gt;(left_option)&lt;/code&gt; to make
+the usual shell (&lt;code&gt;bash&lt;/code&gt;) CLI editing combinations (roughly, &lt;code&gt;emacs&lt;/code&gt;) work.  That
+wasn’t ideal though as I then had to fix up the window cycling commands
+(&lt;code&gt;(command)-` &lt;/code&gt; and so on). Fortunately, the fix this time seems easier: just
+configure the two tricky mappings (involving generating a keypress modified with
+&lt;code&gt;(option)&lt;/code&gt;) to be interpreted by iTerm2 to just send the appropriate text
+through. Again, I did this in the UI (Preferences &amp;gt; Profiles &amp;gt; Keys) but the
+resulting configuration change is also straightforward:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3&quot;&gt;			&amp;lt;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span&gt;Keyboard Map&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3&quot;&gt;			&amp;lt;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3&quot;&gt;				&amp;lt;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span&gt;0x32-0x80000&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3&quot;&gt;				&amp;lt;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3&quot;&gt;					&amp;lt;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span&gt;Action&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3&quot;&gt;					&amp;lt;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;integer&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span&gt;12&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;integer&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3&quot;&gt;					&amp;lt;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span&gt;Text&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3&quot;&gt;					&amp;lt;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span&gt;€&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3&quot;&gt;				&amp;lt;/&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3&quot;&gt;				&amp;lt;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span&gt;0x33-0x80000&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3&quot;&gt;				&amp;lt;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3&quot;&gt;					&amp;lt;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span&gt;Action&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3&quot;&gt;					&amp;lt;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;integer&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span&gt;12&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;integer&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3&quot;&gt;					&amp;lt;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span&gt;Text&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3&quot;&gt;					&amp;lt;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span&gt;#&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3&quot;&gt;				&amp;lt;/&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3&quot;&gt;			&amp;lt;/&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;z-3&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;microsoft-digital-media-keyboard&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#microsoft-digital-media-keyboard&quot; aria-label=&quot;Anchor link for: microsoft-digital-media-keyboard&quot;&gt;Microsoft Digital Media keyboard&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Examining the key codes using the Karabiner Event-Viewer, it seemed that the
+first thing to do was to swap &lt;code&gt;(grave_accent_and_tilde)&lt;/code&gt; (glyph &lt;code&gt;`&lt;/code&gt;) and
+&lt;code&gt;(non_us_backslash)&lt;/code&gt; (slightly confusingly, glyph &lt;code&gt;\&lt;/code&gt; on my keyboard). I started
+out trying to do this as a complex modification so that all the remappings were
+in &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/rc-karabiner/blob/master/assets/complex_modifications/mort-keymap.json&quot;&gt;one file&lt;/a&gt;, but couldn’t: I couldn’t figure out how to control the
+application order of mappings in that file. However, simple modifications are
+applied before complex modifications, and this &lt;em&gt;is&lt;/em&gt; a simple modification as
+it’s a direct swap, so I just used the UI and did it there. For the sake of
+completeness, the resulting modification to &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/rc-karabiner/blob/master/karabiner.json&quot;&gt;&lt;code&gt;karabiner.json&lt;/code&gt;&lt;/a&gt; is:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;json&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;{&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;    &amp;quot;profiles&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;devices&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;                    &amp;quot;disable_built_in_keyboard_if_exists&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-7&quot;&gt; false&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;                    &amp;quot;fn_function_keys&amp;quot;&lt;/span&gt;&lt;span&gt;: [],&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;                    &amp;quot;identifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;                        &amp;quot;is_keyboard&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-7&quot;&gt; true&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;                        &amp;quot;is_pointing_device&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-7&quot;&gt; false&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;                        &amp;quot;product_id&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 180&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;                        &amp;quot;vendor_id&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 1118&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                    },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;                    &amp;quot;ignore&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-7&quot;&gt; false&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;                    &amp;quot;simple_modifications&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                        {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;                            &amp;quot;from&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;                                &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;grave_accent_and_tilde&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                            },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;                            &amp;quot;to&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;                                &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;non_us_backslash&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                        },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                        {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;                            &amp;quot;from&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;                                &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;non_us_backslash&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                            },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;                            &amp;quot;to&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;                                &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;grave_accent_and_tilde&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                        }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                    ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            ],&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The next step was to patch up the complex modifications. Once I realised that
+the event viewer was claiming that the key with glyph &lt;code&gt;#&lt;/code&gt; was emitting
+&lt;code&gt;(backslash)&lt;/code&gt; while it was, in fact, emitting &lt;code&gt;(non_us_pound)&lt;/code&gt;, this was fairly
+straightforward:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;swap &lt;code&gt;(command)&lt;/code&gt; (glyph &lt;code&gt;Alt&lt;/code&gt;) and &lt;code&gt;(option)&lt;/code&gt; (glyph &lt;code&gt;Start&lt;/code&gt;):&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;json&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;conditions&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;type&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;device_if&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;identifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: [{&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;&amp;quot;vendor_id&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 1118&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; &amp;quot;product_id&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 180&lt;/span&gt;&lt;span&gt;}]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ],&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;type&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;basic&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;from&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;left_option&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;&amp;quot;optional&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;any&amp;quot;&lt;/span&gt;&lt;span&gt;]}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;to&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;left_command&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;conditions&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;type&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;device_if&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;identifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: [{&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;&amp;quot;vendor_id&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 1118&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; &amp;quot;product_id&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 180&lt;/span&gt;&lt;span&gt;}]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ],&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;type&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;basic&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;from&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;left_command&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;&amp;quot;optional&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;any&amp;quot;&lt;/span&gt;&lt;span&gt;]}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;to&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;left_option&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    },&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;add coverage of &lt;code&gt;(non_us_pound)&lt;/code&gt; to the rule that remaps &lt;code&gt;\&lt;/code&gt; to &lt;code&gt;#&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;json&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;conditions&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;type&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;device_if&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;identifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: [{&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;&amp;quot;vendor_id&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 1118&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; &amp;quot;product_id&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 180&lt;/span&gt;&lt;span&gt;}]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ],&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;type&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;basic&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;from&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;non_us_pound&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;to&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;3&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;option&amp;quot;&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;conditions&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;type&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;device_if&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;identifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: [{&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;&amp;quot;vendor_id&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 1118&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; &amp;quot;product_id&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 180&lt;/span&gt;&lt;span&gt;}]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ],&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;type&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;basic&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;from&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;non_us_pound&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;            &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: {&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;&amp;quot;mandatory&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;shift&amp;quot;&lt;/span&gt;&lt;span&gt;]}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;          &amp;quot;to&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;key_code&amp;quot;&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;grave_accent_and_tilde&amp;quot;&lt;/span&gt;&lt;span&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;              &amp;quot;modifiers&amp;quot;&lt;/span&gt;&lt;span&gt;: [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;shift&amp;quot;&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          ]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        }&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;…and that’s it. My keyboard is, once again, my castle.&lt;/p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;To be honest, I suspect even the &lt;em&gt;Sierra&lt;/em&gt; upgrade would’ve done this. &lt;a href=&quot;https://mort.io/blog/mess-with-my-keyboard/#fr-1-1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Customising Homebrew service</title>
+        <published>2017-01-04T00:00:00+00:00</published>
+        <updated>2017-01-04T00:00:00+00:00</updated>
+        
+        <author>
+          <name>Richard Mortier</name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/brew-plist/"/>
+        <id>https://mort.io/blog/brew-plist/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/brew-plist/">&lt;p&gt;As I could never remember the command to start the &lt;code&gt;offlineimap&lt;/code&gt; service using
+my customised configuration, here it is:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;brew&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; services start offlineimap ~/rc-files/homebrew.mxcl.offlineimap.plist&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</content>
+        
+    </entry>
+</feed>
