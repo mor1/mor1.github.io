@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>mort’s mythopœia - grub</title>
+      <link>https://mort.io</link>
+      <description>with apologies</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mort.io/tags/grub/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Tue, 13 Sep 2016 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Grubbing Around</title>
+          <pubDate>Tue, 13 Sep 2016 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/grubbing-around/</link>
+          <guid>https://mort.io/blog/grubbing-around/</guid>
+          <description xml:base="https://mort.io/blog/grubbing-around/">&lt;p&gt;Nothing earth-shattering here: I recently had the “pleasure” of setting up an
+ARM64 server. After considerable support, several firmware upgrades, corruption
+of the main HDD, reinstallation of CentOS7 (recommended, somewhat to my
+surprise), all that remained was to get an up-to-date Linux built and installed
+with 32 bit binary support. This took a bit of &lt;code&gt;make config&lt;/code&gt; fiddling, but got
+there after a few tries.&lt;/p&gt;
+&lt;p&gt;And then I had to relearn how &lt;code&gt;grub&lt;/code&gt;/&lt;code&gt;grub2&lt;/code&gt; works in this brave new (to me)
+UEFI CentOS7 world. Herewith some brief commands I found useful while doing
+so…&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; grep &amp;quot;^menu entry&amp;quot; /boot/efi/EFI/centos/grub.cfg&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;     |&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; tr&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -s&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot; &amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; |&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; cut&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -f&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 2&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -d&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; |&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; cat&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -n&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Edit &lt;code&gt;/etc/default/grub&lt;/code&gt; to set &lt;code&gt;GRUB_DEFAULT=N&lt;/code&gt; for desired value of &lt;code&gt;N&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Temporarily set the default for the next reboot:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; grub2-reboot&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 1&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # based on output of above&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Regenerate the grub2 configuration:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; grub2-mkconfig&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -o&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; /boot/efi/EFI/centos/grub.cfg&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
+      </item>
+    </channel>
+</rss>

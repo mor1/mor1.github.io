@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>mort’s mythopœia - emacs</title>
+    <subtitle>with apologies</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://mort.io/tags/emacs/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://mort.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-10-29T00:00:00+00:00</updated>
+    <id>https://mort.io/tags/emacs/atom.xml</id>
+    <entry xml:lang="en">
+        <title>E(pi)glot-tal start</title>
+        <published>2025-10-29T00:00:00+00:00</published>
+        <updated>2025-10-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>Richard Mortier</name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/emacs-eglot/"/>
+        <id>https://mort.io/blog/emacs-eglot/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/emacs-eglot/">&lt;p&gt;Following on from an earlier post about &lt;a href=&quot;/blog/treesitting-emacs/&quot;&gt;Tree-sitter&lt;/a&gt;,
+&lt;a rel=&quot;external&quot; href=&quot;https://www.gnu.org/software/emacs/manual/html_node/eglot/index.html&quot;&gt;Eglot&lt;/a&gt; is
+the Emacs &lt;a rel=&quot;external&quot; href=&quot;https://microsoft.github.io/language-server-protocol/&quot;&gt;Language Server Protocol
+(LSP)&lt;/a&gt; client. Being also
+now included in Emacs from v29, it works well with
+&lt;a href=&quot;/blog/treesitting-emacs/&quot;&gt;Tree-sitter&lt;/a&gt;, integrating servers that can provide
+rich semantic analysis and tooling for a wide range of languages.&lt;/p&gt;
+&lt;h2 id=&quot;basic-eglot-configuration&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#basic-eglot-configuration&quot; aria-label=&quot;Anchor link for: basic-eglot-configuration&quot;&gt;Basic Eglot configuration&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I split my Emacs configuration for Eglot across some default configuration plus
+language specific modes, as far as possible. Default configuration first:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;use-package&lt;/span&gt;&lt;span&gt; eglot&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :config&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;setq-default&lt;/span&gt;&lt;span&gt; eglot-workspace-configuration ...)&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; ;; ...but see below&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :custom&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (eglot-send-changes-idle-time &lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt;0.5&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (eglot-extend-to-xref t)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :hook&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (eglot-managed-mode &lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt; eglot-inlay-hints-mode)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;prog-mode&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;   .&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   (&lt;/span&gt;&lt;span class=&quot;z-6 z-b&quot;&gt;lambda&lt;/span&gt;&lt;span&gt; ()&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;     (&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;unless&lt;/span&gt;&lt;span&gt; (&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;eq&lt;/span&gt;&lt;span&gt; major-mode &lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;&amp;#39;emacs-lisp-mode&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;       (eglot-ensure))))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (before-save&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;   .&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   (&lt;/span&gt;&lt;span class=&quot;z-6 z-b&quot;&gt;lambda&lt;/span&gt;&lt;span&gt; ()&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;     (&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;if&lt;/span&gt;&lt;span&gt; (eglot-managed-p)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;         (eglot-format))))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :bind&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (:map&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   eglot-mode-map&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   (&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;C-c c a&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; eglot-code-actions)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   (&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;C-c c o&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; eglot-code-actions-organize-imports)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   (&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;C-c c r&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; eglot-rename)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   (&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;C-c c f&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; eglot-format)))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This sets up Eglot to run for all programming modes (&lt;code&gt;prog-mode&lt;/code&gt;) except
+&lt;code&gt;emacs-lisp-mode&lt;/code&gt; because there is no LSP for that, it being rather integral to
+Emacs itself! I will also configure it for a few non-programming modes in other
+relevant &lt;code&gt;use-package&lt;/code&gt; stanzas. Finally, I configure calling Eglot’s (language
+specific) format function before saving, and a few useful key-bindings. See
+below for &lt;a href=&quot;https://mort.io/blog/emacs-eglot/#workspace-configuration&quot;&gt;workspace configuration&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I also add &lt;a rel=&quot;external&quot; href=&quot;https://github.com/jdtsmith/eglot-booster&quot;&gt;&lt;code&gt;eglot-booster&lt;/code&gt;&lt;/a&gt; as that
+enables Eglot to use the &lt;code&gt;emacs-lsp-booster&lt;/code&gt; wrapper which should speed up LSP
+server interactions:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;use-package&lt;/span&gt;&lt;span&gt; eglot-booster&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :vc (:url&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;https://github.com/jdtsmith/eglot-booster&amp;quot;&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :after eglot&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :config (eglot-booster-mode))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;configuring-for-specific-languages&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#configuring-for-specific-languages&quot; aria-label=&quot;Anchor link for: configuring-for-specific-languages&quot;&gt;Configuring for specific languages&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;simple-toml-and-bash&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#simple-toml-and-bash&quot; aria-label=&quot;Anchor link for: simple-toml-and-bash&quot;&gt;Simple: TOML and Bash&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Configuring for a particular language is then relatively straightforward for
+some. For example, for TOML I use &lt;a rel=&quot;external&quot; href=&quot;https://tombi-toml.github.io/tombi/&quot;&gt;Tombi&lt;/a&gt;
+in the tree-sitter TOML mode, &lt;code&gt;toml-ts-mode&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;use-package&lt;/span&gt;&lt;span&gt; toml-ts-mode&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :mode&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;\\.toml\\&amp;#39;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :hook eglot-ensure &lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;;; not a `prog-mode` so not set by the global default&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :init (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;add-to-list&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; &amp;#39;major-mode-remap-alist&lt;/span&gt;&lt;span&gt; &amp;#39;((&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;toml-mode&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; toml-ts-mode)))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :config (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;add-to-list&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; &amp;#39;eglot-server-programs&lt;/span&gt;&lt;span&gt; &amp;#39;(toml-ts-mode &lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt; (&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;tombi&amp;quot; &amp;quot;lsp&amp;quot;&lt;/span&gt;&lt;span&gt;))))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This replaces the default &lt;code&gt;toml-mode&lt;/code&gt; with the tree-sitter &lt;code&gt;toml-ts-mode&lt;/code&gt;, and
+ensures the Tombi TOML language server is running when in that mode.&lt;/p&gt;
+&lt;p&gt;Bash is similarly straightforward using the
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/bash-lsp/bash-language-server&quot;&gt;&lt;code&gt;bash-language-server&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;use-package&lt;/span&gt;&lt;span&gt; bash-ts-mode&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :ensure&lt;/span&gt;&lt;span class=&quot;z-7&quot;&gt; nil&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; ;; as there&amp;#39;s no package to install&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :custom&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;tab-width&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 2&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (sh-basic-offset &lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt;2&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :init&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;add-to-list&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; &amp;#39;major-mode-remap-alist&lt;/span&gt;&lt;span&gt; &amp;#39;(bash-mode &lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt; bash-ts-mode))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;add-to-list&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; &amp;#39;major-mode-remap-alist&lt;/span&gt;&lt;span&gt; &amp;#39;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;sh-mode&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; bash-ts-mode)))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This stops &lt;code&gt;use-package&lt;/code&gt; complaining that there is no &lt;code&gt;bash-ts-mode&lt;/code&gt; package,
+sets tabs to be just two spaces for both &lt;code&gt;shfmt&lt;/code&gt; and &lt;code&gt;indent-for-tab-command&lt;/code&gt;
+(YMMV), and remaps the default &lt;code&gt;bash-&lt;/code&gt;/&lt;code&gt;sh-&lt;/code&gt; modes to use this &lt;code&gt;bash-ts-mode&lt;/code&gt;. I
+don’t need to set &lt;code&gt;eglot-server-programs&lt;/code&gt; in this case because the
+pre-configured default is set to use &lt;code&gt;bash-language-server&lt;/code&gt; appropriately.&lt;/p&gt;
+&lt;p&gt;I did try using the &lt;code&gt;:initializationOptions&lt;/code&gt; option when starting the
+&lt;code&gt;bash-language-server&lt;/code&gt; as follows:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;:config&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;add-to-list&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-8&quot;&gt; &amp;#39;eglot-server-programs&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt; &amp;#39;(bash-ts-mode&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;   .&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   (&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;bash-language-server&amp;quot; &amp;quot;start&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    :initializationOptions&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    (:backgroundAnalysisMaxFiles&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-9&quot;&gt;     0&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; ;; turn off background analysis of directory tree&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;     :shfmt (:binaryNextLine t :caseIndent t :simplifyCode t :spaceRedirects t)))))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;…but unfortunately it seems that &lt;code&gt;bash-language-server&lt;/code&gt; doesn’t respect this
+option, so it needs to be set in &lt;code&gt;eglot-workspace-configuration&lt;/code&gt; (see below).&lt;/p&gt;
+&lt;h3 id=&quot;slightly-more-complex-nix&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#slightly-more-complex-nix&quot; aria-label=&quot;Anchor link for: slightly-more-complex-nix&quot;&gt;Slightly more complex: Nix&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Nix is a little more complex as I would like to use the (non-preconfigured
+default) &lt;a rel=&quot;external&quot; href=&quot;https://github.com/nix-community/nixd&quot;&gt;&lt;code&gt;nixd&lt;/code&gt;&lt;/a&gt; LSP server and
+configure it to use &lt;a rel=&quot;external&quot; href=&quot;https://github.com/NixOS/nixfmt&quot;&gt;&lt;code&gt;nixfmt&lt;/code&gt;&lt;/a&gt; for formatting.
+In this case I do so by passing in &lt;code&gt;:initializationOptions&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;use-package&lt;/span&gt;&lt;span&gt; nix-ts-mode&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :mode&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;\\.nix\\&amp;#39;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :config&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;add-to-list&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-8&quot;&gt;   &amp;#39;eglot-server-programs&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   &amp;#39;((nix-mode nix-ts-mode)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;     .&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;     (&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;nixd&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;      &amp;quot;--semantic-tokens&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;      &amp;quot;--inlay-hints&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      :initializationOptions (:nixd (:formatting.command &lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;nixfmt&amp;quot;&lt;/span&gt;&lt;span&gt;))))))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As with &lt;code&gt;bash-ts-mode&lt;/code&gt;, this remaps the default &lt;code&gt;nix-mode&lt;/code&gt; to &lt;code&gt;nix-ts-mode&lt;/code&gt;, but
+then goes on to specify the language server command line to run, and an
+initialisation option to use &lt;code&gt;nixfmt&lt;/code&gt; for formatting.&lt;/p&gt;
+&lt;h3 id=&quot;more-complex-python-latex-typst&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#more-complex-python-latex-typst&quot; aria-label=&quot;Anchor link for: more-complex-python-latex-typst&quot;&gt;More complex: Python, LaTeX, Typst&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Python is more complex as I use &lt;code&gt;ruff&lt;/code&gt; for formatting but it doesn’t support
+much beyond that at present so I use
+&lt;a rel=&quot;external&quot; href=&quot;https://docs.basedpyright.com/latest/&quot;&gt;basedpyright&lt;/a&gt; for type hinting and the
+rest. After installing the NixOS &lt;code&gt;basedpyright&lt;/code&gt;, &lt;code&gt;ruff&lt;/code&gt;, and
+&lt;code&gt;python313Packages.python-lsp-server&lt;/code&gt; packages, this results in:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;use-package&lt;/span&gt;&lt;span&gt; python-ts-mode&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :ensure&lt;/span&gt;&lt;span class=&quot;z-7&quot;&gt; nil&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :after (eglot reformatter)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :preface&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;  ;; per https://ddavis.io/blog/python-emacs-4/&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (reformatter-define&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   dd/ruff-format&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   :program&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;ruff&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; ;; &amp;quot;uvx&amp;quot; with &amp;quot;ruff&amp;quot; as an arg doesn&amp;#39;t work because dynamic linking on NixOS&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   :args `(&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;format&amp;quot; &amp;quot;--stdin-filename&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; ,buffer-file-name&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;-&amp;quot;&lt;/span&gt;&lt;span&gt;))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (reformatter-define&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   dd/ruff-sort&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   :program&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;ruff&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   :args&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   `(&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;check&amp;quot; &amp;quot;--select&amp;quot; &amp;quot;I&amp;quot; &amp;quot;--fix&amp;quot; &amp;quot;--stdin-filename&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; ,buffer-file-name&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;-&amp;quot;&lt;/span&gt;&lt;span&gt;))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :hook&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  ((python-base-mode &lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt; dd/ruff-format-on-save-mode)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   (python-base-mode &lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt; dd/ruff-sort-on-save-mode))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :init&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;add-to-list&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; &amp;#39;major-mode-remap-alist&lt;/span&gt;&lt;span&gt; &amp;#39;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;python-mode&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; python-ts-mode))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;add-to-list&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-8&quot;&gt;   &amp;#39;eglot-server-programs&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   &amp;#39;((&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;python-mode&lt;/span&gt;&lt;span&gt; python-ts-mode)&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; (&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;basedpyright-langserver&amp;quot; &amp;quot;--stdio&amp;quot;&lt;/span&gt;&lt;span&gt;))))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This essentially does three things: defines two &lt;code&gt;reformatter&lt;/code&gt; functions using
+&lt;a rel=&quot;external&quot; href=&quot;https://docs.astral.sh/ruff/&quot;&gt;&lt;code&gt;ruff&lt;/code&gt;&lt;/a&gt;, one to reformat the code and the other
+to sort imports; and sets
+&lt;a rel=&quot;external&quot; href=&quot;https://docs.basedpyright.com/latest/&quot;&gt;&lt;code&gt;basedpyright&lt;/code&gt;&lt;/a&gt; as the language server
+to use, by shadowing the default entries for Python in &lt;code&gt;eglot-server-programs&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I also turn on &lt;a rel=&quot;external&quot; href=&quot;https://github.com/z80dev/uv-mode&quot;&gt;&lt;code&gt;uv-mode&lt;/code&gt;&lt;/a&gt; as I use
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/astral-sh/uv&quot;&gt;&lt;code&gt;uv&lt;/code&gt;&lt;/a&gt; for all Python package management:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;use-package&lt;/span&gt;&lt;span&gt; uv-mode&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :after (eglot python-base-mode)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :hook (python-base-mode &lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt; uv-mode-auto-activate-hook))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally, for the purposes of this blog post, for document processing I use LaTeX
+historically and am now trying to use typst. LaTeX first using the
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/emacs-languagetool/eglot-ltex-plus&quot;&gt;&lt;code&gt;eglot-ltex-plus&lt;/code&gt;&lt;/a&gt;
+server:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;use-package&lt;/span&gt;&lt;span&gt; eglot-ltex-plus&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :vc (:url&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;https://github.com/emacs-languagetool/eglot-ltex-plus&amp;quot;&lt;/span&gt;&lt;span&gt; :rev :newest)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :custom&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (eglot-ltex-plus-server-path&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;   &amp;quot;/nix/store/3ihx8s39rl2d5by5wabcg3i4rcm3kns3-ltex-ls-plus-18.6.0/&amp;quot;&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (eglot-ltex-plus-communication-channel &lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;&amp;#39;stdio&lt;/span&gt;&lt;span&gt;))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;use-package&lt;/span&gt;&lt;span&gt; latex&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :ensure auctex&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :mode&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  ((&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;\\.tex\\&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; latex-mode)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   (&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;\\.latex\\&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; latex-mode)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   (&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;\\.bibtex\\&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; bibtex-mode))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :hook&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  ((&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;LaTeX-mode&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; LaTeX-math-mode)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;LaTeX-mode&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; turn-on-reftex)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;LaTeX-mode&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; TeX-fold-mode))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   ...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;See &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/rc-emacs/blob/main/init.el#L739&quot;&gt;my &lt;code&gt;init.el&lt;/code&gt;&lt;/a&gt; for
+&lt;code&gt;latex&lt;/code&gt; package configuration details.&lt;/p&gt;
+&lt;p&gt;Finally finally, &lt;code&gt;typst&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;use-package&lt;/span&gt;&lt;span&gt; typst-ts-mode&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :after (eglot reformatter)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :mode&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;\\.typ\\&amp;#39;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :preface&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (reformatter-define &lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;;; XXX hack to autoformat on save as eglot-format doesn&amp;#39;t work&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   typst-reformat&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   :program&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;typstyle&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   :args `(&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;--line-width&amp;quot; &amp;quot;120&amp;quot; &amp;quot;--indent-width&amp;quot; &amp;quot;2&amp;quot;&lt;/span&gt;&lt;span&gt;))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :hook ((typst-ts-mode &lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt; eglot-ensure) (typst-ts-mode &lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt; typst-reformat-on-save-mode))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :config&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;add-to-list&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; &amp;#39;eglot-server-programs&lt;/span&gt;&lt;span&gt; `(typst-ts-mode &lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt; (&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;tinymist&amp;quot; &amp;quot;lsp&amp;quot;&lt;/span&gt;&lt;span&gt;)))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;add-to-list&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; &amp;#39;filladapt-token-table&lt;/span&gt;&lt;span&gt; &amp;#39;(&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;/[ ][^:]+:&amp;quot;&lt;/span&gt;&lt;span&gt; bullet) t)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (&lt;/span&gt;&lt;span class=&quot;z-6 z-b&quot;&gt;defun&lt;/span&gt;&lt;span&gt; typst-ts-tinymist-preview ()&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;    &amp;quot;Run `tinymist preview` on the current file.&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    (&lt;/span&gt;&lt;span class=&quot;z-6 z-b&quot;&gt;interactive&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    (&lt;/span&gt;&lt;span class=&quot;z-6 z-b&quot;&gt;let&lt;/span&gt;&lt;span&gt; ((file (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;buffer-file-name&lt;/span&gt;&lt;span&gt;)))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      (&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;if&lt;/span&gt;&lt;span&gt; file&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;compile&lt;/span&gt;&lt;span&gt; (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;format&lt;/span&gt;&lt;span&gt; &amp;quot;&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;tinymist preview &lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;%s&lt;/span&gt;&lt;span&gt;&amp;quot; (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;shell-quote-argument&lt;/span&gt;&lt;span&gt; file)))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;user-error&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;Buffer is not visiting a file&amp;quot;&lt;/span&gt;&lt;span&gt;))))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :bind (&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;C-c C-x&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; #&amp;#39;typst-ts-tinymist-preview&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :bind (:map typst-ts-mode-map (&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;C-c C-c&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; typst-ts-tmenu)))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Both of the above have to set various other options as well as configuring Eglot.&lt;/p&gt;
+&lt;p&gt;But wait! There’s more! Specifically, for &lt;a href=&quot;https://mort.io/blog/emacs-eglot/#simple-toml-and-bash&quot;&gt;Bash&lt;/a&gt;,
+&lt;a href=&quot;https://mort.io/blog/emacs-eglot/#more-complex-python-latex-typst&quot;&gt;LaTeX&lt;/a&gt;, and
+&lt;a href=&quot;https://mort.io/blog/emacs-eglot/#more-complex-python-latex-typst&quot;&gt;Python&lt;/a&gt;, I need to provide a default
+&lt;em&gt;workspace configuration&lt;/em&gt; to set some sensible options.&lt;/p&gt;
+&lt;h2 id=&quot;workspace-configuration&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#workspace-configuration&quot; aria-label=&quot;Anchor link for: workspace-configuration&quot;&gt;Workspace configuration&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This took me a little while to figure out. LSP servers assume a per-project
+“workspace”, apparently normally set from the project’s configuration file
+(either editor-independent but language-specific, or the Emacs specific but
+language-independent &lt;code&gt;.dir-locals.el&lt;/code&gt;). As a now only occasional coder I prefer
+to set a global default and mostly rely on that.&lt;/p&gt;
+&lt;p&gt;However, the extra little fillip here is that you &lt;strong&gt;can’t&lt;/strong&gt; set it locally in a
+buffer – and that includes via a major-mode hook (&lt;a rel=&quot;external&quot; href=&quot;https://github.com/joaotavora/eglot/discussions/876&quot;&gt;discussed
+here&lt;/a&gt;). I investigated
+using the &lt;code&gt;:initializationOptions&lt;/code&gt; argument when setting &lt;code&gt;eglot-server-programs&lt;/code&gt;
+so that I could keep all language-specific configuration together, but that
+appears to be supported by only some language servers :( So, for example, the
+&lt;a href=&quot;https://mort.io/blog/emacs-eglot/#slightly-more-complex-nix&quot;&gt;nixd&lt;/a&gt; example uses it to configure use of &lt;code&gt;nixfmt&lt;/code&gt;
+for formatting and it seems to work fine, but the equivalent for both Bash and
+Python did not.&lt;/p&gt;
+&lt;p&gt;So, I ended up just setting it in the Eglot configuration stanza using
+&lt;code&gt;setq-default&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;use-package&lt;/span&gt;&lt;span&gt; eglot&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :config&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;setq-default&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   eglot-workspace-configuration&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   &amp;#39;(&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;     ;; sh/bash&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;     :bashIde&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;     (:backgroundAnalysisMaxFiles&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-9&quot;&gt;      0&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; ;; turn off background analysis of directory tree&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      :shfmt (:binaryNextLine t :caseIndent t :simplifyCode t :spaceRedirects t))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;     ;; ltex-ls-plus, giving grammar, spell checking for latex, markdown, etc&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;     :ltex&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;     (:language&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;      &amp;quot;en-GB&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      :additionalRules (:enablePickyRules t :motherTongue&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;en-GB&amp;quot;&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      :completionEnabled t)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;     ;; python&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;     :basedpyright (:disableOrganizeImports t)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;     :basedpyright.analysis&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;     (:typeCheckingMode&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;      &amp;quot;all&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      :autoImportCompletions t&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      :inlayHints (:callArgumentNamesMatching t)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      :useTypingExtensions t)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;     ;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;     ))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  ...&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The final little nugget that I had to figure out to make the above work was what
+is the magic string that identifies the server so that it will process the
+correct configuration blob when it’s sent. Turns out this really is just a magic
+string and I needed to peruse docs and ultimately source to find it. So for
+example, for &lt;code&gt;bash-language-server&lt;/code&gt; it turns out to be &lt;code&gt;bashIde&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Possibly good general places to start looking are in the &lt;code&gt;*EGLOT*&lt;/code&gt; logs from the
+server, your &lt;code&gt;*MESSAGES*&lt;/code&gt; buffer, the server test for processing
+&lt;code&gt;onDidChangeConfigration&lt;/code&gt; or (if one exists, and it probably does given the
+prevalence of LSPs in VSCode-land) in the &lt;code&gt;vscode-client&lt;/code&gt; packaging, or some
+suitable declaration – in the case of &lt;code&gt;bash-language-server&lt;/code&gt;, this turns out to
+be setting the variable
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/bash-lsp/bash-language-server/blob/main/server/src/server.ts#L25&quot;&gt;&lt;code&gt;CONFIGURATION_SECTION&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Anyway. That mostly concludes my Emacs polishing. For now. Probably.&lt;/p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Sabbatical Diary: Week 3</title>
+        <published>2025-10-27T00:00:00+00:00</published>
+        <updated>2025-10-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>Richard Mortier</name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/sabbatical-diary-w3/"/>
+        <id>https://mort.io/blog/sabbatical-diary-w3/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/sabbatical-diary-w3/">&lt;p&gt;Not much to say this week – largely more of the same. &lt;a href=&quot;/blog/treesitting-emacs/&quot;&gt;Blogged about
+&lt;code&gt;tree-sitter&lt;/code&gt;&lt;/a&gt; and (written, &lt;del&gt;to be published
+shortly&lt;/del&gt;now published!) &lt;a href=&quot;/blog/emacs-eglot/&quot;&gt;&lt;code&gt;eglot&lt;/code&gt;&lt;/a&gt;, configuring both for an
+increasing number of languages.&lt;/p&gt;
+&lt;p&gt;Also continued trying to land some small funding for continuing
+&lt;a rel=&quot;external&quot; href=&quot;https://www.cst.cam.ac.uk/people/aati2&quot;&gt;Amjad’s&lt;/a&gt; excellent work. Following
+meticulous characterisation of Linux’s process scheduler, his Ph.D. developed an
+alternative approach that enables a 30% smaller cluster to satisfy the same
+“serverless” workload.&lt;/p&gt;
+&lt;p&gt;Serverless computing is a popular style of cloud computing enabling customers to
+ignore all application deployment details, instead encapsulating their
+application – most commonly using “container” technology – so the platform can
+take responsibility for providing the necessary resources for it to run, scaling
+resources up and down in response to changes in demand. Providers typically
+provision resources as a shared cluster of (physical or virtual) machines,
+orchestrated using a cluster orchestrator based on the popular Kubernetes
+orchestrator. That orchestrator is then responsible for running encapsulated
+application code, ensuring each job is allocated sufficient resources.&lt;/p&gt;
+&lt;p&gt;The cluster’s machines typically run Linux, and so it is Linux’s kernel
+scheduler that is responsible for running a machine’s allocated jobs. That
+scheduler’s behaviour is taken for granted by the plethora of work that has
+sought to improve cluster performance. Unfortunately, close examination of
+cluster performance results showed significant discrepancies when compared to
+the intended behaviour – current practice masks these discrepancies by
+over-provisioning the cluster.&lt;/p&gt;
+&lt;p&gt;Meticulous examination of the results and the Linux kernel scheduler code
+revealed that the behaviour of a particular core data structure in conjunction
+with treatment of multi-core processors causes overheads to increase
+disproportionately as demand increases. This increase in overheads is especially
+prominent with serverless workloads due to their particular characteristics, and
+causes the cluster orchestrator makes ever poorer job placement decisions. The
+net effect is that, in practice, clusters must be significantly over-provisioned
+to achieve acceptable performance.&lt;/p&gt;
+&lt;p&gt;This thesis reports how meticulous measurement revealed and unpicked this
+problem, and describes and evaluates a set of relatively small – just a few
+hundred lines of code – but critical changes in Linux’s kernel scheduler in
+mitigation. The final outcome is that these mitigations allow an identical and
+representative serverless workload to be supported by a cluster comprising 30%
+fewer machines.&lt;/p&gt;
+&lt;p&gt;See our arXiv paper, “&lt;a rel=&quot;external&quot; href=&quot;https://arxiv.org/abs/2508.15703&quot;&gt;Mitigating context switching in densely packed Linux
+clusters with Latency-Aware Group Scheduling&lt;/a&gt;”
+for more details :)&lt;/p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Tree-sitting Emacs</title>
+        <published>2025-10-20T00:00:00+00:00</published>
+        <updated>2025-10-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>Richard Mortier</name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/treesitting-emacs/"/>
+        <id>https://mort.io/blog/treesitting-emacs/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/treesitting-emacs/">&lt;p&gt;First, some background that it took me longer than I would’ve hoped to piece
+together.&lt;/p&gt;
+&lt;p&gt;&lt;a rel=&quot;external&quot; href=&quot;https://tree-sitter.github.io/tree-sitter/&quot;&gt;Tree-sitter&lt;/a&gt; is “a parser generator
+tool and an incremental parsing library”. What does that mean in pratice? It is
+a thing which, when paired with a grammar, parses your source code and enables
+syntax highlighting, code folding, and so on. Syntactic manipulations. It comes
+with a domain specific language (DSL) for writing grammars and so, happily, many
+languages are already supported. It is also, as of Emacs 29, included out of the
+box.&lt;/p&gt;
+&lt;p&gt;On the other hand, &lt;a rel=&quot;external&quot; href=&quot;https://www.gnu.org/software/emacs/manual/html_node/eglot/Quick-Start.html&quot;&gt;Eglot&lt;/a&gt;, also included out of the box since Emacs 29,
+provides the &lt;a rel=&quot;external&quot; href=&quot;https://microsoft.github.io/language-server-protocol/&quot;&gt;Language Server Protocol (LSP)&lt;/a&gt; interaction. This supports
+semantic rather than syntactic markup: inline hints, invocation of code
+formatters, and so on. More on that next.&lt;/p&gt;
+&lt;h2 id=&quot;nixos-packages&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#nixos-packages&quot; aria-label=&quot;Anchor link for: nixos-packages&quot;&gt;NixOS packages&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I am of course also using NixOS, with flakes and Home Manager, so it took a bit
+of faffing about to get this all working but I think I got there in the end.
+First, the NixOS runes needed to install relevant Emacs packages:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;programs&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;emacs&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt; =&lt;/span&gt;&lt;span&gt; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-6&quot;&gt;  enable&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; =&lt;/span&gt;&lt;span class=&quot;z-7&quot;&gt; true&lt;/span&gt;&lt;span&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-6&quot;&gt;  package&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; =&lt;/span&gt;&lt;span&gt; pkgs&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;emacs-gtk;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-6&quot;&gt;  extraPackages&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; =&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    epkgs:&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; with&lt;/span&gt;&lt;span&gt; epkgs; ([&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;      # ...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      tree-sitter-langs&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      (treesit-grammars&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;with-grammars (p: [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        p&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;tree-sitter-bash&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        p&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;tree-sitter-dockerfile&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        p&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;tree-sitter-elisp&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        p&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;tree-sitter-markdown&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        p&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;tree-sitter-markdown-inline&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        p&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;tree-sitter-nix&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        p&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;tree-sitter-ocaml&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        p&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;tree-sitter-python&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        p&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;tree-sitter-rust&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        p&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;tree-sitter-toml&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        p&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;tree-sitter-typst&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        p&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;tree-sitter-yaml&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      ]))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    ]);&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You could use the &lt;code&gt;treesit-grammars.with-all-grammars&lt;/code&gt; package instead of the
+final expression that selects specific grammars, but I found that package did
+not include all the grammars I actually wanted, hence doing it by hand. It is
+also in principle possible to allow the Emacs &lt;code&gt;treesit-auto&lt;/code&gt; package to download
+and install grammars on demand. Grammars are first sought in
+&lt;code&gt;treesit-extra-load-path&lt;/code&gt; – in my case a gnarly and ever evolving Nix path,
+currently
+&lt;code&gt;/nix/store/4p4rfax61q9z6c5wj7ahnb8hjq8pa11g-emacs-packages-deps/lib/&lt;/code&gt;. If they
+are not found there, they are next looked for in
+&lt;code&gt;${user-emacs-directory}/tree-sitter/&lt;/code&gt; with &lt;code&gt;${user-emacs-directory}&lt;/code&gt; resolving
+in my case to &lt;code&gt;~/.emacs.d&lt;/code&gt;. &lt;code&gt;treesit-auto&lt;/code&gt; places them in the latter location.&lt;/p&gt;
+&lt;p&gt;Additionally, the &lt;code&gt;emacs-lsp-booster&lt;/code&gt; package claims to speed things up, so why
+not:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;home&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;packages&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt; = with&lt;/span&gt;&lt;span&gt; pkgs&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;;&lt;/span&gt;&lt;span&gt; [ emacs-lsp-booster ]&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;emacs-configuration&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#emacs-configuration&quot; aria-label=&quot;Anchor link for: emacs-configuration&quot;&gt;Emacs configuration&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This was a bit fiddly but not too bad in the end. First install packages
+comprising the tree-sitter grammars, an auto-installer for missing grammars, and
+enabling code folding via tree-sitter:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;use-package&lt;/span&gt;&lt;span&gt; tree-sitter-langs &lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;;; grammar bundle&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :after tree-sitter&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :custom (global-tree-sitter-mode t))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;use-package&lt;/span&gt;&lt;span&gt; treesit-auto &lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;;; auto-install missing grammars&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :after tree-sitter&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :config (global-treesit-auto-mode))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;use-package&lt;/span&gt;&lt;span&gt; treesit-fold &lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;;; enable code folding based on tree-sitter&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :vc (:url&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;https://github.com/emacs-tree-sitter/treesit-fold&amp;quot;&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :config (treesit-fold-mode)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :bind&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  ((&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;C-`&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; treesit-fold-toggle)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   (&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;C-€&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; treesit-fold-close-all)&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; ;; I remap S-` to € using `keyd` so can&amp;#39;t use C-S-`&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   (&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;M-C-€&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; treesit-fold-open-all)))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, configure the &lt;code&gt;-ts-&lt;/code&gt; version for each relevant major &lt;code&gt;-mode&lt;/code&gt;, e.g., for
+Dockerfile and Nix:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;use-package&lt;/span&gt;&lt;span&gt; dockerfile-ts-mode&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :mode&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;\\Dockerfile\\&amp;#39;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :config (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;add-to-list&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; &amp;#39;major-mode-remap-alist&lt;/span&gt;&lt;span&gt; &amp;#39;((docker-mode &lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt; docker-ts-mode))))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;use-package&lt;/span&gt;&lt;span&gt; nix-ts-mode&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :mode&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;\\.nix\\&amp;#39;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :config (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;add-to-list&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; &amp;#39;major-mode-remap-alist&lt;/span&gt;&lt;span&gt; &amp;#39;((nix-mode &lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt; nix-ts-mode))))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;…and so on. The examples above do two things: set the file glob pattern to
+which the major mode will apply, and remap the “default” major mode
+&lt;code&gt;LANGUAGE-mode&lt;/code&gt; to the new tree-sitter major mode, &lt;code&gt;LANGUAGE-ts-mode&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a rel=&quot;external&quot; href=&quot;https://microsoft.github.io/language-server-protocol/&quot;&gt;LSP&lt;/a&gt; support via &lt;a rel=&quot;external&quot; href=&quot;https://www.gnu.org/software/emacs/manual/html_node/eglot/Quick-Start.html&quot;&gt;Eglot&lt;/a&gt; then requires installing any necessary language servers
+and configuring them. More on that next.&lt;/p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Sabbatical Diary: Week 2</title>
+        <published>2025-10-18T00:00:00+00:00</published>
+        <updated>2025-10-18T00:00:00+00:00</updated>
+        
+        <author>
+          <name>Richard Mortier</name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/sabbatical-diary-w2/"/>
+        <id>https://mort.io/blog/sabbatical-diary-w2/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/sabbatical-diary-w2/">&lt;p&gt;As predicted, this week was some Emacs configuration polishing interspersed with
+some writing using &lt;a rel=&quot;external&quot; href=&quot;https://typst.app/&quot;&gt;&lt;code&gt;typst&lt;/code&gt;&lt;/a&gt;. I quite like &lt;code&gt;typst&lt;/code&gt; I think
+– it seems pretty capable, it’s pretty sensible, and it’s certainly easier to
+read than LaTeX. And there’s even &lt;a rel=&quot;external&quot; href=&quot;https://imaginarytext.ca/posts/2024/pandoc-typst-tutorial/&quot;&gt;runes
+available&lt;/a&gt; to invoke
+&lt;a rel=&quot;external&quot; href=&quot;https://pandoc.org/&quot;&gt;&lt;code&gt;pandoc&lt;/code&gt;&lt;/a&gt; to allow production of body text in Markdown, to
+be rendered using &lt;code&gt;typst&lt;/code&gt; as the backend. The piece of writing in question
+didn’t go as fast as I wanted, but it did start in earnest. Which is, at least,
+a start :)&lt;/p&gt;
+&lt;p&gt;First cut at configuration polishing is also now done I think – now into
+tweaking and refining as the different packages actually get used. Probably the
+biggest improvement noticed so far is the use of
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/minad/jinx&quot;&gt;&lt;code&gt;jinx&lt;/code&gt;&lt;/a&gt; the “enchanted spell checker” which does
+seem considerably better than the various &lt;code&gt;ispell&lt;/code&gt;/&lt;code&gt;hunspell&lt;/code&gt; incantation
+packages I’ve historically used:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;use-package&lt;/span&gt;&lt;span&gt; jinx&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :diminish jinx-mode&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :hook (emacs-startup &lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt; global-jinx-mode)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :bind ((&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;C-;&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; jinx-correct) (&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;C-M-$&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; jinx-languages))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :config&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (vertico-multiform-mode)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;add-to-list&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-8&quot;&gt;   &amp;#39;vertico-multiform-categories&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;   &amp;#39;(jinx grid (vertico-grid-annotate &lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 20&lt;/span&gt;&lt;span&gt;) (vertico-count &lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 4&lt;/span&gt;&lt;span&gt;))))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;:config&lt;/code&gt; block integrates it with the
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/minad/vertico&quot;&gt;&lt;code&gt;vertico&lt;/code&gt;&lt;/a&gt; vertical completion system that
+I’ve recently started using; simply remove if you don’t use that. This did also
+require the NixOS package to be installed already:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  programs&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;emacs&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;extraPackages&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt; =&lt;/span&gt;&lt;span&gt; epkgs:&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; with&lt;/span&gt;&lt;span&gt; epkgs; ([ jinx ])&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The biggest visible change though was finally getting an auto-formatter for my
+elisp code, specifically
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/rc-emacs/blob/main/init.el&quot;&gt;&lt;code&gt;init.el&lt;/code&gt;&lt;/a&gt; configured:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;use-package&lt;/span&gt;&lt;span&gt; elisp-autofmt&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :commands (elisp-autofmt-mode elisp-autofmt-buffer)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  :hook (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;emacs-lisp-mode&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; elisp-autofmt-mode))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ensuring it is applied to &lt;code&gt;init.el&lt;/code&gt; simply required adding the (currently empty,
+might become configuration in future apparently) flag file
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/rc-emacs/blob/main/.elisp-autofmt&quot;&gt;&lt;code&gt;.elisp-autofmt&lt;/code&gt;&lt;/a&gt; to
+my &lt;code&gt;~/.emacs.d/&lt;/code&gt;, and adding the following trailer to my
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/rc-emacs/blob/f06fc8fb9c280e11a8ddd8548ad245c8eba71484/init.el#L1349-L1351&quot;&gt;&lt;code&gt;init.el&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;;; Local variables:&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;;; elisp-autofmt-load-packages-local: (&amp;quot;use-package&amp;quot; &amp;quot;use-package-core&amp;quot;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;;; end:&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The other big change has been moving to &lt;code&gt;tree-sitter&lt;/code&gt; and &lt;code&gt;eglot&lt;/code&gt; for language
+support, but that’ll be a longer post so more on that later.&lt;/p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>A 21st Century IDE</title>
+        <published>2013-10-13T00:00:00+00:00</published>
+        <updated>2013-10-13T00:00:00+00:00</updated>
+        
+        <author>
+          <name>Richard Mortier</name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/21st-century-ide/"/>
+        <id>https://mort.io/blog/21st-century-ide/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/21st-century-ide/">&lt;p&gt;I finally decided to sit down and get the shiny new &lt;a rel=&quot;external&quot; href=&quot;http://kiwi.iuwt.fr/~asmanur/blog/merlin/&quot;&gt;merlin&lt;/a&gt; mode for OCaml
+working with my emacs configuration. Basically, really rather simple in the end
+although (in the usual fashion!) I did end up spending considerable time
+tweaking various other customisations…&lt;/p&gt;
+&lt;p&gt;Most of the information below is based on the following sources:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http://github.com/def-lkb/merlin#emacs-interface&quot;&gt;http://github.com/def-lkb/merlin#emacs-interface&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http://zheng.li/buzzlogs-ocaml/2013/08/23/irc.html&quot;&gt;http://zheng.li/buzzlogs-ocaml/2013/08/23/irc.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;http://www.ocamlpro.com/blog/2013/03/18/monthly-03.html&quot;&gt;http://www.ocamlpro.com/blog/2013/03/18/monthly-03.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Before we begin, install &lt;code&gt;merlin&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ opam install merlin&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The complete &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/rc-files/commit/4a2b0be59081d6df0640af39b48c75c20443c8dc&quot;&gt;commit&lt;/a&gt; change is in my &lt;a rel=&quot;external&quot; href=&quot;http://github.com/mor1&quot;&gt;github&lt;/a&gt; account (combined with a
+large cleanup of various other aborted OCaml configurations). Breaking it down a
+bit, first setup some paths: where to find &lt;code&gt;ocp-indent&lt;/code&gt;, &lt;code&gt;merlin.el&lt;/code&gt; for
+&lt;code&gt;merlin-mode&lt;/code&gt;, and the &lt;code&gt;ocamlmerlin&lt;/code&gt; command itself. Note that this relies on
+the current state of &lt;code&gt;opam&lt;/code&gt;, so when you start &lt;code&gt;emacs&lt;/code&gt; be sure to have selected
+the &lt;code&gt;opam&lt;/code&gt; compiler-switch that you installed the &lt;code&gt;merlin&lt;/code&gt; package into, above.&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;;; ocp-indent&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;load-file&lt;/span&gt;&lt;span&gt; (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;concat&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;substring&lt;/span&gt;&lt;span&gt; (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;shell-command-to-string&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;opam config var prefix&amp;quot;&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 0 -1&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;            &amp;quot;/share/typerex/ocp-indent/ocp-indent.el&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            ))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;;; merlin-mode&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;push&lt;/span&gt;&lt;span&gt; (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;concat&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;       (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;substring&lt;/span&gt;&lt;span&gt; (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;shell-command-to-string&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;opam config var share&amp;quot;&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 0 -1&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;       &amp;quot;/emacs/site-lisp&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;       )&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      load-path)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-6 z-b&quot;&gt;setq&lt;/span&gt;&lt;span&gt; merlin-command&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;      (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;concat&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;       (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;substring&lt;/span&gt;&lt;span&gt; (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;shell-command-to-string&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;opam config var bin&amp;quot;&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 0 -1&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;       &amp;quot;/ocamlmerlin&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;       ))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;autoload&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; &amp;#39;merlin-mode&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;merlin&amp;quot; &amp;quot;Merlin mode&amp;quot;&lt;/span&gt;&lt;span&gt; t)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now the meat: when we select &lt;code&gt;tuareg-mode&lt;/code&gt;, use &lt;code&gt;ocp-indent&lt;/code&gt; to indent lines,
+turn on &lt;code&gt;merlin&lt;/code&gt; auto-complete, and finally set a couple of local key bindings
+so that I can fix up &lt;code&gt;merlin&lt;/code&gt; to not conflict with my
+now-neurologically-hardwired navigation keys.&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;add-hook&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; &amp;#39;tuareg-mode-hook&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;          &amp;#39;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;lambda&lt;/span&gt;&lt;span&gt; ()&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;             (merlin-mode)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;             (&lt;/span&gt;&lt;span class=&quot;z-6 z-b&quot;&gt;setq&lt;/span&gt;&lt;span&gt; indent-line-function &lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;&amp;#39;ocp-indent-line&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;             (&lt;/span&gt;&lt;span class=&quot;z-6 z-b&quot;&gt;setq&lt;/span&gt;&lt;span&gt; merlin-use-auto-complete-mode t)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;             (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;local-set-key&lt;/span&gt;&lt;span&gt; (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;kbd&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;C-S-&amp;lt;up&amp;gt;&amp;quot;&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; &amp;#39;merlin-type-enclosing-go-up&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;             (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;local-set-key&lt;/span&gt;&lt;span&gt; (&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;kbd&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;C-S-&amp;lt;down&amp;gt;&amp;quot;&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; &amp;#39;merlin-type-enclosing-go-down&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;             ))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally, do the usual to use &lt;code&gt;tuareg-mode&lt;/code&gt; for OCaml/F# editing.&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(push&amp;#39;(&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;\\.ml[iylp]?&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; tuareg-mode) auto-mode-alist)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;push&lt;/span&gt;&lt;span&gt; &amp;#39;(&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;\\.fs[ix]?&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; .&lt;/span&gt;&lt;span&gt; tuareg-mode) auto-mode-alist)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And that’s it!&lt;/p&gt;
+</content>
+        
+    </entry>
+</feed>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>mort’s mythopœia - sway</title>
+    <subtitle>with apologies</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://mort.io/tags/sway/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://mort.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2026-08-17T00:00:00+00:00</updated>
+    <id>https://mort.io/tags/sway/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Some additional `sway` hotkeys</title>
+        <published>2026-08-17T00:00:00+00:00</published>
+        <updated>2026-08-17T00:00:00+00:00</updated>
+        
+        <author>
+          <name>Richard Mortier</name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/sway-hotkeys/"/>
+        <id>https://mort.io/blog/sway-hotkeys/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/sway-hotkeys/">&lt;p&gt;I am still generally enjoying using Wayland with the &lt;a href=&quot;https://mort.io/blog/sway-hotkeys/.&quot;&gt;&lt;code&gt;sway&lt;/code&gt;&lt;/a&gt; window manager on NixOS. It turns out I really like tiling window managers, it seems to behave reasonably well, and it has a degree of customisability that I’m finding very helpful. The combination of UI customisation via my &lt;code&gt;sway&lt;/code&gt; config and automation via &lt;code&gt;kanshi&lt;/code&gt; is really rather good.&lt;/p&gt;
+&lt;p&gt;A couple of recent additions took me a while to find so I thought I’d document here in the usual way.&lt;/p&gt;
+&lt;p&gt;First is the way I toggle all networking on/off: bind a plausible looking function key (in my case on the laptop keyboard having the glyph for flight mode, and the equivalent function key on my external USB keyboard) to the following shell script which parses the output of &lt;code&gt;nmcli&lt;/code&gt; and toggles off/on networking as appropriate:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;wayland&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;windowManager&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;sway&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;keybindings&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt; =&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;  let&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;    ...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    net_toggle&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt; =&lt;/span&gt;&lt;span&gt; pkgs&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;writeShellScriptBin&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;net_toggle.sh&amp;quot; &amp;#39;&amp;#39;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;      if [[ $(nmcli n) =~ enabled ]]; then&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;        nmcli n off&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;      else&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;        nmcli n on&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;      fi&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;    &amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    f8&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt; =&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;exec &lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;${&lt;/span&gt;&lt;span&gt;net_toggle&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;/bin/net_toggle.sh&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;    ...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;  in&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  lib&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;mkOptionDefault {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;    ## bare function keys&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;    ...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;    &amp;quot;F8&amp;quot; = f8;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;    ...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;    ## thinkpad keyboard&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;    ...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;    &amp;quot;XF86WLAN&amp;quot; = f8;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;    ...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  }&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Second was one that’s a bit more subtle but seems to be working ok. One of the things I don’t really have yet is a good mental model for how to navigate the tree (?) of containers in Sway. In particular, sometimes you have a set of windows that seem to occupy an implicit container while sometimes you have some windows sitting inside an explicit container labelled something like &lt;code&gt;V [ w1 w2 ... ]&lt;/code&gt; or &lt;code&gt;H [ w1 w2 ... ]&lt;/code&gt;. Once I move focus to one of the latter windows via &lt;code&gt;&amp;lt;modifier&amp;gt;+&amp;lt;arrow&amp;gt;&lt;/code&gt;&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-modifier-1&quot;&gt;&lt;a href=&quot;https://mort.io/blog/sway-hotkeys/#fn-modifier&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt; I can’t then move focus back out with the  keyboard, forcing me instead to wiggle the mouse. This is irritating.&lt;/p&gt;
+&lt;p&gt;So I realised that what I needed was to move focus to the parent container (the one labelled &lt;code&gt;V [ ... ]&lt;/code&gt; or &lt;code&gt;H [ ... ]&lt;/code&gt;) and then I can move focus left/right/up/down as desired. Which means the following bindings are useful additions as they effectively do just that: move focus to parent, navigate, then move focus back to the child of the navigated-to target:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;wayland&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;windowManager&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;sway&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;keybindings&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt; =&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;  let&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;    ...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;  in&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  lib&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;mkOptionDefault {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;    ...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;    &amp;quot;${modifier&lt;/span&gt;&lt;span&gt;}&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;+Ctrl+Down&amp;quot; = &amp;quot;focus parent, focus down, focus child&amp;quot;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;    &amp;quot;${modifier}+Ctrl+Left&amp;quot; = &amp;quot;focus parent, focus left, focus child&amp;quot;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;    &amp;quot;${modifier}+Ctrl+Right&amp;quot; = &amp;quot;focus parent, focus right, focus child&amp;quot;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;    &amp;quot;${modifier}+Ctrl+Up&amp;quot; = &amp;quot;focus parent, focus up, focus child&amp;quot;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;    ...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;  };&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Possibly I should sit down and think about Sway containers and navigation thereof more completely at some point (essentially to answer: is it really just a tree? or are there wrinkles?) to come up with some bindings that make more sense. But the one above has been a significant improvement as it stands.&lt;/p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-modifier&quot;&gt;
+&lt;p&gt;In my case, &lt;code&gt;modifier&lt;/code&gt; is set to &lt;code&gt;Mod4&lt;/code&gt; or &lt;code&gt;super&lt;/code&gt; which is to say, the Windows key. Purely on the basis that it’s in a convenient place. &lt;a href=&quot;https://mort.io/blog/sway-hotkeys/#fr-modifier-1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Stop, Start</title>
+        <published>2024-08-30T00:00:00+00:00</published>
+        <updated>2024-08-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>Richard Mortier</name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/stop-start/"/>
+        <id>https://mort.io/blog/stop-start/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/stop-start/">&lt;p&gt;Well, here we go again, again. Having stalled out back in 2013 to restart in
+2015, I stalled out again in 2017, so am finally restarting seven years later.
+Again. I do have a dozen or more half-written posts from that period that may
+leak out slowly, in &lt;a href=&quot;/tags/old&quot;&gt;backdated form&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The stack for the blog has been updated again, naturally – the tools got better
+after all. So now this is using &lt;a rel=&quot;external&quot; href=&quot;https://www.getzola.org&quot;&gt;Zola&lt;/a&gt; with, initially,
+the &lt;a rel=&quot;external&quot; href=&quot;https://github.com/jieiku/abridge/&quot;&gt;abridge theme&lt;/a&gt;. I think it’s shinier,
+and hopefully also involves (almost) no JavaScript, is finally accessible, and
+not too heavyweight. In removing the excessive JavaScript, I also updated my
+&lt;a href=&quot;https://mort.io/blog/stop-start/./research#publications&quot;&gt;publication list&lt;/a&gt; &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/bib2html&quot;&gt;generation
+process&lt;/a&gt;: no more CoffeeScript and JavaScript,
+just some plain ol’ &lt;a rel=&quot;external&quot; href=&quot;https://www.python.org/&quot;&gt;Python&lt;/a&gt; using the slick new
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/astral-sh/uv&quot;&gt;uv&lt;/a&gt; tooling. The
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/casey/just&quot;&gt;Justfile&lt;/a&gt; incantation is something like:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;make&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;papers&lt;/span&gt;&lt;span&gt; := &amp;quot;../templates/shortcodes/publications.html&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;bibinputs&lt;/span&gt;&lt;span&gt; := &amp;quot;../papers/bibinputs.json&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;# build papers data for site&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;@papers&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  cd bib2html &amp;amp;&amp;amp; uv sync &amp;amp;&amp;amp; uv run -- ./src/bib2html {{bibinputs}} &amp;gt;| {{papers}}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I’ve also added a &lt;a href=&quot;https://mort.io/blog/stop-start/./register/&quot;&gt;register of interests&lt;/a&gt; so I stop having to
+scrabble around remembering what I’m officially doing when I’m occasionally
+asked.&lt;/p&gt;
+&lt;p&gt;The stack underneath has also changed. I finally kicked the Mac OS habit after
+over 10 years – decided I’d had enough of Apple hiding things and generally
+getting in my way – at the same time I switched from Android to iPhone. Never
+do things the easy way, that’s my motto. So now I’m back on a PC … but it
+turns out that 2024 (well, 2023 in fact) is the year of Linux on the Laptop for
+me. Not something I thought would actually happen when we joked about it in the
+late 90s. Truly, times change. And not just any old wannabe-Windows distribution
+but the resolutely idiosyncratic and copiously yet poorly documented
+&lt;a href=&quot;httsp://nixos.org/&quot;&gt;NixOS&lt;/a&gt; using Flakes and Home-Manager of course, with
+&lt;a rel=&quot;external&quot; href=&quot;https://wayland.freedesktop.org/&quot;&gt;Wayland&lt;/a&gt; and &lt;a rel=&quot;external&quot; href=&quot;https://swaywm.org/&quot;&gt;Sway&lt;/a&gt;.
+I’ve even finally made the leap to &lt;a rel=&quot;external&quot; href=&quot;https://vscodium.com/&quot;&gt;Codium&lt;/a&gt;, the
+de-Microsofted version of VSCode, from
+&lt;a rel=&quot;external&quot; href=&quot;https://www.gnu.org/software/emacs/&quot;&gt;Emacs&lt;/a&gt; (mostly –
+&lt;a rel=&quot;external&quot; href=&quot;https://orgmode.org/&quot;&gt;org-mode&lt;/a&gt; has not yet been replaced). I blame
+&lt;a rel=&quot;external&quot; href=&quot;https://www.jeffas.net/&quot;&gt;Andrew&lt;/a&gt; and &lt;a rel=&quot;external&quot; href=&quot;https://www.jentek.dev/&quot;&gt;Chris&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For the terminally curious, this meant a fairly heavy reworking of my 30 years
+old &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/rc-files/&quot;&gt;dotfiles&lt;/a&gt; – still work in progress but
+adequately organised for now I think. See the &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/rc-files/tree/main/nixos&quot;&gt;NixOS specific
+bits&lt;/a&gt; if curious.&lt;/p&gt;
+&lt;p&gt;And, because I’m going to try to include at least one vaguely technical bit (or
+at least, one bit which isn’t just me bemoaning that I haven’t written anything
+in years), I confess to being particularly pleased with the following fragment
+to enable &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/rc-files/blob/main/nixos/modules/home-manager/sway.nix#L64-L122&quot;&gt;my Sway startup
+script&lt;/a&gt;
+to start several apps on particular workspaces, by switching to the workspace,
+starting the app, and then waiting for a suitable window to appear. The latter
+step entails&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;subscribing &lt;code&gt;swaymsg&lt;/code&gt; to &lt;code&gt;window&lt;/code&gt; messages with
+&lt;a rel=&quot;external&quot; href=&quot;https://jqlang.github.io/jq/&quot;&gt;jq&lt;/a&gt; to extract the messages of interest
+indicating a new window in the background,&lt;/li&gt;
+&lt;li&gt;executing the command to start the app,&lt;/li&gt;
+&lt;li&gt;using &lt;code&gt;grep&lt;/code&gt;/&lt;code&gt;pkill&lt;/code&gt; in tandem to kill the subscription when the new window is
+detected,  and finally&lt;/li&gt;
+&lt;li&gt;waiting for the subscription to have been killed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It seems fairly (indeed, surprisingly) reliable.&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;wait_for&lt;/span&gt;&lt;span&gt; () {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  {&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; swaymsg&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -r -m -t&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; subscribe &amp;#39;[&amp;quot;window&amp;quot;]&amp;#39;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; |&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;    jq&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -c --unbuffered&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;#39;. | select(.change == &amp;quot;new&amp;quot;)&amp;#39;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; |&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    {&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; grep&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -m1&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; .&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; &amp;gt;&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;/dev/null&lt;/span&gt;&lt;span&gt; ;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; pkill&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; swaymsg&lt;/span&gt;&lt;span&gt; ;} &amp;amp;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  }&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; 2&amp;gt;&lt;/span&gt;&lt;span&gt;/dev/null&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;  pid&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;$!&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;  swaymsg&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; --&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;exec &lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;$*&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; sleep&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 0.5&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;  wait $pid&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; 2&amp;gt;&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;/dev/null&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Use via something like:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;wayland&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;windowManager&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;sway&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;config&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;startup&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt; =&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;  let&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    msg&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt; =&lt;/span&gt;&lt;span&gt; cmds:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;swaymsg &amp;#39;&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;z-7&quot;&gt;builtins&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;concatStringsSep&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;, &amp;quot;&lt;/span&gt;&lt;span&gt; cmds&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    workspace&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt; =&lt;/span&gt;&lt;span&gt; ws: msg [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;workspace --no-auto-back-and-forth &lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;${&lt;/span&gt;&lt;span&gt;ws&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span&gt; ]&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    after&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt; =&lt;/span&gt;&lt;span&gt; delay: cmds:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;sleep &lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;toString&lt;/span&gt;&lt;span&gt; delay&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;amp;&amp;amp; &lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;${&lt;/span&gt;&lt;span&gt;msg cmds&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    startup&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt; =&lt;/span&gt;&lt;span&gt; pkgs&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;writeShellScriptBin&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;startup.sh&amp;quot; &amp;#39;&amp;#39;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;      wait_for () {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;        { swaymsg -r -m -t subscribe &amp;#39;[&amp;quot;window&amp;quot;]&amp;#39; |&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;          jq -c --unbuffered &amp;#39;. | select(.change == &amp;quot;new&amp;quot;)&amp;#39; |&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;          { grep -m1 . &amp;gt;/dev/null ; pkill swaymsg ;} &amp;amp;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;        } 2&amp;gt;/dev/null&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;        pid=$!&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;        swaymsg -- &amp;quot;exec $*&amp;quot; &amp;amp;&amp;amp; sleep 0.5&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;        wait $pid 2&amp;gt;/dev/null&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;      }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;      ${&lt;/span&gt;&lt;span&gt;workspace&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;${&lt;/span&gt;&lt;span&gt;mediaws&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;      wait_for &amp;quot;rhythmbox&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;    &amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;  in&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  [ {&lt;/span&gt;&lt;span class=&quot;z-6&quot;&gt; command&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; =&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;${&lt;/span&gt;&lt;span&gt;startup&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;/bin/startup.sh&amp;quot;&lt;/span&gt;&lt;span&gt;; } ]&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Debugging Electron apps</title>
+        <published>2024-08-14T00:00:00+00:00</published>
+        <updated>2024-08-14T00:00:00+00:00</updated>
+        
+        <author>
+          <name>Richard Mortier</name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/electron-cli/"/>
+        <id>https://mort.io/blog/electron-cli/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/electron-cli/">&lt;p&gt;Another short one, this time the magic flags to get debug output and access to
+webdev tools under Electron apps such as Slack and whatnot on Wayland:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;APPLICATION&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; --enable-logging --devtools \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-8&quot;&gt;  --platform=wayland --enable-features=UseOzonePlatform --password-store=&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;gnome_libsecret&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</content>
+        
+    </entry>
+</feed>

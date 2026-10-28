@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>mort’s mythopœia - rescue</title>
+      <link>https://mort.io</link>
+      <description>with apologies</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mort.io/tags/rescue/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Fri, 28 Aug 2020 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Renovating an old media PC</title>
+          <pubDate>Fri, 28 Aug 2020 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/mediapc/</link>
+          <guid>https://mort.io/blog/mediapc/</guid>
+          <description xml:base="https://mort.io/blog/mediapc/">&lt;p&gt;Some notes from my first attempt to renovate an old media PC that had a SYSLINUX
+install without any package management, and a crufty BIOS. Probably outdated
+now, but I may go back to it one day…&lt;/p&gt;
+&lt;p&gt;First, some background links:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/Cylinder-head-sector&quot;&gt;https://en.wikipedia.org/wiki/Cylinder-head-sector&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/FAT_boot_sector&quot;&gt;https://en.wikipedia.org/wiki/FAT_boot_sector&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/Logical_Block_Addressing#CHS_conversion&quot;&gt;https://en.wikipedia.org/wiki/Logical_Block_Addressing#CHS_conversion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/Master_Boot_Record&quot;&gt;https://en.wikipedia.org/wiki/Master_Boot_Record&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/Volume_boot_record&quot;&gt;https://en.wikipedia.org/wiki/Volume_boot_record&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https://wiki.archlinux.org/index.php/Syslinux&quot;&gt;https://wiki.archlinux.org/index.php/Syslinux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https://wiki.syslinux.org/wiki/index.php?title=Common_Problems#Failed_to_load_ldlinux&quot;&gt;https://wiki.syslinux.org/wiki/index.php?title=Common_Problems#Failed_to_load_ldlinux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https://wiki.syslinux.org/wiki/index.php?title=Hardware_Compatibility#USB_related_problems&quot;&gt;https://wiki.syslinux.org/wiki/index.php?title=Hardware_Compatibility#USB_related_problems&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https://wiki.syslinux.org/wiki/index.php?title=Hdt_(Hardware_Detection_Tool)&quot;&gt;https://wiki.syslinux.org/wiki/index.php?title=Hdt_(Hardware_Detection_Tool)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I explored two ways forward: &lt;a rel=&quot;external&quot; href=&quot;https://www.syslinux.org/&quot;&gt;SYSLINUX&lt;/a&gt; and
+&lt;a rel=&quot;external&quot; href=&quot;https://www.gnu.org/software/grub/index.html&quot;&gt;GRUB&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;syslinux&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#syslinux&quot; aria-label=&quot;Anchor link for: syslinux&quot;&gt;SYSLINUX&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I found that getting SYSLINUX working required moving the partition to 0/1/1 –
+using sectors per track of 63 or 32, and heads per cylinder or 16 or 64 with
+appropriate cylinder values simply didn’t help.&lt;/p&gt;
+&lt;p&gt;Diagnosed by observing that console displayed only CRLF but no banner –
+SYSLINUX code ends up with the banner to be  displayed just falling into  the
+second sector on the disk, so it can’t be read unless the geometry is correct.
+Don’t ask why old fashioned whirling metal disk geometry needs to be set for a
+USB stick, you’ll be sad.&lt;/p&gt;
+&lt;h3 id=&quot;formatting-the-usb-stick&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#formatting-the-usb-stick&quot; aria-label=&quot;Anchor link for: formatting-the-usb-stick&quot;&gt;Formatting the USB stick&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Some runes, use at your own risk.&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; dd if=/dev/zero of=/dev/sdd status=progress bs=1M count=&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt;256&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; fdisk /dev/sdd&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt;&lt;span&gt;EOF&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;o&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;x&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;h&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;64&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;s&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;32&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;r&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;n&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;p&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;1&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;t&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;6&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;a&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;1&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;w&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;EOF&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; mkfs.fat /dev/sdd1&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;One exciting gotcha: the &lt;code&gt;fdisk&lt;/code&gt; utility in the  &lt;code&gt;util-linux&lt;/code&gt; package &lt;strong&gt;didn’t
+work&lt;/strong&gt; – but the one in &lt;code&gt;busybox&lt;/code&gt; did!&lt;/p&gt;
+&lt;h3 id=&quot;putting-mbr-in-place&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#putting-mbr-in-place&quot; aria-label=&quot;Anchor link for: putting-mbr-in-place&quot;&gt;Putting MBR in place&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; dd bs=&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt;440&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; count=&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; conv=notrunc if=/usr/share/syslinux/mbr.bin of=/dev/sdd&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;obtaining-and-installing-memtest86&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#obtaining-and-installing-memtest86&quot; aria-label=&quot;Anchor link for: obtaining-and-installing-memtest86&quot;&gt;Obtaining and installing &lt;a rel=&quot;external&quot; href=&quot;https://www.memtest86.com/&quot;&gt;&lt;code&gt;memtest86&lt;/code&gt;&lt;/a&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cd&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;wget&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; http://memtest.org/download/4.10/memtest86+-4.10.zip&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;unzip&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; memtest86+-4.10.zip&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; cp ~/memtest86+-4.10.bin /mnt/boot/&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;putting-locally-built-syslinux-in-place&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#putting-locally-built-syslinux-in-place&quot; aria-label=&quot;Anchor link for: putting-locally-built-syslinux-in-place&quot;&gt;Putting locally built SYSLINUX in place&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; mount /dev/sdd1 /mnt&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; mkdir&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -p&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; /mnt/boot/syslinux&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; syslinux&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; --directory&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; boot/syslinux&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; --install&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; /dev/sdd1&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; cp /usr/share/syslinux/&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;.c32 /mnt/boot/syslinux/&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; ~/syslinux&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; bios&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; cp ~/syslinux/bios/com32/hdt/hdt.c32 /mnt/boot/syslinux/&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; cp /usr/share/hwdata/pci.ids /mnt/boot/syslinux&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; sh&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -c&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;cat &amp;gt; /mnt/boot/syslinux/syslinux.cfg&amp;quot;&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt;&lt;span&gt;EOF&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;# UI menu.c32&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;PROMPT 1&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;DEFAULT hdt&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;LABEL some_label&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  LINUX memdisk&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  INITRD ../alpine-standard-3.12.0-x86_64.iso&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  APPEND iso-scan/filename=../alpine-standard-3.12.0-x86_64.iso&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;LABEL memtest&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  LINUX ../memtest86+-4.10.bin&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;LABEL hdt&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  COM32 hdt.c32&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;LABEL reboot&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  COM32 reboot.c32&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;LABEL poweroff&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  COM32 poweroff.c32&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;EOF&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Unfortunately, getting &lt;code&gt;hdt&lt;/code&gt; working required rebuilding as the Alpine package
+version doesn’t appear to statically link against libupload.a  from SYSLINUX
+tree so doesn’t work. Fixing required &lt;code&gt;make bios&lt;/code&gt; in  the SYSLINUX tree after
+installing dependencies including:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; apk&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -U&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; add nasm xzlinux-headers util-linux-dev&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;grub&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#grub&quot; aria-label=&quot;Anchor link for: grub&quot;&gt;GRUB&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Similar behaviour: GRUB2 displayed the &lt;code&gt;GRUB &lt;/code&gt; message and nothing else, The
+&lt;a rel=&quot;external&quot; href=&quot;https://help.ubuntu.com/community/Grub2/Troubleshooting#GRUB&quot;&gt;Ubuntu wiki&lt;/a&gt; says
+this is the “can’t find MBR or euqivalent” information. In fact, it’s the same
+issue: subsequent progress requires reading the second sector, but I had a
+CHS/LBA mismatch meant it wasn’t reading from the right sector and so hanging.&lt;/p&gt;
+&lt;h3 id=&quot;to-wipe-the-stick&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#to-wipe-the-stick&quot; aria-label=&quot;Anchor link for: to-wipe-the-stick&quot;&gt;To wipe the stick&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; dd if=/dev/zero of=/dev/sdd status=progress bs=4M&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;to-partition-the-stick&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#to-partition-the-stick&quot; aria-label=&quot;Anchor link for: to-partition-the-stick&quot;&gt;To partition the stick&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;In this case, to be bootable with a single &lt;code&gt;ext4&lt;/code&gt; partition&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; parted /dev/sdd&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;mklabel&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; msdos&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;unit&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; s&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;mkpart&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; primary ext2 2048s 100%&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 1&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; boot on&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 1&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; lba off&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;…or alternatively, possibly&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; fdisk /dev/sdd&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt;&lt;span&gt;EOF&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;o&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;n&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;p&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;1&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;a&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;1&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;EOF&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;to-format-the-partition-and-install-grub-and-the-master-boot-record&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#to-format-the-partition-and-install-grub-and-the-master-boot-record&quot; aria-label=&quot;Anchor link for: to-format-the-partition-and-install-grub-and-the-master-boot-record&quot;&gt;To format the partition, and install &lt;code&gt;grub&lt;/code&gt; and the master boot record&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; mkfs.ext4 /dev/sdd1&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; mount /dev/sdd1 /mnt&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; grub-install&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; --recheck --boot-directory=/mnt/boot&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; /dev/sdd&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;At this point, booting off the stick will bring htpc to &lt;code&gt;GRUB &lt;/code&gt; error stage,
+indicating GRUB has loaded but doesn’t know anything about how to continue.&lt;/p&gt;
+&lt;h3 id=&quot;install-memtest&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#install-memtest&quot; aria-label=&quot;Anchor link for: install-memtest&quot;&gt;Install memtest&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; cp memtest86+.bin /mnt&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; cat&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; &amp;gt;&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;/mnt/boot/grub/grub.cfg&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt;&lt;span&gt;EOF&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;set timeout=10&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;set default=0&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;menuentry &amp;quot;Memtest 86+&amp;quot; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt; linux16 /memtest86+.bin&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;EOF&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;install-alpine-iso-for-booting&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#install-alpine-iso-for-booting&quot; aria-label=&quot;Anchor link for: install-alpine-iso-for-booting&quot;&gt;Install Alpine ISO for booting&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Add the following stanza to GRUB config, above:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;insmod&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; loopback&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;menuentry&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;quot;alpine&amp;quot; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;  set&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; isofile=/boot/alpine-standard-3.12.0-x86_64.iso&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;  loopback&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; loop&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; $isofile&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;  linux&lt;/span&gt;&lt;span&gt; (loop)/boot/vmlinuz-lts iso-scan/&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;$isofile modules&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;loop,squashfs,sd-mod,usb-storage&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; modloop&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;=&lt;/span&gt;&lt;span&gt;(&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;loop&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;/boot/modloop-lts&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;  initrd&lt;/span&gt;&lt;span&gt; (loop)/boot/initramfs-lts&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;miscellaneous-cribs&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#miscellaneous-cribs&quot; aria-label=&quot;Anchor link for: miscellaneous-cribs&quot;&gt;Miscellaneous cribs&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I did of course forget that the&lt;/p&gt;
+&lt;p&gt;Bluetooth keyboard requires a dongle to be plugged in which is stored inside the
+battery compartment. Doh. Making a note so I don’t forget again.&lt;/p&gt;
+&lt;h3 id=&quot;adding-internal-hard-disk&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#adding-internal-hard-disk&quot; aria-label=&quot;Anchor link for: adding-internal-hard-disk&quot;&gt;Adding internal hard-disk&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Required partitioning and formatting:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;find where disk is mounted: &lt;code&gt;sudo lshw -C disk -short&lt;/code&gt;
+assume new disk is &lt;code&gt;/dev/sdX&lt;/code&gt;, flash disk is &lt;code&gt;/dev/sdF&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;partition disk: &lt;code&gt;sudo parted /dev/sdX mkpart primary ext4 1 -1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;format disk: &lt;code&gt;sudo mkfs.ext4 -m0 /dev/sdX1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;label disk: &lt;code&gt;sudo e2label /dev/sdX1 Harddisk&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;remount flash disk rw: &lt;code&gt;mount -o remount,rw /dev/sdF&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;edit &lt;code&gt;/boot/extlinux.conf&lt;/code&gt; so APPEND line reads:
+&lt;code&gt;APPEND boot=LABEL=System disk=LABEL=Harddisk quiet&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I screwed up the first time by not correctly labelling the disk so had to make
+an Ubuntu rescue USB stick. Couldn’t get this to work using MacOS, though didn’t
+try putting GRUB on via MacOS.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;download ISO: &lt;a rel=&quot;external&quot; href=&quot;http://ubuntu-rescue-remix.org/&quot;&gt;http://ubuntu-rescue-remix.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;boot &lt;code&gt;ubuntu-rescue-remix-12-04.iso&lt;/code&gt; via virtualbox&lt;/li&gt;
+&lt;li&gt;mount USB stick on &lt;code&gt;/dev/sdX&lt;/code&gt; at &lt;code&gt;/mnt&lt;/code&gt;: &lt;code&gt;mount /dev/sdX /mnt&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;format the stick: &lt;code&gt;mkfs.vfat -n multiboot /dev/sdX1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cd /mnt &amp;amp;&amp;amp; mkdir boot iso&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;grub-install --force --no-floppy --boot-directory=/mnt/boot /dev/sdX&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;create ISO from mounted cd:
+&lt;code&gt;dd if=/dev/cdrom of=/mnt/iso/ubuntu-rescue-remix-12-04.iso&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;create &lt;code&gt;/boot/grub/grub.cfg&lt;/code&gt; with&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;menuentry&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;#39;Ubuntu Rescue Remix ISO &amp;#39; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;  set&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; isofile=&amp;quot;/iso/ubuntu-rescue-remix-12-04.iso&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;  loopback&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; loop&lt;/span&gt;&lt;span&gt; (hd0,N)&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;$isofile&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;  linux&lt;/span&gt;&lt;span&gt; (loop)/casper/vmlinuz&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; boot&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;casper&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; iso-scan/filename&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;$isofile&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; noprompt noeject&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;  initrd&lt;/span&gt;&lt;span&gt; (loop)/casper/initrd.gz&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;where &lt;code&gt;N&lt;/code&gt; is partition number, typically 1.&lt;/p&gt;
+&lt;p&gt;Finally, for backup purposes, addons are stored in
+&lt;code&gt;/storage/.xbmc/addons/packages&lt;/code&gt;, and the following Alpine packages were useful
+to install for some of the above, diagnostics, etc:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; apk add busybox-static apk-tools-static&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; vi /etc/apk/repositories&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; apk.static update&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; apk.static upgrade&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; --no-self-upgrade --available&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; apk add lshw lshw-doc&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; lshw&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -C&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; storage&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -short -numeric&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; apk add lsblk&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; lsblk&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
+      </item>
+      <item>
+          <title>Rescuing a Shattered Nexus 4</title>
+          <pubDate>Thu, 21 May 2015 00:00:00 +0000</pubDate>
+          <author>Richard Mortier</author>
+          <link>https://mort.io/blog/nexus-4-rescue/</link>
+          <guid>https://mort.io/blog/nexus-4-rescue/</guid>
+          <description xml:base="https://mort.io/blog/nexus-4-rescue/">&lt;p&gt;A little while ago, before I’d done the smart thing and got myself a case for my
+Nexus 4, I dropped it a couple of inches onto a hard surface at the wrong angle.
+The screen promptly shattered – and this was bad because without the touch
+screen, I couldn’t interact with it, I had some photos on it from son#1 birthday
+party that hadn’t been copied off, and I hadn’t got round to enabling USB access
+to the filesystem or any of the debug/developer options.&lt;/p&gt;
+&lt;p&gt;So what to do? I &lt;em&gt;really&lt;/em&gt; didn’t want to lose those photos. A couple of hours
+searching the Interwebs and a little bit of experimentation later, and I managed
+it. Basically, download and apply the clockwork mod bootloader, and this turns
+on the developer options that allow access to the filesystem via the Android SDK
+tools. To find out the details, read on…&lt;/p&gt;
+&lt;p&gt;First, download the recovery image:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; wget http://download2.clockworkmod.com/recoveries/recovery-clockwork-touch-6.0.3.1-mako.img&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, install the Android SDK – I’m on OSX using [Homebrew][] so I do:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; brew install android-sdk&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, power off and disconnect the phone! Then boot it into fastboot mode by
+holding down &lt;code&gt;power&lt;/code&gt; and &lt;code&gt;volume-down&lt;/code&gt;. Once it boots you should be in the
+fastboot list – the volume keys will cycle you through the list. You should now
+also be able to see the device once connected to USB, and you can then OEM
+unlock it:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; sudo fastboot devices&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -l&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;04f02d4bdcd3b6e2&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;       fastboot usb:FD123000&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; sudo fastboot oem unlock&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;OKAY&lt;/span&gt;&lt;span&gt; [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; 17.937s]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;finished.&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; total time: 17.937s&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Having unlocked it, you can now install the clockwork recovery bootloader you
+downloaded (assuming it’s in the local directory):&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; sudo fastboot flash recovery recovery-clockwork-touch-6.0.3.1-mako.img&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;sending&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;#39;recovery&amp;#39;&lt;/span&gt;&lt;span&gt; (7560&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; KB&lt;/span&gt;&lt;span&gt;)...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;OKAY&lt;/span&gt;&lt;span&gt; [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;  0.526s]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;writing&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; &amp;#39;recovery&amp;#39;...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;OKAY&lt;/span&gt;&lt;span&gt; [&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;  0.448s]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;finished.&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; total time: 0.975s&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;When you now use the volume keys to cycle through the list, you should now see
+&lt;strong&gt;recovery mode&lt;/strong&gt; as an option – select it, and you should be able to see the
+device listed in the usual way via &lt;code&gt;adb&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; mort@greyjay:phone&lt;/span&gt;&lt;span&gt;$;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; sudo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; adb devices&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -l&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; of devices attached&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;04f02d4bdcd3b6e2&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;       recovery usb:FD123000 product:occam model:Nexus_4 device:mako&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally, pull all the contents off the sdcard:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; adb pull /sdcard/0 ./sdcard/&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; adb pull /data/ ./data/&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; adb pull /system/ ./system/&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;…and that’s it – you should now have a local copy of everything off the
+phone, and you can send it away for repair (or whatever you feel like
+otherwise), possibly while sobbing quietly.&lt;/p&gt;
+</description>
+      </item>
+    </channel>
+</rss>
