@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>mort’s mythopœia - ocal</title>
+    <subtitle>with apologies</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://mort.io/tags/ocal/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://mort.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2017-09-01T00:00:00+00:00</updated>
+    <id>https://mort.io/tags/ocal/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Platforms, Packaging, Progress— Addendum</title>
+        <published>2017-09-01T00:00:00+00:00</published>
+        <updated>2017-09-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>Richard Mortier</name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/topkg-addendum/"/>
+        <id>https://mort.io/blog/topkg-addendum/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/topkg-addendum/">&lt;p&gt;This is a short addendum to my &lt;a rel=&quot;external&quot; href=&quot;http://mort.io/blog/2017/08/28/past-present-future/&quot;&gt;post of a couple of days
+ago&lt;/a&gt; caused by my
+carelessness in writing the &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/ocal/blob/13a9a7f5b8f2e0be4c2b55941a00a885df202cf8/ocal.opam#L16-L22&quot;&gt;OPAM
+file&lt;/a&gt;.
+Careful readers will observe the lack of any dependency on &lt;a rel=&quot;external&quot; href=&quot;https://github.com/pqwy/notty/&quot;&gt;notty&lt;/a&gt;. Read on for
+what happened next…&lt;/p&gt;
+&lt;p&gt;The result of this carelessness was that everything worked just fine locally,
+but &lt;a rel=&quot;external&quot; href=&quot;https://github.com/ocaml/opam-repository/pull/10176&quot;&gt;my PR to the OPAM package
+repository&lt;/a&gt; failed. Cue
+much wailing and gnashing of teeth.&lt;/p&gt;
+&lt;p&gt;However, thanks to a moment’s assistance
+from &lt;a rel=&quot;external&quot; href=&quot;http://erratique.ch/contact.en&quot;&gt;Daniel Bünzli&lt;/a&gt;, this was easy to fix:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; git checkout&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; 0.2.0&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;       # checkout the relevant release version tag&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; topkg opam pkg&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;           # create the release metadata&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; e _build/ocal.0.2.0/opam&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; # invoke editor so I can add the missing dep&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; topkg opam submit&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt;        # submit the updated OPAM metadata, updating the PR&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;Submitting&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; _build/ocal.0.2.0&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[ocal-0.2.0.tbz] http://github.com/mor1/ocal/releases/download/0.2.0/ocal-0.2.0.tbz downloaded&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;Updating&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; existing pull-request&lt;/span&gt;&lt;span class=&quot;z-3 z-i&quot;&gt; #10176&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;Pull-requested:&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; https://github.com/ocaml/opam-repository/pull/10176&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For me, the main thing to note here is that the OPAM metadata in the repo at the
+commit ref tagged for release doesn’t match that which OPAM uses to install the
+release. But as &lt;a rel=&quot;external&quot; href=&quot;http://seb.mondet.org/&quot;&gt;Sebastien Mondet&lt;/a&gt; pointed out to me,
+this is neither relevant nor (in the long term) likely, as (e.g.) version
+constraints on dependencies may need to be added to old versions of dependent
+packages to keep them working. (Though I did add and commit the dependency to
+&lt;code&gt;master&lt;/code&gt;, naturally.)&lt;/p&gt;
+&lt;p&gt;So, all-in-all, an easy fix to a common problem. Which is the way it should
+be…&lt;/p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Platforms, Packaging, Progress</title>
+        <published>2017-08-28T00:00:00+00:00</published>
+        <updated>2017-08-28T00:00:00+00:00</updated>
+        
+        <author>
+          <name>Richard Mortier</name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://mort.io/blog/past-present-future/"/>
+        <id>https://mort.io/blog/past-present-future/</id>
+        
+        <content type="html" xml:base="https://mort.io/blog/past-present-future/">&lt;p&gt;I recently decided to refresh and update my &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/ocal/&quot;&gt;ocal&lt;/a&gt; package,&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;https://mort.io/blog/past-present-future/#fn-1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt; primarily to
+port it to use the excellent &lt;a rel=&quot;external&quot; href=&quot;https://github.com/pqwy/notty/&quot;&gt;notty&lt;/a&gt; before adding support for indicating
+week-of-year. At the same time, I took the opportunity to update the build
+infrastructure now that the OCaml world has some shiny new packaging and build
+tools to go with &lt;a rel=&quot;external&quot; href=&quot;https://github.com/ocaml/opam/&quot;&gt;OPAM&lt;/a&gt;, namely &lt;a rel=&quot;external&quot; href=&quot;https://github.com/dbuenzli/topkg/&quot;&gt;&lt;code&gt;topkg&lt;/code&gt;&lt;/a&gt; and &lt;a rel=&quot;external&quot; href=&quot;https://github.com/janestreet/jbuilder/&quot;&gt;&lt;code&gt;jbuilder&lt;/code&gt;&lt;/a&gt;. So, starting
+from &lt;a rel=&quot;external&quot; href=&quot;http://github.com/djs55/&quot;&gt;Dave Scott’s&lt;/a&gt; &lt;a rel=&quot;external&quot; href=&quot;https://mirage.io/wiki/packaging&quot;&gt;wiki entry&lt;/a&gt; about how to package &lt;a rel=&quot;external&quot; href=&quot;https://mirage.io/&quot;&gt;Mirage&lt;/a&gt; libraries,
+here’s what I had to do…&lt;/p&gt;
+&lt;h2 id=&quot;remove-oasis-remnants&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#remove-oasis-remnants&quot; aria-label=&quot;Anchor link for: remove-oasis-remnants&quot;&gt;Remove Oasis remnants&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; rm _oasis setup.ml Makefile&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; _tags myocamlbuild.ml .merlin&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;mv&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; ocal.opam/opam o&lt;/span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; rm&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -rf&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; ocal.opam&lt;/span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; mv&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; o ocal.opam&lt;/span&gt;&lt;span&gt; &amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; git&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; add ocal.opam&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cat&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; &amp;gt;|&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; .gitignore&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt;&lt;span&gt;_EOF&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;_build&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;*.merlin&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;*.install&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;_EOF&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Although we’re removing the &lt;code&gt;ocal.opam/descr&lt;/code&gt; file, we’re not going to lose the
+content: we’re going to let &lt;code&gt;topkg opam pkg&lt;/code&gt; use its default &lt;code&gt;--readme&lt;/code&gt; option
+to extract the relevant info from the first marked up section of the
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/ocal/blob/0.2.0/README.md&quot;&gt;&lt;code&gt;README.md&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1 z-b&quot;&gt;# ocal — An improved Unix &lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;`cal`&lt;/span&gt;&lt;span class=&quot;z-1 z-b&quot;&gt; utility&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;%%VERSION%%&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;A replacement for the standard Unix &lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;`cal`&lt;/span&gt;&lt;span&gt; utility. Partly because I could,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;partly because I&amp;#39;d become too irritated with its command line interface.&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We also remove but don’t lose the functionality of the &lt;code&gt;.merlin&lt;/code&gt; and OPAM
+&lt;code&gt;ocal.install&lt;/code&gt; files, as &lt;a rel=&quot;external&quot; href=&quot;https://github.com/janestreet/jbuilder/&quot;&gt;jbuilder&lt;/a&gt; will generate them for us.&lt;/p&gt;
+&lt;h2 id=&quot;create-src-jbuild-file&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#create-src-jbuild-file&quot; aria-label=&quot;Anchor link for: create-src-jbuild-file&quot;&gt;Create &lt;code&gt;src/jbuild&lt;/code&gt; file&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cat&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; &amp;gt;|&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; src/jbuild&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt;&lt;span&gt;_EOF&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;(jbuild_version 1)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;(executable&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt; ((public_name ocal)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  (package     ocal)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  (name        main)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  (libraries&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;   (&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;    astring&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;    calendar&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;    cmdliner&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;    notty&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;    notty.unix&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;    ))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  (flags (:standard -w &amp;quot;A-44-48-52&amp;quot; -safe-string))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;  ))&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;_EOF&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This corresponds to the &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/ocal/releases/tag/0.2.0&quot;&gt;0.2.0&lt;/a&gt;
+release of &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/ocal/&quot;&gt;ocal&lt;/a&gt;. Note that the &lt;code&gt;name&lt;/code&gt; parameter refers to the module that
+contains the entrypoint for the executable, and that we turn on all warnings
+(&lt;code&gt;A&lt;/code&gt;) except for three that we wish to ignore:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;44&lt;/code&gt;: Open statement shadows an already defined identifier.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;48&lt;/code&gt;: Implicit elimination of optional arguments.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;52&lt;/code&gt;: (see 8.5.1) Fragile constant pattern.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After I did some tidying up of the code to deal with the newly imposed warnings,
+&lt;code&gt;make&lt;/code&gt; and &lt;code&gt;make install&lt;/code&gt; satisfactorily (and quickly!) used &lt;a rel=&quot;external&quot; href=&quot;https://github.com/janestreet/jbuilder/&quot;&gt;jbuilder&lt;/a&gt; to
+build and install the executable as &lt;code&gt;~/.opam/system/bin/ocal&lt;/code&gt; (thanks to the
+&lt;code&gt;public_name&lt;/code&gt; stanza in the &lt;code&gt;src/jbuild&lt;/code&gt; file, above). &lt;code&gt;make uninstall&lt;/code&gt; then
+caused &lt;a rel=&quot;external&quot; href=&quot;https://github.com/janestreet/jbuilder/&quot;&gt;jbuilder&lt;/a&gt; to remove it, before I &lt;code&gt;opam&lt;/code&gt; pinned it and then reinstall
+through &lt;code&gt;opam&lt;/code&gt; to check that workflow worked as well:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;opam&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; remove ocal&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;opam&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; pin add&lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt; -yn --dev-repo&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; ocal .&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;opam&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; install ocal&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;create-the-topkg-skeletons&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#create-the-topkg-skeletons&quot; aria-label=&quot;Anchor link for: create-the-topkg-skeletons&quot;&gt;Create the &lt;code&gt;topkg&lt;/code&gt; skeletons&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Having refreshed the basic build infrastructure, next it’s time to update the
+packaging workflow. For a simple library we could use the automatic
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/janestreet/jbuilder/&quot;&gt;jbuilder&lt;/a&gt;/&lt;a rel=&quot;external&quot; href=&quot;https://github.com/dbuenzli/topkg/&quot;&gt;topkg&lt;/a&gt; plugin per the &lt;a rel=&quot;external&quot; href=&quot;https://mirage.io/wiki/packaging&quot;&gt;wiki entry&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;mkdir&lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt; pkg&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;cat&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; &amp;gt;|&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; pkg/pkg.ml&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt;&lt;span&gt;_EOF&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;#!/usr/bin/env ocaml&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;#use &amp;quot;topfind&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-2&quot;&gt;#require &amp;quot;topkg-jbuilder.auto&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;_EOF&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;However, this isn’t a library so we don’t have documentation to build so we
+don’t bother with the &lt;code&gt;odoc&lt;/code&gt; skeleton. As a result we also need to customise
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/ocal/blob/0.2.0/pkg/pkg.ml&quot;&gt;&lt;code&gt;pkg/pkg.ml&lt;/code&gt;&lt;/a&gt; so as to stop &lt;code&gt;topkg publish&lt;/code&gt; failing when it can’t build docs:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;ocaml&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;#!/usr/bin/env ocaml&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-3&quot;&gt;#&lt;/span&gt;&lt;span&gt;use &lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;topfind&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;#require &lt;/span&gt;&lt;span class=&quot;z-2&quot;&gt;&amp;quot;topkg-jbuilder&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-10&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;z-9&quot;&gt; Topkg&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;let&lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt; publish&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; =&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-9&quot;&gt;  Pkg&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;publish&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt; ~&lt;/span&gt;&lt;span class=&quot;z-7&quot;&gt;artefacts&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;z-6&quot;&gt;[&lt;/span&gt;&lt;span&gt;`&lt;/span&gt;&lt;span class=&quot;z-6&quot;&gt;Distrib] ()&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-5&quot;&gt;let&lt;/span&gt;&lt;span class=&quot;z-6&quot;&gt; ()&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt; =&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-9&quot;&gt;  Topkg_jbuilder&lt;/span&gt;&lt;span class=&quot;z-5&quot;&gt;.&lt;/span&gt;&lt;span&gt;describe&lt;/span&gt;&lt;span class=&quot;z-10&quot;&gt; ~&lt;/span&gt;&lt;span class=&quot;z-7&quot;&gt;publish&lt;/span&gt;&lt;span class=&quot;z-6&quot;&gt; ()&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;prepare-a-release&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#prepare-a-release&quot; aria-label=&quot;Anchor link for: prepare-a-release&quot;&gt;Prepare a release&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Finally, we follow the standard &lt;a rel=&quot;external&quot; href=&quot;https://github.com/dbuenzli/topkg/&quot;&gt;topkg&lt;/a&gt; workflow to prepare a release. First,
+add an entry to &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/ocal/blob/0.2.0/CHANGES.md&quot;&gt;&lt;code&gt;CHANGES.md&lt;/code&gt;&lt;/a&gt; with the correct formatting and commit the
+result, and then:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;make&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;distrib&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;	[ -x &lt;/span&gt;&lt;span class=&quot;z-1&quot;&gt;$$&lt;/span&gt;&lt;span&gt;(opam config var root)/plugins/opam-publish/repos/ocal ] || &lt;/span&gt;&lt;span class=&quot;z-8&quot;&gt;\&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;	  opam-publish repo add ocal mor1/ocal&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;	topkg tag&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;	topkg distrib&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;…which creates tokens for accessing the GitHub repo for this project (if they
+don’t already exist), creates a release tag based on entries in &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/ocal/blob/0.2.0/CHANGES.md&quot;&gt;&lt;code&gt;CHANGES.md&lt;/code&gt;&lt;/a&gt;,
+and then creates the release tarballs (without the edits to &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/ocal/blob/0.2.0/pkg/pkg.ml&quot;&gt;&lt;code&gt;pkg/pkg.ml&lt;/code&gt;&lt;/a&gt; this
+would also build the docs, but we have none).&lt;/p&gt;
+&lt;h2 id=&quot;publish-a-release&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#publish-a-release&quot; aria-label=&quot;Anchor link for: publish-a-release&quot;&gt;Publish a release&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Finally, we publish the release to GitHub and issue a pull request to
+the &lt;a rel=&quot;external&quot; href=&quot;https://github.com/ocaml/opam/&quot;&gt;OPAM repository&lt;/a&gt; to add the new release into OPAM after linting and
+tests have passed.&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;make&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-1&quot;&gt;publish&lt;/span&gt;&lt;span&gt;:&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;	topkg publish&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;	topkg opam pkg&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;	topkg opam submit&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Given that this repo has only a single package, we could in fact simply issue&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;topkg tag &amp;amp;&amp;amp; topkg bistro&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Also, as an alternative to customising the &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/ocal/blob/0.2.0/pkg/pkg.ml&quot;&gt;&lt;code&gt;pkg/pkg.ml&lt;/code&gt;&lt;/a&gt; as indicated above, we
+could simply remember to indicate the appropriate customisation on the command
+line:&lt;/p&gt;
+&lt;pre class=&quot;giallo z-code&quot; &gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;topkg publish distrib&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;…but &lt;code&gt;topkg bistro&lt;/code&gt; wouldn’t then work.&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#conclusion&quot; aria-label=&quot;Anchor link for: conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;So that’s it: a simple executable distribution taken from old-school &lt;a rel=&quot;external&quot; href=&quot;http://oasis.forge.ocamlcore.org/&quot;&gt;Oasis&lt;/a&gt; and
+&lt;a rel=&quot;external&quot; href=&quot;https://ocaml.org/learn/tutorials/ocamlbuild/&quot;&gt;OCamlBuild&lt;/a&gt; infrastructure to shiny new modern &lt;a rel=&quot;external&quot; href=&quot;https://github.com/janestreet/jbuilder/&quot;&gt;jbuilder&lt;/a&gt; and &lt;a rel=&quot;external&quot; href=&quot;https://github.com/dbuenzli/topkg/&quot;&gt;topkg&lt;/a&gt;. The new
+scheme seems to me to be an improvement: faster build times, simpler (to my
+eyes) metadata, autogeneration of more of the repeated metadata (&lt;code&gt;.merlin&lt;/code&gt; etc),
+and a reasonably simple &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/ocal/blob/0.2.0/Makefile&quot;&gt;&lt;code&gt;Makefile&lt;/code&gt;&lt;/a&gt; that I actually think I understand.
+Definitely progress :)&lt;/p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;A somewhat over-featured replacement for the standard UNIX &lt;code&gt;cal&lt;/code&gt; utility,
+because I got irritated by its American-centricity and my
+initial &lt;a rel=&quot;external&quot; href=&quot;https://github.com/mor1/python-scripts/blob/master/cal.py&quot;&gt;Python replacement&lt;/a&gt; was just too slow… &lt;a href=&quot;https://mort.io/blog/past-present-future/#fr-1-1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</content>
+        
+    </entry>
+</feed>
